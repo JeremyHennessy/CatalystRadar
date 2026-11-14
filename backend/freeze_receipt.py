@@ -12,7 +12,8 @@ REPO='JeremyHennessy/CatalystRadar-Private'
 WORKFLOW='.github/workflows/freeze-receipt.yml'
 
 def api(path):
- if not path.startswith('/repos/'+REPO+'/'):raise ValueError('wrong API scope')
+ prefix='/repos/'+REPO
+ if path!=prefix and not path.startswith(prefix+'/'):raise ValueError('wrong API scope')
  token=os.environ.get('GITHUB_TOKEN')
  if not token:raise ValueError('missing private read token')
  request=urllib.request.Request('https://api.github.com'+path,headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
@@ -26,7 +27,7 @@ def verify(*,run_id,commit_sha,ledger_path,order_id,freeze_hash,session,expected
  pattern=r'data/scenarios/[a-f0-9]{64}\.json' if scenario is True else r'data/proxy/[0-9]{8}\.json'
  if type(scenario)is not bool or not re.fullmatch(pattern,ledger_path) or not valid_hash(freeze_hash):raise ValueError('invalid immutable ledger reference')
  prefix='/repos/'+REPO
- repo=fetch(prefix+'/')
+ repo=fetch(prefix)
  if repo.get('full_name')!=REPO or repo.get('private') is not True or repo.get('visibility')!='private':raise ValueError('not verified private repository')
  run=fetch(prefix+'/actions/runs/'+str(run_id))
  if run.get('id')!=run_id or run.get('repository',{}).get('full_name')!=REPO or run.get('head_sha')!=commit_sha or run.get('head_branch')!='main':raise ValueError('run identity mismatch')

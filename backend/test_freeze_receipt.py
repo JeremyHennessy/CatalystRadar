@@ -12,7 +12,7 @@ class TestReceipt(unittest.TestCase):
   self.p=patch.object(f,'datetime',wraps=datetime);self.m=self.p.start();self.m.now.return_value=datetime(2026,11,17,tzinfo=timezone.utc)
  def tearDown(self):self.p.stop()
  def fetch(self,p):
-  if p.endswith('/'):return {'full_name':f.REPO,'private':True,'visibility':'private'}
+  if p=='/repos/'+f.REPO:return {'full_name':f.REPO,'private':True,'visibility':'private'}
   if '/actions/' in p:return self.run
   raw=self.wf if f.WORKFLOW in p else self.raw
   return {'content':base64.b64encode(raw).decode(),'encoding':'base64','sha':self.sha(raw)}
@@ -33,3 +33,11 @@ class TestReceipt(unittest.TestCase):
   args={**self.args,'scenario':True,'order_id':None,'freeze_hash':p['plan_sha256'],'ledger_path':'data/scenarios/'+p['plan_sha256']+'.json'}
   r=f.verify(**args);self.assertEqual(r['plan_sha256'],p['plan_sha256'])
   p['records']=[{'changed':True}];self.raw=f.canonical(p);self.assertRaises(ValueError,f.verify,**args)
+
+ def test_repo_endpoint_is_canonical_not_trailing_slash(self):
+  paths=[];original=self.fetch
+  def fetch(path):
+   paths.append(path)
+   if path=='/repos/'+f.REPO+'/':raise AssertionError('GitHub returns404 for trailing slash')
+   return original(path)
+  f.verify(**{**self.args,'fetch':fetch});self.assertEqual(paths[0],'/repos/'+f.REPO)
