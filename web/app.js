@@ -8,7 +8,15 @@ const date = value => {if(!value) return 'Not recorded'; const d = new Date(valu
 const safeURL = value => {try {const u = new URL(value);return u.protocol === 'https:' ? u.href : null;} catch {return null;}};
 function ledgerRow(kind,r) { return [kind==='Position'?'Position':('Paper '+(r.side||'BUY').toLowerCase()),r.symbol||r.ticker||'—',r.quantity??'—',money(kind==='Position'?r.mark:r.price),r.session||r.entry_session||'—',date(kind==='Position'?r.mark_at:r.observed_utc)]; }
 function validate(data) {if(!data || !data.portfolio || !data.discovery || !Array.isArray(data.feeds) || !Array.isArray(data.signals) || !data.window) throw new Error('Incomplete snapshot'); return data;}
-if(typeof module !== 'undefined') module.exports = {human,money,date,safeURL,validate,ledgerRow};
+function researchSummary(report) {
+if(!report || report.mode!=='REAL_ARCHIVE_READINESS_NOT_FORECAST' || !report.counts || !Array.isArray(report.blocker_counts)) throw new Error('Invalid readiness report');
+const labels={reviewed_records:'reviewed records',metadata_bytes_verified:'metadata archives verified',metadata_identity_matched:'metadata identities matched',full_filing_bytes_verified:'full filings verified',qualified_observations:'qualified observations',outcomes_available:'outcomes available'};
+const counts=Object.entries(labels).map(([key,label])=>{const value=report.counts[key];if(!Number.isSafeInteger(value)||value<0)throw new Error('Invalid readiness count');return {label,value};});
+const blockers=report.blocker_counts.map(x=>{if(!x||typeof x.reason!=='string'||!Number.isSafeInteger(x.count)||x.count<0)throw new Error('Invalid blocker');return x.reason+' ('+x.count+')';});
+if(typeof report.generated_at!=='string'||!/(Z|[+-]\d{2}:\d{2})$/.test(report.generated_at)||!Number.isFinite(Date.parse(report.generated_at)))throw new Error('Invalid report timestamp');
+return {counts,blockers,generatedAt:report.generated_at};
+}
+if(typeof module !== 'undefined') module.exports = {human,money,date,safeURL,validate,ledgerRow,researchSummary};
 if(typeof document === 'undefined') return;
 const $ = id => document.getElementById(id);
 const text = (id,value) => {$(id).textContent = value;};
@@ -27,5 +35,13 @@ $('activity').replaceChildren();const activity=Array.isArray(data.activity)?data
 drawEvents();text('snapshot','Snapshot: '+date(data.generated_at));}
 async function request(url){const response=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!response.ok)throw new Error('Snapshot unavailable');return validate(await response.json());}
 async function refresh(){if(loading)return;loading=true;$('refresh').disabled=true;try{let data;try{data=await request('/api/status');}catch{data=await request('./app-data.json');}render(data);lastSuccess=new Date();$('load-status').classList.remove('error');const blockers=Array.isArray(data.blockers)?data.blockers:[];text('load-status',blockers.length?blockers.join(' · '):'Recorded snapshot loaded. Check source health before interpreting any result.');}catch{$('load-status').classList.add('error');text('load-status',lastSuccess?'Refresh failed. Showing the last loaded snapshot, not current market data. Last successful screen check: '+date(lastSuccess):'Snapshot unavailable. Portfolio and feed status are unknown; no live or paper execution can be verified.');}finally{loading=false;$('refresh').disabled=false;}}
+async function refreshResearch(){
+try{const response=await fetch('./research_report.json',{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!response.ok)throw new Error('Unavailable');const report=await response.json(),summary=researchSummary(report);
+$('research-counts').replaceChildren();for(const {label,value} of summary.counts){const span=el('span');span.append(el('b',value.toLocaleString('en-US')),document.createTextNode(label));$('research-counts').append(span);}
+$('research-blockers').replaceChildren();for(const reason of summary.blockers)$('research-blockers').append(el('li',reason));
+text('research-status','Report: '+date(summary.generatedAt)+'. Distinct evidence checks, not a guaranteed conversion funnel or live forecasts. Missing evidence is not a passing zero.');
+}catch{$('research-counts').replaceChildren();$('research-blockers').replaceChildren();text('research-status','Readiness report unavailable or invalid. Evidence qualification and outcomes are unknown; no passing counts inferred.');}
+}
+$('refresh').addEventListener('click',refreshResearch);refreshResearch();setInterval(refreshResearch,60000);
 $('refresh').addEventListener('click',refresh);$('filter').addEventListener('change',()=>snapshot&&drawEvents());refresh();setInterval(refresh,60000);
 })();

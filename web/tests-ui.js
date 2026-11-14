@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict');
-const {human,money,date,safeURL,validate,ledgerRow}=require('./app.js');
+const {human,money,date,safeURL,validate,ledgerRow,researchSummary}=require('./app.js');
 assert.equal(money(null),'—');assert.equal(money(undefined),'—');assert.equal(money(NaN),'—');assert.equal(money('10000'),'$10,000.00');assert.equal(money(''),'—');assert.equal(money(true),'—');assert.equal(money('Infinity'),'—');assert.equal(money('0x10'),'—');assert.equal(money(10000),'$10,000.00');
 assert.equal(human('DISCONNECTED'),'Disconnected');assert.equal(human(null),'Unknown');assert.equal(date(null),'Not recorded');assert.equal(date('bogus'),'Invalid timestamp');
 assert.equal(safeURL('javascript:alert(1)'),null);assert.equal(safeURL('http://example.org'),null);assert.equal(safeURL('https://www.sec.gov/'),'https://www.sec.gov/');
@@ -9,3 +9,14 @@ assert.deepEqual(ledgerRow('Paper fill',{ticker:'TEST',side:'SELL',quantity:3,pr
 assert.equal(ledgerRow('Paper fill',{price:'12',session:'2026-11-20'})[5],'Not recorded');
 assert.equal(ledgerRow('Position',{ticker:'TEST',quantity:3,entry_session:'2026-11-16'})[3],'—');
 console.log('UI utility and paper-ledger schema checks passed.');
+
+const counts={reviewed_records:10,metadata_bytes_verified:8,metadata_identity_matched:8,full_filing_bytes_verified:0,qualified_observations:0,outcomes_available:0};
+const report={generated_at:'2026-11-14T23:00:00Z',mode:'REAL_ARCHIVE_READINESS_NOT_FORECAST',counts,blocker_counts:[{reason:'FULL_BYTES_MISSING',count:10}]};
+assert.equal(researchSummary(report).counts.length,6);
+assert.equal(researchSummary(report).blockers[0],'FULL_BYTES_MISSING (10)');
+assert.throws(()=>researchSummary({...report,mode:'FORECAST'}));
+assert.throws(()=>researchSummary({...report,counts:{...counts,outcomes_available:null}}));
+assert.throws(()=>researchSummary({...report,counts:{...counts,qualified_observations:-1}}));
+assert.throws(()=>researchSummary({...report,blocker_counts:[{reason:'X',count:NaN}]}));
+console.log('Readiness summary and fail-closed UI checks passed.');
+assert.throws(()=>researchSummary({...report,generated_at:'2026-11-14'}));

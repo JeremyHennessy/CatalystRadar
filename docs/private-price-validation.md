@@ -1,4 +1,6 @@
-# Private price validation, not a live trading feed
+# Historical diagnostic design, not the current collector
+
+This document describes the retired public validation-only workflow. Its memory-only/no-commit behavior must not be confused with the later private collector, which durably retains provider bytes in the owner-only companion repository. Current verified setup is in [Operational checkpoint](operational-checkpoint.md) and [private retention](private-retention.md). The diagnostic below is retained as design history, not a claim that no connection or persistence exists.
 The user approved a free Alpha Vantage account and the private GitHub Actions secret `ALPHA_VANTAGE_API_KEY`. The program never prints the secret, provider response body, raw bars, return calculations or request URL. Its raw response exists only in runner memory; no price artifact, cache, commit or durable historical dataset is produced. Successful validation is a metadata-only connection diagnostic, not licensed public quote distribution or an operational paper engine.
 
 The manual run requests IBM once. A fixed November16–21,2026 daily schedule requests the ten configured SEC-watchlist symbols plus SPY (maximum11calls), spaced13seconds apart. Requests are never retried. Redirects are disabled so neither provider keys nor GitHub credentials follow another URL. Provider quota/error responses, stale/wrong-symbol/invalid raw bars, missing secret and truncated/unreadable workflow history stop the run. Retry attempts of the same GitHub run are rejected.

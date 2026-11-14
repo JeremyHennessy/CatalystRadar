@@ -12,6 +12,19 @@ MAX_ARCHIVE_BYTES = 8 * 1024 * 1024
 MAX_TOTAL_BYTES = 64 * 1024 * 1024
 
 
+def verify_archive_bytes(payload, declared_sha256):
+    """Shared byte check; a match does not authenticate source or timestamps."""
+    if not isinstance(declared_sha256, str) or not re.fullmatch('[a-f0-9]{64}', declared_sha256):
+        raise ValueError('SHA256 required')
+    if payload is None:
+        return {'status': 'MISSING_ARCHIVE', 'actual_sha256': None}
+    if type(payload) is not bytes or len(payload) > MAX_ARCHIVE_BYTES:
+        raise ValueError('bounded exact bytes required')
+    actual = hashlib.sha256(payload).hexdigest()
+    return {'status': 'HASH_MATCH' if actual == declared_sha256 else 'HASH_MISMATCH',
+            'actual_sha256': actual}
+
+
 def audit_archived_study(rows, *, archives, required_features,
                          training_cutoff_utc, holdout_start_utc):
     """archives maps (source_ref, declared_sha256) to exact bytes, not paths.

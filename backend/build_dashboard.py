@@ -2,6 +2,7 @@
 from pathlib import Path
 from datetime import datetime,timezone
 import json
+from build_research_report import build as build_research_report
 ROOT=Path(__file__).resolve().parent.parent
 
 def build(root=ROOT):
@@ -29,5 +30,9 @@ def build(root=ROOT):
  byhash={r.get('sha256'):r.get('retrieved_utc') for r in provenance if r.get('sha256')}
  for signal,review in zip(state['signals'],reviews):
   signal['retrieved_at']=byhash.get(review['source_sha256']);signal['reviewed_at']=review['reviewed_utc']
+ report=build_research_report(root, generated_at=state['generated_at'])
+ report_json=json.dumps(report,indent=2)+'\n'
+ (root/'data/research_report.json').write_text(report_json)
+ (root/'web/research_report.json').write_text(report_json)
  (root/'web/app-data.json').write_text(json.dumps(state,indent=2));return state
 if __name__=='__main__':build();print('Dashboard generated from saved public evidence; no scans or trades executed.')

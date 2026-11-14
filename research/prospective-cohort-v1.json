@@ -1,0 +1,104 @@
+{
+  "protocol_id": "prospective-sec-cohort-v1",
+  "status": "DRAFT_NOT_ACTIVATED",
+  "activation_receipt": null,
+  "purpose": "Prospective research and operational validation, not trading or predictive-skill proof",
+  "cohort_start_utc": "2026-11-16T00:00:00Z",
+  "cohort_end_exclusive_utc": "2026-11-21T00:00:00Z",
+  "universe": [
+    {
+      "ticker": "COHR",
+      "cik": "820318"
+    },
+    {
+      "ticker": "HRB",
+      "cik": "12659"
+    },
+    {
+      "ticker": "CINF",
+      "cik": "20286"
+    },
+    {
+      "ticker": "TXMD",
+      "cik": "25743"
+    },
+    {
+      "ticker": "RVTY",
+      "cik": "31791"
+    },
+    {
+      "ticker": "EMR",
+      "cik": "32604"
+    },
+    {
+      "ticker": "GT",
+      "cik": "42582"
+    },
+    {
+      "ticker": "KEY",
+      "cik": "91576"
+    },
+    {
+      "ticker": "WOR",
+      "cik": "108516"
+    },
+    {
+      "ticker": "XRX",
+      "cik": "1770450"
+    }
+  ],
+  "universe_basis": "Existing fixed ten-issuer convenience watchlist; not market-representative or survivor-bias-free",
+  "forms": [
+    "8-K",
+    "8-K/A"
+  ],
+  "inclusion_clock": "first_successful_source_observation_utc",
+  "include_all_observed_candidates": true,
+  "historical_backfill_eligible": false,
+  "grouping": "issuer-scoped underlying event; amendments and repeat announcements remain linked",
+  "decision_clock": "max(source_observed_utc,feature_computed_utc,classification_recorded_utc)",
+  "feature_set": [
+    "earnings_growth",
+    "guidance_increase",
+    "firm_customer_contract",
+    "incremental_common_repurchase"
+  ],
+  "feature_policy": "Freeze full source-grounded rule definitions and extractor version before activation; missing facts stay null",
+  "entry_measurement": "first complete regular-session close strictly after decision, calendar-verified; not a fill",
+  "horizons_sessions": [
+    1,
+    5
+  ],
+  "primary_outcome": "five_session_total_return_minus_SPY_same_window",
+  "secondary_outcome": "one_session_total_return_minus_SPY_same_window",
+  "label_requirements": [
+    "verified_security_mapping",
+    "complete_session_calendar",
+    "point_in_time_source_audit",
+    "feature_byte_integrity",
+    "corporate_action_coverage",
+    "dividend_currency_and_treatment",
+    "benchmark_same_window",
+    "halt_and_missing_close_review"
+  ],
+  "missing_label_policy": "retain reason-coded null; never zero, forward-fill, or drop silently",
+  "baseline_policy": [
+    "cash_zero_gross_return",
+    "SPY_same_window_total_return",
+    "all_source_qualified_cohort_events_equal_weight_descriptive"
+  ],
+  "execution_or_portfolio_claims": false,
+  "cost_sensitivity_bps_round_trip": [
+    0,
+    10,
+    25,
+    50
+  ],
+  "cost_policy": "Illustrative sensitivity only; not observed spread, slippage or fills",
+  "losses_retained": true,
+  "family_wise_inference": false,
+  "model_training_enabled": false,
+  "paper_or_real_orders_enabled": false,
+  "provider_calls_enabled": false,
+  "revision_policy": "new immutable version before new observations; never rewrite original receipt or relabel held-out data as untouched"
+}
