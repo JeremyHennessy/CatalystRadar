@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T17:34:39.247420+00:00",
+  "generated_at": "2026-11-14T19:03:54.902664+00:00",
   "mode": "paper",
   "window": {
     "start": "2026-11-16",
@@ -15,9 +15,9 @@
     },
     {
       "name": "Price and liquidity",
-      "status": "disconnected",
-      "as_of": null,
-      "detail": "No authorized reliable price feed connected. Daily closes are not automatically auction prices."
+      "status": "snapshot_only",
+      "as_of": "2026-11-14T18:48:41.972762+00:00",
+      "detail": "Private daily-price collection tested for 11 symbols, 100 observations each through November 13, 2026. Raw, unadjusted daily data only; not realtime or execution-ready. Scheduled collection not yet verified."
     },
     {
       "name": "Trading halts",
@@ -184,7 +184,7 @@
     }
   ],
   "blockers": [
-    "Price/volume/auction feed not connected or validated",
+    "Private daily histories are stored; corporate-action, halt and execution validation remain incomplete",
     "Historical halt evidence not connected",
     "Three source reviews need further financial or guidance comparison",
     "Paper book is disabled and empty; no results or guaranteed returns",

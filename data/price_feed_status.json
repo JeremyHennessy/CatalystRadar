@@ -1,0 +1,10 @@
+{
+  "status": "private_daily_snapshot_tested",
+  "verified_at": "2026-11-14T18:48:41.972762+00:00",
+  "symbols_tested": 11,
+  "rows_per_symbol": 100,
+  "first_session": "2026-06-25",
+  "last_session": "2026-11-13",
+  "execution_ready": false,
+  "scheduled_collection_verified": false
+}
