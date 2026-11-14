@@ -12,6 +12,7 @@ from pathlib import Path
 from study_archive_audit import verify_archive_bytes
 from study_split_audit import instant
 from private_archive_checkpoint import read_checkpoint
+from filing_feature_rows import read_recorded_features
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -40,6 +41,15 @@ def build(root=ROOT, generated_at=None):
         except (KeyError, TypeError, ValueError):
             checkpoint_status = 'INVALID_OR_STALE'
 
+    feature_rows = {}
+    feature_status = 'MISSING'
+    if (root/'data/filing_feature_rows.json').exists():
+        feature_report = load('data/filing_feature_rows.json')
+        try:
+            feature_rows = read_recorded_features(feature_report,(root/'data/filing_reviews.json').read_bytes(),checkpoint_records,generated_at)
+            feature_status = 'RECORDED_CURRENT_ANALYSIS_NOT_RECOMPUTED_IN_PUBLIC_BUILD'
+        except (KeyError,TypeError,ValueError):
+            feature_status = 'INVALID_OR_STALE'
     if len(reviews) > 1000 or len(scan['sources']) > 1000:
         raise ValueError('bounded input required')
     sources = {}
@@ -100,6 +110,7 @@ def build(root=ROOT, generated_at=None):
             'full_filing_bytes_verified': False,
             'private_archive_recorded_match': checkpoint_records.get(event_id, {}).get('prior_hash_matches') is True,
             'private_archive_recorded_retrieved_utc': checkpoint_records.get(event_id, {}).get('retrieved_utc'),
+            'recorded_header_features': event_id in feature_rows,
             'outcome': None, 'qualified': False,
             'blockers': sorted(reasons)})
     counts = {'reviewed_records': len(records),
@@ -107,12 +118,15 @@ def build(root=ROOT, generated_at=None):
         'metadata_identity_matched': sum(x['metadata_identity_matched'] for x in records),
         'full_filing_bytes_verified': 0,
         'private_archive_recorded_matches': sum(x['private_archive_recorded_match'] for x in records),
+        'recorded_header_feature_rows': len(feature_rows),
         'qualified_observations': 0, 'outcomes_available': 0}
     blockers = Counter(reason for row in records for reason in row['blockers'])
     report = {'schema_version': 1, 'mode': 'REAL_ARCHIVE_READINESS_NOT_FORECAST',
         'generated_at': generated_at, 'counts': counts,
         'blocker_counts': [{'reason': k, 'count': v} for k, v in sorted(blockers.items())],
         'input_sha256': inputs, 'records': sorted(records, key=lambda x: x['event_id']),
+        'header_feature_status': feature_status,
+        'financial_feature_extraction_verified': False,
         'private_archive_checkpoint_status': checkpoint_status,
         'private_archive_checkpoint_verified_at': checkpoint_at,
         'private_archive_bytes_reverified_in_this_build': False,

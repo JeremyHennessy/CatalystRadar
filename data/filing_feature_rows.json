@@ -1,0 +1,1097 @@
+{
+  "mode": "CURRENT_HEADER_FEATURES_NOT_FINANCIAL_SIGNALS",
+  "computed_at": "2026-11-14T23:42:41.033694+00:00",
+  "reviews_sha256": "129dcb226a879bc94afde0cf214b153b300e3a113fc83490c6a311a781687305",
+  "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+  "feature_names": [
+    "header_item_count",
+    "header_reports_results_of_operations",
+    "header_reports_regulation_fd",
+    "header_reports_material_agreement",
+    "header_is_8k_amendment"
+  ],
+  "rows": [
+    {
+      "event_id": "0000012659-26-000042",
+      "issuer_id": "12659",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Shareholder approval of incentive plan and annual-meeting voting; not a customer contract or earnings/guidance event.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 3,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+              "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+              "observed_utc": "2026-11-14T23:33:03.633657+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1278,
+                "sha256": "04a4ab3742d7cb0ee0c6b105f4fb14b5b5bbd3611bb5200e1407508c91af1094"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+              "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+              "observed_utc": "2026-11-14T23:33:03.633657+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1278,
+                "sha256": "04a4ab3742d7cb0ee0c6b105f4fb14b5b5bbd3611bb5200e1407508c91af1094"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+              "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+              "observed_utc": "2026-11-14T23:33:03.633657+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1278,
+                "sha256": "04a4ab3742d7cb0ee0c6b105f4fb14b5b5bbd3611bb5200e1407508c91af1094"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+              "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+              "observed_utc": "2026-11-14T23:33:03.633657+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1278,
+                "sha256": "04a4ab3742d7cb0ee0c6b105f4fb14b5b5bbd3611bb5200e1407508c91af1094"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+              "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+              "observed_utc": "2026-11-14T23:33:03.633657+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1278,
+                "sha256": "04a4ab3742d7cb0ee0c6b105f4fb14b5b5bbd3611bb5200e1407508c91af1094"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0000020286-26-000064",
+      "issuer_id": "20286",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Regular quarterly cash-dividend declaration; not incremental common-stock repurchase authorization.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 2,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+              "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+              "observed_utc": "2026-11-14T23:33:09.026985+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1091,
+                "sha256": "be2acac18ae77f99ebb6a027ec6cc7c773ae4ceaa132a69167997f518977fa68"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+              "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+              "observed_utc": "2026-11-14T23:33:09.026985+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1091,
+                "sha256": "be2acac18ae77f99ebb6a027ec6cc7c773ae4ceaa132a69167997f518977fa68"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+              "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+              "observed_utc": "2026-11-14T23:33:09.026985+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1091,
+                "sha256": "be2acac18ae77f99ebb6a027ec6cc7c773ae4ceaa132a69167997f518977fa68"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+              "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+              "observed_utc": "2026-11-14T23:33:09.026985+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1091,
+                "sha256": "be2acac18ae77f99ebb6a027ec6cc7c773ae4ceaa132a69167997f518977fa68"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+              "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+              "observed_utc": "2026-11-14T23:33:09.026985+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1091,
+                "sha256": "be2acac18ae77f99ebb6a027ec6cc7c773ae4ceaa132a69167997f518977fa68"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001213900-26-119681",
+      "issuer_id": "25743",
+      "review_status": "EARNINGS_REVIEW_PENDING",
+      "review_reason": "Q3 earnings release. License revenue growth includes a milestone. Release gives continuing-operations EPS0.04 versus rounded0.00; do not compute percent growth from zero or substitute that for fully verified comparable total GAAP diluted EPS. Exhibit metadata says second quarter while body says third quarter, requiring explicit discrepancy review.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 3,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+              "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+              "observed_utc": "2026-11-14T23:33:13.530724+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1448,
+                "sha256": "4c29e84e991e3fddf6df098a2b5675c0d1ff1182e316e876fb370c036c480b34"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+              "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+              "observed_utc": "2026-11-14T23:33:13.530724+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1448,
+                "sha256": "4c29e84e991e3fddf6df098a2b5675c0d1ff1182e316e876fb370c036c480b34"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+              "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+              "observed_utc": "2026-11-14T23:33:13.530724+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1448,
+                "sha256": "4c29e84e991e3fddf6df098a2b5675c0d1ff1182e316e876fb370c036c480b34"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+              "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+              "observed_utc": "2026-11-14T23:33:13.530724+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1448,
+                "sha256": "4c29e84e991e3fddf6df098a2b5675c0d1ff1182e316e876fb370c036c480b34"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+              "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+              "observed_utc": "2026-11-14T23:33:13.530724+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1448,
+                "sha256": "4c29e84e991e3fddf6df098a2b5675c0d1ff1182e316e876fb370c036c480b34"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001628280-26-073578",
+      "issuer_id": "31791",
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Investor Day and long-range outlook; no same-period/basis prior-guidance comparison completed. Not a verified guidance raise. Presentation review remains pending.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 2,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+              "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+              "observed_utc": "2026-11-14T23:33:19.038501+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1387,
+                "sha256": "89bf28949e5b4e204484fc5020b707fd17282321c3309780f97dbfba003acaa3"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+              "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+              "observed_utc": "2026-11-14T23:33:19.038501+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1387,
+                "sha256": "89bf28949e5b4e204484fc5020b707fd17282321c3309780f97dbfba003acaa3"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+              "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+              "observed_utc": "2026-11-14T23:33:19.038501+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1387,
+                "sha256": "89bf28949e5b4e204484fc5020b707fd17282321c3309780f97dbfba003acaa3"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+              "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+              "observed_utc": "2026-11-14T23:33:19.038501+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1387,
+                "sha256": "89bf28949e5b4e204484fc5020b707fd17282321c3309780f97dbfba003acaa3"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+              "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+              "observed_utc": "2026-11-14T23:33:19.038501+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1387,
+                "sha256": "89bf28949e5b4e204484fc5020b707fd17282321c3309780f97dbfba003acaa3"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001140361-26-043782",
+      "issuer_id": "32604",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Previously announced debt offering completed; issuance of notes is financing, not customer sales contract.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 2,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+              "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+              "observed_utc": "2026-11-14T23:33:23.564369+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1213,
+                "sha256": "2edf642bed426c401c8475964b97bae68246396e3a8ec67a3701f83726a1c6e7"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+              "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+              "observed_utc": "2026-11-14T23:33:23.564369+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1213,
+                "sha256": "2edf642bed426c401c8475964b97bae68246396e3a8ec67a3701f83726a1c6e7"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+              "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+              "observed_utc": "2026-11-14T23:33:23.564369+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1213,
+                "sha256": "2edf642bed426c401c8475964b97bae68246396e3a8ec67a3701f83726a1c6e7"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+              "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+              "observed_utc": "2026-11-14T23:33:23.564369+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1213,
+                "sha256": "2edf642bed426c401c8475964b97bae68246396e3a8ec67a3701f83726a1c6e7"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+              "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+              "observed_utc": "2026-11-14T23:33:23.564369+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1213,
+                "sha256": "2edf642bed426c401c8475964b97bae68246396e3a8ec67a3701f83726a1c6e7"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001628280-26-073584",
+      "issuer_id": "42582",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt-note redemption notice, not common-stock buyback or new customer award.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+              "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+              "observed_utc": "2026-11-14T23:33:27.622944+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1034,
+                "sha256": "987e2ab32b9cbc5b88007e3abaa78a054b8d955d75ad0f4da8c3629dfae1a032"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+              "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+              "observed_utc": "2026-11-14T23:33:27.622944+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1034,
+                "sha256": "987e2ab32b9cbc5b88007e3abaa78a054b8d955d75ad0f4da8c3629dfae1a032"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+              "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+              "observed_utc": "2026-11-14T23:33:27.622944+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1034,
+                "sha256": "987e2ab32b9cbc5b88007e3abaa78a054b8d955d75ad0f4da8c3629dfae1a032"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+              "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+              "observed_utc": "2026-11-14T23:33:27.622944+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1034,
+                "sha256": "987e2ab32b9cbc5b88007e3abaa78a054b8d955d75ad0f4da8c3629dfae1a032"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+              "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+              "observed_utc": "2026-11-14T23:33:27.622944+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1034,
+                "sha256": "987e2ab32b9cbc5b88007e3abaa78a054b8d955d75ad0f4da8c3629dfae1a032"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001174947-26-000991",
+      "issuer_id": "50292",
+      "review_status": "OUTSIDE_UNIVERSE",
+      "review_reason": "Issuer release identifies OTCQX:IEHC, outside NYSE/Nasdaq universe. Basic EPS/profit turnaround does not override universe or liquidity rules.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+              "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+              "observed_utc": "2026-11-14T23:33:31.646886+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1362,
+                "sha256": "4fcc46e7247bfe0d36f98c32f5b30028ef8e1cb3f8a6516dd17feb0cb736fe1e"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+              "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+              "observed_utc": "2026-11-14T23:33:31.646886+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1362,
+                "sha256": "4fcc46e7247bfe0d36f98c32f5b30028ef8e1cb3f8a6516dd17feb0cb736fe1e"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+              "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+              "observed_utc": "2026-11-14T23:33:31.646886+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1362,
+                "sha256": "4fcc46e7247bfe0d36f98c32f5b30028ef8e1cb3f8a6516dd17feb0cb736fe1e"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+              "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+              "observed_utc": "2026-11-14T23:33:31.646886+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1362,
+                "sha256": "4fcc46e7247bfe0d36f98c32f5b30028ef8e1cb3f8a6516dd17feb0cb736fe1e"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+              "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+              "observed_utc": "2026-11-14T23:33:31.646886+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1362,
+                "sha256": "4fcc46e7247bfe0d36f98c32f5b30028ef8e1cb3f8a6516dd17feb0cb736fe1e"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001628280-26-073875",
+      "issuer_id": "91576",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Preferred/depositary-share redemption, not common-stock repurchase authorization.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 2,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+              "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+              "observed_utc": "2026-11-14T23:33:35.714449+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1151,
+                "sha256": "a49531c144490dc2b4213ef1604cafb702b9f4312c1207df924f58923e13fed4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+              "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+              "observed_utc": "2026-11-14T23:33:35.714449+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1151,
+                "sha256": "a49531c144490dc2b4213ef1604cafb702b9f4312c1207df924f58923e13fed4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+              "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+              "observed_utc": "2026-11-14T23:33:35.714449+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1151,
+                "sha256": "a49531c144490dc2b4213ef1604cafb702b9f4312c1207df924f58923e13fed4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+              "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+              "observed_utc": "2026-11-14T23:33:35.714449+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1151,
+                "sha256": "a49531c144490dc2b4213ef1604cafb702b9f4312c1207df924f58923e13fed4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+              "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+              "observed_utc": "2026-11-14T23:33:35.714449+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1151,
+                "sha256": "a49531c144490dc2b4213ef1604cafb702b9f4312c1207df924f58923e13fed4"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001193125-26-460589",
+      "issuer_id": "108516",
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Transcript furnished November13 concerns Investor Day November10. Do not refresh economic-event age to filing date. Same-period/basis guidance comparison not completed.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 2,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+              "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+              "observed_utc": "2026-11-14T23:33:39.735127+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1346,
+                "sha256": "8c5c84b1f791363d62cb1ab501917b70ae35ae80cce6b5376be64813f45ee0d8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+              "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+              "observed_utc": "2026-11-14T23:33:39.735127+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1346,
+                "sha256": "8c5c84b1f791363d62cb1ab501917b70ae35ae80cce6b5376be64813f45ee0d8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+              "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+              "observed_utc": "2026-11-14T23:33:39.735127+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1346,
+                "sha256": "8c5c84b1f791363d62cb1ab501917b70ae35ae80cce6b5376be64813f45ee0d8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+              "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+              "observed_utc": "2026-11-14T23:33:39.735127+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1346,
+                "sha256": "8c5c84b1f791363d62cb1ab501917b70ae35ae80cce6b5376be64813f45ee0d8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+              "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+              "observed_utc": "2026-11-14T23:33:39.735127+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1346,
+                "sha256": "8c5c84b1f791363d62cb1ab501917b70ae35ae80cce6b5376be64813f45ee0d8"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "event_id": "0001193125-26-460692",
+      "issuer_id": "108772",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt exchange/recapitalization with new secured notes and common shares, not a revenue-generating customer contract. Joint Xerox entities remain distinct.",
+      "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+      "first_public_utc": null,
+      "decision_utc": null,
+      "outcome": null,
+      "financial_comparators": null,
+      "financial_extraction_verified": false,
+      "eligible": false,
+      "features": [
+        {
+          "name": "header_item_count",
+          "value": 4,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+              "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+              "observed_utc": "2026-11-14T23:33:43.933078+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1949,
+                "sha256": "79c3090648960c9abedffeb6413087e047ca6607172d2665d7cf00533738f2c5"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_results_of_operations",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+              "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+              "observed_utc": "2026-11-14T23:33:43.933078+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1949,
+                "sha256": "79c3090648960c9abedffeb6413087e047ca6607172d2665d7cf00533738f2c5"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_regulation_fd",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+              "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+              "observed_utc": "2026-11-14T23:33:43.933078+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1949,
+                "sha256": "79c3090648960c9abedffeb6413087e047ca6607172d2665d7cf00533738f2c5"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_reports_material_agreement",
+          "value": 1,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+              "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+              "observed_utc": "2026-11-14T23:33:43.933078+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1949,
+                "sha256": "79c3090648960c9abedffeb6413087e047ca6607172d2665d7cf00533738f2c5"
+              }
+            }
+          ]
+        },
+        {
+          "name": "header_is_8k_amendment",
+          "value": 0,
+          "computed_utc": "2026-11-14T23:42:41.033694+00:00",
+          "sources": [
+            {
+              "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+              "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+              "observed_utc": "2026-11-14T23:33:43.933078+00:00",
+              "header_span": {
+                "byte_start": 50,
+                "byte_end": 1949,
+                "sha256": "79c3090648960c9abedffeb6413087e047ca6607172d2665d7cf00533738f2c5"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "STRUCTURAL_HEADER_FEATURES_COMPUTED_NOW",
+      "blockers": [
+        "FIRST_PUBLIC_UNVERIFIED",
+        "FINANCIAL_COMPARATORS_UNRESOLVED",
+        "NO_FROZEN_DECISION_WINDOW",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    }
+  ],
+  "structural_feature_rows": 10,
+  "source_authenticity_verified": false,
+  "historical_availability_verified": false,
+  "financial_signals": 0,
+  "orders": 0,
+  "forecast_probability": null,
+  "limitations": [
+    "Retrospective manual sample, not prospective selection or a training dataset.",
+    "Header item categories do not establish earnings growth, a guidance raise or a customer contract.",
+    "Zero means an explicit marker absent from the complete header, not absence of a business event.",
+    "All values computed now; no pre-event knowledge or historic decisions claimed."
+  ]
+}
