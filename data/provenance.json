@@ -1,0 +1,218 @@
+{
+  "scope": "Public-source archive metadata; originals remain fetchable from recorded URLs. Failed requests retained.",
+  "sources": [
+    {
+      "url": "https://data.sec.gov/submissions/CIK0000820318.json",
+      "request_utc": "2026-11-14T16:45:50.916987+00:00",
+      "status": 200,
+      "content_type": "application/json",
+      "retrieved_utc": "2026-11-14T16:45:57.036813+00:00",
+      "byte_count": 159783,
+      "sha256": "628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/820318/000119312526447200/0001193125-26-447200.txt",
+      "request_utc": "2026-11-14T16:45:57.047769+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:45:59.704938+00:00",
+      "byte_count": 2461662,
+      "sha256": "52b33e9c20d8e1061e3bdca2481b1dec4544e8d0b1f74685d8c51132688506a5"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261102.idx",
+      "request_utc": "2026-11-14T16:46:52.361266+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:46:55.072760+00:00",
+      "byte_count": 468164,
+      "sha256": "568c3abae133ca1eccb2f3ef95486ff1d5efc99e03b8b261584ca93bc06d7469"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261103.idx",
+      "request_utc": "2026-11-14T16:46:55.076192+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:46:58.365279+00:00",
+      "byte_count": 581787,
+      "sha256": "e121a36684f2060ac554343a05a1afd2d9a230b8e4a00097b8c381fbaa6f8df2"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261104.idx",
+      "request_utc": "2026-11-14T16:46:58.367885+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:47:01.019766+00:00",
+      "byte_count": 482484,
+      "sha256": "5458fb95a91393f9deb8f1caa6395ef59b92eae3de05c7e4dabf51d532ce614b"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261105.idx",
+      "request_utc": "2026-11-14T16:47:01.021929+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:47:04.318866+00:00",
+      "byte_count": 493703,
+      "sha256": "6953bec73d4528d4e6fb18f068cf82163cca4c4906d4f472289252dfc4eb2644"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261106.idx",
+      "request_utc": "2026-11-14T16:47:04.321028+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:47:09.147958+00:00",
+      "byte_count": 491234,
+      "sha256": "a0cc98d110485e3542cd7094bc3f7ae1c76c65444404ab85734b737b0c7710a4"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261109.idx",
+      "request_utc": "2026-11-14T16:47:09.149887+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:47:11.770731+00:00",
+      "byte_count": 434635,
+      "sha256": "e74850b2bbea2c4ba092d0eb7f70c27f74bfc5016213f189e84d7cd0d040ac6f"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261110.idx",
+      "request_utc": "2026-11-14T16:47:11.773050+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:47:14.462806+00:00",
+      "byte_count": 482441,
+      "sha256": "89a9a434e5bcfb6d03724fb3ef745490865717477bc29aced49cc360b6449043"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261111.idx",
+      "request_utc": "2026-11-14T16:47:14.464751+00:00",
+      "retrieved_utc": "2026-11-14T16:47:16.744727+00:00",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261112.idx",
+      "request_utc": "2026-11-14T16:47:16.745183+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:47:19.343320+00:00",
+      "byte_count": 696713,
+      "sha256": "47aa6094c919a379a97bd3401433e8efe7c6673dfc633b4703edc34c613ec2ae"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/master.20261113.idx",
+      "request_utc": "2026-11-14T16:47:19.347671+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "retrieved_utc": "2026-11-14T16:47:21.683496+00:00",
+      "byte_count": 683186,
+      "sha256": "d788375acadc934b37ba4a997436452a339e43a15b82be9b7d5d6627d7cb9ca1"
+    },
+    {
+      "url": "https://www.sec.gov/submit-filings/filer-support-resources/edgar-calendar",
+      "request_utc": "2026-11-14T16:47:54.800638+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "retrieved_utc": "2026-11-14T16:47:57.406955+00:00",
+      "byte_count": 67733,
+      "sha256": "69d7e0fa084c811d8f66c3b206d39af30c0be777b565a0f0791e4cae0c2853e3"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/12659/0000012659-26-000042.txt",
+      "request_utc": "2026-11-14T16:50:38.171965+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:50:44.913249+00:00",
+      "byte_count": 721243,
+      "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/20286/0000020286-26-000064.txt",
+      "request_utc": "2026-11-14T16:50:44.932821+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:50:47.279299+00:00",
+      "byte_count": 380707,
+      "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/25743/0001213900-26-119681.txt",
+      "request_utc": "2026-11-14T16:50:47.287302+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:50:50.642791+00:00",
+      "byte_count": 233722,
+      "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/31791/0001628280-26-073578.txt",
+      "request_utc": "2026-11-14T16:50:50.648191+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:50:53.804542+00:00",
+      "byte_count": 13893584,
+      "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/32604/0001140361-26-043782.txt",
+      "request_utc": "2026-11-14T16:50:53.962239+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:50:56.563031+00:00",
+      "byte_count": 807943,
+      "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/42582/0001628280-26-073584.txt",
+      "request_utc": "2026-11-14T16:50:56.575133+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:50:59.482846+00:00",
+      "byte_count": 136144,
+      "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/50292/0001174947-26-000991.txt",
+      "request_utc": "2026-11-14T16:50:59.489179+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:51:02.180031+00:00",
+      "byte_count": 207107,
+      "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/91576/0001628280-26-073875.txt",
+      "request_utc": "2026-11-14T16:51:02.186754+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:51:05.234951+00:00",
+      "byte_count": 250966,
+      "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/108516/0001193125-26-460589.txt",
+      "request_utc": "2026-11-14T16:51:05.239840+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:51:07.583091+00:00",
+      "byte_count": 560483,
+      "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/108772/0001193125-26-460692.txt",
+      "request_utc": "2026-11-14T16:51:07.593531+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "retrieved_utc": "2026-11-14T16:51:10.473748+00:00",
+      "byte_count": 1983577,
+      "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e"
+    },
+    {
+      "url": "https://ir.therapeuticsmd.com/news-releases/news-release-details/therapeuticsmd-announces-third-quarter-2026-financial-results",
+      "request_utc": "2026-11-14T16:52:49.698798+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_utc": "2026-11-14T16:52:52.314603+00:00",
+      "sha256": "8aa3668b4bc853836021447f8b9f11260510c88cff0ae9f837853668c82e2d64",
+      "byte_count": 27269
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "mode": "PAPER_ONLY",
+  "version": 1,
+  "trial_start": "2026-11-16",
+  "trial_end": "2026-11-20",
+  "timezone": "America/New_York",
+  "currency": "USD",
+  "initial_cash": 10000,
+  "cash": 10000,
+  "positions": [],
+  "orders": [],
+  "fills": [],
+  "dividend_receivables": [],
+  "processed_events": [],
+  "simulation_enabled": false,
+  "status": "AWAITING_VALIDATED_PRICE_AND_HALT_FEEDS"
+}

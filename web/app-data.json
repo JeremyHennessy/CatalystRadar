@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-11-14T17:12:11.400039+00:00",
+  "mode": "paper",
+  "window": {
+    "start": "2026-11-16",
+    "end": "2026-11-20",
+    "timezone": "America/New_York"
+  },
+  "feeds": [
+    {
+      "name": "SEC filings",
+      "status": "snapshot_only",
+      "as_of": "2026-11-14T17:05:36.407704+00:00",
+      "detail": "10/10 configured issuer metadata feeds checked; 11 filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime."
+    },
+    {
+      "name": "Price and liquidity",
+      "status": "disconnected",
+      "as_of": null,
+      "detail": "No authorized reliable price feed connected. Daily closes are not automatically auction prices."
+    },
+    {
+      "name": "Trading halts",
+      "status": "not_connected",
+      "as_of": null,
+      "detail": "Unknown halt status blocks entries."
+    },
+    {
+      "name": "Paper execution",
+      "status": "disabled",
+      "as_of": null,
+      "detail": "No orders until all source, calendar, liquidity, auction and halt gates pass."
+    }
+  ],
+  "portfolio": {
+    "initial_cash": 10000,
+    "cash": 10000,
+    "equity": null,
+    "realized_pnl": null,
+    "unrealized_pnl": null,
+    "positions": [],
+    "trades": [],
+    "orders": [],
+    "currency": "USD"
+  },
+  "discovery": {
+    "filing_paths": 4076,
+    "issuers": 3066,
+    "index_days": 9,
+    "archived_filings": 11,
+    "reviewed_filings": 10,
+    "eligible_signals": 0
+  },
+  "signals": [
+    {
+      "ticker": null,
+      "issuer": "H&R BLOCK INC",
+      "family": "OUTSIDE_SIGNAL_FAMILIES",
+      "status": "OUTSIDE_SIGNAL_FAMILIES",
+      "reason": "Shareholder approval of incentive plan and annual-meeting voting; not a customer contract or earnings/guidance event.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12659/0000012659-26-000042.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:50:44.913249+00:00",
+      "accession": "0000012659-26-000042",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075466+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "CINCINNATI FINANCIAL CORP",
+      "family": "OUTSIDE_SIGNAL_FAMILIES",
+      "status": "OUTSIDE_SIGNAL_FAMILIES",
+      "reason": "Regular quarterly cash-dividend declaration; not incremental common-stock repurchase authorization.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/20286/0000020286-26-000064.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:50:47.279299+00:00",
+      "accession": "0000020286-26-000064",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075477+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "TherapeuticsMD, Inc.",
+      "family": "EARNINGS_REVIEW_PENDING",
+      "status": "EARNINGS_REVIEW_PENDING",
+      "reason": "Q3 earnings release. License revenue growth includes a milestone. Release gives continuing-operations EPS0.04 versus rounded0.00; do not compute percent growth from zero or substitute that for fully verified comparable total GAAP diluted EPS. Exhibit metadata says second quarter while body says third quarter, requiring explicit discrepancy review.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/25743/0001213900-26-119681.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:50:50.642791+00:00",
+      "accession": "0001213900-26-119681",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075480+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "REVVITY, INC.",
+      "family": "GUIDANCE_REVIEW_PENDING",
+      "status": "GUIDANCE_REVIEW_PENDING",
+      "reason": "Investor Day and long-range outlook; no same-period/basis prior-guidance comparison completed. Not a verified guidance raise. Presentation review remains pending.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/31791/0001628280-26-073578.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:50:53.804542+00:00",
+      "accession": "0001628280-26-073578",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075482+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "EMERSON ELECTRIC CO",
+      "family": "OUTSIDE_SIGNAL_FAMILIES",
+      "status": "OUTSIDE_SIGNAL_FAMILIES",
+      "reason": "Previously announced debt offering completed; issuance of notes is financing, not customer sales contract.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/32604/0001140361-26-043782.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:50:56.563031+00:00",
+      "accession": "0001140361-26-043782",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075483+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "GOODYEAR TIRE & RUBBER CO /OH/",
+      "family": "OUTSIDE_SIGNAL_FAMILIES",
+      "status": "OUTSIDE_SIGNAL_FAMILIES",
+      "reason": "Debt-note redemption notice, not common-stock buyback or new customer award.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/42582/0001628280-26-073584.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:50:59.482846+00:00",
+      "accession": "0001628280-26-073584",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075507+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "IEH Corp",
+      "family": "OUTSIDE_UNIVERSE",
+      "status": "OUTSIDE_UNIVERSE",
+      "reason": "Issuer release identifies OTCQX:IEHC, outside NYSE/Nasdaq universe. Basic EPS/profit turnaround does not override universe or liquidity rules.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/50292/0001174947-26-000991.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:51:02.180031+00:00",
+      "accession": "0001174947-26-000991",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075509+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "KEYCORP /NEW/",
+      "family": "OUTSIDE_SIGNAL_FAMILIES",
+      "status": "OUTSIDE_SIGNAL_FAMILIES",
+      "reason": "Preferred/depositary-share redemption, not common-stock repurchase authorization.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/91576/0001628280-26-073875.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:51:05.234951+00:00",
+      "accession": "0001628280-26-073875",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075510+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "WORTHINGTON ENTERPRISES, INC.",
+      "family": "GUIDANCE_REVIEW_PENDING",
+      "status": "GUIDANCE_REVIEW_PENDING",
+      "reason": "Transcript furnished November13 concerns Investor Day November10. Do not refresh economic-event age to filing date. Same-period/basis guidance comparison not completed.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108516/0001193125-26-460589.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:51:07.583091+00:00",
+      "accession": "0001193125-26-460589",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075512+00:00"
+    },
+    {
+      "ticker": null,
+      "issuer": "XEROX CORP",
+      "family": "OUTSIDE_SIGNAL_FAMILIES",
+      "status": "OUTSIDE_SIGNAL_FAMILIES",
+      "reason": "Debt exchange/recapitalization with new secured notes and common shares, not a revenue-generating customer contract. Joint Xerox entities remain distinct.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108772/0001193125-26-460692.txt",
+      "source_published_at": null,
+      "retrieved_at": "2026-11-14T16:51:10.473748+00:00",
+      "accession": "0001193125-26-460692",
+      "eligible": false,
+      "reviewed_at": "2026-11-14T16:57:30.075513+00:00"
+    }
+  ],
+  "blockers": [
+    "Price/volume/auction feed not connected or validated",
+    "Historical halt evidence not connected",
+    "Three source reviews need further financial or guidance comparison",
+    "Paper book is disabled and empty; no results or guaranteed returns",
+    "Trial-week SEC metadata schedule configured; successful scheduled execution not yet verified"
+  ],
+  "activity": [
+    {
+      "at": "2026-11-14T17:05:36.407704+00:00",
+      "detail": "Manual SEC poll: 11 metadata discoveries; zero orders."
+    }
+  ]
+}

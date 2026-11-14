@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {human,money,date,safeURL,validate,ledgerRow}=require('./app.js');
+assert.equal(money(null),'—');assert.equal(money(undefined),'—');assert.equal(money(NaN),'—');assert.equal(money('10000'),'$10,000.00');assert.equal(money(''),'—');assert.equal(money(true),'—');assert.equal(money('Infinity'),'—');assert.equal(money('0x10'),'—');assert.equal(money(10000),'$10,000.00');
+assert.equal(human('DISCONNECTED'),'Disconnected');assert.equal(human(null),'Unknown');assert.equal(date(null),'Not recorded');assert.equal(date('bogus'),'Invalid timestamp');
+assert.equal(safeURL('javascript:alert(1)'),null);assert.equal(safeURL('http://example.org'),null);assert.equal(safeURL('https://www.sec.gov/'),'https://www.sec.gov/');
+assert.throws(()=>validate({}));assert.throws(()=>validate(null));assert.equal(validate({portfolio:{},discovery:{},feeds:[],signals:[],window:{}}).feeds.length,0);
+assert.deepEqual(ledgerRow('Paper fill',{ticker:'TEST',side:'SELL',quantity:3,price:'12.34',session:'2026-11-20',observed_utc:'2026-11-20T21:05:00Z'}),['Paper sell','TEST',3,'$12.34','2026-11-20','2026-11-20 21:05:00 UTC']);
+assert.equal(ledgerRow('Paper fill',{price:'12',session:'2026-11-20'})[5],'Not recorded');
+assert.equal(ledgerRow('Position',{ticker:'TEST',quantity:3,entry_session:'2026-11-16'})[3],'—');
+console.log('UI utility and paper-ledger schema checks passed.');
