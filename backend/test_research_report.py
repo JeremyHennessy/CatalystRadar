@@ -60,6 +60,21 @@ class ResearchReportTests(unittest.TestCase):
         scan=json.loads((self.root/'data/latest_scan.json').read_text())
         scan['sources'][0]['sha256']=hashlib.sha256(payload).hexdigest();self.write('data/latest_scan.json',scan)
         self.assertEqual(self.run_report()['counts']['metadata_identity_matched'],0)
+    def test_saved_private_checkpoint_not_live_verification(self):
+        from private_archive_checkpoint import MODE,digest
+        checkpoint={'mode':MODE,'verified_at':'2026-11-14T11:30:00Z',
+            'reviews_sha256':digest((self.root/'data/filing_reviews.json').read_bytes()),'manifest_sha256':'a'*64,
+            'records':[{'accession':'a','issuer_cik':'123','sha256':'f'*64,'retrieved_utc':'2026-11-14T11:00:00Z','prior_hash_matches':True}]}
+        self.write('data/private_originals_checkpoint.json',checkpoint)
+        r=self.run_report()
+        self.assertEqual(r['counts']['private_archive_recorded_matches'],1)
+        self.assertEqual(r['counts']['full_filing_bytes_verified'],0)
+        self.assertEqual(r['counts']['qualified_observations'],0)
+        self.assertFalse(r['private_archive_bytes_reverified_in_this_build'])
+        checkpoint['reviews_sha256']='0'*64;self.write('data/private_originals_checkpoint.json',checkpoint)
+        r=self.run_report()
+        self.assertEqual(r['counts']['private_archive_recorded_matches'],0)
+        self.assertEqual(r['private_archive_checkpoint_status'],'INVALID_OR_STALE')
     def test_reproducible_same_inputs_clock(self):
         self.assertEqual(self.run_report(),self.run_report())
 

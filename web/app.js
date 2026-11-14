@@ -10,7 +10,7 @@ function ledgerRow(kind,r) { return [kind==='Position'?'Position':('Paper '+(r.s
 function validate(data) {if(!data || !data.portfolio || !data.discovery || !Array.isArray(data.feeds) || !Array.isArray(data.signals) || !data.window) throw new Error('Incomplete snapshot'); return data;}
 function researchSummary(report) {
 if(!report || report.mode!=='REAL_ARCHIVE_READINESS_NOT_FORECAST' || !report.counts || !Array.isArray(report.blocker_counts)) throw new Error('Invalid readiness report');
-const labels={reviewed_records:'reviewed records',metadata_bytes_verified:'metadata archives verified',metadata_identity_matched:'metadata identities matched',full_filing_bytes_verified:'full filings verified',qualified_observations:'qualified observations',outcomes_available:'outcomes available'};
+const labels={reviewed_records:'reviewed records',metadata_bytes_verified:'metadata archives verified',metadata_identity_matched:'metadata identities matched',full_filing_bytes_verified:'originals rechecked in this build',private_archive_recorded_matches:'private originals checked (saved checkpoint)',qualified_observations:'qualified observations',outcomes_available:'outcomes available'};
 const counts=Object.entries(labels).map(([key,label])=>{const value=report.counts[key];if(!Number.isSafeInteger(value)||value<0)throw new Error('Invalid readiness count');return {label,value};});
 const blockers=report.blocker_counts.map(x=>{if(!x||typeof x.reason!=='string'||!Number.isSafeInteger(x.count)||x.count<0)throw new Error('Invalid blocker');return x.reason+' ('+x.count+')';});
 if(typeof report.generated_at!=='string'||!/(Z|[+-]\d{2}:\d{2})$/.test(report.generated_at)||!Number.isFinite(Date.parse(report.generated_at)))throw new Error('Invalid report timestamp');

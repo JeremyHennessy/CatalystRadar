@@ -1,0 +1,78 @@
+{
+  "mode": "PRIVATE_ORIGINAL_BYTE_CHECKPOINT_NOT_HISTORICAL_AVAILABILITY",
+  "verified_at": "2026-11-14T23:37:09.945902+00:00",
+  "reviews_sha256": "129dcb226a879bc94afde0cf214b153b300e3a113fc83490c6a311a781687305",
+  "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+  "records": [
+    {
+      "accession": "0000012659-26-000042",
+      "issuer_cik": "12659",
+      "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+      "retrieved_utc": "2026-11-14T23:33:03.633657+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0000020286-26-000064",
+      "issuer_cik": "20286",
+      "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+      "retrieved_utc": "2026-11-14T23:33:09.026985+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001140361-26-043782",
+      "issuer_cik": "32604",
+      "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+      "retrieved_utc": "2026-11-14T23:33:23.564369+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001174947-26-000991",
+      "issuer_cik": "50292",
+      "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+      "retrieved_utc": "2026-11-14T23:33:31.646886+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001193125-26-460589",
+      "issuer_cik": "108516",
+      "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+      "retrieved_utc": "2026-11-14T23:33:39.735127+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001193125-26-460692",
+      "issuer_cik": "108772",
+      "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+      "retrieved_utc": "2026-11-14T23:33:43.933078+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001213900-26-119681",
+      "issuer_cik": "25743",
+      "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+      "retrieved_utc": "2026-11-14T23:33:13.530724+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001628280-26-073578",
+      "issuer_cik": "31791",
+      "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+      "retrieved_utc": "2026-11-14T23:33:19.038501+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001628280-26-073584",
+      "issuer_cik": "42582",
+      "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+      "retrieved_utc": "2026-11-14T23:33:27.622944+00:00",
+      "prior_hash_matches": true
+    },
+    {
+      "accession": "0001628280-26-073875",
+      "issuer_cik": "91576",
+      "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+      "retrieved_utc": "2026-11-14T23:33:35.714449+00:00",
+      "prior_hash_matches": true
+    }
+  ]
+}

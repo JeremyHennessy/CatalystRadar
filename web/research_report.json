@@ -1,12 +1,13 @@
 {
   "schema_version": 1,
   "mode": "REAL_ARCHIVE_READINESS_NOT_FORECAST",
-  "generated_at": "2026-11-14T23:24:13.289523+00:00",
+  "generated_at": "2026-11-14T23:37:44.513413+00:00",
   "counts": {
     "reviewed_records": 10,
     "metadata_bytes_verified": 8,
     "metadata_identity_matched": 8,
     "full_filing_bytes_verified": 0,
+    "private_archive_recorded_matches": 10,
     "qualified_observations": 0,
     "outcomes_available": 0
   },
@@ -36,6 +37,7 @@
     "data/filing_reviews.json": "129dcb226a879bc94afde0cf214b153b300e3a113fc83490c6a311a781687305",
     "data/provenance.json": "f2702809fc137e15cd0db9aeba861400cf7b0d32c838821af8af243d4eded096",
     "data/latest_scan.json": "58be960bb752324c4cb1faed045615504f76905038c142558bcfdb7a45d0d403",
+    "data/private_originals_checkpoint.json": "e7040e320d409788ce32420ece43aff541ecbd8a70a2c01caf995cc5e7e9a10c",
     "data/sec-snapshots/628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907.json": "628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907",
     "data/sec-snapshots/f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b.json": "f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b",
     "data/sec-snapshots/f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2.json": "f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2",
@@ -66,6 +68,8 @@
       ],
       "full_filing_recorded_sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:03.633657+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -93,6 +97,8 @@
       ],
       "full_filing_recorded_sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:09.026985+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -120,6 +126,8 @@
       ],
       "full_filing_recorded_sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:23.564369+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -140,6 +148,8 @@
       "metadata_observations": [],
       "full_filing_recorded_sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:31.646886+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -168,6 +178,8 @@
       ],
       "full_filing_recorded_sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:39.735127+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -188,6 +200,8 @@
       "metadata_observations": [],
       "full_filing_recorded_sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:43.933078+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -216,6 +230,8 @@
       ],
       "full_filing_recorded_sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:13.530724+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -243,6 +259,8 @@
       ],
       "full_filing_recorded_sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:19.038501+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -270,6 +288,8 @@
       ],
       "full_filing_recorded_sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:27.622944+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -297,6 +317,8 @@
       ],
       "full_filing_recorded_sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
       "full_filing_bytes_verified": false,
+      "private_archive_recorded_match": true,
+      "private_archive_recorded_retrieved_utc": "2026-11-14T23:33:35.714449+00:00",
       "outcome": null,
       "qualified": false,
       "blockers": [
@@ -307,6 +329,9 @@
       ]
     }
   ],
+  "private_archive_checkpoint_status": "RECORDED_NOT_REVERIFIED_IN_PUBLIC_BUILD",
+  "private_archive_checkpoint_verified_at": "2026-11-14T23:37:09.945902+00:00",
+  "private_archive_bytes_reverified_in_this_build": false,
   "temporal_and_split_audits": "NOT_RUN_MISSING_FROZEN_DECISIONS_AND_WINDOWS",
   "original_filing_archive_scope": "METADATA_ONLY_ORIGINAL_BYTES_NOT_PUBLISHED",
   "source_authenticity_verified": false,
@@ -316,6 +341,7 @@
   "limitations": [
     "Manual ten-record sample, not an unbiased training cohort.",
     "A current source hash or retrieval timestamp does not establish first-public availability.",
-    "No prices, outcome labels, historical decisions, or numeric catalyst features inferred."
+    "No prices, outcome labels, historical decisions, or numeric catalyst features inferred.",
+    "Private original matches are a saved verification checkpoint; public builds cannot recheck those inaccessible bytes."
   ]
 }

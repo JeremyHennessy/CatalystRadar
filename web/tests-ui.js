@@ -10,9 +10,9 @@ assert.equal(ledgerRow('Paper fill',{price:'12',session:'2026-11-20'})[5],'Not r
 assert.equal(ledgerRow('Position',{ticker:'TEST',quantity:3,entry_session:'2026-11-16'})[3],'—');
 console.log('UI utility and paper-ledger schema checks passed.');
 
-const counts={reviewed_records:10,metadata_bytes_verified:8,metadata_identity_matched:8,full_filing_bytes_verified:0,qualified_observations:0,outcomes_available:0};
+const counts={reviewed_records:10,metadata_bytes_verified:8,metadata_identity_matched:8,full_filing_bytes_verified:0,private_archive_recorded_matches:10,qualified_observations:0,outcomes_available:0};
 const report={generated_at:'2026-11-14T23:00:00Z',mode:'REAL_ARCHIVE_READINESS_NOT_FORECAST',counts,blocker_counts:[{reason:'FULL_BYTES_MISSING',count:10}]};
-assert.equal(researchSummary(report).counts.length,6);
+assert.equal(researchSummary(report).counts.length,7);
 assert.equal(researchSummary(report).blockers[0],'FULL_BYTES_MISSING (10)');
 assert.throws(()=>researchSummary({...report,mode:'FORECAST'}));
 assert.throws(()=>researchSummary({...report,counts:{...counts,outcomes_available:null}}));
