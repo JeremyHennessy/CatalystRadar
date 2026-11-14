@@ -7,7 +7,7 @@
 - Eleven complete original filings archived during development; ten sample filings received targeted review.
 - A separate real ten-issuer SEC metadata poll completed successfully. Its timestamps and content-addressed public snapshots are stored here.
 - No validated price/liquidity/auction or halt feed. Zero eligible signals, orders, positions or fills.
-- The illustrative book starts with **US$10,000 hypothetical cash**, not anyone's actual assets.
+- The illustrative book starts with **US$500 hypothetical cash**, not anyone's actual assets.
 
 ## Trial window: November 16–20, 2026
 The goal is short-horizon research, not long-term investing. SEC metadata polling is configured approximately every 30 minutes during the bounded trial window; GitHub scheduling can be delayed. A hard 2026 date gate prevents collection outside the window. This is not high-frequency or realtime market data.
@@ -56,3 +56,6 @@ Source publication, SEC acceptance, retrieval and review timestamps remain disti
 - `docs/`: methodology, feed-access limitations and verification record.
 
 Private financial information, user locations, account identifiers and credentials do not belong in this public repository. Nothing here guarantees profit or income.
+
+## Small-account sizing
+The requested illustrative capital is US$500. At most five positions reserve at most US$100 each including the 3% price-limit buffer and modeled 0.1% entry cost. Whole shares only: if one share cannot fit, the opportunity is skipped, not resized with invented fractional execution. Unallocated cash remains cash. The comparison baseline is US$500 non-interest-bearing cash, not SPY or a market-return benchmark; no fractional benchmark holdings are fabricated. The execution engine remains disabled and no holdings exist.

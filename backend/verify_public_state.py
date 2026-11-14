@@ -6,6 +6,8 @@ ROOT=Path(__file__).resolve().parent.parent
 
 def verify(root=ROOT):
  book=json.loads((root/'data/paper_ledger.json').read_text());app=json.loads((root/'web/app-data.json').read_text())
+ assert book['initial_cash']==500 and book['cash']==500 and app['portfolio']['initial_cash']==500 and app['portfolio']['cash']==500,'paper starting cash mismatch'
+ assert book['benchmark']['initial_cash']==500 and book['benchmark']['type']=='ZERO_INTEREST_CASH_COMPARATOR'
  assert book['simulation_enabled'] is False and APPROVED_PROVIDERS=={},'production simulation must remain disabled'
  assert book['positions']==[] and book['orders']==[] and book['fills']==[],'unexpected paper transactions'
  assert app['portfolio']['trades']==[] and app['discovery']['eligible_signals']==0,'dashboard contradicts blocked state'

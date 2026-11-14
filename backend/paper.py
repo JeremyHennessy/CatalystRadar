@@ -65,7 +65,7 @@ def plan(ledger,event,freeze_utc,session):
  if prior!=num(event['prior_close']):raise ValueError('prior close differs from archived evidence')
  if prior<5:raise ValueError('price floor')
  if event.get('prior_session')!=event.get('expected_prior_session') or not event.get('prior_session'):raise ValueError('session mismatch')
- reserved=sum((num(o['reserved']) for o in active),Decimal(0));budget=min(Decimal(500),num(ledger['cash'])-reserved)
+ reserved=sum((num(o['reserved']) for o in active),Decimal(0));budget=min(Decimal(100),num(ledger['cash'])-reserved)
  limit=(prior*Decimal('1.03')).quantize(Decimal('.01'),rounding=ROUND_FLOOR);q=int(budget/(limit*Decimal('1.001')))
  if q<1:raise ValueError('insufficient cash')
  result=deepcopy(ledger);result['orders'].append({'id':eid+':'+session,'event_id':eid,'ticker':ticker,'session':session,'freeze_utc':freeze_utc,'quantity':q,'limit':str(limit),'reserved':str(Decimal(q)*limit*Decimal('1.001')),'status':'RESERVED','exit_session':END.isoformat(),'evidence_hashes':event['evidence_hashes']});return result

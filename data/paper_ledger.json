@@ -5,13 +5,19 @@
   "trial_end": "2026-11-20",
   "timezone": "America/New_York",
   "currency": "USD",
-  "initial_cash": 10000,
-  "cash": 10000,
+  "initial_cash": 500,
+  "cash": 500,
   "positions": [],
   "orders": [],
   "fills": [],
   "dividend_receivables": [],
   "processed_events": [],
   "simulation_enabled": false,
-  "status": "AWAITING_VALIDATED_PRICE_AND_HALT_FEEDS"
+  "status": "AWAITING_VALIDATED_PRICE_AND_HALT_FEEDS",
+  "benchmark": {
+    "type": "ZERO_INTEREST_CASH_COMPARATOR",
+    "initial_cash": 500,
+    "cash": 500,
+    "description": "Hypothetical non-interest-bearing cash, not a market index benchmark"
+  }
 }
