@@ -1,25 +1,11 @@
-name: Private daily price validation (no trading)
+name: Retired public price consumer
 on:
-  schedule:
-    - cron: '10 12 16-21 11 *'
   workflow_dispatch:
 permissions:
   contents: read
-  actions: read
-concurrency:
-  group: private-price-validation
-  cancel-in-progress: false
 jobs:
-  validate:
+  retired:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Synthetic tests before secret access
-        run: python3 -m unittest discover -s backend -p 'test_private_prices.py'
-      - name: Validate private prices without publishing quotes
-        env:
-          ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
-          GITHUB_TOKEN: ${{ github.token }}
-          MODE: ${{ github.event_name == 'schedule' && 'daily' || 'diagnostic' }}
-        run: python3 backend/private_prices.py --mode "$MODE"
+      - name: No provider access
+        run: echo 'Price collection moved to the owner-only private repository. This workflow makes no provider requests.'
