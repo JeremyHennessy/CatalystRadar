@@ -6,7 +6,10 @@ from pathlib import Path
 UTC=dt.timezone.utc
 
 def stamp():return dt.datetime.now(UTC).isoformat()
-def parse(x):return dt.datetime.fromisoformat(x.replace('Z','+00:00')).astimezone(UTC)
+def parse(x):
+ value=dt.datetime.fromisoformat(x.replace('Z','+00:00'))
+ if value.tzinfo is None:raise ValueError('explicit timezone required')
+ return value.astimezone(UTC)
 def rows(data):
  required=['accessionNumber','filingDate','acceptanceDateTime','form','primaryDocument']
  if any(k not in data for k in required):raise ValueError('missing submission columns')
@@ -49,18 +52,19 @@ def run(root,universe,start,cutoff,agent):
   try:
    j=json.loads(raw);summary['name']=j['name'];summary['tickers']=j.get('tickers',[])
    if issuer['ticker'] not in summary['tickers']:raise ValueError('ticker/CIK mismatch')
-   allrows=rows(j['filings']['recent']);history=j['filings']['files']
+   allrows=[(r,meta) for r in rows(j['filings']['recent'])];history=j['filings']['files']
    summary['history_files_considered']=len(history)
    for h in history:
     if h['filingTo']>=start[:10] and h['filingFrom']<=cutoff[:10]:
      hraw,hm=archive.get('https://data.sec.gov/submissions/'+h['name'],h['name'])
      if hraw is None:raise ValueError('required history missing')
-     allrows+=rows(json.loads(hraw))
-   unique={}
-   for r in allrows:
+     allrows += [(r,hm) for r in rows(json.loads(hraw))]
+   unique={};observations={}
+   for r,source in allrows:
     key=r['accessionNumber']
     if key in unique and unique[key]!=r:raise ValueError('conflicting duplicate accession')
     unique[key]=r
+    observations.setdefault(key,[]).append({k:source[k] for k in ('url','retrieved_utc','sha256','path')})
    selected=[r for r in unique.values() if r['form'] in ('8-K','8-K/A') and parse(start)<=parse(r['acceptanceDateTime'])<=parse(cutoff)]
    selected.sort(key=lambda r:(parse(r['acceptanceDateTime']),r['accessionNumber']))
    summary.update(api_rows_examined=len(unique),selected_count=len(selected),archived_count=0,coverage_basis='all returned recent records plus all declared overlapping historical files; not independently reconciled to daily master index')
@@ -69,17 +73,21 @@ def run(root,universe,start,cutoff,agent):
     if not re.fullmatch(r'\d{18}',digits):raise ValueError('invalid accession')
     url=f'https://www.sec.gov/Archives/edgar/data/{int(cik)}/{digits}/{acc}.txt'
     text,tm=archive.get(url,f'{digits}-complete.txt')
-    event={'issuer_cik':cik,'ticker':issuer['ticker'],'accession':acc,'form':r['form'],'items_raw':r.get('items'),'event_date_raw':r.get('reportDate'),'sec_accepted_utc':r['acceptanceDateTime'],'filing_date_raw':r['filingDate'],'primary_document':r['primaryDocument'],'discovered_utc':meta['retrieved_utc'],'original_submission_url':url,'first_public_utc':None,'status':'DISCOVERED_NOT_ELIGIBLE','reason':'first issuer public disclosure timestamp and extraction unverified','raw_archive':tm}
+    event={'issuer_cik':cik,'ticker':issuer['ticker'],'accession':acc,'form':r['form'],'items_raw':r.get('items'),'event_date_raw':r.get('reportDate'),'sec_accepted_utc':r['acceptanceDateTime'],'filing_date_raw':r['filingDate'],'primary_document':r['primaryDocument'],'discovered_utc':min((o['retrieved_utc'] for o in observations[acc]),key=parse),'metadata_observations':observations[acc],'document_observed_utc':None,'observation_semantics':'THIS_RUN_RETRIEVAL_NOT_FIRST_PUBLIC_OR_HISTORICAL_AVAILABILITY','original_submission_url':url,'first_public_utc':None,'status':'DISCOVERED_NOT_ELIGIBLE','reason':'first issuer public disclosure timestamp and extraction unverified','raw_archive':tm}
     if text is not None:
      # Verify accession in full submission, not merely HTTP200 (which could be a block page).
      if acc.encode() not in text or b'<SEC-DOCUMENT>' not in text:
       event['status']='INVALID_DOCUMENT_RESPONSE';summary['errors'].append(acc+': invalid full text')
-     else:summary['archived_count']+=1
+     else:
+      summary['archived_count']+=1
+      event['document_observed_utc']=tm['retrieved_utc']
     else:summary['errors'].append(acc+': full text unavailable')
     report['events'].append(event)
    summary['status']='API_SCOPE_ARCHIVED_NOT_INDEX_RECONCILED' if not summary['errors'] else 'INCOMPLETE'
   except Exception as err:summary['errors'].append(type(err).__name__+': '+str(err))
  report['finished_utc']=stamp();report['coverage_complete_for_orders']=False
+ report['historical_availability_verified']=False
+ report['absence_semantics']='NOT_RETURNED_DOES_NOT_PROVE_DELETION_OR_HISTORICAL_ABSENCE'
  report['blocking_gates']=['No independent daily-index reconciliation','First-public timestamps and factual extraction unverified','Price/volume/halts feed not connected','No execution engine authorized or enabled']
  (root/'report.json').write_text(json.dumps(report,indent=2))
  return report
