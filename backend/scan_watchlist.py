@@ -1,13 +1,40 @@
 """Bounded public SEC metadata poll. No prices, scoring, orders or broker calls."""
 from pathlib import Path
 from datetime import datetime,timedelta,timezone
-import json,argparse,os,hashlib,re
+import json,argparse,os,hashlib,re,tempfile
 from discover_sec import Archive,rows,parse,stamp
 ROOT=Path(__file__).resolve().parent.parent
 
 def public_error(message):
  match=re.search(r'HTTP (?:Error )?(\d{3})',str(message))
  return 'HTTP '+match.group(1)+' from public source' if match else 'Source fetch or verification failed; local diagnostics retained privately'
+
+def persist_observation(report, root=ROOT):
+ """Append one complete public scan report; never overwrite an earlier run.
+
+ Local clocks/bytes are observations, not authenticated first-public evidence.
+ A hard failure before this function leaves no complete receipt; git publication
+ is a separate step. Atomic hard-link creation avoids partial final files.
+ """
+ run_id=report.get('run_id')
+ if not isinstance(run_id,str) or not re.fullmatch(r'[0-9]{8}T[0-9]{12}Z',run_id):
+  raise ValueError('invalid observation run id')
+ payload=(json.dumps(report,sort_keys=True,indent=2,allow_nan=False)+'\n').encode('utf-8')
+ if len(payload)>4*1024*1024:raise ValueError('observation report exceeds 4 MiB limit')
+ directory=root/'data/sec-observations';directory.mkdir(parents=True,exist_ok=True)
+ target=directory/(run_id+'.json')
+ # Pending files never have a .json suffix and are not staged by the workflow.
+ pending=None
+ try:
+  with tempfile.NamedTemporaryFile(dir=directory,prefix='.pending-',delete=False) as f:
+   pending=Path(f.name);f.write(payload);f.flush();os.fsync(f.fileno())
+  try:os.link(pending,target)
+  except FileExistsError:
+   if target.is_symlink() or target.read_bytes()!=payload:
+    raise ValueError('conflicting immutable observation run')
+ finally:
+  if pending is not None:pending.unlink(missing_ok=True)
+ return target
 
 def scan(root=ROOT):
  now=datetime.now(timezone.utc);start=now-timedelta(hours=96);config=json.loads((root/'data/watchlist.json').read_text())
@@ -40,6 +67,7 @@ def scan(root=ROOT):
     acc=r['accessionNumber'];events.append({'ticker':ticker,'issuer':j['name'],'issuer_cik':cik,'accession':acc,'form':r['form'],'items_raw':r.get('items'),'sec_accepted_utc':r['acceptanceDateTime'],'observed_utc':meta['retrieved_utc'],'first_public_utc':None,'source_url':f'https://www.sec.gov/Archives/edgar/data/{int(cik)}/{acc.replace("-","")}/{acc}.txt','source_metadata_sha256':meta['sha256'],'status':'METADATA_DISCOVERY_NOT_ELIGIBLE','reason':'Full source and earlier public release, catalyst facts, prices and halts require validation','eligible':False})
   except Exception as err:errors.append({'ticker':ticker,'error':public_error(err)})
  report={'run_id':run_id,'started_at':now.isoformat(),'finished_at':stamp(),'window_start':start.isoformat(),'mode':'OBSERVATION_ONLY','scope':'10 configured issuer metadata feeds; NOT whole market','configured_issuers':len(config),'successful_issuers':len(config)-len(errors),'metadata_window_complete':not errors,'errors':errors,'sources':sources,'events':sorted(events,key=lambda e:(e['sec_accepted_utc'],e['accession'])),'eligible_count':0,'orders_created':0,'schedule_status':'GITHUB_RUN' if os.environ.get('GITHUB_ACTIONS')=='true' else 'MANUAL_RUN','github_event_name':os.environ.get('GITHUB_EVENT_NAME'),'github_run_url':('https://github.com/'+os.environ.get('GITHUB_REPOSITORY','')+'/actions/runs/'+os.environ.get('GITHUB_RUN_ID','')) if os.environ.get('GITHUB_ACTIONS')=='true' else None}
+ persist_observation(report,root)
  (archive_root/'report.json').write_text(json.dumps(report,indent=2));tmp=root/'data/latest_scan.json.tmp';tmp.write_text(json.dumps(report,indent=2));tmp.replace(root/'data/latest_scan.json');return report
 if __name__=='__main__':
  r=scan();print(json.dumps({k:r[k] for k in ('run_id','successful_issuers','configured_issuers','metadata_window_complete','eligible_count','orders_created')},indent=2))
