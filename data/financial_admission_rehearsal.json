@@ -1,13 +1,13 @@
 {
   "mode": "SOURCE_GROUNDED_FINANCIAL_ADMISSION_REHEARSAL",
-  "computed_at": "2026-11-15T02:36:53.865198+00:00",
+  "computed_at": "2026-11-15T02:44:24.502042+00:00",
   "reviews_sha256": "129dcb226a879bc94afde0cf214b153b300e3a113fc83490c6a311a781687305",
   "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
   "rows": [
     {
       "accession": "0000012659-26-000042",
       "issuer_cik": "12659",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
         "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
@@ -87,6 +87,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "OUTSIDE_SIGNAL_FAMILIES",
       "review_reason": "Shareholder approval of incentive plan and annual-meeting voting; not a customer contract or earnings/guidance event.",
       "blockers": [
@@ -101,7 +110,7 @@
     {
       "accession": "0000020286-26-000064",
       "issuer_cik": "20286",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
         "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
@@ -191,6 +200,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "OUTSIDE_SIGNAL_FAMILIES",
       "review_reason": "Regular quarterly cash-dividend declaration; not incremental common-stock repurchase authorization.",
       "blockers": [
@@ -205,7 +223,7 @@
     {
       "accession": "0001213900-26-119681",
       "issuer_cik": "25743",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
         "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
@@ -320,6 +338,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "EARNINGS_REVIEW_PENDING",
       "review_reason": "Q3 earnings release. License revenue growth includes a milestone. Release gives continuing-operations EPS0.04 versus rounded0.00; do not compute percent growth from zero or substitute that for fully verified comparable total GAAP diluted EPS. Exhibit metadata says second quarter while body says third quarter, requiring explicit discrepancy review.",
       "blockers": [
@@ -334,7 +361,7 @@
     {
       "accession": "0001628280-26-073578",
       "issuer_cik": "31791",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
         "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
@@ -424,6 +451,55 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "EXPLICIT_SAME_EVENT_EXHIBIT_BUNDLE",
+        "bundles": [
+          {
+            "bundle_id": "31791:0001628280-26-073578:explicit-ex99.1-ex99.2",
+            "issuer_cik": "31791",
+            "accession": "0001628280-26-073578",
+            "event_label": "Investor Day 2026",
+            "relationship": "PRIMARY_FORM_EXPLICITLY_LINKS_PRESS_RELEASE_AND_PRESENTATION_TO_SAME_NAMED_EVENT",
+            "primary_document": {
+              "type": "8-K",
+              "filename": "pki-20261113.htm",
+              "byte_start": 1388,
+              "byte_end": 34214,
+              "sha256": "b228ab3fa11003d0f8f9a94f9c60402b4e6d36a40ab2c49eb34ca555234bdb22"
+            },
+            "relationship_evidence_span": {
+              "byte_start": 24042,
+              "byte_end": 25036,
+              "sha256": "b857184aff8a170d52ba3c52e53ae999c01b2973c41d6bdf4842f55497fa010a"
+            },
+            "linked_documents": [
+              {
+                "type": "EX-99.1",
+                "filename": "a2026investordaypressrelea.htm",
+                "byte_start": 34215,
+                "byte_end": 43807,
+                "sha256": "2c65a07d49e2b8a15722f2a3340478ad99b7a49dc832506c66a2552bf2596e09"
+              },
+              {
+                "type": "EX-99.2",
+                "filename": "investorday2026presentat.htm",
+                "byte_start": 43808,
+                "byte_end": 113328,
+                "sha256": "eef4284ade40db6be357a33339796b87ad1f3cf69aaffb53552a67b8593b0c48"
+              }
+            ],
+            "economic_event_date": null,
+            "event_completion_verified": false,
+            "all_related_filings_identified": false,
+            "independent_sample_count": null
+          }
+        ],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "GUIDANCE_REVIEW_PENDING",
       "review_reason": "Investor Day and long-range outlook; no same-period/basis prior-guidance comparison completed. Not a verified guidance raise. Presentation review remains pending.",
       "blockers": [
@@ -438,7 +514,7 @@
     {
       "accession": "0001140361-26-043782",
       "issuer_cik": "32604",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
         "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
@@ -518,6 +594,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "OUTSIDE_SIGNAL_FAMILIES",
       "review_reason": "Previously announced debt offering completed; issuance of notes is financing, not customer sales contract.",
       "blockers": [
@@ -532,7 +617,7 @@
     {
       "accession": "0001628280-26-073584",
       "issuer_cik": "42582",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
         "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
@@ -612,6 +697,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "OUTSIDE_SIGNAL_FAMILIES",
       "review_reason": "Debt-note redemption notice, not common-stock buyback or new customer award.",
       "blockers": [
@@ -626,7 +720,7 @@
     {
       "accession": "0001174947-26-000991",
       "issuer_cik": "50292",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
         "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
@@ -716,6 +810,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "OUTSIDE_UNIVERSE",
       "review_reason": "Issuer release identifies OTCQX:IEHC, outside NYSE/Nasdaq universe. Basic EPS/profit turnaround does not override universe or liquidity rules.",
       "blockers": [
@@ -730,7 +833,7 @@
     {
       "accession": "0001628280-26-073875",
       "issuer_cik": "91576",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
         "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
@@ -820,6 +923,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "OUTSIDE_SIGNAL_FAMILIES",
       "review_reason": "Preferred/depositary-share redemption, not common-stock repurchase authorization.",
       "blockers": [
@@ -834,7 +946,7 @@
     {
       "accession": "0001193125-26-460589",
       "issuer_cik": "108516",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
         "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
@@ -924,6 +1036,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "GUIDANCE_REVIEW_PENDING",
       "review_reason": "Transcript furnished November13 concerns Investor Day November10. Do not refresh economic-event age to filing date. Same-period/basis guidance comparison not completed.",
       "blockers": [
@@ -938,7 +1059,7 @@
     {
       "accession": "0001193125-26-460692",
       "issuer_cik": "108772",
-      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "analysis_utc": "2026-11-15T02:44:24.502042+00:00",
       "source": {
         "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
         "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
@@ -1018,6 +1139,15 @@
       "first_public_utc": null,
       "decision_utc": null,
       "economic_event_group_id": null,
+      "explicit_document_relationships": {
+        "status": "NO_SUPPORTED_EXPLICIT_RELATIONSHIP",
+        "bundles": [],
+        "global_event_group_complete": false,
+        "cross_filing_dedup_verified": false,
+        "first_public_utc": null,
+        "qualified": false,
+        "malformed_documents": 0
+      },
       "review_status": "OUTSIDE_SIGNAL_FAMILIES",
       "review_reason": "Debt exchange/recapitalization with new secured notes and common shares, not a revenue-generating customer contract. Joint Xerox entities remain distinct.",
       "blockers": [
@@ -1034,6 +1164,7 @@
     "rows": 10,
     "source_validated": 10,
     "reported_pair_rows": 1,
+    "explicit_same_event_bundles": 1,
     "financial_fact_complete": 0,
     "qualified": 0,
     "economic_event_groups_verified": 0
