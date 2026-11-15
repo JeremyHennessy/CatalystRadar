@@ -20,3 +20,13 @@ assert.throws(()=>researchSummary({...report,counts:{...counts,qualified_observa
 assert.throws(()=>researchSummary({...report,blocker_counts:[{reason:'X',count:NaN}]}));
 console.log('Readiness summary and fail-closed UI checks passed.');
 assert.throws(()=>researchSummary({...report,generated_at:'2026-11-14'}));
+const {updateSummary,candidateSummary}=require('./app.js');
+assert.throws(()=>updateSummary(null));
+assert.throws(()=>updateSummary([{title:'x',note:'x',as_of:'2026-11-15T00:00Z',url:'javascript:bad',metrics:[]} ]));
+assert.throws(()=>updateSummary([{title:'x',note:'x',as_of:'2026-11-15T00:00Z',url:'https://example.com',metrics:[{label:'x',value:-1}]}]));
+assert.equal(updateSummary([{title:'x',note:'x',as_of:'2026-11-15T00:00Z',url:'https://example.com',metrics:[{label:'x',value:0}]}])[0].metrics[0].value,0);
+assert.equal(candidateSummary({}),null);
+const fixture={candidate_rehearsal:{mode:'LATEST_RETAINED_RUN_REHEARSAL_NOT_ACTIVATED',status:'REHEARSAL_AVAILABLE',counts:{metadata_candidates:1591,older_than_96h_candidates:1580},qualified_count:0,orders_created:0,protocol_activated:false,finished_at:'2026-11-15T02:17:38Z'}};
+assert.equal(candidateSummary(fixture).count,1591);
+fixture.candidate_rehearsal.protocol_activated=true;assert.throws(()=>candidateSummary(fixture));
+console.log('Latest-research display schema checks passed.');

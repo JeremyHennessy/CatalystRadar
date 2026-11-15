@@ -34,5 +34,22 @@ def build(root=ROOT):
  report_json=json.dumps(report,indent=2)+'\n'
  (root/'data/research_report.json').write_text(report_json)
  (root/'web/research_report.json').write_text(report_json)
+ # Display only explicit aggregate checkpoints, never private originals or vendor prices.
+ updates=[]
+ for filename,mode,clock,fields,title,note in [
+  ('filing_comparisons.json','RETROSPECTIVE_REPORTED_PAIR_NOT_QUALIFIED','analysis_utc',[('reported_comparisons','source events'),('reported_metric_pairs','metric pairs')],'Reported financial comparisons','Multiple metrics from one event are not independent samples. Historical availability and outcomes remain unresolved.'),
+  ('financial_admission_rehearsal.json','SOURCE_GROUNDED_FINANCIAL_ADMISSION_REHEARSAL','computed_at',[('rows','reviewed cases'),('reported_pair_rows','narrative comparison rows'),('explicit_same_event_bundles','explicit same-event bundles'),('positive_dividend_declaration_rows','dividend declarations')],'Source-to-fact rehearsal','Saved source analysis, not re-extraction in this build. Declaration dates do not establish ex-dates or entitlement. Unknown facts remain unknown.')]:
+  path=root/'data'/filename
+  if not path.exists():continue
+  value=json.loads(path.read_text())
+  if value.get('mode')!=mode:raise ValueError('Unexpected research artifact mode')
+  stamp=value.get(clock);datetime.fromisoformat(stamp)
+  counts=value.get('counts',value);metrics=[]
+  for key,label in fields:
+   n=counts.get(key)
+   if type(n) is not int or n<0:raise ValueError('Invalid research artifact count')
+   metrics.append({'label':label,'value':n})
+  updates.append({'title':title,'as_of':stamp,'metrics':metrics,'note':note,'url':'https://github.com/JeremyHennessy/CatalystRadar/blob/main/data/'+filename})
+ state['research_updates']=updates
  (root/'web/app-data.json').write_text(json.dumps(state,indent=2));return state
 if __name__=='__main__':build();print('Dashboard generated from saved public evidence; no scans or trades executed.')

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T02:30:45.907856+00:00",
+  "generated_at": "2026-11-15T03:08:58.486257+00:00",
   "mode": "paper",
   "window": {
     "start": "2026-11-16",
@@ -194,6 +194,48 @@
     {
       "at": "2026-11-15T02:17:38.445725+00:00",
       "detail": "Manual SEC poll: 11 metadata discoveries; zero orders."
+    }
+  ],
+  "research_updates": [
+    {
+      "title": "Reported financial comparisons",
+      "as_of": "2026-11-15T01:03:27.345331+00:00",
+      "metrics": [
+        {
+          "label": "source events",
+          "value": 1
+        },
+        {
+          "label": "metric pairs",
+          "value": 4
+        }
+      ],
+      "note": "Multiple metrics from one event are not independent samples. Historical availability and outcomes remain unresolved.",
+      "url": "https://github.com/JeremyHennessy/CatalystRadar/blob/main/data/filing_comparisons.json"
+    },
+    {
+      "title": "Source-to-fact rehearsal",
+      "as_of": "2026-11-15T03:04:36.364832+00:00",
+      "metrics": [
+        {
+          "label": "reviewed cases",
+          "value": 10
+        },
+        {
+          "label": "narrative comparison rows",
+          "value": 1
+        },
+        {
+          "label": "explicit same-event bundles",
+          "value": 1
+        },
+        {
+          "label": "dividend declarations",
+          "value": 1
+        }
+      ],
+      "note": "Saved source analysis, not re-extraction in this build. Declaration dates do not establish ex-dates or entitlement. Unknown facts remain unknown.",
+      "url": "https://github.com/JeremyHennessy/CatalystRadar/blob/main/data/financial_admission_rehearsal.json"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REAL_ARCHIVE_READINESS_NOT_FORECAST",
-  "generated_at": "2026-11-15T02:30:45.907856+00:00",
+  "generated_at": "2026-11-15T03:08:58.486257+00:00",
   "counts": {
     "reviewed_records": 10,
     "metadata_bytes_verified": 8,
