@@ -1,0 +1,1051 @@
+{
+  "mode": "SOURCE_GROUNDED_FINANCIAL_ADMISSION_REHEARSAL",
+  "computed_at": "2026-11-15T02:36:53.865198+00:00",
+  "reviews_sha256": "129dcb226a879bc94afde0cf214b153b300e3a113fc83490c6a311a781687305",
+  "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+  "rows": [
+    {
+      "accession": "0000012659-26-000042",
+      "issuer_cik": "12659",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+        "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+        "observed_utc": "2026-11-14T23:33:03.633657+00:00"
+      },
+      "documents": [],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Shareholder approval of incentive plan and annual-meeting voting; not a customer contract or earnings/guidance event.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0000020286-26-000064",
+      "issuer_cik": "20286",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+        "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+        "observed_utc": "2026-11-14T23:33:09.026985+00:00"
+      },
+      "documents": [
+        {
+          "document_sha256": "409bd2ba907543ba91a8ab4720986341f9cd771ecb2517f65be23afd554395a8",
+          "document_byte_start": 23448,
+          "document_byte_end": 63132,
+          "filing_group_id": "20286:0000020286-26-000064",
+          "economic_event_group_id": null,
+          "group_status": "DOCUMENT_ONLY_NOT_ECONOMIC_EVENT",
+          "metrics": []
+        }
+      ],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Regular quarterly cash-dividend declaration; not incremental common-stock repurchase authorization.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001213900-26-119681",
+      "issuer_cik": "25743",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+        "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+        "observed_utc": "2026-11-14T23:33:13.530724+00:00"
+      },
+      "documents": [
+        {
+          "document_sha256": "67bc57f4dbbbae2f39dd9c3c842b4b74cedca1970a9c440b7d846276e2960890",
+          "document_byte_start": 39627,
+          "document_byte_end": 60193,
+          "filing_group_id": "25743:0001213900-26-119681",
+          "economic_event_group_id": null,
+          "group_status": "DOCUMENT_ONLY_NOT_ECONOMIC_EVENT",
+          "metrics": [
+            {
+              "metric": "license_revenue_reported_pair",
+              "current_reported_value": "1.3",
+              "current_unit": "million reported dollars",
+              "prior_reported_value": "784",
+              "prior_unit": "thousand reported dollars",
+              "current_period": "third quarter 2026",
+              "prior_period": "third quarter 2025",
+              "currency_iso": null,
+              "issuer_reported_increase": "475",
+              "increase_unit": "thousand reported dollars",
+              "issuer_reported_percent": "60.6",
+              "calculated_growth_percent": null,
+              "current_scaled_value": "1300000.0",
+              "prior_scaled_value": "784000",
+              "basis": "LICENSE_REVENUE_NOT_VERIFIED_TOTAL_GAAP_REVENUE",
+              "same_quarter_prior_year": true,
+              "evidence_span": {
+                "byte_start": 44820,
+                "byte_end": 45447,
+                "sha256": "7914e6669818458f59bc1f2e5d34254fdb1ac7cae147f202529ee1605a3c5c8c"
+              },
+              "status": "REPORTED_ROUNDED_PAIR_NOT_ADMISSIBLE"
+            }
+          ]
+        }
+      ],
+      "status": "REPORTED_PAIR_ONLY",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "EARNINGS_REVIEW_PENDING",
+      "review_reason": "Q3 earnings release. License revenue growth includes a milestone. Release gives continuing-operations EPS0.04 versus rounded0.00; do not compute percent growth from zero or substitute that for fully verified comparable total GAAP diluted EPS. Exhibit metadata says second quarter while body says third quarter, requiring explicit discrepancy review.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001628280-26-073578",
+      "issuer_cik": "31791",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+        "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+        "observed_utc": "2026-11-14T23:33:19.038501+00:00"
+      },
+      "documents": [
+        {
+          "document_sha256": "2c65a07d49e2b8a15722f2a3340478ad99b7a49dc832506c66a2552bf2596e09",
+          "document_byte_start": 34215,
+          "document_byte_end": 43807,
+          "filing_group_id": "31791:0001628280-26-073578",
+          "economic_event_group_id": null,
+          "group_status": "DOCUMENT_ONLY_NOT_ECONOMIC_EVENT",
+          "metrics": []
+        }
+      ],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Investor Day and long-range outlook; no same-period/basis prior-guidance comparison completed. Not a verified guidance raise. Presentation review remains pending.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001140361-26-043782",
+      "issuer_cik": "32604",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+        "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+        "observed_utc": "2026-11-14T23:33:23.564369+00:00"
+      },
+      "documents": [],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Previously announced debt offering completed; issuance of notes is financing, not customer sales contract.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001628280-26-073584",
+      "issuer_cik": "42582",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+        "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+        "observed_utc": "2026-11-14T23:33:27.622944+00:00"
+      },
+      "documents": [],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt-note redemption notice, not common-stock buyback or new customer award.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001174947-26-000991",
+      "issuer_cik": "50292",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+        "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+        "observed_utc": "2026-11-14T23:33:31.646886+00:00"
+      },
+      "documents": [
+        {
+          "document_sha256": "b24cb88970229bcca0c9fc34a4ca352c021e8b2264a7b47c51c47ca64ed9474e",
+          "document_byte_start": 26626,
+          "document_byte_end": 38269,
+          "filing_group_id": "50292:0001174947-26-000991",
+          "economic_event_group_id": null,
+          "group_status": "DOCUMENT_ONLY_NOT_ECONOMIC_EVENT",
+          "metrics": []
+        }
+      ],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "OUTSIDE_UNIVERSE",
+      "review_reason": "Issuer release identifies OTCQX:IEHC, outside NYSE/Nasdaq universe. Basic EPS/profit turnaround does not override universe or liquidity rules.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001628280-26-073875",
+      "issuer_cik": "91576",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+        "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+        "observed_utc": "2026-11-14T23:33:35.714449+00:00"
+      },
+      "documents": [
+        {
+          "document_sha256": "e1f0687121d398b0e6f0c7280ac7bf4e166b9dde90b7d259c3eadacf92632bfb",
+          "document_byte_start": 37490,
+          "document_byte_end": 46648,
+          "filing_group_id": "91576:0001628280-26-073875",
+          "economic_event_group_id": null,
+          "group_status": "DOCUMENT_ONLY_NOT_ECONOMIC_EVENT",
+          "metrics": []
+        }
+      ],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Preferred/depositary-share redemption, not common-stock repurchase authorization.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001193125-26-460589",
+      "issuer_cik": "108516",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+        "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+        "observed_utc": "2026-11-14T23:33:39.735127+00:00"
+      },
+      "documents": [
+        {
+          "document_sha256": "5a2c34e34e8d364c2dbc340552407be9e57f7e6c49c1cf93b20e7093e3e05ce4",
+          "document_byte_start": 63230,
+          "document_byte_end": 390149,
+          "filing_group_id": "108516:0001193125-26-460589",
+          "economic_event_group_id": null,
+          "group_status": "DOCUMENT_ONLY_NOT_ECONOMIC_EVENT",
+          "metrics": []
+        }
+      ],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Transcript furnished November13 concerns Investor Day November10. Do not refresh economic-event age to filing date. Same-period/basis guidance comparison not completed.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001193125-26-460692",
+      "issuer_cik": "108772",
+      "analysis_utc": "2026-11-15T02:36:53.865198+00:00",
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+        "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+        "observed_utc": "2026-11-14T23:33:43.933078+00:00"
+      },
+      "documents": [],
+      "status": "NO_SUPPORTED_FINANCIAL_GRAMMAR",
+      "fact_admission": {
+        "EARNINGS_GROWTH": {
+          "family": "EARNINGS_GROWTH",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "comparable_periods",
+            "gaap_eps",
+            "gaap_revenue",
+            "prior_gaap_eps",
+            "prior_gaap_revenue",
+            "same_share_basis",
+            "total_gaap_diluted_eps_basis"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "GUIDANCE_RAISE": {
+          "family": "GUIDANCE_RAISE",
+          "required_event_type": "EARNINGS",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "guidance_same_basis_horizon",
+            "new_guidance_midpoint",
+            "prior_guidance_midpoint"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+          "family": "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE",
+          "required_event_type": "CONTRACT",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "annual_revenue",
+            "binding",
+            "customer_revenue_contract",
+            "financing_or_recapitalization",
+            "firm_minimum_not_options",
+            "firm_minimum_value",
+            "issuer_is_seller"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        },
+        "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+          "family": "BUYBACK_AUTHORIZATION_NOT_EXECUTION",
+          "required_event_type": "BUYBACK",
+          "status": "UNKNOWN",
+          "missing_fields": [
+            "common_stock_authorization",
+            "incremental_authorization",
+            "new_authorization_value",
+            "pre_event_market_cap"
+          ],
+          "invalid_fields": [],
+          "source_verified": false,
+          "qualified": false,
+          "signal": null
+        }
+      },
+      "qualified": false,
+      "signal": null,
+      "first_public_utc": null,
+      "decision_utc": null,
+      "economic_event_group_id": null,
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt exchange/recapitalization with new secured notes and common shares, not a revenue-generating customer contract. Joint Xerox entities remain distinct.",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNVERIFIED",
+        "ECONOMIC_EVENT_GROUP_UNRESOLVED",
+        "MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY",
+        "NO_FROZEN_CLASSIFICATION_RECEIPT",
+        "OUTCOMES_UNQUALIFIED"
+      ]
+    }
+  ],
+  "counts": {
+    "rows": 10,
+    "source_validated": 10,
+    "reported_pair_rows": 1,
+    "financial_fact_complete": 0,
+    "qualified": 0,
+    "economic_event_groups_verified": 0
+  },
+  "orders": 0,
+  "protocol_activated": false,
+  "source_authenticity_verified": false,
+  "limitations": [
+    "Exact supported narrative grammar only; all other layouts remain unknown.",
+    "Rounded reported license revenue is not total GAAP revenue; no growth forecast computed.",
+    "Document groups are provenance scopes, not independent economic events.",
+    "Private source bytes verified only during this offline rehearsal, not by public CI.",
+    "Current retrieval and computation do not establish first-public or pre-event availability."
+  ]
+}
