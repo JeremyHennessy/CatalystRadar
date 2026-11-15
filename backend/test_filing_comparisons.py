@@ -49,4 +49,32 @@ class ComparisonTests(unittest.TestCase):
             next(archive.glob('*.txt')).unlink();r=build(reviews,archive)
             self.assertEqual(len(r['rows']),1);self.assertEqual(r['reported_comparisons'],0)
 
+
+class SupplementalTests(unittest.TestCase):
+    def paragraph(self):
+        return (b'an operating profit of $1,046,496 for 2nd\nquarter fiscal year 2027 as compared to an operating loss of $104,380 for 2nd quarter fiscal year 2026; net income of $1,363,414 for 2nd\nquarter fiscal year 2027 as compared to a net loss of $26,861 for 2nd quarter fiscal year 2026; and a basic gain per share of $.55 for\n2nd quarter fiscal year 2027 as compared to a basic loss per share of $.01 for 2nd quarter fiscal year 2026.')
+    def test_three_signed_pairs_no_negative_denominator_percent(self):
+        from filing_comparisons import supplemental_pairs
+        rows=supplemental_pairs(self.paragraph())
+        self.assertEqual([r['prior_value']for r in rows],['-104380','-26861','-0.01'])
+        self.assertEqual([r['difference_reported_units']for r in rows],['1150876','1390275','0.56'])
+        self.assertTrue(all(r['calculated_percent_change']is None for r in rows))
+        self.assertEqual(rows[2]['metric'],'basic_earnings_loss_per_share')
+    def test_missing_is_not_zero(self):
+        from filing_comparisons import supplemental_pairs
+        rows=supplemental_pairs(b'')
+        self.assertEqual(len(rows),3);self.assertTrue(all(r['prior_value']is None for r in rows))
+    def test_diluted_not_substituted_for_basic(self):
+        from filing_comparisons import supplemental_pairs
+        self.assertIsNone(supplemental_pairs(self.paragraph().replace(b'basic',b'diluted'))[2]['current_value'])
+    def test_prior_positive_not_silently_negated(self):
+        from filing_comparisons import supplemental_pairs
+        self.assertIsNone(supplemental_pairs(self.paragraph().replace(b'operating loss',b'operating profit'))[0]['prior_value'])
+    def test_duplicate_rejected(self):
+        from filing_comparisons import supplemental_pairs
+        self.assertTrue(all(r['current_value']is None for r in supplemental_pairs(self.paragraph()*2)))
+    def test_wrong_fiscal_year_rejected(self):
+        from filing_comparisons import supplemental_pairs
+        self.assertTrue(all(r['current_value']is None for r in supplemental_pairs(self.paragraph().replace(b'year 2026',b'year 2025'))))
+
 if __name__=='__main__':unittest.main()

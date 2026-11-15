@@ -17,6 +17,34 @@ PATTERN=(rb'For the quarter ended September 30, 2026, IEH had revenues of '
          rb'\$([0-9,]+)\s+as compared to \$([0-9,]+) for the quarter ended '
          rb'September 30, 2025, reflecting a 51% increase;')
 
+def supplemental_pairs(paragraph):
+    # Same-release values only. Never call a negative-baseline ratio growth.
+    specifications=[
+        ('operating_profit_loss','reported dollar units',
+         rb'an operating profit of \$([0-9,]+) for 2nd\s+quarter fiscal year 2027 as compared to an operating loss of \$([0-9,]+) for 2nd quarter fiscal year 2026'),
+        ('net_income_loss','reported dollar units',
+         rb'net income of \$([0-9,]+) for 2nd\s+quarter fiscal year 2027 as compared to a net loss of \$([0-9,]+) for 2nd quarter fiscal year 2026'),
+        ('basic_earnings_loss_per_share','reported dollar units per basic share',
+         rb'a basic gain per share of \$(\.[0-9]+) for\s+2nd quarter fiscal year 2027 as compared to a basic loss per share of \$(\.[0-9]+) for 2nd quarter fiscal year 2026')]
+    pairs=[]
+    for name,unit,pattern in specifications:
+        row={'metric':name,'unit':unit,'currency_iso':None,'scale':1,
+             'current_value':None,'prior_value':None,'difference_reported_units':None,
+             'current_fiscal_period':'second quarter fiscal year 2027',
+             'prior_fiscal_period':'second quarter fiscal year 2026',
+             'calculated_percent_change':None,'status':'MISSING_OR_AMBIGUOUS_LITERAL_PAIR',
+             'basis':'same-release narrative; basic EPS is not diluted EPS',
+             'cross_filing_comparability_verified':False}
+        matches=list(re.finditer(pattern,paragraph))
+        if len(matches)==1:
+            m=matches[0];current=Decimal(m[1].decode().replace(',',''));prior=-Decimal(m[2].decode().replace(',',''))
+            if current>=0 and prior<0:
+                row.update(current_value=str(current),prior_value=str(prior),
+                    difference_reported_units=str(current-prior),status='REPORTED_POSITIVE_VS_LOSS_PAIR',
+                    percentage_blocker='NEGATIVE_BASELINE_NOT_MEANINGFUL_GROWTH_PERCENT')
+        pairs.append(row)
+    return pairs
+
 def extract(raw,cik,accession):
     values,_=header_features(raw,cik,accession)
     if values['header_is_8k_amendment']:raise ValueError('amendment requires separate review')
@@ -43,6 +71,7 @@ def extract(raw,cik,accession):
         'calculated_percent_change':str(pct.quantize(Decimal('0.000001'))),
         'issuer_reported_rounded_percent_change':'51',
         'cross_filing_comparability_verified':False,'corporate_action_adjustment_verified':False,
+        'additional_reported_pairs':supplemental_pairs(raw[start:end]),
         'evidence_span':{'byte_start':start,'byte_end':end,'sha256':sha(raw[start:end])}}
 
 def build(reviews_path,archive_dir,computed_at=None):
@@ -72,6 +101,7 @@ def build(reviews_path,archive_dir,computed_at=None):
     return {'mode':MODE,'analysis_utc':headers['computed_at'],'reviews_sha256':headers['reviews_sha256'],
             'manifest_sha256':headers['manifest_sha256'],'rows':rows,
             'reported_comparisons':sum(r['comparison']is not None for r in rows),
+            'reported_metric_pairs':sum(1+sum(p['current_value']is not None for p in r['comparison']['additional_reported_pairs']) for r in rows if r['comparison']),
             'qualified_comparisons':0,'financial_signals':0,'orders':0,
             'historical_availability_verified':False,
             'limitations':['One manually selected accession-specific narrative parser, not broad financial extraction.',
