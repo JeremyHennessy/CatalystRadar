@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T19:03:54.902664+00:00",
+  "generated_at": "2026-11-15T02:17:48.715323+00:00",
   "mode": "paper",
   "window": {
     "start": "2026-11-16",
@@ -10,7 +10,7 @@
     {
       "name": "SEC filings",
       "status": "snapshot_only",
-      "as_of": "2026-11-14T17:05:36.407704+00:00",
+      "as_of": "2026-11-15T02:17:38.445725+00:00",
       "detail": "10/10 configured issuer metadata feeds checked; 11 filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime."
     },
     {
@@ -192,7 +192,7 @@
   ],
   "activity": [
     {
-      "at": "2026-11-14T17:05:36.407704+00:00",
+      "at": "2026-11-15T02:17:38.445725+00:00",
       "detail": "Manual SEC poll: 11 metadata discoveries; zero orders."
     }
   ]
