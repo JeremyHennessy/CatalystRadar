@@ -13,6 +13,7 @@ from study_archive_audit import verify_archive_bytes
 from study_split_audit import instant
 from private_archive_checkpoint import read_checkpoint
 from filing_feature_rows import read_recorded_features
+from candidate_rehearsal import summarize_latest
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -126,6 +127,7 @@ def build(root=ROOT, generated_at=None):
         'blocker_counts': [{'reason': k, 'count': v} for k, v in sorted(blockers.items())],
         'input_sha256': inputs, 'records': sorted(records, key=lambda x: x['event_id']),
         'header_feature_status': feature_status,
+        'candidate_rehearsal': summarize_latest(root,scan,generated_at),
         'financial_feature_extraction_verified': False,
         'private_archive_checkpoint_status': checkpoint_status,
         'private_archive_checkpoint_verified_at': checkpoint_at,

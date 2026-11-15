@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REAL_ARCHIVE_READINESS_NOT_FORECAST",
-  "generated_at": "2026-11-15T02:17:48.715323+00:00",
+  "generated_at": "2026-11-15T02:30:45.907856+00:00",
   "counts": {
     "reviewed_records": 10,
     "metadata_bytes_verified": 8,
@@ -342,6 +342,210 @@
     }
   ],
   "header_feature_status": "RECORDED_CURRENT_ANALYSIS_NOT_RECOMPUTED_IN_PUBLIC_BUILD",
+  "candidate_rehearsal": {
+    "mode": "LATEST_RETAINED_RUN_REHEARSAL_NOT_ACTIVATED",
+    "status": "REHEARSAL_AVAILABLE",
+    "scope": "latest retained run only, not all history or a prospective cohort",
+    "run_id": "20261115T021704113580Z",
+    "counts": {
+      "metadata_candidates": 1591,
+      "candidate_observations": 1591,
+      "older_than_96h_candidates": 1580,
+      "metadata_conflict_or_invalid_candidates": 0,
+      "metadata_only_unqualified_candidates": 1591,
+      "source_status_counts": {
+        "HASH_AND_METADATA_VALIDATED": 10
+      },
+      "unknown_underlying_event_groups": 1591,
+      "unknown_outcomes": 1591
+    },
+    "source_observations": [
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000820318.json",
+        "ticker_context": "COHR",
+        "request_utc": "2026-11-15T02:17:04.114619+00:00",
+        "retrieved_utc": "2026-11-15T02:17:09.795186+00:00",
+        "declared_sha256": "628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 162,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000012659.json",
+        "ticker_context": "HRB",
+        "request_utc": "2026-11-15T02:17:09.802259+00:00",
+        "retrieved_utc": "2026-11-15T02:17:13.715098+00:00",
+        "declared_sha256": "f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 188,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000020286.json",
+        "ticker_context": "CINF",
+        "request_utc": "2026-11-15T02:17:13.723683+00:00",
+        "retrieved_utc": "2026-11-15T02:17:16.426730+00:00",
+        "declared_sha256": "f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 143,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000025743.json",
+        "ticker_context": "TXMD",
+        "request_utc": "2026-11-15T02:17:16.430693+00:00",
+        "retrieved_utc": "2026-11-15T02:17:19.603178+00:00",
+        "declared_sha256": "48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 261,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000031791.json",
+        "ticker_context": "RVTY",
+        "request_utc": "2026-11-15T02:17:19.607527+00:00",
+        "retrieved_utc": "2026-11-15T02:17:22.418614+00:00",
+        "declared_sha256": "27c50509ddf0189816893996bfa4aadd0cf58ae13af7b17b0848358031484649",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 134,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000032604.json",
+        "ticker_context": "EMR",
+        "request_utc": "2026-11-15T02:17:22.422538+00:00",
+        "retrieved_utc": "2026-11-15T02:17:25.688246+00:00",
+        "declared_sha256": "93901bb68462647005a27ff1b942848ab14e9a8d6de06e8ad4bd20508199a83e",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 199,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000042582.json",
+        "ticker_context": "GT",
+        "request_utc": "2026-11-15T02:17:25.693390+00:00",
+        "retrieved_utc": "2026-11-15T02:17:29.315484+00:00",
+        "declared_sha256": "f688777e91619fd73e36bc366ce8ba5f51fe3eafddd42e37c730b6772db75870",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 140,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000091576.json",
+        "ticker_context": "KEY",
+        "request_utc": "2026-11-15T02:17:29.320380+00:00",
+        "retrieved_utc": "2026-11-15T02:17:32.563655+00:00",
+        "declared_sha256": "7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 106,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0000108516.json",
+        "ticker_context": "WOR",
+        "request_utc": "2026-11-15T02:17:32.567642+00:00",
+        "retrieved_utc": "2026-11-15T02:17:35.549161+00:00",
+        "declared_sha256": "e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 148,
+        "failure_reason": null
+      },
+      {
+        "source_url": "https://data.sec.gov/submissions/CIK0001770450.json",
+        "ticker_context": "XRX",
+        "request_utc": "2026-11-15T02:17:35.553050+00:00",
+        "retrieved_utc": "2026-11-15T02:17:38.439126+00:00",
+        "declared_sha256": "545dac308a5afa1e9670ce2ffdceee63cdd8022178ae21256d7a4aa20e2fb5e7",
+        "validation_status": "HASH_AND_METADATA_VALIDATED",
+        "candidate_rows": 110,
+        "failure_reason": null
+      }
+    ],
+    "family_fact_unknowns": {
+      "BUYBACK_AUTHORIZATION_NOT_EXECUTION": {
+        "candidate_status_counts": {
+          "UNKNOWN": 1591
+        },
+        "missing_field_counts": {
+          "common_stock_authorization": 1591,
+          "incremental_authorization": 1591,
+          "new_authorization_value": 1591,
+          "pre_event_market_cap": 1591
+        },
+        "invalid_field_counts": {}
+      },
+      "EARNINGS_GROWTH": {
+        "candidate_status_counts": {
+          "UNKNOWN": 1591
+        },
+        "missing_field_counts": {
+          "comparable_periods": 1591,
+          "gaap_eps": 1591,
+          "gaap_revenue": 1591,
+          "prior_gaap_eps": 1591,
+          "prior_gaap_revenue": 1591,
+          "same_share_basis": 1591,
+          "total_gaap_diluted_eps_basis": 1591
+        },
+        "invalid_field_counts": {}
+      },
+      "GUIDANCE_RAISE": {
+        "candidate_status_counts": {
+          "UNKNOWN": 1591
+        },
+        "missing_field_counts": {
+          "guidance_same_basis_horizon": 1591,
+          "new_guidance_midpoint": 1591,
+          "prior_guidance_midpoint": 1591
+        },
+        "invalid_field_counts": {}
+      },
+      "MATERIAL_CONTRACT_BACKLOG_NOT_REVENUE": {
+        "candidate_status_counts": {
+          "UNKNOWN": 1591
+        },
+        "missing_field_counts": {
+          "annual_revenue": 1591,
+          "binding": 1591,
+          "customer_revenue_contract": 1591,
+          "financing_or_recapitalization": 1591,
+          "firm_minimum_not_options": 1591,
+          "firm_minimum_value": 1591,
+          "issuer_is_seller": 1591
+        },
+        "invalid_field_counts": {}
+      }
+    },
+    "input_sha256": {
+      "data/sec-observations/20261115T021704113580Z.json": "495adca83e0ba8105e728418afb8d91cc320bce76486f4defd958a7744af493c",
+      "data/sec-snapshots/628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907.json": "628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907",
+      "data/sec-snapshots/f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b.json": "f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b",
+      "data/sec-snapshots/f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2.json": "f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2",
+      "data/sec-snapshots/48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f.json": "48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f",
+      "data/sec-snapshots/27c50509ddf0189816893996bfa4aadd0cf58ae13af7b17b0848358031484649.json": "27c50509ddf0189816893996bfa4aadd0cf58ae13af7b17b0848358031484649",
+      "data/sec-snapshots/93901bb68462647005a27ff1b942848ab14e9a8d6de06e8ad4bd20508199a83e.json": "93901bb68462647005a27ff1b942848ab14e9a8d6de06e8ad4bd20508199a83e",
+      "data/sec-snapshots/f688777e91619fd73e36bc366ce8ba5f51fe3eafddd42e37c730b6772db75870.json": "f688777e91619fd73e36bc366ce8ba5f51fe3eafddd42e37c730b6772db75870",
+      "data/sec-snapshots/7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897.json": "7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897",
+      "data/sec-snapshots/e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8.json": "e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8",
+      "data/sec-snapshots/545dac308a5afa1e9670ce2ffdceee63cdd8022178ae21256d7a4aa20e2fb5e7.json": "545dac308a5afa1e9670ce2ffdceee63cdd8022178ae21256d7a4aa20e2fb5e7"
+    },
+    "normalizer_output_sha256": "976b9fb01ac12894e02e329b789940115f8ff4c54c647c287ed137209c7197f3",
+    "failure_reason": null,
+    "qualified_count": 0,
+    "outcomes_available": 0,
+    "protocol_activated": false,
+    "first_public_verified": false,
+    "orders_created": 0,
+    "started_at": "2026-11-15T02:17:04.113580+00:00",
+    "finished_at": "2026-11-15T02:17:38.445725+00:00",
+    "scan_errors": [],
+    "limitations": [
+      "Metadata candidates are not financial samples or new announcements.",
+      "All family facts and underlying event groups remain unknown; no classifications executed.",
+      "No complete filing history, authenticated observation time, or first-public availability established.",
+      "Detailed candidate exclusions and observations reproduce through normalize_candidates using this retained run."
+    ]
+  },
   "financial_feature_extraction_verified": false,
   "private_archive_checkpoint_status": "RECORDED_NOT_REVERIFIED_IN_PUBLIC_BUILD",
   "private_archive_checkpoint_verified_at": "2026-11-14T23:37:09.945902+00:00",
