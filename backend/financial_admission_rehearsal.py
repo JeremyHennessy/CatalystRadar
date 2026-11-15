@@ -72,7 +72,7 @@ def build(reviews_path,archive_dir,computed_at=None):
             'source':None,'documents':[],'status':'SOURCE_UNAVAILABLE_OR_INVALID',
             'fact_admission':unknown_families(),'qualified':False,'signal':None,
             'first_public_utc':None,'decision_utc':None,'economic_event_group_id':None,
-            'explicit_document_relationships':None,
+            'explicit_document_relationships':None,'dividend_declaration_evidence':None,
             'review_status':h['review_status'],'review_reason':h['review_reason'],
             'blockers':['RETROSPECTIVE_SELECTION','HISTORICAL_AVAILABILITY_UNVERIFIED',
                 'ECONOMIC_EVENT_GROUP_UNRESOLVED','MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY',
@@ -88,6 +88,8 @@ def build(reviews_path,archive_dir,computed_at=None):
                 row['documents'],row['status']=extract(raw,h['issuer_id'],h['event_id'])
                 from event_document_links import relate
                 row['explicit_document_relationships']=relate(raw,h['issuer_id'],h['event_id'])
+                from dividend_declaration_evidence import extract as dividend_evidence
+                row['dividend_declaration_evidence']=dividend_evidence(raw)
             # Intentionally no license-revenue -> gaap_revenue mapping. This
             # invokes the actual admission contract, not a hand-coded outcome.
             row['fact_admission']['EARNINGS_GROWTH']=admit_facts('EARNINGS_GROWTH',{})
@@ -97,6 +99,7 @@ def build(reviews_path,archive_dir,computed_at=None):
         'rows':rows,'counts':{'rows':len(rows),'source_validated':sum(r['source'] is not None for r in rows),
             'reported_pair_rows':sum(r['status']=='REPORTED_PAIR_ONLY' for r in rows),
             'explicit_same_event_bundles':sum(len((r['explicit_document_relationships'] or {}).get('bundles',[])) for r in rows),
+            'positive_dividend_declaration_rows':sum((r['dividend_declaration_evidence'] or {}).get('status')=='POSITIVE_DECLARATION_ONLY' for r in rows),
             'financial_fact_complete':0,'qualified':0,'economic_event_groups_verified':0},
         'orders':0,'protocol_activated':False,'source_authenticity_verified':False,
         'limitations':['Exact supported narrative grammar only; all other layouts remain unknown.',
