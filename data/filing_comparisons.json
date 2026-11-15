@@ -1,0 +1,268 @@
+{
+  "mode": "RETROSPECTIVE_REPORTED_PAIR_NOT_QUALIFIED",
+  "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+  "reviews_sha256": "129dcb226a879bc94afde0cf214b153b300e3a113fc83490c6a311a781687305",
+  "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+  "rows": [
+    {
+      "accession": "0000012659-26-000042",
+      "issuer_cik": "12659",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Shareholder approval of incentive plan and annual-meeting voting; not a customer contract or earnings/guidance event.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0000020286-26-000064",
+      "issuer_cik": "20286",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Regular quarterly cash-dividend declaration; not incremental common-stock repurchase authorization.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001213900-26-119681",
+      "issuer_cik": "25743",
+      "review_status": "EARNINGS_REVIEW_PENDING",
+      "review_reason": "Q3 earnings release. License revenue growth includes a milestone. Release gives continuing-operations EPS0.04 versus rounded0.00; do not compute percent growth from zero or substitute that for fully verified comparable total GAAP diluted EPS. Exhibit metadata says second quarter while body says third quarter, requiring explicit discrepancy review.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001628280-26-073578",
+      "issuer_cik": "31791",
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Investor Day and long-range outlook; no same-period/basis prior-guidance comparison completed. Not a verified guidance raise. Presentation review remains pending.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001140361-26-043782",
+      "issuer_cik": "32604",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Previously announced debt offering completed; issuance of notes is financing, not customer sales contract.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001628280-26-073584",
+      "issuer_cik": "42582",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt-note redemption notice, not common-stock buyback or new customer award.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001174947-26-000991",
+      "issuer_cik": "50292",
+      "review_status": "OUTSIDE_UNIVERSE",
+      "review_reason": "Issuer release identifies OTCQX:IEHC, outside NYSE/Nasdaq universe. Basic EPS/profit turnaround does not override universe or liquidity rules.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": {
+        "metric": "issuer_reported_revenue",
+        "basis": "same-release revenue narrative; not independently audited",
+        "current": {
+          "value": "10700084",
+          "period_end": "2026-09-30",
+          "period_start": null,
+          "period_label": "quarter ended September 30, 2026"
+        },
+        "prior": {
+          "value": "7077592",
+          "period_end": "2025-09-30",
+          "period_start": null,
+          "period_label": "quarter ended September 30, 2025"
+        },
+        "unit": "reported dollar units",
+        "currency_iso": null,
+        "scale": 1,
+        "difference_reported_units": "3622492",
+        "calculated_percent_change": "51.182549",
+        "issuer_reported_rounded_percent_change": "51",
+        "cross_filing_comparability_verified": false,
+        "corporate_action_adjustment_verified": false,
+        "evidence_span": {
+          "byte_start": 29667,
+          "byte_end": 30325,
+          "sha256": "897b835de2af6d93bf24217d5442d8cd31fd939bc387531641c0f9759e003880"
+        },
+        "source": {
+          "accession": "0001174947-26-000991",
+          "issuer_cik": "50292",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+          "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+          "retrieved_utc": "2026-11-14T23:33:31.646886+00:00"
+        }
+      },
+      "status": "REPORTED_PAIR_COMPUTED_NOW_NOT_QUALIFIED",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED",
+        "OUTSIDE_APPROVED_UNIVERSE",
+        "CURRENCY_ISO_NOT_EXPLICIT",
+        "PRIOR_ORIGINAL_NOT_CHECKED"
+      ]
+    },
+    {
+      "accession": "0001628280-26-073875",
+      "issuer_cik": "91576",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Preferred/depositary-share redemption, not common-stock repurchase authorization.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001193125-26-460589",
+      "issuer_cik": "108516",
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Transcript furnished November13 concerns Investor Day November10. Do not refresh economic-event age to filing date. Same-period/basis guidance comparison not completed.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    },
+    {
+      "accession": "0001193125-26-460692",
+      "issuer_cik": "108772",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt exchange/recapitalization with new secured notes and common shares, not a revenue-generating customer contract. Joint Xerox entities remain distinct.",
+      "analysis_utc": "2026-11-15T00:03:10.977393+00:00",
+      "first_public_utc": null,
+      "historical_ticker": null,
+      "decision_utc": null,
+      "outcome": null,
+      "eligible": false,
+      "comparison": null,
+      "status": "NOT_SUPPORTED_BY_BOUNDED_EXTRACTOR",
+      "blockers": [
+        "RETROSPECTIVE_SELECTION",
+        "HISTORICAL_AVAILABILITY_UNKNOWN",
+        "HISTORICAL_SECURITY_IDENTITY_UNVERIFIED",
+        "NO_FROZEN_DECISION",
+        "PRICE_ACTION_HALT_OUTCOMES_UNQUALIFIED"
+      ]
+    }
+  ],
+  "reported_comparisons": 1,
+  "qualified_comparisons": 0,
+  "financial_signals": 0,
+  "orders": 0,
+  "historical_availability_verified": false,
+  "limitations": [
+    "One manually selected accession-specific narrative parser, not broad financial extraction.",
+    "Prior value is as reported in this later release, not verified against its original filing or amendment history.",
+    "Dollar sign does not independently establish ISO currency; do not combine with other currency series.",
+    "Analysis timestamp is invocation/reproduction time, not authenticated completion or historical availability.",
+    "No SEC Frames/company-facts/current ticker API inputs; no investment or forecast conclusion."
+  ]
+}
