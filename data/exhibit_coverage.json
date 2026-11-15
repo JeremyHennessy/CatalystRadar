@@ -1,0 +1,445 @@
+{
+  "mode": "RETROSPECTIVE_EXHIBIT_COVERAGE_NOT_FINANCIAL_QUALIFICATION",
+  "analysis_utc": "2026-11-15T01:00:50.593244+00:00",
+  "reviews_sha256": "129dcb226a879bc94afde0cf214b153b300e3a113fc83490c6a311a781687305",
+  "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+  "rows": [
+    {
+      "accession": "0000012659-26-000042",
+      "issuer_cik": "12659",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Shareholder approval of incentive plan and annual-meeting voting; not a customer contract or earnings/guidance event.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 14,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-10.1": 1,
+          "EX-10.2": 1,
+          "EX-10.3": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+        "sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+        "observed_utc": "2026-11-14T23:33:03.633657+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "EXISTING_OUTSIDE_SIGNAL_FAMILY_REVIEW_UNCHANGED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0000020286-26-000064",
+      "issuer_cik": "20286",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Regular quarterly cash-dividend declaration; not incremental common-stock repurchase authorization.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 13,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "EX-99.1": 1,
+          "GRAPHIC": 1,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [
+          {
+            "type": "EX-99.1",
+            "sequence": "2",
+            "filename": "exhibit99111-13x26.htm",
+            "byte_start": 23448,
+            "byte_end": 63132,
+            "sha256": "409bd2ba907543ba91a8ab4720986341f9cd771ecb2517f65be23afd554395a8",
+            "html_image_reference_count": 1,
+            "text_and_graphics_completeness_reviewed": false
+          }
+        ],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+        "sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+        "observed_utc": "2026-11-14T23:33:09.026985+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "EXISTING_OUTSIDE_SIGNAL_FAMILY_REVIEW_UNCHANGED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0001213900-26-119681",
+      "issuer_cik": "25743",
+      "review_status": "EARNINGS_REVIEW_PENDING",
+      "review_reason": "Q3 earnings release. License revenue growth includes a milestone. Release gives continuing-operations EPS0.04 versus rounded0.00; do not compute percent growth from zero or substitute that for fully verified comparable total GAAP diluted EPS. Exhibit metadata says second quarter while body says third quarter, requiring explicit discrepancy review.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 13,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "EX-99.1": 1,
+          "GRAPHIC": 1,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [
+          {
+            "type": "EX-99.1",
+            "sequence": "2",
+            "filename": "ea031220401ex99-1.htm",
+            "byte_start": 39627,
+            "byte_end": 60193,
+            "sha256": "67bc57f4dbbbae2f39dd9c3c842b4b74cedca1970a9c440b7d846276e2960890",
+            "html_image_reference_count": 1,
+            "text_and_graphics_completeness_reviewed": false
+          }
+        ],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+        "sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+        "observed_utc": "2026-11-14T23:33:13.530724+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "EXHIBIT_DESCRIPTION_SECOND_QUARTER_BODY_THIRD_QUARTER_CONFLICT",
+        "CONTINUING_OPERATIONS_NOT_TOTAL_DILUTED_EPS",
+        "ROUNDED_ZERO_EPS_COMPARATOR",
+        "REVENUE_MILESTONE_AND_ROUNDING_REQUIRE_RECONCILIATION"
+      ],
+      "header_results_of_operations_marker": 1
+    },
+    {
+      "accession": "0001628280-26-073578",
+      "issuer_cik": "31791",
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Investor Day and long-range outlook; no same-period/basis prior-guidance comparison completed. Not a verified guidance raise. Presentation review remains pending.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 105,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.DEF": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "EX-99.1": 1,
+          "EX-99.2": 1,
+          "GRAPHIC": 91,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [
+          {
+            "type": "EX-99.1",
+            "sequence": "2",
+            "filename": "a2026investordaypressrelea.htm",
+            "byte_start": 34215,
+            "byte_end": 43807,
+            "sha256": "2c65a07d49e2b8a15722f2a3340478ad99b7a49dc832506c66a2552bf2596e09",
+            "html_image_reference_count": 0,
+            "text_and_graphics_completeness_reviewed": false
+          },
+          {
+            "type": "EX-99.2",
+            "sequence": "3",
+            "filename": "investorday2026presentat.htm",
+            "byte_start": 43808,
+            "byte_end": 113328,
+            "sha256": "eef4284ade40db6be357a33339796b87ad1f3cf69aaffb53552a67b8593b0c48",
+            "html_image_reference_count": 91,
+            "text_and_graphics_completeness_reviewed": false
+          }
+        ],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+        "sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+        "observed_utc": "2026-11-14T23:33:19.038501+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "PRESENTATION_GRAPHICS_REQUIRE_REVIEW",
+        "PRIOR_NOVEMBER_3_2026_PRO_FORMA_GUIDANCE_SOURCE_REQUIRED",
+        "EXCLUSIONS_AND_SAME_PERIOD_BASIS_NOT_RECONCILED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0001140361-26-043782",
+      "issuer_cik": "32604",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Previously announced debt offering completed; issuance of notes is financing, not customer sales contract.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 18,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.DEF": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "EX-4.2": 1,
+          "EX-4.3": 1,
+          "EX-4.4": 1,
+          "EX-5.1": 1,
+          "GRAPHIC": 2,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+        "sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+        "observed_utc": "2026-11-14T23:33:23.564369+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "EXISTING_OUTSIDE_SIGNAL_FAMILY_REVIEW_UNCHANGED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0001628280-26-073584",
+      "issuer_cik": "42582",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt-note redemption notice, not common-stock buyback or new customer award.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 11,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+        "sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+        "observed_utc": "2026-11-14T23:33:27.622944+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "EXISTING_OUTSIDE_SIGNAL_FAMILY_REVIEW_UNCHANGED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0001174947-26-000991",
+      "issuer_cik": "50292",
+      "review_status": "OUTSIDE_UNIVERSE",
+      "review_reason": "Issuer release identifies OTCQX:IEHC, outside NYSE/Nasdaq universe. Basic EPS/profit turnaround does not override universe or liquidity rules.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 12,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "EX-99.1": 1,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [
+          {
+            "type": "EX-99.1",
+            "sequence": "2",
+            "filename": "ex99-1.htm",
+            "byte_start": 26626,
+            "byte_end": 38269,
+            "sha256": "b24cb88970229bcca0c9fc34a4ca352c021e8b2264a7b47c51c47ca64ed9474e",
+            "html_image_reference_count": 0,
+            "text_and_graphics_completeness_reviewed": false
+          }
+        ],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+        "sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+        "observed_utc": "2026-11-14T23:33:31.646886+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "OUTSIDE_APPROVED_UNIVERSE",
+        "LATER_RELEASE_REVENUE_PAIR_ONLY_NOT_PRIOR_ORIGINAL_VERIFIED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0001628280-26-073875",
+      "issuer_cik": "91576",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Preferred/depositary-share redemption, not common-stock repurchase authorization.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 15,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.DEF": 1,
+          "EX-101.LAB": 1,
+          "EX-101.PRE": 1,
+          "EX-101.SCH": 1,
+          "EX-99.1": 1,
+          "GRAPHIC": 2,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [
+          {
+            "type": "EX-99.1",
+            "sequence": "2",
+            "filename": "exhibit991pressreleasedate.htm",
+            "byte_start": 37490,
+            "byte_end": 46648,
+            "sha256": "e1f0687121d398b0e6f0c7280ac7bf4e166b9dde90b7d259c3eadacf92632bfb",
+            "html_image_reference_count": 1,
+            "text_and_graphics_completeness_reviewed": false
+          }
+        ],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+        "sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+        "observed_utc": "2026-11-14T23:33:35.714449+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "EXISTING_OUTSIDE_SIGNAL_FAMILY_REVIEW_UNCHANGED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0001193125-26-460589",
+      "issuer_cik": "108516",
+      "review_status": "GUIDANCE_REVIEW_PENDING",
+      "review_reason": "Transcript furnished November13 concerns Investor Day November10. Do not refresh economic-event age to filing date. Same-period/basis guidance comparison not completed.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 11,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-101.SCH": 1,
+          "EX-99.1": 1,
+          "GRAPHIC": 1,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [
+          {
+            "type": "EX-99.1",
+            "sequence": "2",
+            "filename": "wor-ex99_1.htm",
+            "byte_start": 63230,
+            "byte_end": 390149,
+            "sha256": "5a2c34e34e8d364c2dbc340552407be9e57f7e6c49c1cf93b20e7093e3e05ce4",
+            "html_image_reference_count": 1,
+            "text_and_graphics_completeness_reviewed": false
+          }
+        ],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+        "sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+        "observed_utc": "2026-11-14T23:33:39.735127+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "INVESTOR_DAY_EVENT_NOVEMBER_10_NOT_NOVEMBER_13_FILING",
+        "PRIOR_SAME_PERIOD_GUIDANCE_REQUIRED"
+      ],
+      "header_results_of_operations_marker": 0
+    },
+    {
+      "accession": "0001193125-26-460692",
+      "issuer_cik": "108772",
+      "review_status": "OUTSIDE_SIGNAL_FAMILIES",
+      "review_reason": "Debt exchange/recapitalization with new secured notes and common shares, not a revenue-generating customer contract. Joint Xerox entities remain distinct.",
+      "status": "DOCUMENT_FRAMING_AND_METADATA_INVENTORIED_NOW",
+      "inventory": {
+        "embedded_document_count": 12,
+        "document_type_counts": {
+          "8-K": 1,
+          "EX-10.2": 1,
+          "EX-101.SCH": 1,
+          "EX-4.1": 1,
+          "EX-4.3": 1,
+          "JSON": 1,
+          "XML": 5,
+          "ZIP": 1
+        },
+        "ex99_exhibits": [],
+        "inventory_only_not_content_validation": true
+      },
+      "source": {
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+        "sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+        "observed_utc": "2026-11-14T23:33:43.933078+00:00"
+      },
+      "first_public_utc": null,
+      "qualified": false,
+      "content_review_followups": [
+        "EXISTING_OUTSIDE_SIGNAL_FAMILY_REVIEW_UNCHANGED"
+      ],
+      "header_results_of_operations_marker": 0
+    }
+  ],
+  "inventoried_submissions": 10,
+  "embedded_documents": 224,
+  "ex99_exhibits": 7,
+  "financial_signals": 0,
+  "orders": 0,
+  "historical_availability_verified": false,
+  "limitations": [
+    "Framing and metadata coverage is not semantic review of every exhibit or image.",
+    "Followups preserve current manual review context, not automated financial findings.",
+    "Invocation/reproduction clock is not authenticated completion or historical knowledge.",
+    "Item 2.02 marker is not a complete earnings-exhibit search or qualification gate."
+  ]
+}
