@@ -24,9 +24,21 @@ paper book. New filing data may change identity matches; provenance and input
 hashes permit reproducing each saved report. `generated_at` is report execution
 time, never an historical decision or source-publication time.
 
-The existing `build_dashboard.py` run regenerates the report and identical web
-copy (`web/research_report.json`). The existing SEC observation workflow commits
-both copies with its saved snapshot. Its cadence, permissions and provider calls
-are unchanged; a report-generation failure stops the existing pipeline. The
-standalone report command updates only the canonical data copy; run the dashboard
-builder to refresh the served copy too.
+The default `build_dashboard.py` run regenerates the report and identical web
+copy (`web/research_report.json`). This is a separate research-publication step.
+Routine SEC observation refreshes instead use
+`python3 backend/build_dashboard.py --preserve-research-report`: it checks the two
+existing reports are identical valid JSON objects before writing the dashboard,
+never invokes research generation, and preserves both report files byte-for-byte.
+A missing, mismatched or invalid report stops the refresh rather than rebuilding
+it silently. The report's own generation clock stays unchanged and is displayed
+separately from the dashboard/source observation clocks.
+
+The SEC observation workflow stages public scan receipts, metadata snapshots,
+latest scan and dashboard only. It no longer stages either research report.
+Its schedule, source universe, permissions, publication mechanism and disabled
+paper book are unchanged. This separation allows public-source observations to
+refresh without publishing a newly generated archive-derived research report.
+It does not fix or certify GitHub scheduled-trigger delivery. The standalone
+report command updates only the canonical data copy; an explicitly authorized
+research release must deliberately synchronize both copies.
