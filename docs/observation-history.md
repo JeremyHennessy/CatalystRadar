@@ -32,3 +32,20 @@ price data, credentials and local diagnostics are not included. Source errors
 remain sanitized. The disabled book, frozen private mechanical comparison and
 its code pins are unchanged. No decision-time or forecasting eligibility is
 raised by this history.
+
+## Issuer-atomic metadata validation (November 16, 2026)
+
+Each poll validates the declared universe before making requests. Duplicate CIKs
+or tickers and malformed identifiers are rejected. A response must match both
+its configured CIK and ticker. Selected 8-K/8-K/A records require valid accession
+identifiers; identical repeated rows are counted once and conflicting duplicates
+reject that issuer's candidate batch. No candidates from that issuer are admitted
+until its full selected window passes validation. Raw public response bytes remain
+retained even when validation fails, so rejection is not silent deletion.
+
+Each source now carries `validation_status`: `METADATA_WINDOW_VALIDATED`,
+`METADATA_VALIDATION_FAILED`, `FETCH_FAILED`, or `NOT_ATTEMPTED_AFTER_DENIAL`.
+A 403/429 still stops subsequent requests; skipped issuers receive explicit source
+records with no invented response or retrieval clock. Older saved receipts are
+unchanged and may lack this field. These statuses describe metadata checks only,
+not filing-content authenticity, whole-market coverage or trading eligibility.
