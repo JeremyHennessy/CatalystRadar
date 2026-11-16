@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 import json
 from build_research_report import build as build_research_report
+from scan_status import summarize_scan
 ROOT=Path(__file__).resolve().parent.parent
 
 def build(root=ROOT):
@@ -21,10 +22,11 @@ def build(root=ROOT):
  scanpath=root/'data/latest_scan.json'
  if scanpath.exists():
   scan=json.loads(scanpath.read_text());state['feeds'][0].update(status='snapshot_only',as_of=scan['finished_at'],detail=f"{scan['successful_issuers']}/{scan['configured_issuers']} configured issuer metadata feeds checked; {len(scan['events'])} filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime.")
-  state['activity']=[{'at':scan['finished_at'],'detail':f"Manual SEC poll: {len(scan['events'])} metadata discoveries; zero orders."}]
+  scan_status=summarize_scan(scan)
+  state['activity']=[{'at':scan['finished_at'],'detail':scan_status['activity']}]
  if (root/'data/scan_schedule.json').exists():
   state['blockers']=[x for x in state['blockers'] if not x.startswith('Live schedule')]
-  state['blockers'].append('Trial-week SEC metadata schedule configured; successful scheduled execution not yet verified' if not scanpath.exists() or scan.get('github_event_name')!='schedule' else 'SEC metadata polling has run on schedule; this is not an executable price feed')
+  state['blockers'].append(summarize_scan(scan if scanpath.exists() else None)['schedule_note'])
  # Public event retrieval timestamps refer to actual source reads, not review completion.
  provenance=json.loads((root/'data/provenance.json').read_text())['sources']
  byhash={r.get('sha256'):r.get('retrieved_utc') for r in provenance if r.get('sha256')}
