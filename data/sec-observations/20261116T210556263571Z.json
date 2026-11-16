@@ -1,0 +1,114 @@
+{
+  "configured_issuers": 10,
+  "eligible_count": 0,
+  "errors": [
+    {
+      "error": "HTTP 403 from public source",
+      "ticker": "COHR"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "HRB"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "CINF"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "TXMD"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "RVTY"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "EMR"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "GT"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "KEY"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "WOR"
+    },
+    {
+      "error": "not attempted after access/rate denial",
+      "ticker": "XRX"
+    }
+  ],
+  "events": [],
+  "finished_at": "2026-11-16T21:05:56.306507+00:00",
+  "github_event_name": "schedule",
+  "github_run_url": "https://github.com/JeremyHennessy/CatalystRadar/actions/runs/43956540805",
+  "metadata_window_complete": false,
+  "mode": "OBSERVATION_ONLY",
+  "orders_created": 0,
+  "run_id": "20261116T210556263571Z",
+  "schedule_status": "GITHUB_RUN",
+  "scope": "10 configured issuer metadata feeds; NOT whole market",
+  "sources": [
+    {
+      "error": "HTTP 403 from public source",
+      "request_utc": "2026-11-16T21:05:56.263902+00:00",
+      "retrieved_utc": "2026-11-16T21:05:56.306183+00:00",
+      "ticker": "COHR",
+      "url": "https://data.sec.gov/submissions/CIK0000820318.json",
+      "validation_status": "FETCH_FAILED"
+    },
+    {
+      "ticker": "HRB",
+      "url": "https://data.sec.gov/submissions/CIK0000012659.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "CINF",
+      "url": "https://data.sec.gov/submissions/CIK0000020286.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "TXMD",
+      "url": "https://data.sec.gov/submissions/CIK0000025743.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "RVTY",
+      "url": "https://data.sec.gov/submissions/CIK0000031791.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "EMR",
+      "url": "https://data.sec.gov/submissions/CIK0000032604.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "GT",
+      "url": "https://data.sec.gov/submissions/CIK0000042582.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "KEY",
+      "url": "https://data.sec.gov/submissions/CIK0000091576.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "WOR",
+      "url": "https://data.sec.gov/submissions/CIK0000108516.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    },
+    {
+      "ticker": "XRX",
+      "url": "https://data.sec.gov/submissions/CIK0001770450.json",
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
+    }
+  ],
+  "started_at": "2026-11-16T21:05:56.263571+00:00",
+  "successful_issuers": 0,
+  "window_start": "2026-11-12T21:05:56.263571+00:00"
+}

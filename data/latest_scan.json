@@ -1,307 +1,114 @@
 {
-  "run_id": "20261116T181527938922Z",
-  "started_at": "2026-11-16T18:15:27.938922+00:00",
-  "finished_at": "2026-11-16T18:15:56.717024+00:00",
-  "window_start": "2026-11-12T18:15:27.938922+00:00",
+  "run_id": "20261116T210556263571Z",
+  "started_at": "2026-11-16T21:05:56.263571+00:00",
+  "finished_at": "2026-11-16T21:05:56.306507+00:00",
+  "window_start": "2026-11-12T21:05:56.263571+00:00",
   "mode": "OBSERVATION_ONLY",
   "scope": "10 configured issuer metadata feeds; NOT whole market",
   "configured_issuers": 10,
-  "successful_issuers": 10,
-  "metadata_window_complete": true,
-  "errors": [],
+  "successful_issuers": 0,
+  "metadata_window_complete": false,
+  "errors": [
+    {
+      "ticker": "COHR",
+      "error": "HTTP 403 from public source"
+    },
+    {
+      "ticker": "HRB",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "CINF",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "TXMD",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "RVTY",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "EMR",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "GT",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "KEY",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "WOR",
+      "error": "not attempted after access/rate denial"
+    },
+    {
+      "ticker": "XRX",
+      "error": "not attempted after access/rate denial"
+    }
+  ],
   "sources": [
     {
       "url": "https://data.sec.gov/submissions/CIK0000820318.json",
-      "request_utc": "2026-11-16T18:15:27.939444+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:31.982805+00:00",
-      "byte_count": 159783,
-      "sha256": "628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907",
+      "request_utc": "2026-11-16T21:05:56.263902+00:00",
+      "retrieved_utc": "2026-11-16T21:05:56.306183+00:00",
+      "error": "HTTP 403 from public source",
       "ticker": "COHR",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907.json"
+      "validation_status": "FETCH_FAILED"
     },
     {
+      "ticker": "HRB",
       "url": "https://data.sec.gov/submissions/CIK0000012659.json",
-      "request_utc": "2026-11-16T18:15:31.990881+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:34.546348+00:00",
-      "byte_count": 153444,
-      "sha256": "f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b",
-      "ticker": "HRB",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "CINF",
       "url": "https://data.sec.gov/submissions/CIK0000020286.json",
-      "request_utc": "2026-11-16T18:15:34.551323+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:36.929705+00:00",
-      "byte_count": 166458,
-      "sha256": "f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2",
-      "ticker": "CINF",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "TXMD",
       "url": "https://data.sec.gov/submissions/CIK0000025743.json",
-      "request_utc": "2026-11-16T18:15:36.935221+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:39.417914+00:00",
-      "byte_count": 171439,
-      "sha256": "48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f",
-      "ticker": "TXMD",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "RVTY",
       "url": "https://data.sec.gov/submissions/CIK0000031791.json",
-      "request_utc": "2026-11-16T18:15:39.422244+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:41.893578+00:00",
-      "byte_count": 159092,
-      "sha256": "16056ff3968a9c1dcc373f1ef48ee9c18d28b5d7317cc5321d1b49dd9dadfdde",
-      "ticker": "RVTY",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/16056ff3968a9c1dcc373f1ef48ee9c18d28b5d7317cc5321d1b49dd9dadfdde.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "EMR",
       "url": "https://data.sec.gov/submissions/CIK0000032604.json",
-      "request_utc": "2026-11-16T18:15:41.902166+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:44.328528+00:00",
-      "byte_count": 163649,
-      "sha256": "ba114ea34caa27b94f4bce204a683207475c716e88719fab09f731fc8a144880",
-      "ticker": "EMR",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/ba114ea34caa27b94f4bce204a683207475c716e88719fab09f731fc8a144880.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "GT",
       "url": "https://data.sec.gov/submissions/CIK0000042582.json",
-      "request_utc": "2026-11-16T18:15:44.334431+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:46.738249+00:00",
-      "byte_count": 157567,
-      "sha256": "e815c402d625a39d4da5148fa5e7eb29b127e4a20123cc734dcb8e7ae43b524f",
-      "ticker": "GT",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/e815c402d625a39d4da5148fa5e7eb29b127e4a20123cc734dcb8e7ae43b524f.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "KEY",
       "url": "https://data.sec.gov/submissions/CIK0000091576.json",
-      "request_utc": "2026-11-16T18:15:46.743441+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:49.141637+00:00",
-      "byte_count": 160059,
-      "sha256": "7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897",
-      "ticker": "KEY",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "WOR",
       "url": "https://data.sec.gov/submissions/CIK0000108516.json",
-      "request_utc": "2026-11-16T18:15:49.145593+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:52.597659+00:00",
-      "byte_count": 157614,
-      "sha256": "e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8",
-      "ticker": "WOR",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     },
     {
+      "ticker": "XRX",
       "url": "https://data.sec.gov/submissions/CIK0001770450.json",
-      "request_utc": "2026-11-16T18:15:52.602390+00:00",
-      "status": 200,
-      "retrieved_utc": "2026-11-16T18:15:56.713631+00:00",
-      "byte_count": 106090,
-      "sha256": "7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243",
-      "ticker": "XRX",
-      "validation_status": "METADATA_WINDOW_VALIDATED",
-      "archive_path": "data/sec-snapshots/7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243.json"
+      "validation_status": "NOT_ATTEMPTED_AFTER_DENIAL"
     }
   ],
-  "events": [
-    {
-      "ticker": "EMR",
-      "issuer": "EMERSON ELECTRIC CO",
-      "issuer_cik": "0000032604",
-      "accession": "0001140361-26-043442",
-      "form": "8-K",
-      "items_raw": "8.01,9.01",
-      "sec_accepted_utc": "2026-11-12T21:23:59.000Z",
-      "observed_utc": "2026-11-16T18:15:44.328528+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043442/0001140361-26-043442.txt",
-      "source_metadata_sha256": "ba114ea34caa27b94f4bce204a683207475c716e88719fab09f731fc8a144880",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "XRX",
-      "issuer": "Xerox Holdings Corp",
-      "issuer_cik": "0001770450",
-      "accession": "0001193125-26-458602",
-      "form": "8-K",
-      "items_raw": "5.02",
-      "sec_accepted_utc": "2026-11-12T21:35:45.000Z",
-      "observed_utc": "2026-11-16T18:15:56.713631+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1770450/000119312526458602/0001193125-26-458602.txt",
-      "source_metadata_sha256": "7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "RVTY",
-      "issuer": "REVVITY, INC.",
-      "issuer_cik": "0000031791",
-      "accession": "0001628280-26-073578",
-      "form": "8-K",
-      "items_raw": "7.01,9.01",
-      "sec_accepted_utc": "2026-11-13T13:09:56.000Z",
-      "observed_utc": "2026-11-16T18:15:41.893578+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
-      "source_metadata_sha256": "16056ff3968a9c1dcc373f1ef48ee9c18d28b5d7317cc5321d1b49dd9dadfdde",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "GT",
-      "issuer": "GOODYEAR TIRE & RUBBER CO /OH/",
-      "issuer_cik": "0000042582",
-      "accession": "0001628280-26-073584",
-      "form": "8-K",
-      "items_raw": "7.01",
-      "sec_accepted_utc": "2026-11-13T13:30:09.000Z",
-      "observed_utc": "2026-11-16T18:15:46.738249+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
-      "source_metadata_sha256": "e815c402d625a39d4da5148fa5e7eb29b127e4a20123cc734dcb8e7ae43b524f",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "CINF",
-      "issuer": "CINCINNATI FINANCIAL CORP",
-      "issuer_cik": "0000020286",
-      "accession": "0000020286-26-000064",
-      "form": "8-K",
-      "items_raw": "7.01,9.01",
-      "sec_accepted_utc": "2026-11-13T18:01:26.000Z",
-      "observed_utc": "2026-11-16T18:15:36.929705+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
-      "source_metadata_sha256": "f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "WOR",
-      "issuer": "WORTHINGTON ENTERPRISES, INC.",
-      "issuer_cik": "0000108516",
-      "accession": "0001193125-26-460589",
-      "form": "8-K",
-      "items_raw": "7.01,9.01",
-      "sec_accepted_utc": "2026-11-13T21:04:33.000Z",
-      "observed_utc": "2026-11-16T18:15:52.597659+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
-      "source_metadata_sha256": "e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "TXMD",
-      "issuer": "TherapeuticsMD, Inc.",
-      "issuer_cik": "0000025743",
-      "accession": "0001213900-26-119681",
-      "form": "8-K",
-      "items_raw": "2.02,7.01,9.01",
-      "sec_accepted_utc": "2026-11-13T21:05:47.000Z",
-      "observed_utc": "2026-11-16T18:15:39.417914+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
-      "source_metadata_sha256": "48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "XRX",
-      "issuer": "Xerox Holdings Corp",
-      "issuer_cik": "0001770450",
-      "accession": "0001193125-26-460692",
-      "form": "8-K",
-      "items_raw": "1.01,2.03,3.02,9.01",
-      "sec_accepted_utc": "2026-11-13T21:16:11.000Z",
-      "observed_utc": "2026-11-16T18:15:56.713631+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1770450/000119312526460692/0001193125-26-460692.txt",
-      "source_metadata_sha256": "7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "HRB",
-      "issuer": "H&R BLOCK INC",
-      "issuer_cik": "0000012659",
-      "accession": "0000012659-26-000042",
-      "form": "8-K",
-      "items_raw": "5.02,5.07,9.01",
-      "sec_accepted_utc": "2026-11-13T21:31:16.000Z",
-      "observed_utc": "2026-11-16T18:15:34.546348+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
-      "source_metadata_sha256": "f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "KEY",
-      "issuer": "KEYCORP /NEW/",
-      "issuer_cik": "0000091576",
-      "accession": "0001628280-26-073875",
-      "form": "8-K",
-      "items_raw": "8.01,9.01",
-      "sec_accepted_utc": "2026-11-13T21:34:58.000Z",
-      "observed_utc": "2026-11-16T18:15:49.141637+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
-      "source_metadata_sha256": "7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    },
-    {
-      "ticker": "EMR",
-      "issuer": "EMERSON ELECTRIC CO",
-      "issuer_cik": "0000032604",
-      "accession": "0001140361-26-043782",
-      "form": "8-K",
-      "items_raw": "8.01,9.01",
-      "sec_accepted_utc": "2026-11-13T21:37:13.000Z",
-      "observed_utc": "2026-11-16T18:15:44.328528+00:00",
-      "first_public_utc": null,
-      "source_url": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
-      "source_metadata_sha256": "ba114ea34caa27b94f4bce204a683207475c716e88719fab09f731fc8a144880",
-      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
-      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
-      "eligible": false
-    }
-  ],
+  "events": [],
   "eligible_count": 0,
   "orders_created": 0,
-  "schedule_status": "MANUAL_RUN",
-  "github_event_name": null,
-  "github_run_url": null
+  "schedule_status": "GITHUB_RUN",
+  "github_event_name": "schedule",
+  "github_run_url": "https://github.com/JeremyHennessy/CatalystRadar/actions/runs/43956540805"
 }
