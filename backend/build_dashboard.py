@@ -6,7 +6,12 @@ from build_research_report import build as build_research_report
 from scan_status import summarize_scan
 ROOT=Path(__file__).resolve().parent.parent
 
-def build(root=ROOT):
+def build(root=ROOT, *, preserve_research_report=False):
+ if preserve_research_report:
+  # Validate before any output write; never regenerate a held research artifact.
+  data_report=(root/'data/research_report.json').read_bytes()
+  web_report=(root/'web/research_report.json').read_bytes()
+  if data_report!=web_report or not isinstance(json.loads(data_report),dict):raise ValueError('Saved research report copies missing, invalid or different')
  ledger=json.loads((root/'data/paper_ledger.json').read_text());reviews=json.loads((root/'data/filing_reviews.json').read_text())['records']
  state={'generated_at':datetime.now(timezone.utc).isoformat(),'mode':'paper','window':{'start':'2026-11-16','end':'2026-11-20','timezone':'America/New_York'},'feeds':[{'name':'SEC filings','status':'manual_verified_sample','as_of':'2026-11-14T16:51:10Z','detail':'Nine official daily indexes, eleven original full filings. Ten-issuer bounded sample reviewed; not exhaustive live coverage.'},{'name':'Price and liquidity','status':'disconnected','as_of':None,'detail':'No authorized reliable price feed connected. Daily closes are not automatically auction prices.'},{'name':'Trading halts','status':'not_connected','as_of':None,'detail':'Unknown halt status blocks entries.'},{'name':'Paper execution','status':'disabled','as_of':None,'detail':'No orders until all source, calendar, liquidity, auction and halt gates pass.'}], 'portfolio':{'initial_cash':ledger['initial_cash'],'cash':ledger['cash'],'equity':None,'realized_pnl':None,'unrealized_pnl':None,'positions':ledger['positions'],'trades':ledger['fills'],'orders':ledger['orders'],'currency':'USD'},'discovery':{'filing_paths':4076,'issuers':3066,'index_days':9,'archived_filings':11,'reviewed_filings':10,'eligible_signals':0},'signals':[{'ticker':None,'issuer':r['issuer'],'family':r['status'],'status':r['status'],'reason':r['reason'],'source_url':r['source_url'],'source_published_at':None,'retrieved_at':r['reviewed_utc'],'accession':r['accession'],'eligible':False} for r in reviews], 'blockers':['Price/volume/auction feed not connected or validated','Historical halt evidence not connected','Three source reviews need further financial or guidance comparison','Live schedule not activated; browser refresh only reloads saved evidence','Paper book is disabled and empty; no results or guaranteed returns']}
  # Sanitized one-time verification metadata only; never read private vendor data here.
@@ -32,10 +37,11 @@ def build(root=ROOT):
  byhash={r.get('sha256'):r.get('retrieved_utc') for r in provenance if r.get('sha256')}
  for signal,review in zip(state['signals'],reviews):
   signal['retrieved_at']=byhash.get(review['source_sha256']);signal['reviewed_at']=review['reviewed_utc']
- report=build_research_report(root, generated_at=state['generated_at'])
- report_json=json.dumps(report,indent=2)+'\n'
- (root/'data/research_report.json').write_text(report_json)
- (root/'web/research_report.json').write_text(report_json)
+ if not preserve_research_report:
+  report=build_research_report(root, generated_at=state['generated_at'])
+  report_json=json.dumps(report,indent=2)+'\n'
+  (root/'data/research_report.json').write_text(report_json)
+  (root/'web/research_report.json').write_text(report_json)
  # Display only explicit aggregate checkpoints, never private originals or vendor prices.
  updates=[]
  for filename,mode,clock,fields,title,note in [
@@ -54,4 +60,10 @@ def build(root=ROOT):
   updates.append({'title':title,'as_of':stamp,'metrics':metrics,'note':note,'url':'https://github.com/JeremyHennessy/CatalystRadar/blob/main/data/'+filename})
  state['research_updates']=updates
  (root/'web/app-data.json').write_text(json.dumps(state,indent=2));return state
-if __name__=='__main__':build();print('Dashboard generated from saved public evidence; no scans or trades executed.')
+if __name__=='__main__':
+ import argparse
+ parser=argparse.ArgumentParser()
+ parser.add_argument('--preserve-research-report',action='store_true',help='Refresh dashboard only; keep both research reports byte-for-byte unchanged')
+ args=parser.parse_args()
+ build(preserve_research_report=args.preserve_research_report)
+ print('Dashboard generated from saved public evidence; no scans or trades executed. Research reports '+('preserved unchanged.' if args.preserve_research_report else 'regenerated.'))
