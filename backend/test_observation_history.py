@@ -70,7 +70,7 @@ class HistoryTests(unittest.TestCase):
                 'acceptanceDateTime':['2026-11-16T10:00:00Z','2026-11-01T10:00:00Z'],
                 'filingDate':['2026-11-16','2026-11-01'],'primaryDocument':['one.htm','old.htm'],
                 'form':['8-K','10-Q'],'items':['2.02','']}
-        raw=json.dumps({'name':'One','tickers':['ONE'],'filings':{'recent':recent}}).encode()
+        raw=json.dumps({'cik':1,'name':'One','tickers':['ONE'],'filings':{'recent':recent}}).encode()
         def get(arc,url,label):
             if '0000000001' in url:
                 return raw,{'url':url,'retrieved_utc':'2026-11-16T12:00:02Z',
