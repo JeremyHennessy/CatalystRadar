@@ -1,6 +1,7 @@
 """Issuer-atomic metadata admission. All source responses are mocked."""
 import hashlib
 import json
+import os
 import tempfile
 import unittest
 from datetime import datetime, timezone
@@ -22,6 +23,7 @@ def source():
 
 class ScanValidationTests(unittest.TestCase):
     def setUp(self):
+        identity=patch.dict(os.environ,{"SEC_CONTACT_EMAIL":"fixture@example.invalid"});identity.start();self.addCleanup(identity.stop)
         self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
         (self.root/'data').mkdir()
         self.config([{'ticker':'ONE','cik':'1'}])

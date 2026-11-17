@@ -2,7 +2,10 @@
 from pathlib import Path
 from datetime import datetime,timedelta,timezone
 import json,argparse,os,hashlib,re,tempfile
+from html import unescape
+from urllib.parse import unquote
 from discover_sec import Archive,rows,parse,stamp
+from sec_identity import contact_email,user_agent
 ROOT=Path(__file__).resolve().parent.parent
 
 def public_error(message):
@@ -37,6 +40,7 @@ def persist_observation(report, root=ROOT):
  return target
 
 def scan(root=ROOT):
+ contact=contact_email() # Fail before requests or output when private contact is absent.
  now=datetime.now(timezone.utc);start=now-timedelta(hours=96);config=json.loads((root/'data/watchlist.json').read_text())
  if not isinstance(config,list) or not config or len(config)>20:raise ValueError('watchlist must contain1..20 issuers')
  identities=[]
@@ -46,7 +50,7 @@ def scan(root=ROOT):
   identities.append((str(int(issuer['cik'])).zfill(10),issuer['ticker']))
  if len(set(c for c,t in identities))!=len(identities) or len(set(t for c,t in identities))!=len(identities):raise ValueError('duplicate configured issuer')
  run_id=now.strftime('%Y%m%dT%H%M%S%fZ');archive_root=root/'.data/scans'/run_id;archive_root.mkdir(parents=True,exist_ok=False)
- arc=Archive(archive_root,'CatalystRadar/0.1 public SEC read-only research https://github.com/JeremyHennessy/CatalystRadar')
+ arc=Archive(archive_root,user_agent(contact))
  events=[];sources=[];errors=[];halt=False
  for issuer in config:
   cik=str(issuer['cik']).zfill(10);ticker=issuer['ticker']
@@ -54,6 +58,13 @@ def scan(root=ROOT):
    sources.append({'ticker':ticker,'url':f'https://data.sec.gov/submissions/CIK{cik}.json','validation_status':'NOT_ATTEMPTED_AFTER_DENIAL'})
    errors.append({'ticker':ticker,'error':'not attempted after access/rate denial'});continue
   url=f'https://data.sec.gov/submissions/CIK{cik}.json';raw,meta=arc.get(url,cik+'.json')
+  if raw is not None:
+   text=raw.decode('utf-8',errors='replace')
+   try:text+=' '+json.dumps(json.loads(raw),ensure_ascii=False)
+   except (ValueError,UnicodeError):pass
+   if contact.casefold() in unescape(unquote(text)).casefold():
+    raw=None;meta={k:v for k,v in meta.items() if k in ('url','request_utc','retrieved_utc','status')}
+    meta['error']='Private contact reflected in source response; response withheld';halt=True
   public={k:v for k,v in meta.items() if k in ('url','request_utc','retrieved_utc','status','sha256','byte_count','error','http_diagnostic')};public['ticker']=ticker;public['validation_status']='FETCH_FAILED' if raw is None else 'UNVALIDATED'
   if public.get('error'):public['error']=public_error(public['error'])
   if raw is not None:
@@ -64,7 +75,7 @@ def scan(root=ROOT):
    public['archive_path']='data/sec-snapshots/'+target.name
   sources.append(public)
   if raw is None:
-   errors.append({'ticker':ticker,'error':public_error(meta.get('error'))});halt=any(x in meta.get('error','') for x in ('403','429'));continue
+   errors.append({'ticker':ticker,'error':public_error(meta.get('error'))});halt=halt or any(x in meta.get('error','') for x in ('403','429'));continue
   try:
    j=json.loads(raw)
    if not re.fullmatch(r'[0-9]{1,10}',str(j.get('cik',''))) or int(j['cik'])!=int(cik) or not isinstance(j.get('tickers'),list) or not all(isinstance(t,str) for t in j['tickers']) or ticker not in j['tickers']:raise ValueError('ticker/CIK mismatch')

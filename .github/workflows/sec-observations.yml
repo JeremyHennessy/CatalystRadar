@@ -22,6 +22,8 @@ jobs:
       - id: gate
         run: echo "allowed=$(python3 backend/trial_gate.py)" >> "$GITHUB_OUTPUT"
       - if: steps.gate.outputs.allowed == 'true'
+        env:
+          SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: |
           python3 -m unittest discover -s backend -p 'test_*.py'
           python3 backend/scan_watchlist.py

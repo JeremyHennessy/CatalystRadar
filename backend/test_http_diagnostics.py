@@ -1,5 +1,6 @@
 """Offline denial diagnostics: bounded, sanitized and never retried."""
 import io
+import os
 import json
 import tempfile
 import unittest
@@ -10,6 +11,8 @@ from discover_sec import Archive, http_error_diagnostic
 import scan_watchlist
 
 class HttpDiagnosticsTests(unittest.TestCase):
+ def setUp(self):
+  identity=patch.dict(os.environ,{"SEC_CONTACT_EMAIL":"fixture@example.invalid"});identity.start();self.addCleanup(identity.stop)
  def test_fixed_categories_without_body_or_headers(self):
   for phrase, category in [('Undeclared Automated Tool','UNDECLARED_AUTOMATED_TOOL_RESPONSE'),('Request Rate Threshold Exceeded','RATE_THRESHOLD_RESPONSE'),('Access Denied','ACCESS_DENIED_RESPONSE'),('other','HTTP_ERROR_UNCLASSIFIED')]:
    with self.subTest(phrase=phrase):
@@ -32,7 +35,7 @@ class HttpDiagnosticsTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    body=io.BytesIO(b'Access Denied private-marker')
    error=urllib.error.HTTPError('https://data.sec.gov/test',403,'private reason',{},body)
-   with patch('urllib.request.urlopen',side_effect=error) as request:
+   with patch('discover_sec.HTTP.open',side_effect=error) as request:
     raw,meta=Archive(Path(temp),'unchanged-agent').get('https://data.sec.gov/test','test.json')
    self.assertIsNone(raw);self.assertEqual(request.call_count,1)
    self.assertEqual(meta['status'],403);self.assertEqual(meta['error'],'HTTP Error 403')
@@ -45,7 +48,7 @@ class HttpDiagnosticsTests(unittest.TestCase):
     root=Path(temp);(root/'data').mkdir()
     (root/'data/watchlist.json').write_text(json.dumps([{'ticker':'ONE','cik':'1'},{'ticker':'TWO','cik':'2'}]))
     error=urllib.error.HTTPError('https://data.sec.gov/test',status,'private reason',{},io.BytesIO(b'Request Rate Threshold Exceeded private-marker'))
-    with patch('urllib.request.urlopen',side_effect=error) as request:
+    with patch('discover_sec.HTTP.open',side_effect=error) as request:
      report=scan_watchlist.scan(root)
     self.assertEqual(request.call_count,1)
     self.assertEqual(report['sources'][0]['status'],status)

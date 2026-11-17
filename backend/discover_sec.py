@@ -4,6 +4,9 @@ Coverage is a declared fixed issuer universe, NEVER the whole market.
 import argparse,datetime as dt,hashlib,json,time,urllib.request,urllib.error,re
 from pathlib import Path
 UTC=dt.timezone.utc
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+ def redirect_request(self,req,fp,code,msg,headers,newurl):return None
+HTTP=urllib.request.build_opener(NoRedirect())
 
 def stamp():return dt.datetime.now(UTC).isoformat()
 def parse(x):
@@ -45,7 +48,7 @@ class Archive:
   self.last=time.monotonic();record={'url':url,'request_utc':stamp(),'label':label}
   try:
    req=urllib.request.Request(url,headers={'User-Agent':self.agent,'Accept-Encoding':'identity'})
-   with urllib.request.urlopen(req,timeout=30) as response:
+   with HTTP.open(req,timeout=30) as response:
     raw=response.read(25_000_001)
     if len(raw)>25_000_000:raise ValueError('response exceeds archive limit; not truncated into evidence')
     record.update(status=response.status,content_type=response.headers.get('Content-Type'),server_date_raw=response.headers.get('Date'),etag=response.headers.get('ETag'),last_modified_raw=response.headers.get('Last-Modified'))
@@ -57,7 +60,7 @@ class Archive:
    record.update(retrieved_utc=stamp(),status=err.code,error='HTTP Error '+str(err.code),http_diagnostic=http_error_diagnostic(err))
    self.manifest.append(record);self.flush();return None,record
   except Exception as err:
-   record.update(retrieved_utc=stamp(),error=type(err).__name__+': '+str(err));self.manifest.append(record);self.flush();return None,record
+   record.update(retrieved_utc=stamp(),error=type(err).__name__+': source request failed; details withheld');self.manifest.append(record);self.flush();return None,record
  def flush(self):
   # Manifest journal append-only, one unique entry per request; atomic final snapshot separately.
   with (self.root/'manifest.jsonl').open('a') as f:f.write(json.dumps(self.manifest[-1])+'\n')
