@@ -14,7 +14,25 @@ class RegistryTests(unittest.TestCase):
     def test_actual_catalog_and_generated_document(self):
         self.check(self.data)
         self.assertEqual(s.render(self.data),(ROOT/'docs/research/source-registry.md').read_text())
-        self.assertEqual(len(self.data['records']),15)
+        self.assertEqual(len(self.data['records']),25)
+    def test_expansion_remains_research_only(self):
+        ids={'openfigi_mapping','gleif_lei','nasdaq_symbol_events','openfda_drugs',
+             'openfda_drug_recalls','clinicaltrials_v2','usaspending_awards',
+             'sam_public_opportunities','gdelt_project','globenewswire_rss'}
+        records={r['id']:r for r in self.data['records']}
+        self.assertTrue(ids <= records.keys())
+        for key in ids:
+            r=records[key]
+            self.assertEqual(r['verified_access']['status'],'UNVERIFIED')
+            self.assertEqual(r['verified_access']['downloaded_records'],0)
+            self.assertEqual(r['current_operational_access']['status'],'UNVERIFIED')
+            self.assertIs(r['training_ready'],False)
+        for key in ['clinicaltrials_v2','sam_public_opportunities','globenewswire_rss']:
+            self.assertEqual(records[key]['rights']['model_training']['status'],'UNVERIFIED')
+        self.assertEqual(records['nasdaq_symbol_events']['rights']['storage']['status'],'PARTIAL')
+        for key in ['openfda_drugs','openfda_drug_recalls']:
+            self.assertEqual(records[key]['rights']['storage']['status'],'PARTIAL')
+
     def test_source_ids_unique(self):
         self.data['records'].append(copy.deepcopy(self.data['records'][0]))
         with self.assertRaises(ValueError):self.check(self.data)
