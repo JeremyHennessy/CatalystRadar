@@ -35,6 +35,33 @@ class PrivateTests(unittest.TestCase):
   with self.assertRaises(ValueError):metadata(json.dumps(self.raw).encode(),'TEST',self.now)
  def test_no_quotes_output(self):
   r=metadata(json.dumps(self.raw).encode(),'TEST',self.now);self.assertNotIn('close',r);self.assertEqual(r['returned_rows'],1);self.assertFalse(r['eligible'])
+ def test_duplicate_fields_at_every_depth(self):
+  raw=json.dumps(self.raw)
+  cases=[
+   raw.replace('"Meta Data": {','"Meta Data": {}, "Meta Data": {',1),
+   raw.replace('"2. Symbol": "TEST"','"2. Symbol": "WRONG", "2. Symbol": "TEST"'),
+   raw.replace('"2026-11-13": {','"2026-11-13": {}, "2026-11-13": {',1),
+   raw.replace('"4. close": "10"','"4. close": "999", "4. close": "10"'),
+   raw.replace('"5. volume": "100"','"5. volume": "100", "5. volume": "100"'),
+   raw.replace('"2. Symbol": "TEST"','"2. Symbol": "WRONG", "2. '+chr(92)+'u0053ymbol": "TEST"'),
+  ]
+  for candidate in cases:
+   with self.subTest(candidate=candidate),self.assertRaisesRegex(ValueError,'ambiguous duplicate JSON field'):
+    metadata(candidate.encode(),'TEST',self.now)
+ def test_duplicate_error_does_not_disclose_key(self):
+  with self.assertRaises(ValueError)as failure:
+   metadata(b'{"SYNTHETIC_SECRET":1,"SYNTHETIC_SECRET":2}','TEST',self.now)
+  self.assertEqual(str(failure.exception),'ambiguous duplicate JSON field')
+ def test_archive_rejects_duplicate_before_writing(self):
+  import tempfile
+  from pathlib import Path
+  from private_archive import archive
+  raw=json.dumps(self.raw).replace('"4. close": "10"','"4. close": "999", "4. close": "10"').encode()
+  with tempfile.TemporaryDirectory()as directory:
+   root=Path(directory)/'prices'
+   with self.assertRaises(ValueError):
+    archive(root,raw,ticker='TEST',observed_utc=self.now.isoformat(),repo_metadata={'private':True,'visibility':'private','full_name':'JeremyHennessy/CatalystRadar-Private'},expected_repository='JeremyHennessy/CatalystRadar-Private',forbidden_values=['SYNTHETIC_SECRET'])
+   self.assertFalse(root.exists())
  def test_nan(self):
   self.raw['Time Series (Daily)']['2026-11-13']['4. close']='NaN'
   with self.assertRaises(ValueError):metadata(json.dumps(self.raw).encode(),'TEST',self.now)
