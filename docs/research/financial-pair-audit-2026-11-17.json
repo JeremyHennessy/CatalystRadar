@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "basis_git_head": "4755173fc52c0966d4f7d3be096593daf972b6b7",
+  "scope": "Separate within-filing financial context candidate feasibility audits; not growth, training or execution evidence.",
+  "batches": {
+    "q2_2026_filing_batch": {
+      "schema_version": 1,
+      "status": "CONTEXT_MATCHES_NOT_COMPARABLE_FACTS",
+      "database_sha256": "4af6790a4b8e0f96beb2c4e2d99bbd011d883b42566a3d60243e65d0dc713b5a",
+      "source_archive_sha256": "d7c815395cd420cfbe09b29dbae73a45406c5d0652d5ae1859ae11ea2e22df77",
+      "tags": [
+        "EarningsPerShareDiluted",
+        "NetIncomeLoss",
+        "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "Revenues"
+      ],
+      "row_counts": {
+        "excluded_non_single_quarter_rows": 12465,
+        "excluded_segment_or_coreg_rows": 139473,
+        "single_quarter_empty_dimension_rows": 28066,
+        "target_tag_rows": 180004
+      },
+      "context_groups": 13623,
+      "group_dispositions": {
+        "context_matched_candidate": 12632,
+        "footnote_requires_review": 45,
+        "missing_current_calendar_period": 69,
+        "missing_or_invalid_value": 196,
+        "missing_prior_calendar_period": 299,
+        "unsupported_form": 365,
+        "unsupported_unit": 17
+      },
+      "candidate_pairs": 12632,
+      "candidate_accessions": 5079,
+      "candidate_ciks": 4985,
+      "comparability_verified": false,
+      "training_ready": false,
+      "execution_ready": false,
+      "limitations": [
+        "Same filing/tag/taxonomy/unit/qtrs/date and empty segment/coreg are necessary context checks, not proof of comparable operations or exact duration.",
+        "qtrs=1 does not provide exact start dates; calendar-year matching excludes leap-day and some 52/53-week reporters.",
+        "Empty segments/coreg does not itself prove total-company consolidated scope.",
+        "Accepted/filed dates are preserved source fields, not authenticated first-public availability.",
+        "Raw uom USD is retained with TAG datatype monetary or perShare; no unit rewriting or conversion. No arithmetic, returns, predictions, decision clocks or outcomes generated. Revisions and amendments are retained separately by accession.",
+        "Four predefined tags are a narrow feasibility sample, not an unbiased company or earnings cohort. Counts across batches must not be summed as unique issuers."
+      ],
+      "private_candidates_sha256": "1463013fb0f4e0409a009d53fc1edd9e0edb8988fa240628b13b4bdc2373fa7b"
+    },
+    "q3_2026_filing_batch": {
+      "schema_version": 1,
+      "status": "CONTEXT_MATCHES_NOT_COMPARABLE_FACTS",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "source_archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "tags": [
+        "EarningsPerShareDiluted",
+        "NetIncomeLoss",
+        "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "Revenues"
+      ],
+      "row_counts": {
+        "excluded_non_single_quarter_rows": 30130,
+        "excluded_segment_or_coreg_rows": 203100,
+        "single_quarter_empty_dimension_rows": 30892,
+        "target_tag_rows": 264122
+      },
+      "context_groups": 13563,
+      "group_dispositions": {
+        "context_matched_candidate": 12294,
+        "footnote_requires_review": 143,
+        "missing_current_calendar_period": 40,
+        "missing_or_invalid_value": 155,
+        "missing_prior_calendar_period": 343,
+        "unsupported_form": 572,
+        "unsupported_unit": 16
+      },
+      "candidate_pairs": 12294,
+      "candidate_accessions": 4990,
+      "candidate_ciks": 4902,
+      "comparability_verified": false,
+      "training_ready": false,
+      "execution_ready": false,
+      "limitations": [
+        "Same filing/tag/taxonomy/unit/qtrs/date and empty segment/coreg are necessary context checks, not proof of comparable operations or exact duration.",
+        "qtrs=1 does not provide exact start dates; calendar-year matching excludes leap-day and some 52/53-week reporters.",
+        "Empty segments/coreg does not itself prove total-company consolidated scope.",
+        "Accepted/filed dates are preserved source fields, not authenticated first-public availability.",
+        "Raw uom USD is retained with TAG datatype monetary or perShare; no unit rewriting or conversion. No arithmetic, returns, predictions, decision clocks or outcomes generated. Revisions and amendments are retained separately by accession.",
+        "Four predefined tags are a narrow feasibility sample, not an unbiased company or earnings cohort. Counts across batches must not be summed as unique issuers."
+      ],
+      "private_candidates_sha256": "c88fbdcc42dd87a2833f9779dfca2c9740b9dac8dc0e9ce1fedc7137a9562d4b"
+    }
+  }
+}
