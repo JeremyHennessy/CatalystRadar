@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "BOUNDED_LEXICAL_INTERPRETATION_NOT_FINANCIAL_QUALIFICATION",
+  "archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4",
+  "member": "vsbc_10q.htm",
+  "raw_member_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+  "source_fact_count": 29,
+  "numeric_conversions": 29,
+  "format_counts": {
+    "numdotdecimal": 17,
+    "zerodash": 12
+  },
+  "unsupported_fact_count": 0,
+  "rejection_counts": {},
+  "dimension_or_scenario_fact_count": 12,
+  "comparability_verified": false,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Only TRR3 numdotdecimal without space separators and ASCII zerodash; absent scale and absent/minus sign supported.",
+    "Declared accuracy is retained, never used to round; lexical conversion is not full XBRL validation or financial truth.",
+    "Source byte integrity does not prove source authenticity, first-public timing, comparable operations or predictive availability.",
+    "Dimensional contexts remain separate and preserved. No prepared-data join, arithmetic, returns or training admission."
+  ]
+}
