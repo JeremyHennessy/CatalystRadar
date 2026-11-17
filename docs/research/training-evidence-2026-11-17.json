@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "meaning": "RESEARCH_EVIDENCE_INVENTORY_NOT_TRAINING_ADMISSION",
+  "basis_git_head": "a57acfdf151a5f6a0baa0c6dca059fb349b0a4ae",
+  "basis": "HASHED_WORKING_TREE_INPUTS_NOT_COMMIT_ATTESTATION",
+  "input_sha256": {
+    "data/filing_feature_rows.json": "db3af91a42cb7d9bc948af75ec47f8900855afb997549c4c1d4955cf701f2453",
+    "data/latest_scan.json": "9697cfd0cf36c6109f7d69c7cbbbeb159ea9156d5c316d2a8e4e90b3f5c0ae57",
+    "data/paper_ledger.json": "f4b7bd945abe7ed5bc3407d5ad026a313632f2e4c5bb0c1a5f99dbff6015266c",
+    "data/research_report.json": "739e34762a34c1ca069e2cacd8ba869bdffa9eb992d4977252ea806788b88da4",
+    "data/sec-observations/20261115T021704113580Z.json": "495adca83e0ba8105e728418afb8d91cc320bce76486f4defd958a7744af493c",
+    "data/sec-observations/20261116T181527938922Z.json": "151b16c795c00cf1a57f7b1a165e98027b8ea5a3a1810046670604dc9569be98",
+    "data/sec-observations/20261116T210556263571Z.json": "2893f3b65634d04ba52b042737561c148dc041a6ac7ff9f6157b76263cb62333",
+    "data/sec-observations/20261117T142027564955Z.json": "47596af22a63358a80380bf5cb83d01e8f2ac0622c6cc19151b663780fbc950c",
+    "data/sec-observations/20261117T162921498482Z.json": "c5831af0db3ac4ade2c2b167a79c1257f33387d6b73171acbe6c7e6e5d29735b",
+    "data/sec-observations/20261117T174017624874Z.json": "040af576a3f1050db1a59e11b877420df7f5431859fa7da1f01ecdcec8862b22",
+    "data/sec-observations/20261117T195421146121Z.json": "fbc6dc9b0287a113ab2f2ecdd61f4a7810fad525040c0afdbb37e1ea056f8db9",
+    "data/sec-snapshots/16056ff3968a9c1dcc373f1ef48ee9c18d28b5d7317cc5321d1b49dd9dadfdde.json": "16056ff3968a9c1dcc373f1ef48ee9c18d28b5d7317cc5321d1b49dd9dadfdde",
+    "data/sec-snapshots/27c50509ddf0189816893996bfa4aadd0cf58ae13af7b17b0848358031484649.json": "27c50509ddf0189816893996bfa4aadd0cf58ae13af7b17b0848358031484649",
+    "data/sec-snapshots/48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f.json": "48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f",
+    "data/sec-snapshots/545dac308a5afa1e9670ce2ffdceee63cdd8022178ae21256d7a4aa20e2fb5e7.json": "545dac308a5afa1e9670ce2ffdceee63cdd8022178ae21256d7a4aa20e2fb5e7",
+    "data/sec-snapshots/628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907.json": "628e82542a715aae43d9b6e5b417799bbd6e28c65d65890ef741406957ee5907",
+    "data/sec-snapshots/67f31598bf2feef84329563872326ecfbedbfa618061e9672fe638f983ee0057.json": "67f31598bf2feef84329563872326ecfbedbfa618061e9672fe638f983ee0057",
+    "data/sec-snapshots/7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243.json": "7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243",
+    "data/sec-snapshots/7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897.json": "7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897",
+    "data/sec-snapshots/93901bb68462647005a27ff1b942848ab14e9a8d6de06e8ad4bd20508199a83e.json": "93901bb68462647005a27ff1b942848ab14e9a8d6de06e8ad4bd20508199a83e",
+    "data/sec-snapshots/9dd6c50394d7c11f1dde8d8c796be2c19860d321c59b4524c45ab6c98c6853f7.json": "9dd6c50394d7c11f1dde8d8c796be2c19860d321c59b4524c45ab6c98c6853f7",
+    "data/sec-snapshots/ba114ea34caa27b94f4bce204a683207475c716e88719fab09f731fc8a144880.json": "ba114ea34caa27b94f4bce204a683207475c716e88719fab09f731fc8a144880",
+    "data/sec-snapshots/e2774de6f2f6630f2355a1b26c6aab46f30d1ec789a9506b6832f9b6b24da261.json": "e2774de6f2f6630f2355a1b26c6aab46f30d1ec789a9506b6832f9b6b24da261",
+    "data/sec-snapshots/e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8.json": "e7daa91a65f4bf354638b4a063289d8b8cc98fff9ae6e6ca92423a246eca6de8",
+    "data/sec-snapshots/e815c402d625a39d4da5148fa5e7eb29b127e4a20123cc734dcb8e7ae43b524f.json": "e815c402d625a39d4da5148fa5e7eb29b127e4a20123cc734dcb8e7ae43b524f",
+    "data/sec-snapshots/f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b.json": "f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b",
+    "data/sec-snapshots/f637d59d3599d816862602e2faa59aa522df269018af710389650ff5fa10502e.json": "f637d59d3599d816862602e2faa59aa522df269018af710389650ff5fa10502e",
+    "data/sec-snapshots/f688777e91619fd73e36bc366ce8ba5f51fe3eafddd42e37c730b6772db75870.json": "f688777e91619fd73e36bc366ce8ba5f51fe3eafddd42e37c730b6772db75870",
+    "data/sec-snapshots/f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2.json": "f6f273c9c2b22c12de302601ff2235fe1d559542224ed1cad277b72953a9b9e2",
+    "web/financial-history/summary.json": "d4778b26a098b19039c4d4be7f66f62a0adb950a27ef7dc547efeffafb541a9c",
+    "web/formd/summary.json": "09ce5a8f3eb50ea83c85207e0c410e07ff467086cbe7e0cec10fa8ef45f06624",
+    "web/holdings/summary.json": "f95e8216d201c20ca30f57ee5741c9b1487cd3e651e741cd347af41d7046b069",
+    "web/notes/summary.json": "374ea3d921e53749750b08b3b97619d4c9b808fbb1961208e3a60726642d7b73",
+    "web/prepared/summary.json": "36f2abd03f9210f5e91c54a3b07743a6666fc89e46648ad050ed3ba3cfaae7f2",
+    "web/smalloffers/summary.json": "bc7e6bb2fd9102a4e37c36e097378fff854712ce70c15100fc9379df138ebf0f"
+  },
+  "metadata": {
+    "retained_scan_receipts": 7,
+    "unique_metadata_candidates": 1592,
+    "metadata_observations": 9550,
+    "source_observation_status_counts": {
+      "HASH_AND_METADATA_VALIDATED": 60,
+      "UNAVAILABLE": 10
+    },
+    "latest_run_id": "20261117T195421146121Z",
+    "latest_finished_at": "2026-11-17T19:54:39.231235+00:00",
+    "first_public_verified": false,
+    "training_examples_inferred": false
+  },
+  "frozen_report": {
+    "generated_at": "2026-11-15T03:08:58.486257+00:00",
+    "declared_counts": {
+      "reviewed_records": 10,
+      "qualified_observations": 0,
+      "outcomes_available": 0
+    },
+    "declared_metadata_candidate_count": 1591,
+    "not_regenerated": true
+  },
+  "feature_evidence": {
+    "scope": "RETAINED_FEATURE_ROWS_ONLY_NOT_ALL_PRIVATE_DATA",
+    "counts": {
+      "feature_rows": 10,
+      "feature_values": 50,
+      "declared_eligible_rows": 0,
+      "rows_with_decision": 0,
+      "rows_with_outcome": 0,
+      "rows_with_decision_and_outcome": 0,
+      "rows_with_first_public_time": 0,
+      "financial_extraction_declared_verified": 0
+    },
+    "qualified_example_count": 0,
+    "readiness": "BLOCKED_NO_DECISION_OUTCOME_PAIRS",
+    "qualification_verified": false,
+    "presence_is_not_validation": true,
+    "source_clock_authentication": "NOT_ASSESSED",
+    "security_identity": "NOT_ASSESSED",
+    "training_rights": "NOT_ASSESSED",
+    "corporate_action_and_outcome_validation": "NOT_ASSESSED",
+    "model_training_performed": false,
+    "predictive_metrics": null
+  },
+  "prepared_sources": [
+    {
+      "path": "web/prepared/summary.json",
+      "status": "RECORDED_SUMMARY_NOT_PRIVATE_DB_REVERIFICATION",
+      "table_rows": {
+        "financial_sub": 6516,
+        "financial_num": 3905397,
+        "financial_pre": 731170,
+        "financial_tag": 87871,
+        "insider_submission": 38152,
+        "insider_deriv_holding": 8128,
+        "insider_deriv_trans": 19205,
+        "insider_footnotes": 93807,
+        "insider_nonderiv_holding": 17322,
+        "insider_nonderiv_trans": 59885,
+        "insider_owner_signature": 41003,
+        "insider_reportingowner": 41346,
+        "ftd": 63157
+      },
+      "training_examples_inferred": false
+    },
+    {
+      "path": "web/notes/summary.json",
+      "status": "RECORDED_SUMMARY_NOT_PRIVATE_DB_REVERIFICATION",
+      "table_rows": {
+        "notes_sub": 6670,
+        "notes_tag": 151113,
+        "notes_dim": 103874,
+        "notes_ren": 86822,
+        "notes_cal": 141562,
+        "notes_pre": 984961,
+        "notes_num": 1488444,
+        "notes_txt": 271414,
+        "notes_validation_gaps": 49
+      },
+      "training_examples_inferred": false
+    },
+    {
+      "path": "web/holdings/summary.json",
+      "status": "RECORDED_SUMMARY_NOT_PRIVATE_DB_REVERIFICATION",
+      "table_rows": {
+        "holdings_submission": 11852,
+        "holdings_coverpage": 11852,
+        "holdings_summarypage": 10036,
+        "holdings_othermanager": 4848,
+        "holdings_othermanager2": 3890,
+        "holdings_signature": 11852,
+        "holdings_infotable": 3830274,
+        "holdings_validation_gaps": 1
+      },
+      "training_examples_inferred": false
+    },
+    {
+      "path": "web/formd/summary.json",
+      "status": "RECORDED_SUMMARY_NOT_PRIVATE_DB_REVERIFICATION",
+      "table_rows": {
+        "formd_formdsubmission": 15952,
+        "formd_issuers": 16160,
+        "formd_offering": 15952,
+        "formd_relatedpersons": 50014,
+        "formd_recipients": 6739,
+        "formd_signatures": 16150,
+        "formd_validation_gaps": 0
+      },
+      "training_examples_inferred": false
+    },
+    {
+      "path": "web/smalloffers/summary.json",
+      "status": "RECORDED_SUMMARY_NOT_PRIVATE_DB_REVERIFICATION",
+      "table_rows": {
+        "cf_form_c_submission": 559,
+        "cf_form_c_coissuer_information": 177,
+        "cf_form_c_disclosure": 559,
+        "cf_form_c_issuer_information": 559,
+        "cf_form_c_issuer_jurisdictions": 27059,
+        "cf_form_c_issuer_signature": 559,
+        "cf_form_c_signature": 1073,
+        "rega_reg_a_submission": 184,
+        "rega_reg_a_cert_suspension_z": 5,
+        "rega_reg_a_employees_info": 157,
+        "rega_reg_a_equities_debt": 556,
+        "rega_reg_a_issuer_info": 157,
+        "rega_reg_a_item_info_k": 17,
+        "rega_reg_a_item_kz": 27,
+        "rega_reg_a_item_securities_k": 30,
+        "rega_reg_a_jurisdiction": 12260,
+        "rega_reg_a_securities_issued": 196,
+        "rega_reg_a_securities_offered": 180,
+        "rega_reg_a_signature_z": 10,
+        "rega_reg_a_summary_info": 157,
+        "rega_reg_a_summary_info_kz": 10,
+        "rega_reg_a_summary_names_kz": 39
+      },
+      "training_examples_inferred": false
+    },
+    {
+      "path": "web/financial-history/summary.json",
+      "status": "RECORDED_SUMMARY_NOT_PRIVATE_DB_REVERIFICATION",
+      "table_rows": {
+        "financial_sub": 7714,
+        "financial_tag": 92731,
+        "financial_pre": 785490,
+        "financial_num": 3608711,
+        "financial_validation_gaps": 0
+      },
+      "training_examples_inferred": false
+    }
+  ],
+  "paper_state": {
+    "simulation_enabled": false,
+    "order_count": 0,
+    "fill_count": 0,
+    "position_count": 0,
+    "not_modified": true
+  },
+  "limitations": [
+    "Scope is retained repository evidence. Private source databases/receipts and all possible cohorts are not reverified by this inventory.",
+    "Metadata observations, prepared numeric rows, declared eligibility and source-byte integrity are not qualified training examples.",
+    "Zero decision/outcome pairs proves zero usable examples only within these retained feature rows; otherwise qualification count stays unknown.",
+    "A source rights registry, point-in-time security identity, authenticated availability, feature recomputation, qualified outcome labels and chronological evaluation remain prerequisites.",
+    "Frozen report and current metadata are different dated views; neither is silently replaced. No model, prediction, order, fill or return is produced."
+  ]
+}
