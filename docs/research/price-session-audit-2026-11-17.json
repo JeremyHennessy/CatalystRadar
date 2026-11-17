@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "status": "SCHEDULED_SESSION_DATE_COMPARISON_ONLY",
+  "audit_completed_at": "2026-11-17T23:37:22.009932+00:00",
+  "input_manifest_sha256": "d03acb2c6e4162d32b11d193dc71778a116a2438cebf455ae5d5a8e59ddf4747",
+  "window_start": "2026-06-26",
+  "window_end": "2026-11-16",
+  "calendar_year": 2026,
+  "calendar_sources": [
+    "https://www.nasdaq.com/holiday-trading-hours",
+    "https://www.nyse.com/trade/hours-calendars"
+  ],
+  "calendar_checked_on": "2026-11-17",
+  "scheduled_full_closures_in_window": [
+    "2026-07-03",
+    "2026-09-07"
+  ],
+  "scheduled_early_close_sessions_in_window": [],
+  "symbols_checked": 11,
+  "total_retained_dates": 1100,
+  "symbols_matching_date_set": 11,
+  "results": [
+    {
+      "symbol": "COHR",
+      "observed_utc": "2026-11-17T20:47:06.661927+00:00",
+      "snapshot_sha256": "e7177e1033bef33a4b19c2a94c6c4995b83a72496cf6074b50a5fd58c5db39d3",
+      "response_sha256": "c8492a0c769ce57a10ac2869c2f6c25563076354e38b71824222d14969d4e7b2",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "HRB",
+      "observed_utc": "2026-11-17T20:47:19.800772+00:00",
+      "snapshot_sha256": "8f53e9071fe788ede901a3281894ef3296bdab8220b23b761e639703a5a2c67f",
+      "response_sha256": "ff0fa0d3d8109a08ff9afb456b96be17f66e4781921a5998586e90af19967600",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "CINF",
+      "observed_utc": "2026-11-17T20:47:32.919153+00:00",
+      "snapshot_sha256": "ef6aacf6ed368a79c8ea57a340a5f45c39971a52a52dd630fe949e63d290996d",
+      "response_sha256": "510c76b3443b80fcb8f612272a4f1edd318a20caa2691874e3254afc27d80d8b",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "TXMD",
+      "observed_utc": "2026-11-17T20:47:46.057330+00:00",
+      "snapshot_sha256": "9541c5c9ee5cf5ce75b1aaae8cb9e8dbf12055e777efaffe15b0690631e2139c",
+      "response_sha256": "283124ef616227fb0d6df4ded4050319b0ec2e811fb202e3d71d2c701906fe9f",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "RVTY",
+      "observed_utc": "2026-11-17T20:47:59.191470+00:00",
+      "snapshot_sha256": "c02ebe4b3a8d384cb337076b4b19c510141f65ec1f1ad7d82f9fd47d3cefe2de",
+      "response_sha256": "aa5af38b703664f20e1fe35e063e2665b7dba571548c159799c93aab88e52047",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "EMR",
+      "observed_utc": "2026-11-17T20:48:12.323144+00:00",
+      "snapshot_sha256": "42b89e4eddfa05a0a0ff110cd82e985dada0034f22a3494b6a8a2d8cb1914e28",
+      "response_sha256": "13a7024b41226c92841cf15d38c10024b3a05c6fa82855af45ddf9709036c6a7",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "GT",
+      "observed_utc": "2026-11-17T20:48:25.477932+00:00",
+      "snapshot_sha256": "4bfdbd0ae2fbd541874a4806b3201ea541c68789947f4ef559d247edb6019db4",
+      "response_sha256": "0bcb60de7f234e1385ec785f195acceb2b6108616ddfd492a7253023442feb87",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "KEY",
+      "observed_utc": "2026-11-17T20:48:38.608424+00:00",
+      "snapshot_sha256": "34f97da0cee716d8f9b8bf5e3117c567298f74331f53f24ce66ead99a3292955",
+      "response_sha256": "6ce5262aa24a721dff626cf113c8e86a0fa47db52dc899a7de604035b2228c4d",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "WOR",
+      "observed_utc": "2026-11-17T20:48:51.751190+00:00",
+      "snapshot_sha256": "3b9be147a60fa57cc77f80d9fa98fab6df9969b6f4d17016a1e5892accf63e76",
+      "response_sha256": "8f8c0c12f86596f2935d0e2062d95e55127de8a469d5c983e12cf4ef31239614",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "XRX",
+      "observed_utc": "2026-11-17T20:49:04.888036+00:00",
+      "snapshot_sha256": "6d23ba942c90949ecf09c1fce2e20893565042c1e6416b2353e329e3b2aebc1d",
+      "response_sha256": "ea168d4e32c5b0d0aea56bcbc2ad2e439cdc26ff7633c04f3ccb94675e4f0f77",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    },
+    {
+      "symbol": "SPY",
+      "observed_utc": "2026-11-17T20:49:18.025422+00:00",
+      "snapshot_sha256": "49ef188b6799158aab655c5c225c163a047990f0aa46315e4115b06080468290",
+      "response_sha256": "2cbd601276566852dca2d86102e3030b55502c42a683a5d7815de13f44fa1056",
+      "expected_scheduled_sessions": 100,
+      "observed_dates": 100,
+      "missing_scheduled_dates": [],
+      "unexpected_dates": [],
+      "matches_scheduled_date_set": true
+    }
+  ],
+  "collector_calendar_complete_flag_changed": false,
+  "security_identity_verified": false,
+  "corporate_actions_verified": false,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Comparison is against published scheduled 2026 US equity sessions, not proof of actual exchange operations or absence of unplanned closures.",
+    "Historical listing continuity, individual security halts, identity and corporate actions are not established by matching dates.",
+    "One daily row does not prove full intraday coverage, consolidated volume, auction price, executable liquidity or correct returns.",
+    "Existing snapshot raw-schema validation is rechecked but its calendar_complete/eligible flags remain false; no collector/workflow or gate is changed.",
+    "Fixed requested window is not derived from available rows. No completeness outside that window or historical point-in-time availability claimed.",
+    "No new provider calls or price redistribution; account-specific training/redistribution rights remain unverified."
+  ]
+}
