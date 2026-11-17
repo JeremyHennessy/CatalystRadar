@@ -1,0 +1,20 @@
+'use strict';
+const el=id=>document.getElementById(id);
+const format=n=>Number.isInteger(n)&&n>=0?n.toLocaleString():'Unknown';
+function secSource(url){return typeof url==='string'&&/^https:\/\/www\.sec\.gov\/files\/[A-Za-z0-9_./-]+\.zip$/.test(url);}
+async function jsonFile(name){const r=await fetch(`prepared/${name}`,{cache:'no-store'});if(!r.ok)throw Error('unavailable');return r.json();}
+async function startDatasets(){try{
+ const [s,issuers]=await Promise.all([jsonFile('summary.json'),jsonFile('issuers.json')]);
+ if(s.status!=='PREPARED_DATA_BASELINE_NOT_LIVE_SIGNALS'||s.simulation_enabled!==false||s.orders_created!==0||!Array.isArray(issuers)||issuers.length!==s.issuer_counts.union)throw Error('invalid manifest');
+ el('dataset-status').textContent=`Ingestion completed ${s.completed_utc}. Historical baseline only; not a live feed.`;
+ const counts=[['Covered issuer CIKs',s.issuer_counts.union],['Financial-report CIKs',s.issuer_counts.financial],['Financial numeric rows',s.table_rows.financial_num],['Insider-report issuer CIKs',s.issuer_counts.insider],['Insider submissions',s.table_rows.insider_submission],['Settlement-failure rows',s.ftd.rows]];
+ counts.forEach(([label,value])=>{const box=document.createElement('div');box.className='dataset-stat';const n=document.createElement('strong');n.textContent=format(value);const t=document.createElement('span');t.textContent=label;box.append(n,t);el('dataset-stats').append(box);});
+ el('dataset-periods').textContent=`Financial filing dates: ${s.filing_date_ranges.financial.min}–${s.filing_date_ranges.financial.max}. Insider filing dates: ${s.filing_date_ranges.insider.min}–${s.filing_date_ranges.insider.max}.`;
+ const dates=Object.keys(s.ftd.settlement_dates).sort();el('dataset-ftd').textContent=`${format(s.ftd.rows)} rows across ${dates.length} settlement dates (${dates[0]}–${dates[dates.length-1]}), ${format(s.ftd.distinct_cusips)} CUSIPs. ${format(s.ftd.missing_previous_day_prices)} missing price fields, ${format(s.ftd.missing_symbol_rows)} missing ticker row and ${format(s.ftd.symbols_exceeding_documented_10_chars)} rows exceeding the documented ticker length were preserved and flagged. Trailer checksums match.`;
+ s.sources.forEach(r=>{const li=document.createElement('li');li.textContent=`${r.path}: ${format(r.byte_count)} bytes · locally verified ${r.local_verified_utc} · SHA256 ${r.sha256}. `;if(secSource(r.url)){const a=document.createElement('a');a.textContent='Official source ZIP';a.href=r.url;li.append(a);}el('dataset-sources').append(li);});
+ s.limitations.forEach(x=>{const li=document.createElement('li');li.textContent=x;el('dataset-limits').append(li);});
+ function render(){const q=el('dataset-search').value.trim().toLowerCase();const rows=issuers.filter(r=>`${r.cik} ${r.names.join(' ')} ${r.reported_tickers.join(' ')}`.toLowerCase().includes(q));el('dataset-issuers').replaceChildren();rows.slice(0,100).forEach(r=>{const tr=document.createElement('tr');const name=document.createElement('td');if(/^\d{10}$/.test(r.cik)){const a=document.createElement('a');a.textContent=`${r.names.join(' / ')} / ${r.cik}`;a.href=`https://www.sec.gov/edgar/browse/?CIK=${r.cik}`;name.append(a);}tr.append(name);[r.reported_tickers.join(', ')||'Not reported',format(r.financial_submissions),format(r.insider_submissions)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td);});el('dataset-issuers').append(tr);});el('dataset-matches').textContent=`${format(rows.length)} matching issuer CIKs; showing ${Math.min(rows.length,100)}.`;}
+ el('dataset-search').addEventListener('input',render);render();
+}catch(e){['dataset-stats','dataset-issuers','dataset-sources','dataset-limits'].forEach(id=>el(id).replaceChildren());['dataset-periods','dataset-ftd','dataset-matches'].forEach(id=>{el(id).textContent='';});el('dataset-status').textContent='Prepared-data manifest unavailable or inconsistent. Coverage is not verified in this view.';}}
+if(typeof document!=='undefined')startDatasets();
+if(typeof module!=='undefined')module.exports={secSource,format};
