@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_FORM_D_NOTICES_NOT_INVESTMENT_SIGNALS",
+  "completed_utc": "2026-11-17T20:23:11.221372+00:00",
+  "source": {
+    "path": "2026q3_d.zip",
+    "url": "https://www.sec.gov/files/datastandardsinnovation/data/form-d-data-sets/2026q3_d.zip",
+    "byte_count": 3652689,
+    "sha256": "03669a23e724645a8bbcad51822cf7f4b27f91c3f2bedac9dcff3c23e68e84bf",
+    "local_verified_utc": "2026-11-17T20:22:01.440157+00:00",
+    "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+    "http_status": null,
+    "exact_download_utc": null
+  },
+  "table_rows": {
+    "formd_formdsubmission": 15952,
+    "formd_issuers": 16160,
+    "formd_offering": 15952,
+    "formd_relatedpersons": 50014,
+    "formd_recipients": 6739,
+    "formd_signatures": 16150,
+    "formd_validation_gaps": 0
+  },
+  "submissions": 15952,
+  "issuer_ciks_in_batch": 14968,
+  "filing_date_min": "2026-07-01",
+  "filing_date_max": "2026-09-30",
+  "submission_types": {
+    "D": 10291,
+    "D/A": 5661
+  },
+  "indefinite_total_offering_amount_rows": 7201,
+  "amendment_form_conflicts": 0,
+  "accession_joins_verified": true,
+  "one_primary_issuer_per_submission_verified": true,
+  "simulation_enabled": false,
+  "orders_created": 0,
+  "limitations": [
+    "Q3 2026 as-filed Form D notices of exempt offerings, not all companies, completed financing rounds, SEC approval or registered public offerings.",
+    "D/A amendments, prior-accession references, first-sale context, amounts sold/remaining and Indefinite offering values are preserved as source text; no summation or automatic amendment consolidation.",
+    "Issuer CIKs include private issuers and pooled investment vehicles, not a current listed-company universe; count is separate from the financial/insider issuer baseline.",
+    "Business-combination checkboxes are not proof of an acquisition, merger or completed transaction.",
+    "Related-person identities, addresses, recipient details and signatures remain private. Public output contains coverage aggregates only.",
+    "Prepared data may omit source metadata or contain extraction/filing errors; original filings remain authoritative.",
+    "Exact HTTP status/download clock unavailable; local verification time is not first-public evidence. No historical decisions or orders are generated."
+  ]
+}
