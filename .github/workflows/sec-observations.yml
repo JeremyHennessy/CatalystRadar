@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: '17,47 11-23 16-20 11 *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [data/sec-control/request.json]
 permissions:
   contents: read
 concurrency:
@@ -19,18 +22,19 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 verified
         with:
           ref: main
-      - id: gate
-        run: echo "allowed=$(python3 backend/trial_gate.py)" >> "$GITHUB_OUTPUT"
-      - if: steps.gate.outputs.allowed == 'true'
+          fetch-depth: 2
+      - id: collection
         env:
           SEC_CONTACT_EMAIL: ${{ secrets.SEC_CONTACT_EMAIL }}
         run: |
           python3 -m unittest discover -s backend -p 'test_*.py'
-          python3 backend/scan_watchlist.py
+          python3 backend/sec_collection_control.py
+      - if: steps.collection.outputs.collected == 'true'
+        run: |
           python3 backend/build_dashboard.py --preserve-research-report
           python3 backend/verify_public_state.py
           node --check web/app.js && node web/tests-ui.js
-      - if: steps.gate.outputs.allowed == 'true'
+      - if: steps.collection.outputs.collected == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -40,7 +44,7 @@ jobs:
           git push origin HEAD:main
       # GITHUB_TOKEN pushes do not trigger Pages. Rebuild explicitly, including
       # unchanged snapshots so a prior failed publication can recover.
-      - if: steps.gate.outputs.allowed == 'true'
+      - if: steps.collection.outputs.collected == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 backend/publish_observations.py
