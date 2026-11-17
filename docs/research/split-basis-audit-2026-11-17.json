@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "RETROSPECTIVE_SPLIT_BASIS_REVIEW_WARNINGS_ONLY",
+  "notes_database_sha256": "f2e9a91fb48a3c91fc47d2eff55d4cc63f77157cabab9e96278815621f10e597",
+  "notes_archive_sha256": "44d1b48909babe6611fcf59ff5bd273281616acbf2b91567e9597a51f924cee1",
+  "financial_candidates_checkpoint_sha256": "8fab0810df9b9a482a0af2ebdbf341f785fefb3b8a525cb478fcc70346ab3126",
+  "selection": {
+    "numeric_tags": [
+      "StockholdersEquityNoteStockSplitConversionRatio1"
+    ],
+    "narrative_tags": [
+      "StockholdersEquityNoteStockSplit",
+      "StockholdersEquityReverseStockSplit"
+    ],
+    "taxonomy_versions": [
+      "us-gaap/2025",
+      "us-gaap/2026"
+    ]
+  },
+  "counts": {
+    "num": 81,
+    "txt": 220,
+    "ratio_filings": 40,
+    "ratio_issuers": 40,
+    "positive_ratio_literals": 81,
+    "ratio_filings_with_standard_narrative": 2,
+    "ratio_rows_with_standard_narrative": 4
+  },
+  "issuer_level_correspondence": {
+    "q2_2026_filing_batch": {
+      "candidate_pairs_at_same_issuer": 94,
+      "issuer_count": 36,
+      "diluted_eps_pairs_at_same_issuer": 33
+    },
+    "q3_2026_filing_batch": {
+      "candidate_pairs_at_same_issuer": 77,
+      "issuer_count": 30,
+      "diluted_eps_pairs_at_same_issuer": 26
+    }
+  },
+  "audit_completed_at": "2026-11-17T23:31:51.683507+00:00",
+  "source_retrieval_utc": null,
+  "source_first_public_utc": null,
+  "known_at_candidate_time_verified": false,
+  "corporate_action_events_verified": 0,
+  "adjustment_factors_verified": 0,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Rows are disclosed facts, not unique split events. Repeated dimensions, dates, filings and narratives remain separate.",
+    "Later October disclosures are retrospective audit evidence, never features known at earlier Q2/Q3 filing decisions.",
+    "Same issuer CIK is not same share class. No direction, effective date, conversion adjustment, causal applicability or comparability inferred.",
+    "Standard-tag selection excludes custom concepts and other taxonomy versions. Absence is not proof of no split.",
+    "Ratio and narrative sharing an accession does not prove they describe the same event. Neither source date field is automatically an ex-date.",
+    "Prepared-data context is retained exactly; original filing interpretation remains necessary. No price/outcome corrections or model admission.",
+    "Pinned DB/ZIP identify retained inputs; prior independent ingestion audit establishes derivation, not this utility."
+  ]
+}
