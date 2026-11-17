@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "INLINE_CONTEXT_EVIDENCE_NOT_NUMERICAL_CONVERSION",
+  "archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4",
+  "member": "vsbc_10q.htm",
+  "raw_member_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+  "target_fact_count": 29,
+  "target_concepts": [
+    "EarningsPerShareDiluted",
+    "NetIncomeLoss",
+    "Revenues"
+  ],
+  "duration_fact_count": 29,
+  "dimension_or_scenario_fact_count": 12,
+  "numeric_conversions": 0,
+  "comparability_verified": false,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Resolved namespaces and context dates are declarations in retained source bytes, not source authenticity or historical availability.",
+    "Text, format, scale, sign, continuations and exclusions are preserved without numeric transformation or financial qualification.",
+    "Exact duration dates do not establish comparable operations, fiscal-period meaning, security identity or outcome labels."
+  ]
+}
