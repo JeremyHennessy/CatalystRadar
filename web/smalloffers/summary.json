@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_CF_REGA_AS_FILED_NOT_SIGNALS",
+  "completed_utc": "2026-11-17T20:29:49.996730+00:00",
+  "datasets": {
+    "cf": {
+      "source": {
+        "path": "2026q3_cf.zip",
+        "url": "https://www.sec.gov/files/dera/data/crowdfunding-offerings-data-sets/2026q3_cf.zip",
+        "byte_count": 247202,
+        "sha256": "a3deb30c29df92f8a1676638b7304d6018197fa001971174b96a9012db1d23b8",
+        "local_verified_utc": "2026-11-17T20:28:28.901841+00:00",
+        "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+        "http_status": null,
+        "exact_download_utc": null
+      },
+      "submissions": 559,
+      "submission_issuer_ciks": 374,
+      "submission_types": {
+        "C": 177,
+        "C-AR": 55,
+        "C-TR": 14,
+        "C-TR-W": 1,
+        "C-U": 136,
+        "C-W": 13,
+        "C/A": 162,
+        "C/A-W": 1
+      },
+      "filing_date_min": "2026-07-01",
+      "filing_date_max": "2026-09-30",
+      "accession_joins_verified": true,
+      "coissuer_rows_without_cik": 177
+    },
+    "rega": {
+      "source": {
+        "path": "2026q3_rega.zip",
+        "url": "https://www.sec.gov/files/datastandardsinnovation/data/regulation-data-sets/2026q3_rega.zip",
+        "byte_count": 149886,
+        "sha256": "55f49d83951078e9b853e25fd9f11521d93a1e9e763617532d2fe894f7bbeb0c",
+        "local_verified_utc": "2026-11-17T20:28:28.914636+00:00",
+        "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+        "http_status": null,
+        "exact_download_utc": null
+      },
+      "submissions": 184,
+      "submission_issuer_ciks": 119,
+      "submission_types": {
+        "1-A": 44,
+        "1-A POS": 48,
+        "1-A/A": 65,
+        "1-K": 14,
+        "1-K/A": 3,
+        "1-Z": 10
+      },
+      "filing_date_min": "2026-07-01",
+      "filing_date_max": "2026-09-30",
+      "accession_joins_verified": true
+    }
+  },
+  "table_rows": {
+    "cf_form_c_submission": 559,
+    "cf_form_c_coissuer_information": 177,
+    "cf_form_c_disclosure": 559,
+    "cf_form_c_issuer_information": 559,
+    "cf_form_c_issuer_jurisdictions": 27059,
+    "cf_form_c_issuer_signature": 559,
+    "cf_form_c_signature": 1073,
+    "rega_reg_a_submission": 184,
+    "rega_reg_a_cert_suspension_z": 5,
+    "rega_reg_a_employees_info": 157,
+    "rega_reg_a_equities_debt": 556,
+    "rega_reg_a_issuer_info": 157,
+    "rega_reg_a_item_info_k": 17,
+    "rega_reg_a_item_kz": 27,
+    "rega_reg_a_item_securities_k": 30,
+    "rega_reg_a_jurisdiction": 12260,
+    "rega_reg_a_securities_issued": 196,
+    "rega_reg_a_securities_offered": 180,
+    "rega_reg_a_signature_z": 10,
+    "rega_reg_a_summary_info": 157,
+    "rega_reg_a_summary_info_kz": 10,
+    "rega_reg_a_summary_names_kz": 39
+  },
+  "simulation_enabled": false,
+  "orders_created": 0,
+  "limitations": [
+    "Q3 2026 prepared filings, not all companies or complete offering histories. Dataset issuer counts remain separate, not added to existing issuer coverage.",
+    "Crowdfunding statements, amendments, progress updates, annual reports, terminations and withdrawals are distinct submission types, not unique successful financing rounds.",
+    "Regulation A offering statements, amendments/post-qualification amendments, annual reports and exit reports are retained separately; filing is not proof of qualification, SEC endorsement or completed proceeds.",
+    "Source amendment flags, offering amounts, financial fields and date context remain verbatim, not reconciled, summed or interpreted as current comparable facts.",
+    "Co-issuers with missing CIKs remain unlinked and are explicitly counted; no invented entity mappings.",
+    "Raw addresses, signatures and personal/provider details remain private. Only aggregate coverage is published.",
+    "Only accession joins are verified; no claim that all table-specific identity links or prior-quarter histories have been reconciled.",
+    "Exact download clocks/HTTP status unavailable; local verification timestamps are not first-public or historical trading evidence. No orders or paper fills are generated."
+  ]
+}
