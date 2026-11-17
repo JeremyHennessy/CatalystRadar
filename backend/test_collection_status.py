@@ -34,3 +34,16 @@ class PriceStatusTests(unittest.TestCase):
         self.status['execution_ready'] = True
         with self.assertRaises(ValueError):
             summarize_price_status(self.status)
+
+    def test_audited_coverage_keeps_execution_blocked(self):
+        a = {'verified_at': '2026-11-17T13:00:00Z', 'first_session': '2026-06-26', 'last_session': '2026-11-16', 'hashes_and_symbols_verified': True}
+        self.status['latest_collection']['coverage_audit'] = a
+        out = summarize_price_status(self.status)
+        self.assertIn('through 2026-11-16', out['detail'])
+        self.assertIn('Calendar completeness is not established', out['detail'])
+        self.assertIn('Execution remains disabled', out['detail'])
+        for key,value in [('last_session','2026-11-18'),('hashes_and_symbols_verified',False),('first_session','2026-11-20'),('verified_at','2026-11-15T00:00:00Z'),('prices',[123])]:
+            with self.subTest(key=key):
+                bad=copy.deepcopy(self.status)
+                bad['latest_collection']['coverage_audit'][key]=value
+                with self.assertRaises(ValueError):summarize_price_status(bad)

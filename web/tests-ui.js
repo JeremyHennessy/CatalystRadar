@@ -30,3 +30,20 @@ const fixture={candidate_rehearsal:{mode:'LATEST_RETAINED_RUN_REHEARSAL_NOT_ACTI
 assert.equal(candidateSummary(fixture).count,1591);
 fixture.candidate_rehearsal.protocol_activated=true;assert.throws(()=>candidateSummary(fixture));
 console.log('Latest-research display schema checks passed.');
+
+const {paperSummary}=require('./app.js');
+const emptyBook={generated_at:'2026-11-17T13:00:00Z',portfolio:{orders:[],trades:[],positions:[]},feeds:[{name:'Paper execution',status:'disabled'}]};
+assert.match(paperSummary(emptyBook),/No fictional trades recorded/);
+assert.match(paperSummary(emptyBook),/Simulation is disabled/);
+assert.match(paperSummary(emptyBook),/No return is inferred/);
+assert.match(paperSummary({...emptyBook,feeds:[]}),/readiness is not established/);
+assert.match(paperSummary({portfolio:{}}),/unknown/);
+assert.match(paperSummary(null),/unknown/);
+assert.match(paperSummary({...emptyBook,portfolio:{orders:[{}],trades:[],positions:[]}}),/1 orders, 0 fills/);
+assert.doesNotMatch(paperSummary({...emptyBook,portfolio:{orders:[],trades:[{}],positions:[]}}),/No fictional trades/);
+console.log('Paper status, unknown and order-versus-fill checks passed.');
+
+const {validLedger}=require('./app.js');
+assert.equal(validLedger(emptyBook.portfolio),true);
+for(const key of ['orders','trades','positions']){const p={...emptyBook.portfolio};delete p[key];assert.equal(validLedger(p),false);p[key]={};assert.equal(validLedger(p),false);}
+assert.equal(validLedger(null),false);
