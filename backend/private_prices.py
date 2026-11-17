@@ -28,8 +28,17 @@ def budget(runs,now,current_run):
  if len(recent)>1:raise ValueError('rolling request reservation exhausted')
  return True
 
+def unique_object(pairs):
+ result={}
+ for key,value in pairs:
+  if key in result:raise ValueError('ambiguous duplicate JSON field')
+  result[key]=value
+ return result
+
 def metadata(raw,ticker,observed):
- j=json.loads(raw)
+ # Reject conflicting or repeated fields at every depth before interpreting prices.
+ # Do not disclose the field name: unexpected provider fields may contain secrets.
+ j=json.loads(raw,object_pairs_hook=unique_object)
  if any(k in j for k in ('Information','Note','Error Message')):raise ValueError('provider refused or quota unavailable')
  m=j['Meta Data'];series=j['Time Series (Daily)']
  if m['2. Symbol']!=ticker or m['5. Time Zone']!='US/Eastern':raise ValueError('source identity/timezone mismatch')
