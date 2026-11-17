@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_LOCAL_OCCURRENCE_INVENTORY_NOT_FACT_DEDUPLICATION",
+  "archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4",
+  "member": "vsbc_10q.htm",
+  "raw_member_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+  "source_occurrence_count": 29,
+  "source_local_group_count": 26,
+  "repeated_group_count": 3,
+  "occurrences_in_repeated_groups": 6,
+  "repeated_group_numeric_relations": {
+    "NUMERICALLY_EQUAL": 3
+  },
+  "repeated_groups_with_decimals_difference": 0,
+  "dimension_or_scenario_occurrences": 12,
+  "canonical_fact_equivalence_verified": false,
+  "comparability_verified": false,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Groups share exact concept namespace/name, contextRef and unitRef inside the same raw member hash only.",
+    "Different context or unit identifiers are not merged even if their apparent semantics match. This is not canonical XBRL fact equivalence.",
+    "Every occurrence and declared decimals attribute remains retained. Numeric equality is not equal financial meaning or a training admission.",
+    "No prepared-table join, cross-document equivalence, source authentication, historical availability or financial qualification is inferred."
+  ]
+}
