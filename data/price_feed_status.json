@@ -8,12 +8,12 @@
   "execution_ready": false,
   "scheduled_collection_verified": true,
   "latest_collection": {
-    "observed_at": "2026-11-16T21:58:11.129067+00:00",
+    "observed_at": "2026-11-17T20:49:18.653849+00:00",
     "saved_snapshots": 11,
     "rows_per_symbol": 100,
     "scheduled_run_verified": true,
     "coverage_audit": {
-      "verified_at": "2026-11-17T13:28:26.751508+00:00",
+      "verified_at": "2026-11-17T22:13:49.112658+00:00",
       "first_session": "2026-06-26",
       "last_session": "2026-11-16",
       "hashes_and_symbols_verified": true
