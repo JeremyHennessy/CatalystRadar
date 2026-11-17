@@ -154,11 +154,11 @@
       "verified_access": {
         "status": "VERIFIED",
         "downloaded_records": null,
-        "detail": "Verified historical private collection: 11 symbols \u00d7 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
+        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
       },
       "integration": {
         "status": "VERIFIED",
-        "detail": "Verified historical private collection: 11 symbols \u00d7 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
+        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
       },
       "rights": {
         "collection": {
@@ -177,14 +177,15 @@
         },
         "model_training": {
           "status": "UNVERIFIED",
-          "detail": "No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.",
+          "detail": "The provider publishes an educational model-training tutorial using its adjusted stock-price API, so ML use is not categorically prohibited. This example is not account-specific permission or a blanket license: current terms limit the standard grant to private individual non-commercial use unless otherwise agreed in writing. Eligibility for this intended pipeline remains unverified; no training is activated.",
           "evidence_urls": [
-            "https://www.alphavantage.co/terms_of_service/"
+            "https://www.alphavantage.co/terms_of_service/",
+            "https://www.alphavantage.co/stock-prediction-deep-neural-networks-lstm/"
           ]
         },
         "redistribution": {
           "status": "UNVERIFIED",
-          "detail": "No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.",
+          "detail": "The training tutorial does not grant redistribution or commercial model/service rights. Terms define commercial use through purposes beyond private individual activities, organizational use, third-party commercial access, and specified financial-industry employment/affiliation conditions. No conclusion about this user's employment or eligibility is inferred; public data/model distribution remains unverified.",
           "evidence_urls": [
             "https://www.alphavantage.co/terms_of_service/"
           ]
@@ -208,14 +209,17 @@
       ],
       "limitations": [
         "Historical verified collection does not prove current source access or scheduled reliability.",
-        "Not training-qualified and no execution activation."
+        "Not training-qualified and no execution activation.",
+        "An official educational ML example is narrower than contractual eligibility for this user and intended public/commercial product.",
+        "Tutorial uses adjusted historical prices; existing compact raw100-bar observations do not inherit adjusted endpoint entitlement or corporate-action coverage."
       ],
       "unknowns": [
         "Model-use eligibility for intended pipeline",
         "Point-in-time security/outcome completeness",
-        "Current access and freshness"
+        "Current access and freshness",
+        "Account-specific and intended-use eligibility under exact contractual conditions; no user employment assumption"
       ],
-      "next_action": "Use retained evidence for scoped audits; establish remaining rights and point-in-time labels before any training.",
+      "next_action": "Establish intended-use/account eligibility and action-corrected label coverage before training. Any endpoint probe must preserve existing price collection and shared quota; documentation alone is not successful access or free entitlement.",
       "evidence": [
         {
           "url": "https://www.alphavantage.co/terms_of_service/",
@@ -230,6 +234,11 @@
         {
           "url": "https://www.alphavantage.co/support/api-key/",
           "supports": "Official source documentation or applicable terms; no broader permission inferred",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.alphavantage.co/stock-prediction-deep-neural-networks-lstm/",
+          "supports": "Official educational LSTM training example using adjusted historical prices; not blanket contractual or redistribution permission",
           "checked_date": "2026-11-17"
         }
       ],

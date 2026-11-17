@@ -78,8 +78,8 @@ Current operational access: UNVERIFIED — No current data request performed for
 
 - collection: PARTIAL. Existing bounded project collection/private retention reviewed; not unrestricted future access.
 - storage: PARTIAL. Existing bounded project collection/private retention reviewed; not unrestricted future access.
-- model_training: UNVERIFIED. No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.
-- redistribution: UNVERIFIED. No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.
+- model_training: UNVERIFIED. The provider publishes an educational model-training tutorial using its adjusted stock-price API, so ML use is not categorically prohibited. This example is not account-specific permission or a blanket license: current terms limit the standard grant to private individual non-commercial use unless otherwise agreed in writing. Eligibility for this intended pipeline remains unverified; no training is activated.
+- redistribution: UNVERIFIED. The training tutorial does not grant redistribution or commercial model/service rights. Terms define commercial use through purposes beyond private individual activities, organizational use, third-party commercial access, and specified financial-industry employment/affiliation conditions. No conclusion about this user's employment or eligibility is inferred; public data/model distribution remains unverified.
 
 Quotas: 25 requests/day documented free allowance; shared across clients. Existing collector conservatively reserves calls.
 
@@ -101,15 +101,16 @@ Storage estimate: {"status": "UNVERIFIED", "bytes": null, "detail": "Actual priv
 
 Proposed features (unvalidated): Research context only pending identity, clock, rights and label qualification
 
-Limitations: Historical verified collection does not prove current source access or scheduled reliability.; Not training-qualified and no execution activation.
+Limitations: Historical verified collection does not prove current source access or scheduled reliability.; Not training-qualified and no execution activation.; An official educational ML example is narrower than contractual eligibility for this user and intended public/commercial product.; Tutorial uses adjusted historical prices; existing compact raw100-bar observations do not inherit adjusted endpoint entitlement or corporate-action coverage.
 
-Unknowns: Model-use eligibility for intended pipeline; Point-in-time security/outcome completeness; Current access and freshness
+Unknowns: Model-use eligibility for intended pipeline; Point-in-time security/outcome completeness; Current access and freshness; Account-specific and intended-use eligibility under exact contractual conditions; no user employment assumption
 
-Next action: Use retained evidence for scoped audits; establish remaining rights and point-in-time labels before any training.
+Next action: Establish intended-use/account eligibility and action-corrected label coverage before training. Any endpoint probe must preserve existing price collection and shared quota; documentation alone is not successful access or free entitlement.
 
 - [Official source documentation or applicable terms; no broader permission inferred](https://www.alphavantage.co/terms_of_service/) (checked 2026-11-17)
 - [Official source documentation or applicable terms; no broader permission inferred](https://www.alphavantage.co/documentation/) (checked 2026-11-17)
 - [Official source documentation or applicable terms; no broader permission inferred](https://www.alphavantage.co/support/api-key/) (checked 2026-11-17)
+- [Official educational LSTM training example using adjusted historical prices; not blanket contractual or redistribution permission](https://www.alphavantage.co/stock-prediction-deep-neural-networks-lstm/) (checked 2026-11-17)
 - Project evidence: `docs/operational-checkpoint.md`
 - Project evidence: `docs/private-retention.md`
 - Project evidence: `docs/price-feed-audit.md`
