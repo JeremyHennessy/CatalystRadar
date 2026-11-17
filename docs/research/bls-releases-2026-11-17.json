@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "release_count": 2,
+  "releases": [
+    {
+      "schema_version": 1,
+      "status": "ARCHIVED_RELEASE_DECLARATION_NOT_AUTHENTICATED_FIRST_PUBLIC_TIME",
+      "kind": "empsit",
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_11062026.pdf",
+      "pdf_sha256": "a19b8c3cc6ab7586521bff6ed74d6fd4384be8268790cb5b764487da5ab2b132",
+      "receipt_sha256": "1be79d9301d1c4377ae7f8e2a1c7993f28713f93de02cf5ea2905e4c10fb4837",
+      "extracted_text_sha256": "94836991f181f9781e6edd5aa09bb8539c78b90d7511137ab68b3a3bceea0f93",
+      "pdf_bytes": 576822,
+      "reference_month": "2026-10",
+      "declared_embargo_utc": "2026-11-06T13:30:00+00:00",
+      "observed_at": "2026-11-17T22:44:09.264552+00:00",
+      "headline_statement_count": 1,
+      "revision_statement_count": 1,
+      "missing_comparator_statement_count": 0,
+      "training_ready": false,
+      "execution_ready": false,
+      "limitations": [
+        "Release-stated embargo is not authenticated historical public availability. Retrieved now, not available to a past system decision.",
+        "Values are this archived release snapshot and can be revised; no consensus or surprise established.",
+        "Text spans/hash refer to pdftotext UTF-8 extraction, not raw PDF byte ranges or full table interpretation.",
+        "Two narrowly supported release layouts only; unsupported wording/signs fail matching. Literal matches require manual semantic context review, not automatic fact admission. No annual CPI comparator invented."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "ARCHIVED_RELEASE_DECLARATION_NOT_AUTHENTICATED_FIRST_PUBLIC_TIME",
+      "kind": "cpi",
+      "source_url": "https://www.bls.gov/news.release/archives/cpi_11102026.pdf",
+      "pdf_sha256": "672b52eacbae894c83c7400b5a6c7af734d47766631ae16745e6049e56c80601",
+      "receipt_sha256": "37170be51975149363a19695a2b99ab211bf3b60701c30c060b1c062c1843e1a",
+      "extracted_text_sha256": "16a56bcad45af11d635ca43632f1962253fa723861f1fc77fdd6dd43ac9ee07e",
+      "pdf_bytes": 676499,
+      "reference_month": "2026-10",
+      "declared_embargo_utc": "2026-11-10T13:30:00+00:00",
+      "observed_at": "2026-11-17T22:44:14.188449+00:00",
+      "headline_statement_count": 2,
+      "revision_statement_count": 0,
+      "missing_comparator_statement_count": 1,
+      "training_ready": false,
+      "execution_ready": false,
+      "limitations": [
+        "Release-stated embargo is not authenticated historical public availability. Retrieved now, not available to a past system decision.",
+        "Values are this archived release snapshot and can be revised; no consensus or surprise established.",
+        "Text spans/hash refer to pdftotext UTF-8 extraction, not raw PDF byte ranges or full table interpretation.",
+        "Two narrowly supported release layouts only; unsupported wording/signs fail matching. Literal matches require manual semantic context review, not automatic fact admission. No annual CPI comparator invented."
+      ]
+    }
+  ],
+  "training_ready": false,
+  "execution_ready": false
+}
