@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "status": "PREPARED_DATA_BASELINE_NOT_LIVE_SIGNALS",
+  "completed_utc": "2026-11-17T19:46:56.628365+00:00",
+  "sources": [
+    {
+      "path": "2026q3.zip",
+      "url": "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q3.zip",
+      "byte_count": 65148008,
+      "sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "local_verified_utc": "2026-11-17T19:40:34.530241+00:00",
+      "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+      "http_status": null,
+      "exact_download_utc": null
+    },
+    {
+      "path": "2026q3_form345.zip",
+      "url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q3_form345.zip",
+      "byte_count": 8660776,
+      "sha256": "a4e6a681cfcfa43a3d9e4ca9cfec1fd26a59d0a01eac7e9f7b5a0122092c90f3",
+      "local_verified_utc": "2026-11-17T19:40:34.569404+00:00",
+      "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+      "http_status": null,
+      "exact_download_utc": null
+    },
+    {
+      "path": "cnsfails202610b.zip",
+      "url": "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202610b.zip",
+      "byte_count": 1435614,
+      "sha256": "d54748d8ecba8c56c3caf41e8d0cd9cc1886275dff7a9dbd9b1c4da87cf56178",
+      "local_verified_utc": "2026-11-17T19:40:34.572616+00:00",
+      "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+      "http_status": null,
+      "exact_download_utc": null
+    }
+  ],
+  "table_rows": {
+    "financial_sub": 6516,
+    "financial_num": 3905397,
+    "financial_pre": 731170,
+    "financial_tag": 87871,
+    "insider_submission": 38152,
+    "insider_deriv_holding": 8128,
+    "insider_deriv_trans": 19205,
+    "insider_footnotes": 93807,
+    "insider_nonderiv_holding": 17322,
+    "insider_nonderiv_trans": 59885,
+    "insider_owner_signature": 41003,
+    "insider_reportingowner": 41346,
+    "ftd": 63157
+  },
+  "issuer_counts": {
+    "financial": 6008,
+    "insider": 4716,
+    "union": 6787
+  },
+  "submission_form_counts": {
+    "financial:10-12G": 1,
+    "financial:10-K": 344,
+    "financial:10-K/A": 38,
+    "financial:10-KT": 3,
+    "financial:10-Q": 5263,
+    "financial:10-Q/A": 55,
+    "financial:11-K": 19,
+    "financial:11-K/A": 2,
+    "financial:20-F": 97,
+    "financial:20-F/A": 17,
+    "financial:40-F": 4,
+    "financial:6-K": 370,
+    "financial:6-K/A": 8,
+    "financial:8-K": 12,
+    "financial:8-K/A": 3,
+    "financial:F-1": 24,
+    "financial:F-1/A": 16,
+    "financial:F-4": 3,
+    "financial:F-4/A": 8,
+    "financial:POS AM": 24,
+    "financial:S-1": 66,
+    "financial:S-1/A": 62,
+    "financial:S-11": 1,
+    "financial:S-4": 28,
+    "financial:S-4/A": 46,
+    "financial:SP 15D2": 2,
+    "insider:3": 3869,
+    "insider:3/A": 100,
+    "insider:4": 33521,
+    "insider:4/A": 627,
+    "insider:5": 35
+  },
+  "filing_date_ranges": {
+    "financial": {
+      "min": "2026-07-01",
+      "max": "2026-09-30"
+    },
+    "insider": {
+      "min": "2026-07-01",
+      "max": "2026-09-30"
+    }
+  },
+  "financial_numeric_missing_values": 177058,
+  "ftd": {
+    "rows": 63157,
+    "distinct_cusips": 13097,
+    "distinct_nonempty_symbols": 13089,
+    "missing_symbol_rows": 1,
+    "symbols_exceeding_documented_10_chars": 2,
+    "settlement_dates": {
+      "20261015": 5282,
+      "20261016": 5209,
+      "20261019": 5797,
+      "20261020": 5176,
+      "20261021": 5133,
+      "20261022": 5186,
+      "20261023": 5101,
+      "20261026": 5168,
+      "20261027": 5175,
+      "20261028": 5389,
+      "20261029": 5010,
+      "20261030": 5531
+    },
+    "missing_previous_day_prices": 412,
+    "trailer_record_count_verified": true,
+    "trailer_quantity_checksum_verified": true
+  },
+  "simulation_enabled": false,
+  "orders_created": 0,
+  "limitations": [
+    "Quarterly financial and insider baseline is not live coverage or all historical SEC records.",
+    "Values remain source text with units, periods, segments, footnotes and amendments; no growth/profitability or insider sentiment inferred.",
+    "FTD is lagged outstanding settlement balances, not daily new fails; do not sum across dates as a current outstanding quantity.",
+    "FTD does not prove short selling or abusive activity; its previous-day prices cannot satisfy execution gates.",
+    "Browser HTTP status and exact download timestamps were not exposed; local verification times are not first-public or source-observed clocks.",
+    "Raw ownership names/addresses/signatures and numeric tables remain private; public output is aggregate coverage only."
+  ],
+  "issuer_metadata": {
+    "sha256": "0fa4426e27391fec694237057f8c685b29702eb8009dff1c7b1a3f4332a52615",
+    "byte_count": 959983
+  }
+}
