@@ -8,7 +8,7 @@ Rights and zero-cost eligibility are hard gates, not scores that predictive prom
 
 Next: audit existing private daily observations and security/action context within approved rights; separately verify original-agency keyless macro routes before a bounded collection. Neither route currently solves qualified intraday labels. Do not acquire restricted data merely to increase row counts.
 
-Unfinished survey categories: Nasdaq/NYSE auctions and halt coverage; Security identifiers and corporate actions; Issuer IR and licensed news; FDA/ClinicalTrials.gov; USAspending/SAM.gov; USPTO; GDELT; ETF/index announcements; Permitted search/social data; Point-in-time consensus and revisions.
+Unfinished survey categories: Nasdaq/NYSE auctions and halt coverage; Point-in-time security identifiers and corporate actions beyond current reference snapshots; Issuer IR and licensed news beyond RSS discovery; FDA/ClinicalTrials.gov rights and point-in-time access verification; USAspending/SAM.gov access and reuse verification; USPTO; GDELT coverage and issuer-resolution validation; ETF/index announcements; Permitted search/social data; Point-in-time consensus and revisions.
 
 Machine-readable source: `source-registry.json`. Validation: `python3 backend/source_registry.py docs/research/source-registry.json`. This validator checks structure and conservative states, not legal correctness or source authenticity.
 
@@ -712,4 +712,460 @@ Next action: Do not scrape or ingest website data for the proposed ML pipeline; 
 - [General API terms](https://developer.finra.org/terms-and-conditions) (checked 2026-11-17)
 - [Short volume differs from open short interest](https://syndication.finra.org/content/short-interest-what-it-what-it-not) (checked 2026-11-17)
 - [ATS reporting lag](https://www.finra.org/sites/default/files/OTC-transparency-website-user-guide-v5.pdf) (checked 2026-11-17)
+
+## OpenFIGI / Bloomberg / openfigi_mapping
+
+P0 · PARTIAL · reviewed 2026-11-17
+
+Datasets: FIGI security identifier mapping
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Free", "authentication": "Optional key; public unauthenticated API documented", "endpoint": "https://api.openfigi.com/v3/mapping"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: VERIFIED. Public mapping API documented
+- storage: PARTIAL. FIGI identifiers dedicated to public domain; broader response metadata license scope not fully established
+- model_training: PARTIAL. Any-purpose grant for FIGI identifiers supports use; not blanket rights for thirdparty IDs or all metadata
+- redistribution: PARTIAL. FIGI identifiers freely redistributable; do not extend grant to thirdparty identifiers
+
+Quotas: Unauthenticated mapping25/min,10jobs/request;search5/min; limits perIP
+
+Delay: Current mappings; exact latency unknown
+
+History: Historical point-in-time mapping not established
+
+Instruments: Security/venue/share-class identifiers, not issuer identity alone
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Bounded identifier mapping requires ambiguous-match handling and point-in-time validation; no new key/account.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Stable security IDs; Ambiguous ticker disambiguation
+
+Limitations: Unlisted equities excluded by default; includeUnlistedEquities=true documented; Ticker-only matches can be ambiguous; current identity does not establish historical ticker ownership
+
+Unknowns: Full response-metadata rights; Historical mapping effective dates; Actual access
+
+Next action: Bounded keyless mapping probe after field-level rights review; preserve ambiguous results.
+
+- [Endpoints, quotas and unlisted-equity filter](https://www.openfigi.com/api/documentation) (checked 2026-11-17)
+- [Public-domain FIGI identifier grant](https://www.openfigi.com/docs/terms-of-service) (checked 2026-11-17)
+
+## GLEIF / gleif_lei
+
+P0 · PARTIAL · reviewed 2026-11-17
+
+Datasets: LEI/reference data; Golden Copy and delta files
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Free", "authentication": "Public Access Service; no new account", "entrypoint": "https://www.gleif.org/en/lei-data/gleif-golden-copy"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: VERIFIED. Official full/subset downloads and APIs supported
+- storage: VERIFIED. LEI and reference data CC0 through Access Service
+- model_training: PARTIAL. CC0 supports use; no model endorsement; no proprietary claims over original LEI/LE-RD
+- redistribution: VERIFIED. CC0 data reuse; no endorsement/trademark rights
+
+Quotas: Not verified
+
+Delay: Versioned Golden Copy/deltas; current exact frequency not verified
+
+History: Golden Copy described as all LEIs ever published plus reference data; not automatically full as-of history
+
+Instruments: Legal entities, not all securities or all issuers
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Parse LEI reference and relationship files, preserve effective dates, and validate issuer mappings; legal entity identity is not security identity.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Issuer entity resolution; Parent relationship context
+
+Limitations: LEI coverage not universal; Current parent relationships cannot be backdated; Do not claim derivative products endorsed by GLEIF
+
+Unknowns: File sizes; Actual download availability; As-of parent completeness; Ticker/CIK links
+
+Next action: Validate current Golden Copy metadata, then bounded download or targeted API; preserve version dates.
+
+- [Free Access Service, CC0 and restrictions](https://www.gleif.org/en/meta/lei-data-terms-of-use) (checked 2026-11-17)
+- [Golden Copy coverage](https://www.gleif.org/en/lei-data/gleif-golden-copy) (checked 2026-11-17)
+
+## Nasdaq Trader / nasdaq_symbol_events
+
+P0 · PARTIAL · reviewed 2026-11-17
+
+Datasets: Current symbol directory; Named Nasdaq Events Data
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Public lookup/download documentation; no subscription initiated", "entrypoint": "https://nasdaqtrader.com/Trader.aspx?id=symbollookup"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: PARTIAL. Official downloadable symbol files documented; precise allowed dataset scope needs validation
+- storage: PARTIAL. Named Events Data exemption states without further licensing restriction; do not generalize to fund data
+- model_training: PARTIAL. Named Events Data unrestricted-use statement; ML not expressly named; exact field scope needs verification
+- redistribution: PARTIAL. Named Events Data exemption; Nasdaq Fund Network explicitly internal noncommercial unless licensed
+
+Quotas: Not established
+
+Delay: Current-day directory; file creationtime documented
+
+History: Current trading day; complete historical actions not verified
+
+Instruments: Nasdaq/otherexchange issues; field-specific licensing differs
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Separate named unrestricted Events Data from restricted Fund Network and paid Daily List products before any acquisition.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Current universe checks; Symbol/status change candidates
+
+Limitations: Exemption specifically names Security Status Updates, Ex-Date, When Distributed/When Issued, Nasdaq Listed; Do not treat all Nasdaq data as unrestricted; Directory does not repair historical delistings/merger adjustment coverage
+
+Unknowns: Exact file-to-license mapping; Historical action coverage; Actual file availability
+
+Next action: Identify precise event/file license scope and snapshot current identity; do not substitute paid Daily List.
+
+- [Current-day scope, Fund Network restriction and named Events Data exception](https://nasdaqtrader.com/Trader.aspx?id=symbollookup) (checked 2026-11-17)
+- [File fields and creation timestamp](https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs) (checked 2026-11-17)
+- [Separate Daily List corporate-action product](https://www.nasdaqtrader.com/Trader.aspx?id=dailylistpd) (checked 2026-11-17)
+
+## FDA openFDA / openfda_drugs
+
+P1 · PARTIAL · reviewed 2026-11-17
+
+Datasets: Drugs@FDA approvals
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Free API; no account created", "endpoint": "https://api.fda.gov/drug/drugsfda.json", "authentication": "Docs conflict: key required wording plus explicit no-key quota; actual behavior unverified"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: PARTIAL. Official API documented; no-key wording conflict unresolved
+- storage: PARTIAL. CC0 applies by default, but third-party exceptions must be excluded at dataset/field level before storage.
+- model_training: PARTIAL. CC0 supports eligible data use; GMDN content expressly requires separate AI license
+- redistribution: PARTIAL. CC0 except source-specific exceptions; no FDA endorsement
+
+Quotas: No-key documented240/min/IP,1000/day/IP;withkey240/min,120000/day
+
+Delay: Monday-Friday daily
+
+History: Most approvals since1939; majority supporting documents since1998
+
+Instruments: Human approved drug products; issuer matching separate
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Validate drugs-only field scope, exclude licensed third-party content, and resolve issuer identities and update-time lag.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Approval/submission catalyst changes
+
+Limitations: No-key availability must be tested not assumed; GMDN restriction must not be ignored in future device expansion; Approval date may precede API availability
+
+Unknowns: Actual access; Completeness; Source-publication timestamp; Point-in-time history; Issuer joins
+
+Next action: Bounded drug-only query after validating keyless path; preserve date vs firstobserved.
+
+- [Coverage/update cadence](https://open.fda.gov/apis/drug/drugsfda/) (checked 2026-11-17)
+- [Quotas and authentication wording](https://open.fda.gov/apis/authentication/) (checked 2026-11-17)
+- [CC0 and GMDN AI restriction](https://open.fda.gov/terms/) (checked 2026-11-17)
+
+## FDA openFDA / openfda_drug_recalls
+
+P1 · PARTIAL · reviewed 2026-11-17
+
+Datasets: Drug enforcement/recall records
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Free documented API", "endpoint": "https://api.fda.gov/drug/enforcement.json", "authentication": "Same key/no-key documentation conflict as other openFDA endpoints"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: PARTIAL. API documented; access untested
+- storage: PARTIAL. CC0 applies by default, but third-party exceptions must be excluded at dataset/field level before storage.
+- model_training: PARTIAL. Eligible CC0 data use; exclude separately licensed content
+- redistribution: PARTIAL. CC0 default with exceptions
+
+Quotas: Documented no-key1000/day/IP,240/min
+
+Delay: Weekly; after classification; records may be corrected
+
+History: Publicly releasable2004-present
+
+Instruments: Drug recalls, not all instantaneous safety alerts
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Preserve report/publication timestamps and later classification corrections; exclude restricted content.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Recall classification/severity change
+
+Limitations: Not a real-time recall alert; Initiation/report/publication/observed dates differ; Later expansions/corrections must be versioned
+
+Unknowns: Actual access; Historical first-public timestamps; Issuer attribution
+
+Next action: Snapshot bounded records with change hashes; never use recall-initiation date as availability time.
+
+- [Weekly cadence,2004 history, classification/correction caveats](https://open.fda.gov/apis/drug/enforcement/) (checked 2026-11-17)
+- [Default license and exceptions](https://open.fda.gov/terms/) (checked 2026-11-17)
+- [Documented quota](https://open.fda.gov/apis/authentication/) (checked 2026-11-17)
+
+## NLM ClinicalTrials.gov / clinicaltrials_v2
+
+P1 · PARTIAL · reviewed 2026-11-17
+
+Datasets: Trial registration/status/results
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Public API documented", "endpoint": "https://clinicaltrials.gov/api/v2/studies", "authentication": "Not independently probed"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: PARTIAL. Official NLM directs users to modern API instead of scraping
+- storage: UNVERIFIED. Not established; public access alone is not permission.
+- model_training: UNVERIFIED. Not established; public access alone is not permission.
+- redistribution: UNVERIFIED. Not established; public access alone is not permission.
+
+Quotas: Not verified
+
+Delay: Official2024 webinar says weekdays generally9am; current cadence not confirmed
+
+History: Current study records; historical record versions not verified
+
+Instruments: Clinical studies/sponsors; sponsor is not necessarily public parent
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Resolve terms and version timing before API collection; sponsor-to-issuer mapping and historical changes require separate validation.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Study status change; Results-posting event; Enrollment/primary-completion revisions
+
+Limitations: Results posting is not positive trial outcome; Anticipated completion is not guaranteed readout date; Site terms page yielded shell only; rights unresolved
+
+Unknowns: Current full terms; Current quotas/authentication; Historical versions; Actual access; Publication timestamps
+
+Next action: Resolve current terms before data ingestion; use v2 not retired classic API.
+
+- [Official modern API](https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html) (checked 2026-11-17)
+- [Official recommendation of API](https://www.nlm.nih.gov/pubs/techbull/ja25/ja25_clinical_trials_screen-scraping.html) (checked 2026-11-17)
+- [2024 documented refresh timing](https://www.nlm.nih.gov/oet/ed/ct/2024/6-6_ctg-modern_508c.pdf) (checked 2026-11-17)
+- [Terms location; page body unavailable to research reader](https://clinicaltrials.gov/about-site/terms-conditions) (checked 2026-11-17)
+
+## US Treasury USAspending / usaspending_awards
+
+P1 · PARTIAL · reviewed 2026-11-17
+
+Datasets: Prime awards and transactions
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Public API/downloads", "entrypoint": "https://api.usaspending.gov/", "authentication": "Public API docs; actual request not tested"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: VERIFIED. Official API and bulk downloads offered
+- storage: PARTIAL. Open public data; exact dataset-wide rights not established here
+- model_training: UNVERIFIED. Not established; public access alone is not permission.
+- redistribution: PARTIAL. Public reuse supported; software repository CC0 is not proof all source data unrestricted
+
+Quotas: Not verified
+
+Delay: Nightly pipeline; source reporting lags, officialguide notes90day delay for DOD/ArmyCorps
+
+History: Dataset-specific; exact available years not verified
+
+Instruments: Federal awards/recipient entities; recipient-to-listed-parent mapping separate
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Resolve data rights, historical reporting delays and award-modification semantics before issuer mapping.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Contract obligations/change history; Government customer concentration
+
+Limitations: Award ceiling != obligated amount != recognized revenue; Corrections and modifications can reduce obligations; Do not backdate availability to action date
+
+Unknowns: Dataset rights; Actual access; Quotas; Specific source lags/current exceptions; Historical first-public dates
+
+Next action: Inspect source-specific data policy, then bounded transaction query preserving award/modification IDs.
+
+- [Official API](https://api.usaspending.gov/) (checked 2026-11-17)
+- [Downloads, nightly pipeline and source reporting delays](https://www.usaspending.gov/data/data-sources-download.pdf) (checked 2026-11-17)
+- [Interpretation and citation guidance](https://www.usaspending.gov/federal-spending-guide) (checked 2026-11-17)
+
+## GSA SAM.gov / sam_public_opportunities
+
+P2 · PARTIAL · reviewed 2026-11-17
+
+Datasets: Public contract opportunities and notices
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Public API; no account/key created", "endpoint": "https://api.sam.gov/opportunities/v2/search", "authentication": "Public API key required"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: PARTIAL. Official API subject to individual-key terms; do not acquire/share keys
+- storage: UNVERIFIED. Not established; public access alone is not permission.
+- model_training: UNVERIFIED. Not established; public access alone is not permission.
+- redistribution: PARTIAL. SAM terms allow public sharing only public API data; detailed reuse/thirdparty attachment rights unresolved
+
+Quotas: Role-dependent daily limits; exact entitlement unverified; posted date window max1year
+
+Delay: Active notices daily; archived weekly
+
+History: API latest active version only; allversions through Data Services
+
+Instruments: Solicitations/presolicitations/awardnotices; not realized revenue
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Existing authorized access and individual-key terms are unresolved; no account or credential creation.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Procurement pipeline; Award-notice verification
+
+Limitations: Solicitation is not won contract; Current latest-version endpoint not full point-in-time archive; Individual API key must not be shared
+
+Unknowns: Existing authorization; Actual access; Quota; AI/storage rights; Attachment rights
+
+Next action: Do not create account or ask for/share individual key; investigate allowed public extracts and terms first.
+
+- [Access/latest-version/update schedule/date range](https://open.gsa.gov/api/get-opportunities-public-api/) (checked 2026-11-17)
+- [Individual-key and public-data sharing restrictions](https://sam.gov/about/terms-of-use) (checked 2026-11-17)
+
+## GDELT Project / gdelt_project
+
+P1 · PARTIAL · reviewed 2026-11-17
+
+Datasets: News-derived metadata/events/GKG
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Project datasets free; do not confuse separate GDELT Cloud commercial service", "entrypoint": "https://gdeltproject.org/data.html"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: VERIFIED. Official dataset downloads/APIs offered
+- storage: VERIFIED. Project permits dataset mirroring/rehosting with citation/link
+- model_training: PARTIAL. Broad unrestricted academic/commercial use supports dataset research; not underlying publisher fulltext grant
+- redistribution: VERIFIED. Project datasets redistribution permitted with GDELT attribution/link
+
+Quotas: API quotas not verified
+
+Delay: Dataset-specific; no current observed latency verified
+
+History: Dataset-specific; DOC API window not reverified here
+
+Instruments: Global news-derived records; noisy company mapping
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Deduplicate metadata, validate entity resolution and event time; article content rights remain separate.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): News novelty/clustering; Cross-source event corroboration
+
+Limitations: Dataset terms do not license linked news articles/images; Automated extraction/sentiment is noisy; Publication/firstseen time and timezone require validation
+
+Unknowns: Exact endpoint history/quotas; Current access; Ticker disambiguation; Underlying publisher content rights
+
+Next action: Use bounded project metadata only; attribute/link and do not download publisher fulltext without rights.
+
+- [Dataset terms](https://gdeltproject.org/about.html) (checked 2026-11-17)
+- [Official data tools](https://gdeltproject.org/data.html) (checked 2026-11-17)
+
+## GlobeNewswire / globenewswire_rss
+
+P2 · PARTIAL · reviewed 2026-11-17
+
+Datasets: Official public press-release RSS discovery
+Verification: Official documentation research only; no data endpoint probes or downloads.
+Documented access: {"cost": "Public RSS offered; no reader account created", "entrypoint": "https://www.globenewswire.com/rss/list"}
+Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
+Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
+Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+
+- collection: PARTIAL. Official support invites RSS feed use
+- storage: UNVERIFIED. Not established; public access alone is not permission.
+- model_training: UNVERIFIED. Not established; public access alone is not permission.
+- redistribution: UNVERIFIED. Not established; public access alone is not permission.
+
+Quotas: Not verified
+
+Delay: Publication-driven; no latency SLA tested
+
+History: Feed retention/history not verified
+
+Instruments: Distributed releases; issuer claims need independent corroboration
+
+Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+
+Implementation Complexity: RESEARCHED. Feed discovery only until retention, model-use and redistribution rights are established.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Issuer catalyst discovery; Duplicate release detection
+
+Limitations: RSS availability is not fulltext training/redistribution permission; Press releases are issuer assertions, not verified outcomes
+
+Unknowns: Retention/training/redistribution rights; Feed truncation; Actual access
+
+Next action: Use only after precise feed-use rights established; do not presume archival corpus license.
+
+- [Official RSS offering](https://globenewswiresupportcenter.gcs-web.com/en/publishing/partners) (checked 2026-11-17)
+- [Official feed directory](https://www.globenewswire.com/rss/list) (checked 2026-11-17)
 

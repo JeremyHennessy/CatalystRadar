@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "verified_on": "2026-11-17",
-  "scope": "Initial source-rights and acquisition registry; not a complete Phase One survey or an operational permission service.",
+  "scope": "Expanded source-rights and acquisition registry; not a complete Phase One survey or an operational permission service.",
   "global_caveats": [
     "New candidate access remains unverified; existing SEC/AV records identify historical verified scope separately from current operational access.",
     "No source is marked training-ready",
@@ -154,11 +154,11 @@
       "verified_access": {
         "status": "VERIFIED",
         "downloaded_records": null,
-        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
+        "detail": "Verified historical private collection: 11 symbols \u00d7 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
       },
       "integration": {
         "status": "VERIFIED",
-        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
+        "detail": "Verified historical private collection: 11 symbols \u00d7 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
       },
       "rights": {
         "collection": {
@@ -1858,18 +1858,1228 @@
         "status": "UNVERIFIED",
         "detail": "No current data request performed for this catalog."
       }
+    },
+    {
+      "id": "openfigi_mapping",
+      "provider": "OpenFIGI / Bloomberg",
+      "dataset": [
+        "FIGI security identifier mapping"
+      ],
+      "status": "PARTIAL",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Free",
+        "authentication": "Optional key; public unauthenticated API documented",
+        "endpoint": "https://api.openfigi.com/v3/mapping"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "VERIFIED",
+          "detail": "Public mapping API documented",
+          "evidence_urls": [
+            "https://www.openfigi.com/api/documentation",
+            "https://www.openfigi.com/docs/terms-of-service"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "FIGI identifiers dedicated to public domain; broader response metadata license scope not fully established",
+          "evidence_urls": [
+            "https://www.openfigi.com/api/documentation",
+            "https://www.openfigi.com/docs/terms-of-service"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "Any-purpose grant for FIGI identifiers supports use; not blanket rights for thirdparty IDs or all metadata",
+          "evidence_urls": [
+            "https://www.openfigi.com/api/documentation",
+            "https://www.openfigi.com/docs/terms-of-service"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "FIGI identifiers freely redistributable; do not extend grant to thirdparty identifiers",
+          "evidence_urls": [
+            "https://www.openfigi.com/api/documentation",
+            "https://www.openfigi.com/docs/terms-of-service"
+          ]
+        }
+      },
+      "quotas": "Unauthenticated mapping25/min,10jobs/request;search5/min; limits perIP",
+      "history": "Historical point-in-time mapping not established",
+      "delay": "Current mappings; exact latency unknown",
+      "instruments": "Security/venue/share-class identifiers, not issuer identity alone",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Stable security IDs",
+        "Ambiguous ticker disambiguation"
+      ],
+      "limitations": [
+        "Unlisted equities excluded by default; includeUnlistedEquities=true documented",
+        "Ticker-only matches can be ambiguous; current identity does not establish historical ticker ownership"
+      ],
+      "unknowns": [
+        "Full response-metadata rights",
+        "Historical mapping effective dates",
+        "Actual access"
+      ],
+      "next_action": "Bounded keyless mapping probe after field-level rights review; preserve ambiguous results.",
+      "evidence": [
+        {
+          "url": "https://www.openfigi.com/api/documentation",
+          "supports": "Endpoints, quotas and unlisted-equity filter",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.openfigi.com/docs/terms-of-service",
+          "supports": "Public-domain FIGI identifier grant",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Bounded identifier mapping requires ambiguous-match handling and point-in-time validation; no new key/account."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "gleif_lei",
+      "provider": "GLEIF",
+      "dataset": [
+        "LEI/reference data",
+        "Golden Copy and delta files"
+      ],
+      "status": "PARTIAL",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Free",
+        "authentication": "Public Access Service; no new account",
+        "entrypoint": "https://www.gleif.org/en/lei-data/gleif-golden-copy"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "VERIFIED",
+          "detail": "Official full/subset downloads and APIs supported",
+          "evidence_urls": [
+            "https://www.gleif.org/en/meta/lei-data-terms-of-use",
+            "https://www.gleif.org/en/lei-data/gleif-golden-copy"
+          ]
+        },
+        "storage": {
+          "status": "VERIFIED",
+          "detail": "LEI and reference data CC0 through Access Service",
+          "evidence_urls": [
+            "https://www.gleif.org/en/meta/lei-data-terms-of-use",
+            "https://www.gleif.org/en/lei-data/gleif-golden-copy"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "CC0 supports use; no model endorsement; no proprietary claims over original LEI/LE-RD",
+          "evidence_urls": [
+            "https://www.gleif.org/en/meta/lei-data-terms-of-use",
+            "https://www.gleif.org/en/lei-data/gleif-golden-copy"
+          ]
+        },
+        "redistribution": {
+          "status": "VERIFIED",
+          "detail": "CC0 data reuse; no endorsement/trademark rights",
+          "evidence_urls": [
+            "https://www.gleif.org/en/meta/lei-data-terms-of-use",
+            "https://www.gleif.org/en/lei-data/gleif-golden-copy"
+          ]
+        }
+      },
+      "quotas": "Not verified",
+      "history": "Golden Copy described as all LEIs ever published plus reference data; not automatically full as-of history",
+      "delay": "Versioned Golden Copy/deltas; current exact frequency not verified",
+      "instruments": "Legal entities, not all securities or all issuers",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Issuer entity resolution",
+        "Parent relationship context"
+      ],
+      "limitations": [
+        "LEI coverage not universal",
+        "Current parent relationships cannot be backdated",
+        "Do not claim derivative products endorsed by GLEIF"
+      ],
+      "unknowns": [
+        "File sizes",
+        "Actual download availability",
+        "As-of parent completeness",
+        "Ticker/CIK links"
+      ],
+      "next_action": "Validate current Golden Copy metadata, then bounded download or targeted API; preserve version dates.",
+      "evidence": [
+        {
+          "url": "https://www.gleif.org/en/meta/lei-data-terms-of-use",
+          "supports": "Free Access Service, CC0 and restrictions",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.gleif.org/en/lei-data/gleif-golden-copy",
+          "supports": "Golden Copy coverage",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Parse LEI reference and relationship files, preserve effective dates, and validate issuer mappings; legal entity identity is not security identity."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "nasdaq_symbol_events",
+      "provider": "Nasdaq Trader",
+      "dataset": [
+        "Current symbol directory",
+        "Named Nasdaq Events Data"
+      ],
+      "status": "PARTIAL",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Public lookup/download documentation; no subscription initiated",
+        "entrypoint": "https://nasdaqtrader.com/Trader.aspx?id=symbollookup"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official downloadable symbol files documented; precise allowed dataset scope needs validation",
+          "evidence_urls": [
+            "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=dailylistpd"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Named Events Data exemption states without further licensing restriction; do not generalize to fund data",
+          "evidence_urls": [
+            "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=dailylistpd"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "Named Events Data unrestricted-use statement; ML not expressly named; exact field scope needs verification",
+          "evidence_urls": [
+            "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=dailylistpd"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "Named Events Data exemption; Nasdaq Fund Network explicitly internal noncommercial unless licensed",
+          "evidence_urls": [
+            "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs",
+            "https://www.nasdaqtrader.com/Trader.aspx?id=dailylistpd"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "history": "Current trading day; complete historical actions not verified",
+      "delay": "Current-day directory; file creationtime documented",
+      "instruments": "Nasdaq/otherexchange issues; field-specific licensing differs",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Current universe checks",
+        "Symbol/status change candidates"
+      ],
+      "limitations": [
+        "Exemption specifically names Security Status Updates, Ex-Date, When Distributed/When Issued, Nasdaq Listed",
+        "Do not treat all Nasdaq data as unrestricted",
+        "Directory does not repair historical delistings/merger adjustment coverage"
+      ],
+      "unknowns": [
+        "Exact file-to-license mapping",
+        "Historical action coverage",
+        "Actual file availability"
+      ],
+      "next_action": "Identify precise event/file license scope and snapshot current identity; do not substitute paid Daily List.",
+      "evidence": [
+        {
+          "url": "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
+          "supports": "Current-day scope, Fund Network restriction and named Events Data exception",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs",
+          "supports": "File fields and creation timestamp",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.nasdaqtrader.com/Trader.aspx?id=dailylistpd",
+          "supports": "Separate Daily List corporate-action product",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Separate named unrestricted Events Data from restricted Fund Network and paid Daily List products before any acquisition."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "openfda_drugs",
+      "provider": "FDA openFDA",
+      "dataset": [
+        "Drugs@FDA approvals"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Free API; no account created",
+        "endpoint": "https://api.fda.gov/drug/drugsfda.json",
+        "authentication": "Docs conflict: key required wording plus explicit no-key quota; actual behavior unverified"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official API documented; no-key wording conflict unresolved",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/drugsfda/",
+            "https://open.fda.gov/apis/authentication/",
+            "https://open.fda.gov/terms/"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "CC0 applies by default, but third-party exceptions must be excluded at dataset/field level before storage.",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/drugsfda/",
+            "https://open.fda.gov/apis/authentication/",
+            "https://open.fda.gov/terms/"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "CC0 supports eligible data use; GMDN content expressly requires separate AI license",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/drugsfda/",
+            "https://open.fda.gov/apis/authentication/",
+            "https://open.fda.gov/terms/"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "CC0 except source-specific exceptions; no FDA endorsement",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/drugsfda/",
+            "https://open.fda.gov/apis/authentication/",
+            "https://open.fda.gov/terms/"
+          ]
+        }
+      },
+      "quotas": "No-key documented240/min/IP,1000/day/IP;withkey240/min,120000/day",
+      "history": "Most approvals since1939; majority supporting documents since1998",
+      "delay": "Monday-Friday daily",
+      "instruments": "Human approved drug products; issuer matching separate",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Approval/submission catalyst changes"
+      ],
+      "limitations": [
+        "No-key availability must be tested not assumed",
+        "GMDN restriction must not be ignored in future device expansion",
+        "Approval date may precede API availability"
+      ],
+      "unknowns": [
+        "Actual access",
+        "Completeness",
+        "Source-publication timestamp",
+        "Point-in-time history",
+        "Issuer joins"
+      ],
+      "next_action": "Bounded drug-only query after validating keyless path; preserve date vs firstobserved.",
+      "evidence": [
+        {
+          "url": "https://open.fda.gov/apis/drug/drugsfda/",
+          "supports": "Coverage/update cadence",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://open.fda.gov/apis/authentication/",
+          "supports": "Quotas and authentication wording",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://open.fda.gov/terms/",
+          "supports": "CC0 and GMDN AI restriction",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Validate drugs-only field scope, exclude licensed third-party content, and resolve issuer identities and update-time lag."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "openfda_drug_recalls",
+      "provider": "FDA openFDA",
+      "dataset": [
+        "Drug enforcement/recall records"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Free documented API",
+        "endpoint": "https://api.fda.gov/drug/enforcement.json",
+        "authentication": "Same key/no-key documentation conflict as other openFDA endpoints"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "API documented; access untested",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/enforcement/",
+            "https://open.fda.gov/terms/",
+            "https://open.fda.gov/apis/authentication/"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "CC0 applies by default, but third-party exceptions must be excluded at dataset/field level before storage.",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/enforcement/",
+            "https://open.fda.gov/terms/",
+            "https://open.fda.gov/apis/authentication/"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "Eligible CC0 data use; exclude separately licensed content",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/enforcement/",
+            "https://open.fda.gov/terms/",
+            "https://open.fda.gov/apis/authentication/"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "CC0 default with exceptions",
+          "evidence_urls": [
+            "https://open.fda.gov/apis/drug/enforcement/",
+            "https://open.fda.gov/terms/",
+            "https://open.fda.gov/apis/authentication/"
+          ]
+        }
+      },
+      "quotas": "Documented no-key1000/day/IP,240/min",
+      "history": "Publicly releasable2004-present",
+      "delay": "Weekly; after classification; records may be corrected",
+      "instruments": "Drug recalls, not all instantaneous safety alerts",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Recall classification/severity change"
+      ],
+      "limitations": [
+        "Not a real-time recall alert",
+        "Initiation/report/publication/observed dates differ",
+        "Later expansions/corrections must be versioned"
+      ],
+      "unknowns": [
+        "Actual access",
+        "Historical first-public timestamps",
+        "Issuer attribution"
+      ],
+      "next_action": "Snapshot bounded records with change hashes; never use recall-initiation date as availability time.",
+      "evidence": [
+        {
+          "url": "https://open.fda.gov/apis/drug/enforcement/",
+          "supports": "Weekly cadence,2004 history, classification/correction caveats",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://open.fda.gov/terms/",
+          "supports": "Default license and exceptions",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://open.fda.gov/apis/authentication/",
+          "supports": "Documented quota",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Preserve report/publication timestamps and later classification corrections; exclude restricted content."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "clinicaltrials_v2",
+      "provider": "NLM ClinicalTrials.gov",
+      "dataset": [
+        "Trial registration/status/results"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Public API documented",
+        "endpoint": "https://clinicaltrials.gov/api/v2/studies",
+        "authentication": "Not independently probed"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official NLM directs users to modern API instead of scraping",
+          "evidence_urls": [
+            "https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html",
+            "https://www.nlm.nih.gov/pubs/techbull/ja25/ja25_clinical_trials_screen-scraping.html",
+            "https://www.nlm.nih.gov/oet/ed/ct/2024/6-6_ctg-modern_508c.pdf",
+            "https://clinicaltrials.gov/about-site/terms-conditions"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html",
+            "https://www.nlm.nih.gov/pubs/techbull/ja25/ja25_clinical_trials_screen-scraping.html",
+            "https://www.nlm.nih.gov/oet/ed/ct/2024/6-6_ctg-modern_508c.pdf",
+            "https://clinicaltrials.gov/about-site/terms-conditions"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html",
+            "https://www.nlm.nih.gov/pubs/techbull/ja25/ja25_clinical_trials_screen-scraping.html",
+            "https://www.nlm.nih.gov/oet/ed/ct/2024/6-6_ctg-modern_508c.pdf",
+            "https://clinicaltrials.gov/about-site/terms-conditions"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html",
+            "https://www.nlm.nih.gov/pubs/techbull/ja25/ja25_clinical_trials_screen-scraping.html",
+            "https://www.nlm.nih.gov/oet/ed/ct/2024/6-6_ctg-modern_508c.pdf",
+            "https://clinicaltrials.gov/about-site/terms-conditions"
+          ]
+        }
+      },
+      "quotas": "Not verified",
+      "history": "Current study records; historical record versions not verified",
+      "delay": "Official2024 webinar says weekdays generally9am; current cadence not confirmed",
+      "instruments": "Clinical studies/sponsors; sponsor is not necessarily public parent",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Study status change",
+        "Results-posting event",
+        "Enrollment/primary-completion revisions"
+      ],
+      "limitations": [
+        "Results posting is not positive trial outcome",
+        "Anticipated completion is not guaranteed readout date",
+        "Site terms page yielded shell only; rights unresolved"
+      ],
+      "unknowns": [
+        "Current full terms",
+        "Current quotas/authentication",
+        "Historical versions",
+        "Actual access",
+        "Publication timestamps"
+      ],
+      "next_action": "Resolve current terms before data ingestion; use v2 not retired classic API.",
+      "evidence": [
+        {
+          "url": "https://www.nlm.nih.gov/pubs/techbull/ma24/ma24_clinicaltrials_api.html",
+          "supports": "Official modern API",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.nlm.nih.gov/pubs/techbull/ja25/ja25_clinical_trials_screen-scraping.html",
+          "supports": "Official recommendation of API",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.nlm.nih.gov/oet/ed/ct/2024/6-6_ctg-modern_508c.pdf",
+          "supports": "2024 documented refresh timing",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://clinicaltrials.gov/about-site/terms-conditions",
+          "supports": "Terms location; page body unavailable to research reader",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Resolve terms and version timing before API collection; sponsor-to-issuer mapping and historical changes require separate validation."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "usaspending_awards",
+      "provider": "US Treasury USAspending",
+      "dataset": [
+        "Prime awards and transactions"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Public API/downloads",
+        "entrypoint": "https://api.usaspending.gov/",
+        "authentication": "Public API docs; actual request not tested"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "VERIFIED",
+          "detail": "Official API and bulk downloads offered",
+          "evidence_urls": [
+            "https://api.usaspending.gov/",
+            "https://www.usaspending.gov/data/data-sources-download.pdf",
+            "https://www.usaspending.gov/federal-spending-guide"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Open public data; exact dataset-wide rights not established here",
+          "evidence_urls": [
+            "https://api.usaspending.gov/",
+            "https://www.usaspending.gov/data/data-sources-download.pdf",
+            "https://www.usaspending.gov/federal-spending-guide"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://api.usaspending.gov/",
+            "https://www.usaspending.gov/data/data-sources-download.pdf",
+            "https://www.usaspending.gov/federal-spending-guide"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "Public reuse supported; software repository CC0 is not proof all source data unrestricted",
+          "evidence_urls": [
+            "https://api.usaspending.gov/",
+            "https://www.usaspending.gov/data/data-sources-download.pdf",
+            "https://www.usaspending.gov/federal-spending-guide"
+          ]
+        }
+      },
+      "quotas": "Not verified",
+      "history": "Dataset-specific; exact available years not verified",
+      "delay": "Nightly pipeline; source reporting lags, officialguide notes90day delay for DOD/ArmyCorps",
+      "instruments": "Federal awards/recipient entities; recipient-to-listed-parent mapping separate",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Contract obligations/change history",
+        "Government customer concentration"
+      ],
+      "limitations": [
+        "Award ceiling != obligated amount != recognized revenue",
+        "Corrections and modifications can reduce obligations",
+        "Do not backdate availability to action date"
+      ],
+      "unknowns": [
+        "Dataset rights",
+        "Actual access",
+        "Quotas",
+        "Specific source lags/current exceptions",
+        "Historical first-public dates"
+      ],
+      "next_action": "Inspect source-specific data policy, then bounded transaction query preserving award/modification IDs.",
+      "evidence": [
+        {
+          "url": "https://api.usaspending.gov/",
+          "supports": "Official API",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.usaspending.gov/data/data-sources-download.pdf",
+          "supports": "Downloads, nightly pipeline and source reporting delays",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.usaspending.gov/federal-spending-guide",
+          "supports": "Interpretation and citation guidance",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Resolve data rights, historical reporting delays and award-modification semantics before issuer mapping."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "sam_public_opportunities",
+      "provider": "GSA SAM.gov",
+      "dataset": [
+        "Public contract opportunities and notices"
+      ],
+      "status": "PARTIAL",
+      "priority": "P2",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Public API; no account/key created",
+        "endpoint": "https://api.sam.gov/opportunities/v2/search",
+        "authentication": "Public API key required"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official API subject to individual-key terms; do not acquire/share keys",
+          "evidence_urls": [
+            "https://open.gsa.gov/api/get-opportunities-public-api/",
+            "https://sam.gov/about/terms-of-use"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://open.gsa.gov/api/get-opportunities-public-api/",
+            "https://sam.gov/about/terms-of-use"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://open.gsa.gov/api/get-opportunities-public-api/",
+            "https://sam.gov/about/terms-of-use"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "SAM terms allow public sharing only public API data; detailed reuse/thirdparty attachment rights unresolved",
+          "evidence_urls": [
+            "https://open.gsa.gov/api/get-opportunities-public-api/",
+            "https://sam.gov/about/terms-of-use"
+          ]
+        }
+      },
+      "quotas": "Role-dependent daily limits; exact entitlement unverified; posted date window max1year",
+      "history": "API latest active version only; allversions through Data Services",
+      "delay": "Active notices daily; archived weekly",
+      "instruments": "Solicitations/presolicitations/awardnotices; not realized revenue",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Procurement pipeline",
+        "Award-notice verification"
+      ],
+      "limitations": [
+        "Solicitation is not won contract",
+        "Current latest-version endpoint not full point-in-time archive",
+        "Individual API key must not be shared"
+      ],
+      "unknowns": [
+        "Existing authorization",
+        "Actual access",
+        "Quota",
+        "AI/storage rights",
+        "Attachment rights"
+      ],
+      "next_action": "Do not create account or ask for/share individual key; investigate allowed public extracts and terms first.",
+      "evidence": [
+        {
+          "url": "https://open.gsa.gov/api/get-opportunities-public-api/",
+          "supports": "Access/latest-version/update schedule/date range",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://sam.gov/about/terms-of-use",
+          "supports": "Individual-key and public-data sharing restrictions",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Existing authorized access and individual-key terms are unresolved; no account or credential creation."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "gdelt_project",
+      "provider": "GDELT Project",
+      "dataset": [
+        "News-derived metadata/events/GKG"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Project datasets free; do not confuse separate GDELT Cloud commercial service",
+        "entrypoint": "https://gdeltproject.org/data.html"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "VERIFIED",
+          "detail": "Official dataset downloads/APIs offered",
+          "evidence_urls": [
+            "https://gdeltproject.org/about.html",
+            "https://gdeltproject.org/data.html"
+          ]
+        },
+        "storage": {
+          "status": "VERIFIED",
+          "detail": "Project permits dataset mirroring/rehosting with citation/link",
+          "evidence_urls": [
+            "https://gdeltproject.org/about.html",
+            "https://gdeltproject.org/data.html"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "Broad unrestricted academic/commercial use supports dataset research; not underlying publisher fulltext grant",
+          "evidence_urls": [
+            "https://gdeltproject.org/about.html",
+            "https://gdeltproject.org/data.html"
+          ]
+        },
+        "redistribution": {
+          "status": "VERIFIED",
+          "detail": "Project datasets redistribution permitted with GDELT attribution/link",
+          "evidence_urls": [
+            "https://gdeltproject.org/about.html",
+            "https://gdeltproject.org/data.html"
+          ]
+        }
+      },
+      "quotas": "API quotas not verified",
+      "history": "Dataset-specific; DOC API window not reverified here",
+      "delay": "Dataset-specific; no current observed latency verified",
+      "instruments": "Global news-derived records; noisy company mapping",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "News novelty/clustering",
+        "Cross-source event corroboration"
+      ],
+      "limitations": [
+        "Dataset terms do not license linked news articles/images",
+        "Automated extraction/sentiment is noisy",
+        "Publication/firstseen time and timezone require validation"
+      ],
+      "unknowns": [
+        "Exact endpoint history/quotas",
+        "Current access",
+        "Ticker disambiguation",
+        "Underlying publisher content rights"
+      ],
+      "next_action": "Use bounded project metadata only; attribute/link and do not download publisher fulltext without rights.",
+      "evidence": [
+        {
+          "url": "https://gdeltproject.org/about.html",
+          "supports": "Dataset terms",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://gdeltproject.org/data.html",
+          "supports": "Official data tools",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Deduplicate metadata, validate entity resolution and event time; article content rights remain separate."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
+    },
+    {
+      "id": "globenewswire_rss",
+      "provider": "GlobeNewswire",
+      "dataset": [
+        "Official public press-release RSS discovery"
+      ],
+      "status": "PARTIAL",
+      "priority": "P2",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "documented_access": {
+        "cost": "Public RSS offered; no reader account created",
+        "entrypoint": "https://www.globenewswire.com/rss/list"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No data access test or download in this documentation-only package."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "Not inspected; preserve independently audited existing integration"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official support invites RSS feed use",
+          "evidence_urls": [
+            "https://globenewswiresupportcenter.gcs-web.com/en/publishing/partners",
+            "https://www.globenewswire.com/rss/list"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://globenewswiresupportcenter.gcs-web.com/en/publishing/partners",
+            "https://www.globenewswire.com/rss/list"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://globenewswiresupportcenter.gcs-web.com/en/publishing/partners",
+            "https://www.globenewswire.com/rss/list"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "Not established; public access alone is not permission.",
+          "evidence_urls": [
+            "https://globenewswiresupportcenter.gcs-web.com/en/publishing/partners",
+            "https://www.globenewswire.com/rss/list"
+          ]
+        }
+      },
+      "quotas": "Not verified",
+      "history": "Feed retention/history not verified",
+      "delay": "Publication-driven; no latency SLA tested",
+      "instruments": "Distributed releases; issuer claims need independent corroboration",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation only; no record-level or completeness validation"
+      },
+      "features": [
+        "Issuer catalyst discovery",
+        "Duplicate release detection"
+      ],
+      "limitations": [
+        "RSS availability is not fulltext training/redistribution permission",
+        "Press releases are issuer assertions, not verified outcomes"
+      ],
+      "unknowns": [
+        "Retention/training/redistribution rights",
+        "Feed truncation",
+        "Actual access"
+      ],
+      "next_action": "Use only after precise feed-use rights established; do not presume archival corpus license.",
+      "evidence": [
+        {
+          "url": "https://globenewswiresupportcenter.gcs-web.com/en/publishing/partners",
+          "supports": "Official RSS offering",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.globenewswire.com/rss/list",
+          "supports": "Official feed directory",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Feed discovery only until retention, model-use and redistribution rights are established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "PARTIAL",
+        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "Documentation research only; no provider data request, download or new credential in this package."
+      }
     }
   ],
-  "basis_git_head": "41926ce1c4990ad2f169b9f0f7a548cb3a96e51f",
+  "basis_git_head": "593c24af1233a1a9d0dd0592f22b791369c0f73b",
   "collection_enabled": false,
   "remaining_survey_categories": [
     "Nasdaq/NYSE auctions and halt coverage",
-    "Security identifiers and corporate actions",
-    "Issuer IR and licensed news",
-    "FDA/ClinicalTrials.gov",
-    "USAspending/SAM.gov",
+    "Point-in-time security identifiers and corporate actions beyond current reference snapshots",
+    "Issuer IR and licensed news beyond RSS discovery",
+    "FDA/ClinicalTrials.gov rights and point-in-time access verification",
+    "USAspending/SAM.gov access and reuse verification",
     "USPTO",
-    "GDELT",
+    "GDELT coverage and issuer-resolution validation",
     "ETF/index announcements",
     "Permitted search/social data",
     "Point-in-time consensus and revisions"
