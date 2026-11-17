@@ -3,7 +3,7 @@
   "verified_on": "2026-11-17",
   "scope": "Expanded source-rights and acquisition registry; not a complete Phase One survey or an operational permission service.",
   "global_caveats": [
-    "New candidate access remains unverified; existing SEC/AV records identify historical verified scope separately from current operational access.",
+    "Historical SEC/AV and selected reference-source receipts are distinguished from unverified current operational access; this reconciliation makes no new provider requests.",
     "No source is marked training-ready",
     "Public-domain reuse inference is not provider endorsement of a trained model",
     "Selected-source access quotas are shared budgets, not per-worker budgets",
@@ -1877,20 +1877,20 @@
       "status": "PARTIAL",
       "priority": "P0",
       "verified_on": "2026-11-17",
-      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "verification_scope": "Reconciles independently reviewed retained November 17 evidence; no new provider requests in this package.",
       "documented_access": {
         "cost": "Free",
         "authentication": "Optional key; public unauthenticated API documented",
         "endpoint": "https://api.openfigi.com/v3/mapping"
       },
       "verified_access": {
-        "status": "UNVERIFIED",
-        "downloaded_records": 0,
-        "detail": "No data access test or download in this documentation-only package."
+        "status": "VERIFIED",
+        "downloaded_records": 10,
+        "detail": "One keyless 10-job response, HTTP 200, observed 2026-11-17T22:21:17.955965Z to 22:21:23.258742Z; 10 single-candidate mappings and 30 checksum-valid identifier fields, not 30 distinct IDs. Response SHA256 0499f0681be0f6430cb3eee7add5de0fda64e7575198dd33164efe5aafd10d14. includeUnlistedEquities=true: no active-listing, CIK or historical identity proof."
       },
       "integration": {
-        "status": "UNVERIFIED",
-        "detail": "Not inspected; preserve independently audited existing integration"
+        "status": "PARTIAL",
+        "detail": "Bounded offline evidence retention and validation only; no recurring collector or execution admission."
       },
       "rights": {
         "collection": {
@@ -1931,12 +1931,13 @@
       "delay": "Current mappings; exact latency unknown",
       "instruments": "Security/venue/share-class identifiers, not issuer identity alone",
       "storage_estimate": {
-        "status": "UNVERIFIED",
-        "bytes": null
+        "status": "VERIFIED",
+        "bytes": 2704,
+        "scope": "Retained single response body only; not full dataset or total artifact storage."
       },
       "quality": {
-        "status": "UNVERIFIED",
-        "detail": "Documentation only; no record-level or completeness validation"
+        "status": "PARTIAL",
+        "detail": "Retained bytes and scoped response interpretation independently checked; no completeness, historical identity or execution-quality inference."
       },
       "features": [
         "Stable security IDs",
@@ -1947,11 +1948,11 @@
         "Ticker-only matches can be ambiguous; current identity does not establish historical ticker ownership"
       ],
       "unknowns": [
-        "Full response-metadata rights",
-        "Historical mapping effective dates",
-        "Actual access"
+        "Current availability and future quota state",
+        "Historical effective identity and issuer CIK linkage",
+        "Rights to non-identifier response metadata beyond scoped review"
       ],
-      "next_action": "Bounded keyless mapping probe after field-level rights review; preserve ambiguous results.",
+      "next_action": "Reuse retained identifier evidence for exact, scoped correspondence only; no ticker-only historical inference or automatic further requests.",
       "evidence": [
         {
           "url": "https://www.openfigi.com/api/documentation",
@@ -1975,12 +1976,17 @@
       },
       "source_reliability": {
         "status": "PARTIAL",
-        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+        "detail": "One retained response verified; ongoing availability and revision behavior remain unknown."
       },
       "current_operational_access": {
         "status": "UNVERIFIED",
-        "detail": "Documentation research only; no provider data request, download or new credential in this package."
-      }
+        "detail": "Historical receipt is not a fresh availability check, entitlement guarantee or ongoing service commitment."
+      },
+      "project_evidence": [
+        "docs/research/openfigi-watchlist-2026-11-17.json",
+        "docs/research/openfigi-watchlist.md",
+        "docs/research/holdings-figi-2026-11-17.json"
+      ]
     },
     {
       "id": "gleif_lei",
@@ -1992,20 +1998,20 @@
       "status": "PARTIAL",
       "priority": "P0",
       "verified_on": "2026-11-17",
-      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "verification_scope": "Reconciles independently reviewed retained November 17 evidence; no new provider requests in this package.",
       "documented_access": {
         "cost": "Free",
         "authentication": "Public Access Service; no new account",
         "entrypoint": "https://www.gleif.org/en/lei-data/gleif-golden-copy"
       },
       "verified_access": {
-        "status": "UNVERIFIED",
+        "status": "PARTIAL",
         "downloaded_records": 0,
-        "detail": "No data access test or download in this documentation-only package."
+        "detail": "One padded registration-ID query (0000820318), HTTP 200, observed 2026-11-17T23:14:17.306522Z to 23:14:21.326398Z, returned data=[] and declared total=0/page=1/lastPage=1. Response SHA256 e7257f9da45c551ef0ee0b3901f0c90d49dc5c1ed89901d7adb04d6c6a0c09c4; source-declared Golden Copy time 2026-11-17T16:00:00Z is not collection time. This does not prove no LEI or test unpadded IDs."
       },
       "integration": {
-        "status": "UNVERIFIED",
-        "detail": "Not inspected; preserve independently audited existing integration"
+        "status": "PARTIAL",
+        "detail": "Bounded offline evidence retention and validation only; no recurring collector or execution admission."
       },
       "rights": {
         "collection": {
@@ -2046,12 +2052,13 @@
       "delay": "Versioned Golden Copy/deltas; current exact frequency not verified",
       "instruments": "Legal entities, not all securities or all issuers",
       "storage_estimate": {
-        "status": "UNVERIFIED",
-        "bytes": null
+        "status": "VERIFIED",
+        "bytes": 442,
+        "scope": "Retained single response body only; not full dataset or total artifact storage."
       },
       "quality": {
-        "status": "UNVERIFIED",
-        "detail": "Documentation only; no record-level or completeness validation"
+        "status": "PARTIAL",
+        "detail": "Retained bytes and scoped response interpretation independently checked; no completeness, historical identity or execution-quality inference."
       },
       "features": [
         "Issuer entity resolution",
@@ -2063,12 +2070,11 @@
         "Do not claim derivative products endorsed by GLEIF"
       ],
       "unknowns": [
-        "File sizes",
-        "Actual download availability",
-        "As-of parent completeness",
-        "Ticker/CIK links"
+        "Unpadded identifier results not tested",
+        "Authority-conditioned completeness not established",
+        "No positive LEI/CIK correspondence or historical identity evidence"
       ],
-      "next_action": "Validate current Golden Copy metadata, then bounded download or targeted API; preserve version dates.",
+      "next_action": "Preserve the narrowly scoped negative result; do not repeat or broaden speculative queries.",
       "evidence": [
         {
           "url": "https://www.gleif.org/en/meta/lei-data-terms-of-use",
@@ -2078,6 +2084,11 @@
         {
           "url": "https://www.gleif.org/en/lei-data/gleif-golden-copy",
           "supports": "Golden Copy coverage",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://api.gleif.org/demo",
+          "supports": "Official query UI and serialization inspected; not proof of exact-match semantics",
           "checked_date": "2026-11-17"
         }
       ],
@@ -2092,12 +2103,13 @@
       },
       "source_reliability": {
         "status": "PARTIAL",
-        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+        "detail": "One retained response verified; ongoing availability and revision behavior remain unknown."
       },
       "current_operational_access": {
         "status": "UNVERIFIED",
-        "detail": "Documentation research only; no provider data request, download or new credential in this package."
-      }
+        "detail": "Historical receipt is not a fresh availability check, entitlement guarantee or ongoing service commitment."
+      },
+      "project_evidence": []
     },
     {
       "id": "nasdaq_symbol_events",
@@ -2109,24 +2121,24 @@
       "status": "PARTIAL",
       "priority": "P0",
       "verified_on": "2026-11-17",
-      "verification_scope": "Official documentation research only; no data endpoint probes or downloads.",
+      "verification_scope": "Reconciles independently reviewed retained November 17 evidence; no new provider requests in this package.",
       "documented_access": {
         "cost": "Public lookup/download documentation; no subscription initiated",
         "entrypoint": "https://nasdaqtrader.com/Trader.aspx?id=symbollookup"
       },
       "verified_access": {
-        "status": "UNVERIFIED",
-        "downloaded_records": 0,
-        "detail": "No data access test or download in this documentation-only package."
+        "status": "VERIFIED",
+        "downloaded_records": 5609,
+        "detail": "One Nasdaq Listed file, HTTP 200, observed 2026-11-17T23:16:25.922454Z to 23:16:29.974476Z; 5,609 unique symbols including 8 test issues, not all US listings. Response SHA256 6ed3bcc1a80a6c4bccfe12faaaa6594ad1cb48ba6fdf99cca846edcf26ad7624. Footer 1117202618:01 has unknown timezone; no exact creation UTC inferred."
       },
       "integration": {
-        "status": "UNVERIFIED",
-        "detail": "Not inspected; preserve independently audited existing integration"
+        "status": "PARTIAL",
+        "detail": "Bounded offline evidence retention and validation only; no recurring collector or execution admission."
       },
       "rights": {
         "collection": {
           "status": "PARTIAL",
-          "detail": "Official downloadable symbol files documented; precise allowed dataset scope needs validation",
+          "detail": "Named Nasdaq Listed file and its official download mapping independently verified; other datasets in this broad category were not collected.",
           "evidence_urls": [
             "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
             "https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs",
@@ -2144,7 +2156,7 @@
         },
         "model_training": {
           "status": "PARTIAL",
-          "detail": "Named Events Data unrestricted-use statement; ML not expressly named; exact field scope needs verification",
+          "detail": "Named Events Data statement reviewed for the exact Nasdaq Listed file; ML not expressly named, no blanket claim for other files or execution/training admission.",
           "evidence_urls": [
             "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
             "https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs",
@@ -2166,12 +2178,13 @@
       "delay": "Current-day directory; file creationtime documented",
       "instruments": "Nasdaq/otherexchange issues; field-specific licensing differs",
       "storage_estimate": {
-        "status": "UNVERIFIED",
-        "bytes": null
+        "status": "VERIFIED",
+        "bytes": 348446,
+        "scope": "Retained single response body only; not full dataset or total artifact storage."
       },
       "quality": {
-        "status": "UNVERIFIED",
-        "detail": "Documentation only; no record-level or completeness validation"
+        "status": "PARTIAL",
+        "detail": "Retained bytes and scoped response interpretation independently checked; no completeness, historical identity or execution-quality inference."
       },
       "features": [
         "Current universe checks",
@@ -2183,11 +2196,11 @@
         "Directory does not repair historical delistings/merger adjustment coverage"
       ],
       "unknowns": [
-        "Exact file-to-license mapping",
-        "Historical action coverage",
-        "Actual file availability"
+        "Current availability and future file changes",
+        "Other named files not downloaded or independently validated",
+        "Historical listing, issuer CIK and halt/corporate-action completeness"
       ],
-      "next_action": "Identify precise event/file license scope and snapshot current identity; do not substitute paid Daily List.",
+      "next_action": "Use only retained Nasdaq Listed scope; do not generalize the named-file rights exception or flags into complete corporate actions, halts or all-exchange coverage.",
       "evidence": [
         {
           "url": "https://nasdaqtrader.com/Trader.aspx?id=symbollookup",
@@ -2216,12 +2229,16 @@
       },
       "source_reliability": {
         "status": "PARTIAL",
-        "detail": "Provider documentation reviewed; availability, revision behavior and record quality not tested."
+        "detail": "One retained response verified; ongoing availability and revision behavior remain unknown."
       },
       "current_operational_access": {
         "status": "UNVERIFIED",
-        "detail": "Documentation research only; no provider data request, download or new credential in this package."
-      }
+        "detail": "Historical receipt is not a fresh availability check, entitlement guarantee or ongoing service commitment."
+      },
+      "project_evidence": [
+        "docs/research/nasdaq-listed-2026-11-17.json",
+        "docs/research/nasdaq-listed-evidence.md"
+      ]
     },
     {
       "id": "openfda_drugs",
@@ -3077,9 +3094,226 @@
         "status": "UNVERIFIED",
         "detail": "Documentation research only; no provider data request, download or new credential in this package."
       }
+    },
+    {
+      "id": "iex_hist_direct",
+      "provider": "IEX HIST",
+      "dataset": [
+        "Public market-data route assessment"
+      ],
+      "status": "BLOCKED",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official page inspection only; no market data downloaded.",
+      "documented_access": {
+        "entrypoint": "https://iextrading.com/trading/market-data/",
+        "cost": "Current usable zero-cost equities HIST access not established; direct route unavailable",
+        "authentication": "No account, contact or alternate endpoint attempted"
+      },
+      "verified_access": {
+        "status": "BLOCKED",
+        "downloaded_records": 0,
+        "detail": "Official linked HIST download page states historical PCAP data is currently unavailable for direct download. This is a route-availability finding, not a legal prohibition or proof that every IEX product is unavailable."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "No integration or collector enabled."
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "HIST terms describe conditional use and redistribution with required attribution and terms notice. No perpetual archival or broader provider entitlement inferred; direct download remains unavailable.",
+          "evidence_urls": [
+            "https://www.iex.io/legal/hist-data-terms"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "HIST terms describe conditional use and redistribution with required attribution and terms notice. No perpetual archival or broader provider entitlement inferred; direct download remains unavailable.",
+          "evidence_urls": [
+            "https://www.iex.io/legal/hist-data-terms"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "No explicit intended-use training entitlement established; product documentation is not sufficient permission.",
+          "evidence_urls": [
+            "https://www.iex.io/legal/hist-data-terms"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "HIST terms describe conditional use and redistribution with required attribution and terms notice. No perpetual archival or broader provider entitlement inferred; direct download remains unavailable.",
+          "evidence_urls": [
+            "https://www.iex.io/legal/hist-data-terms"
+          ]
+        }
+      },
+      "quotas": "Unknown; no data requests made.",
+      "history": "Actual accessible equities archive coverage unverified; no current 12-month availability claim.",
+      "delay": "Actual delivery unverified; do not conflate options HIST coming-soon documentation with equities history.",
+      "instruments": "IEX venue market data, not consolidated US equity coverage.",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "No market data inspected."
+      },
+      "features": [
+        "Potential price/outcome evidence, not qualified"
+      ],
+      "limitations": [
+        "IEX-only venue coverage is not a consolidated-market reference.",
+        "No price, timestamp, file-size or outcome evidence downloaded.",
+        "A product description does not override the direct-download unavailability notice."
+      ],
+      "unknowns": [
+        "Actual access and applicable usage rights"
+      ],
+      "next_action": "Hold this direct route. Do not guess old API/index endpoints or contact the provider; reconsider only on new official availability evidence within authorization.",
+      "evidence": [
+        {
+          "url": "https://iextrading.com/trading/market-data/",
+          "supports": "Official route inspected",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.iex.io/products/market-data-connectivity",
+          "supports": "Product-family distinctions; not evidence of current free equities HIST availability",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.iex.io/legal/hist-data-terms",
+          "supports": "Conditional use and redistribution requirements; not an explicit training entitlement",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "UNVERIFIED",
+        "detail": "No implementation undertaken."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "No data delivery verified."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No successful data receipt. Documentation/access-screen observation only; no current usable market-data access established."
+      },
+      "project_evidence": []
+    },
+    {
+      "id": "stooq_public_downloads",
+      "provider": "Stooq",
+      "dataset": [
+        "Public market-data route assessment"
+      ],
+      "status": "UNVERIFIED",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official page inspection only; no market data downloaded.",
+      "documented_access": {
+        "entrypoint": "https://stooq.com/",
+        "authentication": "No new account or credential used",
+        "cost": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "Official homepage inspection returned a JavaScript browser-verification challenge. No readable official terms, data download or dataset validation obtained; this does not prove a blanket legal prohibition or universal site outage."
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "No integration or collector enabled."
+      },
+      "rights": {
+        "collection": {
+          "status": "UNVERIFIED",
+          "detail": "No applicable permission established by this page inspection.",
+          "evidence_urls": [
+            "https://stooq.com/"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "No applicable permission established by this page inspection.",
+          "evidence_urls": [
+            "https://stooq.com/"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "No applicable permission established by this page inspection.",
+          "evidence_urls": [
+            "https://stooq.com/"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "No applicable permission established by this page inspection.",
+          "evidence_urls": [
+            "https://stooq.com/"
+          ]
+        }
+      },
+      "quotas": "Unknown; no data requests made.",
+      "history": "Unknown actual accessible coverage.",
+      "delay": "Unknown actual delivery.",
+      "instruments": "Coverage not verified.",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "No market data inspected."
+      },
+      "features": [
+        "Potential price/outcome evidence, not qualified"
+      ],
+      "limitations": [
+        "Third-party claims about free historical coverage or noncommercial rights are not accepted as provider permission.",
+        "The observed challenge was not bypassed and no alternate download endpoint was guessed."
+      ],
+      "unknowns": [
+        "Actual access and applicable usage rights"
+      ],
+      "next_action": "Do not retry or bypass the observed challenge. Leave access, retention, training and redistribution unverified unless new readable official evidence becomes available through an authorized route.",
+      "evidence": [
+        {
+          "url": "https://stooq.com/",
+          "supports": "Official route inspected",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "UNVERIFIED",
+        "detail": "No implementation undertaken."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are research hypotheses only; no predictive evaluation or qualified labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "No data delivery verified."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No successful data receipt. Documentation/access-screen observation only; no current usable market-data access established."
+      },
+      "project_evidence": []
     }
   ],
-  "basis_git_head": "593c24af1233a1a9d0dd0592f22b791369c0f73b",
+  "basis_git_head": "89ee30ff2a3949a6c6da00ddb1acb17642f257f1",
   "collection_enabled": false,
   "remaining_survey_categories": [
     "Nasdaq/NYSE auctions and halt coverage",

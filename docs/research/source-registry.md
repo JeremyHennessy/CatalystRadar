@@ -719,11 +719,11 @@ Next action: Do not scrape or ingest website data for the proposed ML pipeline; 
 P0 · PARTIAL · reviewed 2026-11-17
 
 Datasets: FIGI security identifier mapping
-Verification: Official documentation research only; no data endpoint probes or downloads.
+Verification: Reconciles independently reviewed retained November 17 evidence; no new provider requests in this package.
 Documented access: {"cost": "Free", "authentication": "Optional key; public unauthenticated API documented", "endpoint": "https://api.openfigi.com/v3/mapping"}
-Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
-Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
-Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+Historical verified access: VERIFIED — One keyless 10-job response, HTTP 200, observed 2026-11-17T22:21:17.955965Z to 22:21:23.258742Z; 10 single-candidate mappings and 30 checksum-valid identifier fields, not 30 distinct IDs. Response SHA256 0499f0681be0f6430cb3eee7add5de0fda64e7575198dd33164efe5aafd10d14. includeUnlistedEquities=true: no active-listing, CIK or historical identity proof.
+Integration: PARTIAL — Bounded offline evidence retention and validation only; no recurring collector or execution admission.
+Current operational access: UNVERIFIED — Historical receipt is not a fresh availability check, entitlement guarantee or ongoing service commitment.
 
 - collection: VERIFIED. Public mapping API documented
 - storage: PARTIAL. FIGI identifiers dedicated to public domain; broader response metadata license scope not fully established
@@ -738,37 +738,40 @@ History: Historical point-in-time mapping not established
 
 Instruments: Security/venue/share-class identifiers, not issuer identity alone
 
-Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+Quality: PARTIAL. Retained bytes and scoped response interpretation independently checked; no completeness, historical identity or execution-quality inference.
 
 Implementation Complexity: RESEARCHED. Bounded identifier mapping requires ambiguous-match handling and point-in-time validation; no new key/account.
 
 Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
 
-Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+Source Reliability: PARTIAL. One retained response verified; ongoing availability and revision behavior remain unknown.
 
-Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+Storage estimate: {"status": "VERIFIED", "bytes": 2704, "scope": "Retained single response body only; not full dataset or total artifact storage."}
 
 Proposed features (unvalidated): Stable security IDs; Ambiguous ticker disambiguation
 
 Limitations: Unlisted equities excluded by default; includeUnlistedEquities=true documented; Ticker-only matches can be ambiguous; current identity does not establish historical ticker ownership
 
-Unknowns: Full response-metadata rights; Historical mapping effective dates; Actual access
+Unknowns: Current availability and future quota state; Historical effective identity and issuer CIK linkage; Rights to non-identifier response metadata beyond scoped review
 
-Next action: Bounded keyless mapping probe after field-level rights review; preserve ambiguous results.
+Next action: Reuse retained identifier evidence for exact, scoped correspondence only; no ticker-only historical inference or automatic further requests.
 
 - [Endpoints, quotas and unlisted-equity filter](https://www.openfigi.com/api/documentation) (checked 2026-11-17)
 - [Public-domain FIGI identifier grant](https://www.openfigi.com/docs/terms-of-service) (checked 2026-11-17)
+- Project evidence: `docs/research/openfigi-watchlist-2026-11-17.json`
+- Project evidence: `docs/research/openfigi-watchlist.md`
+- Project evidence: `docs/research/holdings-figi-2026-11-17.json`
 
 ## GLEIF / gleif_lei
 
 P0 · PARTIAL · reviewed 2026-11-17
 
 Datasets: LEI/reference data; Golden Copy and delta files
-Verification: Official documentation research only; no data endpoint probes or downloads.
+Verification: Reconciles independently reviewed retained November 17 evidence; no new provider requests in this package.
 Documented access: {"cost": "Free", "authentication": "Public Access Service; no new account", "entrypoint": "https://www.gleif.org/en/lei-data/gleif-golden-copy"}
-Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
-Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
-Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+Historical verified access: PARTIAL — One padded registration-ID query (0000820318), HTTP 200, observed 2026-11-17T23:14:17.306522Z to 23:14:21.326398Z, returned data=[] and declared total=0/page=1/lastPage=1. Response SHA256 e7257f9da45c551ef0ee0b3901f0c90d49dc5c1ed89901d7adb04d6c6a0c09c4; source-declared Golden Copy time 2026-11-17T16:00:00Z is not collection time. This does not prove no LEI or test unpadded IDs.
+Integration: PARTIAL — Bounded offline evidence retention and validation only; no recurring collector or execution admission.
+Current operational access: UNVERIFIED — Historical receipt is not a fresh availability check, entitlement guarantee or ongoing service commitment.
 
 - collection: VERIFIED. Official full/subset downloads and APIs supported
 - storage: VERIFIED. LEI and reference data CC0 through Access Service
@@ -783,41 +786,42 @@ History: Golden Copy described as all LEIs ever published plus reference data; n
 
 Instruments: Legal entities, not all securities or all issuers
 
-Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+Quality: PARTIAL. Retained bytes and scoped response interpretation independently checked; no completeness, historical identity or execution-quality inference.
 
 Implementation Complexity: RESEARCHED. Parse LEI reference and relationship files, preserve effective dates, and validate issuer mappings; legal entity identity is not security identity.
 
 Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
 
-Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+Source Reliability: PARTIAL. One retained response verified; ongoing availability and revision behavior remain unknown.
 
-Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+Storage estimate: {"status": "VERIFIED", "bytes": 442, "scope": "Retained single response body only; not full dataset or total artifact storage."}
 
 Proposed features (unvalidated): Issuer entity resolution; Parent relationship context
 
 Limitations: LEI coverage not universal; Current parent relationships cannot be backdated; Do not claim derivative products endorsed by GLEIF
 
-Unknowns: File sizes; Actual download availability; As-of parent completeness; Ticker/CIK links
+Unknowns: Unpadded identifier results not tested; Authority-conditioned completeness not established; No positive LEI/CIK correspondence or historical identity evidence
 
-Next action: Validate current Golden Copy metadata, then bounded download or targeted API; preserve version dates.
+Next action: Preserve the narrowly scoped negative result; do not repeat or broaden speculative queries.
 
 - [Free Access Service, CC0 and restrictions](https://www.gleif.org/en/meta/lei-data-terms-of-use) (checked 2026-11-17)
 - [Golden Copy coverage](https://www.gleif.org/en/lei-data/gleif-golden-copy) (checked 2026-11-17)
+- [Official query UI and serialization inspected; not proof of exact-match semantics](https://api.gleif.org/demo) (checked 2026-11-17)
 
 ## Nasdaq Trader / nasdaq_symbol_events
 
 P0 · PARTIAL · reviewed 2026-11-17
 
 Datasets: Current symbol directory; Named Nasdaq Events Data
-Verification: Official documentation research only; no data endpoint probes or downloads.
+Verification: Reconciles independently reviewed retained November 17 evidence; no new provider requests in this package.
 Documented access: {"cost": "Public lookup/download documentation; no subscription initiated", "entrypoint": "https://nasdaqtrader.com/Trader.aspx?id=symbollookup"}
-Historical verified access: UNVERIFIED — No data access test or download in this documentation-only package.
-Integration: UNVERIFIED — Not inspected; preserve independently audited existing integration
-Current operational access: UNVERIFIED — Documentation research only; no provider data request, download or new credential in this package.
+Historical verified access: VERIFIED — One Nasdaq Listed file, HTTP 200, observed 2026-11-17T23:16:25.922454Z to 23:16:29.974476Z; 5,609 unique symbols including 8 test issues, not all US listings. Response SHA256 6ed3bcc1a80a6c4bccfe12faaaa6594ad1cb48ba6fdf99cca846edcf26ad7624. Footer 1117202618:01 has unknown timezone; no exact creation UTC inferred.
+Integration: PARTIAL — Bounded offline evidence retention and validation only; no recurring collector or execution admission.
+Current operational access: UNVERIFIED — Historical receipt is not a fresh availability check, entitlement guarantee or ongoing service commitment.
 
-- collection: PARTIAL. Official downloadable symbol files documented; precise allowed dataset scope needs validation
+- collection: PARTIAL. Named Nasdaq Listed file and its official download mapping independently verified; other datasets in this broad category were not collected.
 - storage: PARTIAL. Named Events Data exemption states without further licensing restriction; do not generalize to fund data
-- model_training: PARTIAL. Named Events Data unrestricted-use statement; ML not expressly named; exact field scope needs verification
+- model_training: PARTIAL. Named Events Data statement reviewed for the exact Nasdaq Listed file; ML not expressly named, no blanket claim for other files or execution/training admission.
 - redistribution: PARTIAL. Named Events Data exemption; Nasdaq Fund Network explicitly internal noncommercial unless licensed
 
 Quotas: Not established
@@ -828,27 +832,29 @@ History: Current trading day; complete historical actions not verified
 
 Instruments: Nasdaq/otherexchange issues; field-specific licensing differs
 
-Quality: UNVERIFIED. Documentation only; no record-level or completeness validation
+Quality: PARTIAL. Retained bytes and scoped response interpretation independently checked; no completeness, historical identity or execution-quality inference.
 
 Implementation Complexity: RESEARCHED. Separate named unrestricted Events Data from restricted Fund Network and paid Daily List products before any acquisition.
 
 Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
 
-Source Reliability: PARTIAL. Provider documentation reviewed; availability, revision behavior and record quality not tested.
+Source Reliability: PARTIAL. One retained response verified; ongoing availability and revision behavior remain unknown.
 
-Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+Storage estimate: {"status": "VERIFIED", "bytes": 348446, "scope": "Retained single response body only; not full dataset or total artifact storage."}
 
 Proposed features (unvalidated): Current universe checks; Symbol/status change candidates
 
 Limitations: Exemption specifically names Security Status Updates, Ex-Date, When Distributed/When Issued, Nasdaq Listed; Do not treat all Nasdaq data as unrestricted; Directory does not repair historical delistings/merger adjustment coverage
 
-Unknowns: Exact file-to-license mapping; Historical action coverage; Actual file availability
+Unknowns: Current availability and future file changes; Other named files not downloaded or independently validated; Historical listing, issuer CIK and halt/corporate-action completeness
 
-Next action: Identify precise event/file license scope and snapshot current identity; do not substitute paid Daily List.
+Next action: Use only retained Nasdaq Listed scope; do not generalize the named-file rights exception or flags into complete corporate actions, halts or all-exchange coverage.
 
 - [Current-day scope, Fund Network restriction and named Events Data exception](https://nasdaqtrader.com/Trader.aspx?id=symbollookup) (checked 2026-11-17)
 - [File fields and creation timestamp](https://www.nasdaqtrader.com/Trader.aspx?id=SymbolDirDefs) (checked 2026-11-17)
 - [Separate Daily List corporate-action product](https://www.nasdaqtrader.com/Trader.aspx?id=dailylistpd) (checked 2026-11-17)
+- Project evidence: `docs/research/nasdaq-listed-2026-11-17.json`
+- Project evidence: `docs/research/nasdaq-listed-evidence.md`
 
 ## FDA openFDA / openfda_drugs
 
@@ -1169,4 +1175,94 @@ Next action: Use only after precise feed-use rights established; do not presume 
 
 - [Official RSS offering](https://globenewswiresupportcenter.gcs-web.com/en/publishing/partners) (checked 2026-11-17)
 - [Official feed directory](https://www.globenewswire.com/rss/list) (checked 2026-11-17)
+
+## IEX HIST / iex_hist_direct
+
+P0 · BLOCKED · reviewed 2026-11-17
+
+Datasets: Public market-data route assessment
+Verification: Official page inspection only; no market data downloaded.
+Documented access: {"entrypoint": "https://iextrading.com/trading/market-data/", "cost": "Current usable zero-cost equities HIST access not established; direct route unavailable", "authentication": "No account, contact or alternate endpoint attempted"}
+Historical verified access: BLOCKED — Official linked HIST download page states historical PCAP data is currently unavailable for direct download. This is a route-availability finding, not a legal prohibition or proof that every IEX product is unavailable.
+Integration: UNVERIFIED — No integration or collector enabled.
+Current operational access: UNVERIFIED — No successful data receipt. Documentation/access-screen observation only; no current usable market-data access established.
+
+- collection: PARTIAL. HIST terms describe conditional use and redistribution with required attribution and terms notice. No perpetual archival or broader provider entitlement inferred; direct download remains unavailable.
+- storage: PARTIAL. HIST terms describe conditional use and redistribution with required attribution and terms notice. No perpetual archival or broader provider entitlement inferred; direct download remains unavailable.
+- model_training: UNVERIFIED. No explicit intended-use training entitlement established; product documentation is not sufficient permission.
+- redistribution: PARTIAL. HIST terms describe conditional use and redistribution with required attribution and terms notice. No perpetual archival or broader provider entitlement inferred; direct download remains unavailable.
+
+Quotas: Unknown; no data requests made.
+
+Delay: Actual delivery unverified; do not conflate options HIST coming-soon documentation with equities history.
+
+History: Actual accessible equities archive coverage unverified; no current 12-month availability claim.
+
+Instruments: IEX venue market data, not consolidated US equity coverage.
+
+Quality: UNVERIFIED. No market data inspected.
+
+Implementation Complexity: UNVERIFIED. No implementation undertaken.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: UNVERIFIED. No data delivery verified.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Potential price/outcome evidence, not qualified
+
+Limitations: IEX-only venue coverage is not a consolidated-market reference.; No price, timestamp, file-size or outcome evidence downloaded.; A product description does not override the direct-download unavailability notice.
+
+Unknowns: Actual access and applicable usage rights
+
+Next action: Hold this direct route. Do not guess old API/index endpoints or contact the provider; reconsider only on new official availability evidence within authorization.
+
+- [Official route inspected](https://iextrading.com/trading/market-data/) (checked 2026-11-17)
+- [Product-family distinctions; not evidence of current free equities HIST availability](https://www.iex.io/products/market-data-connectivity) (checked 2026-11-17)
+- [Conditional use and redistribution requirements; not an explicit training entitlement](https://www.iex.io/legal/hist-data-terms) (checked 2026-11-17)
+
+## Stooq / stooq_public_downloads
+
+P0 · UNVERIFIED · reviewed 2026-11-17
+
+Datasets: Public market-data route assessment
+Verification: Official page inspection only; no market data downloaded.
+Documented access: {"entrypoint": "https://stooq.com/", "authentication": "No new account or credential used", "cost": "Not established"}
+Historical verified access: UNVERIFIED — Official homepage inspection returned a JavaScript browser-verification challenge. No readable official terms, data download or dataset validation obtained; this does not prove a blanket legal prohibition or universal site outage.
+Integration: UNVERIFIED — No integration or collector enabled.
+Current operational access: UNVERIFIED — No successful data receipt. Documentation/access-screen observation only; no current usable market-data access established.
+
+- collection: UNVERIFIED. No applicable permission established by this page inspection.
+- storage: UNVERIFIED. No applicable permission established by this page inspection.
+- model_training: UNVERIFIED. No applicable permission established by this page inspection.
+- redistribution: UNVERIFIED. No applicable permission established by this page inspection.
+
+Quotas: Unknown; no data requests made.
+
+Delay: Unknown actual delivery.
+
+History: Unknown actual accessible coverage.
+
+Instruments: Coverage not verified.
+
+Quality: UNVERIFIED. No market data inspected.
+
+Implementation Complexity: UNVERIFIED. No implementation undertaken.
+
+Signal Usefulness: UNVERIFIED. Proposed features are research hypotheses only; no predictive evaluation or qualified labels.
+
+Source Reliability: UNVERIFIED. No data delivery verified.
+
+Storage estimate: {"status": "UNVERIFIED", "bytes": null}
+
+Proposed features (unvalidated): Potential price/outcome evidence, not qualified
+
+Limitations: Third-party claims about free historical coverage or noncommercial rights are not accepted as provider permission.; The observed challenge was not bypassed and no alternate download endpoint was guessed.
+
+Unknowns: Actual access and applicable usage rights
+
+Next action: Do not retry or bypass the observed challenge. Leave access, retention, training and redistribution unverified unless new readable official evidence becomes available through an authorized route.
+
+- [Official route inspected](https://stooq.com/) (checked 2026-11-17)
 

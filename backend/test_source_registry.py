@@ -14,9 +14,9 @@ class RegistryTests(unittest.TestCase):
     def test_actual_catalog_and_generated_document(self):
         self.check(self.data)
         self.assertEqual(s.render(self.data),(ROOT/'docs/research/source-registry.md').read_text())
-        self.assertEqual(len(self.data['records']),25)
+        self.assertEqual(len(self.data['records']),27)
     def test_expansion_remains_research_only(self):
-        ids={'openfigi_mapping','gleif_lei','nasdaq_symbol_events','openfda_drugs',
+        ids={'openfda_drugs',
              'openfda_drug_recalls','clinicaltrials_v2','usaspending_awards',
              'sam_public_opportunities','gdelt_project','globenewswire_rss'}
         records={r['id']:r for r in self.data['records']}
@@ -32,6 +32,25 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(records['nasdaq_symbol_events']['rights']['storage']['status'],'PARTIAL')
         for key in ['openfda_drugs','openfda_drug_recalls']:
             self.assertEqual(records[key]['rights']['storage']['status'],'PARTIAL')
+
+    def test_historical_receipts_are_not_current_access(self):
+        rs={r['id']:r for r in self.data['records']}
+        for key,count,status in [('openfigi_mapping',10,'VERIFIED'),('nasdaq_symbol_events',5609,'VERIFIED'),('gleif_lei',0,'PARTIAL')]:
+            r=rs[key]
+            self.assertEqual(r['verified_access']['downloaded_records'],count)
+            self.assertEqual(r['verified_access']['status'],status)
+            self.assertEqual(r['current_operational_access']['status'],'UNVERIFIED')
+            self.assertIn('2026-11-17T',r['verified_access']['detail'])
+            self.assertIs(r['training_ready'],False)
+        self.assertIn('does not prove no LEI',rs['gleif_lei']['verified_access']['detail'])
+    def test_unavailable_routes_do_not_authorize_workarounds(self):
+        rs={r['id']:r for r in self.data['records']}
+        self.assertEqual(rs['iex_hist_direct']['verified_access']['status'],'BLOCKED')
+        for key in ['iex_hist_direct','stooq_public_downloads']:
+            self.assertEqual(rs[key]['verified_access']['downloaded_records'],0)
+            self.assertEqual(rs[key]['rights']['model_training']['status'],'UNVERIFIED')
+        self.assertIn('Do not retry or bypass',rs['stooq_public_downloads']['next_action'])
+        self.assertTrue(all(v['status']=='UNVERIFIED' for v in rs['stooq_public_downloads']['rights'].values()))
 
     def test_source_ids_unique(self):
         self.data['records'].append(copy.deepcopy(self.data['records'][0]))
