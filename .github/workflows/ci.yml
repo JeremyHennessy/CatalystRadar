@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 verified
       - run: python3 -m unittest discover -s backend -p 'test_*.py'
-      - run: node --check web/app.js && node web/tests-ui.js && node --check web/datasets.js && node web/tests-datasets.js
+      - run: node --check web/app.js && node web/tests-ui.js && node --check web/datasets.js && node web/tests-datasets.js && node --check web/holdings.js && node web/tests-holdings.js
       - run: python3 backend/verify_public_state.py

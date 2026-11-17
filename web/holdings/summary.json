@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_13F_AS_FILED_NOT_LIVE_HOLDINGS",
+  "completed_utc": "2026-11-17T20:17:00.895844+00:00",
+  "source": {
+    "path": "01jun2026-31aug2026_form13f.zip",
+    "url": "https://www.sec.gov/files/datastandardsinnovation/data/form-13f-data-sets/01jun2026-31aug2026_form13f.zip",
+    "byte_count": 100719015,
+    "sha256": "4db97d5652e262de51617971104e06313211de4d092e6bcb5d7bf34ee7efe054",
+    "local_verified_utc": "2026-11-17T20:14:42.208535+00:00",
+    "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+    "http_status": null,
+    "exact_download_utc": null
+  },
+  "table_rows": {
+    "holdings_submission": 11852,
+    "holdings_coverpage": 11852,
+    "holdings_summarypage": 10036,
+    "holdings_othermanager": 4848,
+    "holdings_othermanager2": 3890,
+    "holdings_signature": 11852,
+    "holdings_infotable": 3830274,
+    "holdings_validation_gaps": 1
+  },
+  "filing_manager_ciks": 10807,
+  "submissions": 11852,
+  "submissions_with_holding_rows": 9900,
+  "holding_cusip_strings": 34951,
+  "holding_rows_missing_cusip": 0,
+  "filing_date_min": "2026-06-01",
+  "filing_date_max": "2026-08-31",
+  "report_period_min": "2001-09-30",
+  "report_period_max": "2026-06-30",
+  "submission_types": {
+    "13F-HR": 9501,
+    "13F-HR/A": 399,
+    "13F-NT": 1946,
+    "13F-NT/A": 6
+  },
+  "amendment_types": {
+    "(blank)": 11446,
+    "NEW HOLDINGS": 144,
+    "RESTATEMENT": 262
+  },
+  "amendment_form_cover_conflicts": 1,
+  "accession_joins_verified": true,
+  "simulation_enabled": false,
+  "orders_created": 0,
+  "limitations": [
+    "June\u2013August2026 as-filed submission batch, not all managers, securities or current holdings.",
+    "Manager CIKs identify reporting institutions, not held-security issuers; do not add them to issuer coverage.",
+    "Amendments, restatements, added holdings, report periods and confidential-omission context are preserved separately; rows are not deduplicated current positions.",
+    "VALUE in this source is reported dollars, not thousands; amounts remain exact source text with shares/principal, options and voting/discretion context. No aggregate portfolio value is computed.",
+    "CUSIPs are source strings, not verified ticker/issuer mappings. Holdings are delayed, may concern old periods, and are not purchase/sale transactions or investment signals.",
+    "Conflicting amendment flags are preserved in a private validation table, not automatically reconciled.",
+    "Raw holdings, addresses, phone numbers and signatures remain private; only coverage aggregates are published.",
+    "Browser status and exact download clock unavailable; local verification time is not first-public evidence."
+  ]
+}
