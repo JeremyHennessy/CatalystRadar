@@ -6,5 +6,11 @@
   "first_session": "2026-06-25",
   "last_session": "2026-11-13",
   "execution_ready": false,
-  "scheduled_collection_verified": false
+  "scheduled_collection_verified": true,
+  "latest_collection": {
+    "observed_at": "2026-11-16T21:58:11.129067+00:00",
+    "saved_snapshots": 11,
+    "rows_per_symbol": 100,
+    "scheduled_run_verified": true
+  }
 }

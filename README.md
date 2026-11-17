@@ -59,3 +59,20 @@ Private financial information, user locations, account identifiers and credentia
 
 ## Small-account sizing
 The requested illustrative capital is US$500. At most five positions reserve at most US$100 each including the 3% price-limit buffer and modeled 0.1% entry cost. Whole shares only: if one share cannot fit, the opportunity is skipped, not resized with invented fractional execution. Unallocated cash remains cash. The comparison baseline is US$500 non-interest-bearing cash, not SPY or a market-return benchmark; no fractional benchmark holdings are fabricated. The execution engine remains disabled and no holdings exist.
+
+### Collection-status evidence
+
+Public price-status metadata contains only an allowlisted collection receipt summary,
+not private vendor bars or prices. Initial sample coverage and latest retrieval time
+are separate: a successful scheduled download does not verify the most recent market
+session, auction prices, halt clearance, or execution readiness. Updating this metadata
+requires checking the private collection receipt and matching successful schedule event;
+no private provider request is made by the dashboard builder.
+
+The November 16 scheduled SEC runner reached the source but received HTTP 403 on
+its first request and correctly skipped the remaining nine issuers. A green Actions
+run means the failure receipt was published, not that source coverage succeeded.
+Do not retry via alternate runners, IPs, or disguised clients. [SEC guidance](https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data) calls for
+a declared organization/contact-email User-Agent; the current project's URL-only
+identity lacks that contact field. Configure only a truthful, approved contact identity
+before a future permitted attempt. This gap is not proof of the 403's cause.
