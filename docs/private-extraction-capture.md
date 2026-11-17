@@ -16,8 +16,11 @@ recorder refuses a public-checkout destination, symlink destination, non-private
 existing destination permissions, changed source bytes, duplicate source files,
 future observations, oversized inputs and overwrite attempts. Run directories
 are 0700 and files 0600. Protect their parent location and any backup separately.
-This local directory is not remote storage, a retention guarantee or an access
-control substitute for a shared machine.
+This local directory is not immutable or remote storage, a retention guarantee,
+or an access-control substitute for a shared machine. Overwrite protection applies
+to this utility, not other processes. Checkout exclusion covers this code checkout
+only; it cannot detect another publishing checkout. The destination and its parent
+directories must be private and trusted, with no concurrent untrusted writers.
 
 Each run retains exact input reviews, original manifest bytes and source bytes.
 Structural header features are computed using the existing parser. New
