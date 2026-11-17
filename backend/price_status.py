@@ -30,14 +30,29 @@ def summarize_price_status(p):
     detail = f"Initial private daily-price sample verified through {p['last_session']}. "
     if 'latest_collection' in p:
         c = p['latest_collection']
-        if set(c) != {'observed_at', 'saved_snapshots', 'rows_per_symbol', 'scheduled_run_verified'}:
+        fields = {'observed_at', 'saved_snapshots', 'rows_per_symbol', 'scheduled_run_verified'}
+        if set(c) not in (fields, fields | {'coverage_audit'}):
             raise ValueError('unreviewed collection schema')
         if timestamp(c['observed_at']) < timestamp(p['verified_at']):
             raise ValueError('collection predates initial verification')
         if type(c['saved_snapshots']) is not int or c['saved_snapshots'] != 11 or type(c['rows_per_symbol']) is not int or c['rows_per_symbol'] != 100 or c['scheduled_run_verified'] is not True:
             raise ValueError('unreviewed collection evidence')
         as_of = c['observed_at']
-        detail += 'A scheduled collection was verified: 11 private snapshots, 100 rows each. Latest covered session not independently verified; collection time is not market-data freshness. '
+        detail += 'A scheduled collection was verified: 11 private snapshots, 100 rows each. '
+        if 'coverage_audit' in c:
+            a = c['coverage_audit']
+            if set(a) != {'verified_at', 'first_session', 'last_session', 'hashes_and_symbols_verified'} or a['hashes_and_symbols_verified'] is not True:
+                raise ValueError('unreviewed coverage audit')
+            if timestamp(a['verified_at']) < timestamp(c['observed_at']):
+                raise ValueError('audit predates collection')
+            start = datetime.strptime(a['first_session'], '%Y-%m-%d').date()
+            end = datetime.strptime(a['last_session'], '%Y-%m-%d').date()
+            if start > end or end > timestamp(c['observed_at']).date():
+                raise ValueError('invalid audited session range')
+            detail += f"Retained response hashes and symbols checked at {a['verified_at']}; all 11 cover {a['first_session']} through {a['last_session']}. Calendar completeness is not established. "
+        else:
+            detail += 'Latest covered session not independently verified; collection time is not market-data freshness. '
+
     else:
         detail += 'Scheduled collection not yet verified. '
     detail += 'Raw daily data only; not realtime, official auction or total-return data. Execution remains disabled.'
