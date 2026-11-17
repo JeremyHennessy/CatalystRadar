@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "status": "CURRENT_NASDAQ_LISTED_REFERENCE_ONLY",
+  "source_url": "https://nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt",
+  "source_sha256": "6ed3bcc1a80a6c4bccfe12faaaa6594ad1cb48ba6fdf99cca846edcf26ad7624",
+  "source_bytes": 348446,
+  "receipt_sha256": "cabb74169b1350b78f52e2ecc8b3bb29d1b49b1c36a4395d392dedd58463678b",
+  "watchlist_sha256": "42ad0bd5f6bd5bc85a46d768fc1e34eaa6134a072a30fa42a6be065d78319a02",
+  "requested_at": "2026-11-17T23:16:25.922454+00:00",
+  "observed_at": "2026-11-17T23:16:29.974476+00:00",
+  "source_creation_text": "1117202618:01",
+  "source_creation_timezone": null,
+  "source_creation_utc": null,
+  "record_count": 5609,
+  "unique_symbols": 5609,
+  "counts": {
+    "Market Category": {
+      "G": 2498,
+      "Q": 1443,
+      "S": 1668
+    },
+    "Test Issue": {
+      "N": 5601,
+      "Y": 8
+    },
+    "Financial Status": {
+      "D": 330,
+      "E": 13,
+      "H": 7,
+      "N": 5259
+    },
+    "Round Lot Size": {
+      "10": 7,
+      "100": 5504,
+      "40": 98
+    },
+    "ETF": {
+      "N": 4323,
+      "Y": 1286
+    },
+    "NextShares": {
+      "N": 5609
+    }
+  },
+  "watchlist_symbol_matches": 4,
+  "watchlist_comparison": [
+    {
+      "query_ticker": "COHR",
+      "disposition": "NOT_IN_THIS_NASDAQ_FILE",
+      "source_line_number": null,
+      "flags": null,
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "HRB",
+      "disposition": "NOT_IN_THIS_NASDAQ_FILE",
+      "source_line_number": null,
+      "flags": null,
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "CINF",
+      "disposition": "SYMBOL_PRESENT_CURRENT_NASDAQ_FILE",
+      "source_line_number": 1101,
+      "flags": {
+        "Market Category": "Q",
+        "Test Issue": "N",
+        "Financial Status": "N",
+        "Round Lot Size": "100",
+        "ETF": "N",
+        "NextShares": "N"
+      },
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "TXMD",
+      "disposition": "SYMBOL_PRESENT_CURRENT_NASDAQ_FILE",
+      "source_line_number": 5080,
+      "flags": {
+        "Market Category": "Q",
+        "Test Issue": "N",
+        "Financial Status": "N",
+        "Round Lot Size": "100",
+        "ETF": "N",
+        "NextShares": "N"
+      },
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "RVTY",
+      "disposition": "NOT_IN_THIS_NASDAQ_FILE",
+      "source_line_number": null,
+      "flags": null,
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "EMR",
+      "disposition": "NOT_IN_THIS_NASDAQ_FILE",
+      "source_line_number": null,
+      "flags": null,
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "GT",
+      "disposition": "SYMBOL_PRESENT_CURRENT_NASDAQ_FILE",
+      "source_line_number": 2202,
+      "flags": {
+        "Market Category": "Q",
+        "Test Issue": "N",
+        "Financial Status": "N",
+        "Round Lot Size": "100",
+        "ETF": "N",
+        "NextShares": "N"
+      },
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "KEY",
+      "disposition": "NOT_IN_THIS_NASDAQ_FILE",
+      "source_line_number": null,
+      "flags": null,
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "WOR",
+      "disposition": "NOT_IN_THIS_NASDAQ_FILE",
+      "source_line_number": null,
+      "flags": null,
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    },
+    {
+      "query_ticker": "XRX",
+      "disposition": "SYMBOL_PRESENT_CURRENT_NASDAQ_FILE",
+      "source_line_number": 5506,
+      "flags": {
+        "Market Category": "Q",
+        "Test Issue": "N",
+        "Financial Status": "N",
+        "Round Lot Size": "100",
+        "ETF": "N",
+        "NextShares": "N"
+      },
+      "issuer_cik_link_verified": false,
+      "historical_security_link_verified": false
+    }
+  ],
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Only current Nasdaq-listed file, not all exchanges, historical universe or delisting completeness.",
+    "Retained test issues, ETF and NextShares flags are not automatic common-equity qualification; non-ETF does not prove common stock.",
+    "Financial Status is a listing-compliance classification, not trading-halt, quote or executable-liquidity evidence.",
+    "Symbol equality is not verified CIK or historical security ownership; absence only describes this file.",
+    "Footer timezone is unspecified in reviewed source definition; no UTC conversion or precise freshness assertion.",
+    "Current local observation cannot be backdated. No prices, adjusted returns, corporate-action completeness or training admission."
+  ]
+}
