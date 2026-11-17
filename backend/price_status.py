@@ -1,0 +1,44 @@
+"""Validate allowlisted public collection metadata, never private price bytes."""
+from datetime import datetime, timezone
+
+
+def timestamp(value):
+    parsed = datetime.fromisoformat(value)
+    if parsed.tzinfo is None or parsed > datetime.now(timezone.utc):
+        raise ValueError('invalid collection timestamp')
+    return parsed
+
+
+def summarize_price_status(p):
+    expected = {'status', 'verified_at', 'symbols_tested', 'rows_per_symbol',
+                'first_session', 'last_session', 'execution_ready',
+                'scheduled_collection_verified'}
+    if set(p) not in (expected, expected | {'latest_collection'}):
+        raise ValueError('unreviewed price status schema')
+    if p['status'] != 'private_daily_snapshot_tested' or p['execution_ready'] is not False:
+        raise ValueError('unreviewed price status schema')
+    if type(p['scheduled_collection_verified']) is not bool or p['scheduled_collection_verified'] != ('latest_collection' in p):
+        raise ValueError('schedule verification requires collection evidence')
+    if type(p['symbols_tested']) is not int or p['symbols_tested'] != 11 or type(p['rows_per_symbol']) is not int or p['rows_per_symbol'] != 100:
+        raise ValueError('unreviewed coverage change')
+    timestamp(p['verified_at'])
+    first = datetime.strptime(p['first_session'], '%Y-%m-%d')
+    last = datetime.strptime(p['last_session'], '%Y-%m-%d')
+    if first > last:
+        raise ValueError('invalid session range')
+    as_of = p['verified_at']
+    detail = f"Initial private daily-price sample verified through {p['last_session']}. "
+    if 'latest_collection' in p:
+        c = p['latest_collection']
+        if set(c) != {'observed_at', 'saved_snapshots', 'rows_per_symbol', 'scheduled_run_verified'}:
+            raise ValueError('unreviewed collection schema')
+        if timestamp(c['observed_at']) < timestamp(p['verified_at']):
+            raise ValueError('collection predates initial verification')
+        if type(c['saved_snapshots']) is not int or c['saved_snapshots'] != 11 or type(c['rows_per_symbol']) is not int or c['rows_per_symbol'] != 100 or c['scheduled_run_verified'] is not True:
+            raise ValueError('unreviewed collection evidence')
+        as_of = c['observed_at']
+        detail += 'A scheduled collection was verified: 11 private snapshots, 100 rows each. Latest covered session not independently verified; collection time is not market-data freshness. '
+    else:
+        detail += 'Scheduled collection not yet verified. '
+    detail += 'Raw daily data only; not realtime, official auction or total-return data. Execution remains disabled.'
+    return {'status': 'snapshot_only', 'as_of': as_of, 'detail': detail}

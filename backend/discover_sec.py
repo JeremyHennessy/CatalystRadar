@@ -16,6 +16,26 @@ def rows(data):
  n=len(data['accessionNumber'])
  if any(len(data[k])!=n for k in required):raise ValueError('unequal submission columns')
  return [{k:v[i] for k,v in data.items() if isinstance(v,list) and len(v)==n} for i in range(n)]
+def http_error_diagnostic(error):
+ """Read at most 4 KiB of a denial; publish only fixed labels, never body text.
+
+ A response phrase is diagnostic evidence, not proof of the root cause.
+ No retries, alternate routes, contact identities or request headers are changed.
+ """
+ result={'category':'HTTP_ERROR_UNCLASSIFIED','body_bytes_examined':0,'body_truncated':False}
+ try:
+  raw=error.read(4097)
+  result.update(body_bytes_examined=min(len(raw),4096),body_truncated=len(raw)>4096)
+  text=raw[:4096].decode('utf-8',errors='replace').lower()
+  if 'undeclared automated tool' in text:result['category']='UNDECLARED_AUTOMATED_TOOL_RESPONSE'
+  elif 'request rate threshold exceeded' in text:result['category']='RATE_THRESHOLD_RESPONSE'
+  elif 'access denied' in text:result['category']='ACCESS_DENIED_RESPONSE'
+ except Exception:
+  result['category']='HTTP_ERROR_BODY_UNAVAILABLE'
+ finally:
+  error.close()
+ return result
+
 class Archive:
  def __init__(self,root,agent):self.root=root;self.agent=agent;self.last=0;self.manifest=[]
  def get(self,url,label):
@@ -33,6 +53,9 @@ class Archive:
    with (self.root/label).open('xb') as f:f.write(raw)
    self.manifest.append(record);self.flush()
    return raw,record
+  except urllib.error.HTTPError as err:
+   record.update(retrieved_utc=stamp(),status=err.code,error='HTTP Error '+str(err.code),http_diagnostic=http_error_diagnostic(err))
+   self.manifest.append(record);self.flush();return None,record
   except Exception as err:
    record.update(retrieved_utc=stamp(),error=type(err).__name__+': '+str(err));self.manifest.append(record);self.flush();return None,record
  def flush(self):

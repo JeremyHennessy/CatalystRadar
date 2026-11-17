@@ -54,7 +54,7 @@ def scan(root=ROOT):
    sources.append({'ticker':ticker,'url':f'https://data.sec.gov/submissions/CIK{cik}.json','validation_status':'NOT_ATTEMPTED_AFTER_DENIAL'})
    errors.append({'ticker':ticker,'error':'not attempted after access/rate denial'});continue
   url=f'https://data.sec.gov/submissions/CIK{cik}.json';raw,meta=arc.get(url,cik+'.json')
-  public={k:v for k,v in meta.items() if k in ('url','request_utc','retrieved_utc','status','sha256','byte_count','error')};public['ticker']=ticker;public['validation_status']='FETCH_FAILED' if raw is None else 'UNVALIDATED'
+  public={k:v for k,v in meta.items() if k in ('url','request_utc','retrieved_utc','status','sha256','byte_count','error','http_diagnostic')};public['ticker']=ticker;public['validation_status']='FETCH_FAILED' if raw is None else 'UNVALIDATED'
   if public.get('error'):public['error']=public_error(public['error'])
   if raw is not None:
    publicdir=root/'data/sec-snapshots';publicdir.mkdir(exist_ok=True);target=publicdir/(meta['sha256']+'.json')
