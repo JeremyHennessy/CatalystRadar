@@ -1,0 +1,11 @@
+# Earlier financial filing baseline
+
+Official source: https://www.sec.gov/data-research/sec-markets-data/financial-statement-data-sets. The 2026q2.zip archive is a filing-date batch, not exclusively fiscal Q2 results. Downloaded normally from public link, no private contact. The offline importer makes no network calls and reuses the existing exact financial schemas, bounded archive inventory and streamed table reader.
+
+Run `python3 backend/sec_financial_history.py --root PRIVATE_SOURCE_DIRECTORY --out NEW_PRIVATE_OUTPUT_DIRECTORY`. Source contains original2026q2.zip and browser-receipt.json. Output must use a trusted private parent outside this checkout. Directory0700 and database0600; never publish raw archive/database. No overwrite is allowed but this is not immutable storage or authenticated clocks. Only the aggregate summary is intended for publication.
+
+All four source tables are preserved verbatim. Accession joins and tag+version relationships are checked. Missing taxonomy definitions, if encountered, remain in a side-table with exact source row/accession/tag/version and unqualified status; no row is dropped or definition invented. Actual Q2 data has no missing tag joins. Numeric text is finite-validated without floating-point conversion. Units, periods, quarter durations, segments, co-registrants, footnotes, taxonomy versions and presentation context are preserved; no sums or growth rates are inferred. Database FULL synchronous commits, close/reopen counts and quick_check are required before completion. Failed output retains INCOMPLETE.
+
+Actual batch:7,714 submissions,6,179 issuer CIKs,3,608,711 numeric rows,785,490 presentation rows and92,731 taxonomy rows. Filing dates April1–June30,2026. Fiscal periods include Q1/Q2/Q3/FY/blank, with annual, quarterly, foreign, registration and amended filings. Counts stay separate from existing Q3/October issuer coverage. No conclusion about latest/restated/comparable facts or historical investability follows from loading the archive now.
+
+Receipt contains original URL, size, SHA256 and local verification time. Exact HTTP status/download clock remain null. Private addresses/financial fields are not published. The paper ledger, held research reports, simulation flags and execution gates are unchanged; no orders or backdated fills.
