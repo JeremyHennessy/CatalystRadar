@@ -1,0 +1,1876 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-11-17",
+  "scope": "Initial source-rights and acquisition registry; not a complete Phase One survey or an operational permission service.",
+  "global_caveats": [
+    "New candidate access remains unverified; existing SEC/AV records identify historical verified scope separately from current operational access.",
+    "No source is marked training-ready",
+    "Public-domain reuse inference is not provider endorsement of a trained model",
+    "Selected-source access quotas are shared budgets, not per-worker budgets",
+    "Do not automatically create accounts or accept new terms"
+  ],
+  "records": [
+    {
+      "id": "sec_retained_research",
+      "provider": "SEC EDGAR",
+      "dataset": [
+        "Configured issuer submission metadata",
+        "Retained filing originals",
+        "Prepared financial, notes, insider, FTD,13F,Form D,CF/Reg A datasets"
+      ],
+      "status": "PARTIAL",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Existing project artifacts and historical verified receipts inspected; this registry performs no new data requests.",
+      "documented_access": {
+        "incremental_cost_documented": "Existing authorized $0 research route; no expanded entitlement",
+        "authentication": "Existing secure configuration only; no credentials in registry",
+        "documented_quota": "SEC aggregate maximum10 requests/sec; existing bounded collector is slower, denial-stop/no redirects. No new requests from registry."
+      },
+      "verified_access": {
+        "status": "VERIFIED",
+        "downloaded_records": null,
+        "detail": "Retained public scan receipts and private prepared datasets independently verified. Inventory binds 7 receipts / 1592 unique metadata candidates; counts are not training examples."
+      },
+      "integration": {
+        "status": "VERIFIED",
+        "detail": "Retained public scan receipts and private prepared datasets independently verified. Inventory binds 7 receipts / 1592 unique metadata candidates; counts are not training examples."
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Existing bounded project collection/private retention reviewed; not unrestricted future access.",
+          "evidence_urls": [
+            "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Existing bounded project collection/private retention reviewed; not unrestricted future access.",
+          "evidence_urls": [
+            "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.",
+          "evidence_urls": [
+            "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.",
+          "evidence_urls": [
+            "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+          ]
+        }
+      },
+      "quotas": "SEC aggregate maximum10 requests/sec; existing bounded collector is slower, denial-stop/no redirects. No new requests from registry.",
+      "delay": "Source-specific; retained observation clocks do not establish historical first-public availability.",
+      "history": "Source-specific filing periods and archival report periods in referenced manifests; not all SEC history.",
+      "instruments": "Bounded retained project coverage, not all current US securities.",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null,
+        "detail": "Actual private artifacts exist; additional capacity and rebuild costs not estimated here."
+      },
+      "quality": {
+        "status": "PARTIAL",
+        "detail": "Retained bytes and structural checks verified; not proof of source truth, historical availability or training eligibility."
+      },
+      "features": [
+        "Research context only pending identity, clock, rights and label qualification"
+      ],
+      "limitations": [
+        "Historical verified collection does not prove current source access or scheduled reliability.",
+        "Not training-qualified and no execution activation."
+      ],
+      "unknowns": [
+        "Model-use eligibility for intended pipeline",
+        "Point-in-time security/outcome completeness",
+        "Current access and freshness"
+      ],
+      "next_action": "Use retained evidence for scoped audits; establish remaining rights and point-in-time labels before any training.",
+      "evidence": [
+        {
+          "url": "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data",
+          "supports": "Official source documentation or applicable terms; no broader permission inferred",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+          "supports": "Official source documentation or applicable terms; no broader permission inferred",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.sec.gov/data-research/sec-markets-data",
+          "supports": "Official source documentation or applicable terms; no broader permission inferred",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      },
+      "project_evidence": [
+        "docs/research/training-evidence-2026-11-17.json",
+        "docs/sec-prepared-data.md",
+        "docs/sec-financial-notes.md",
+        "docs/sec-institutional-holdings.md",
+        "docs/sec-exempt-offerings.md",
+        "docs/sec-small-offerings.md",
+        "docs/sec-financial-history.md"
+      ]
+    },
+    {
+      "id": "alpha_vantage_private_daily",
+      "provider": "Alpha Vantage",
+      "dataset": [
+        "Private unadjusted compact daily OHLCV"
+      ],
+      "status": "PARTIAL",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Existing project artifacts and historical verified receipts inspected; this registry performs no new data requests.",
+      "documented_access": {
+        "incremental_cost_documented": "Existing authorized $0 research route; no expanded entitlement",
+        "authentication": "Existing secure configuration only; no credentials in registry",
+        "documented_quota": "25 requests/day documented free allowance; shared across clients. Existing collector conservatively reserves calls."
+      },
+      "verified_access": {
+        "status": "VERIFIED",
+        "downloaded_records": null,
+        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status."
+      },
+      "integration": {
+        "status": "VERIFIED",
+        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status."
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Existing bounded project collection/private retention reviewed; not unrestricted future access.",
+          "evidence_urls": [
+            "https://www.alphavantage.co/terms_of_service/"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Existing bounded project collection/private retention reviewed; not unrestricted future access.",
+          "evidence_urls": [
+            "https://www.alphavantage.co/terms_of_service/"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.",
+          "evidence_urls": [
+            "https://www.alphavantage.co/terms_of_service/"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "No blanket source-wide model-training or redistribution clearance asserted; review specific source material and intended use.",
+          "evidence_urls": [
+            "https://www.alphavantage.co/terms_of_service/"
+          ]
+        }
+      },
+      "quotas": "25 requests/day documented free allowance; shared across clients. Existing collector conservatively reserves calls.",
+      "delay": "Source-specific; retained observation clocks do not establish historical first-public availability.",
+      "history": "Retained snapshot of 100 daily bars per symbol; not intraday or exhaustive history.",
+      "instruments": "Bounded retained project coverage, not all current US securities.",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null,
+        "detail": "Actual private artifacts exist; additional capacity and rebuild costs not estimated here."
+      },
+      "quality": {
+        "status": "PARTIAL",
+        "detail": "Retained bytes and structural checks verified; not proof of source truth, historical availability or training eligibility."
+      },
+      "features": [
+        "Research context only pending identity, clock, rights and label qualification"
+      ],
+      "limitations": [
+        "Historical verified collection does not prove current source access or scheduled reliability.",
+        "Not training-qualified and no execution activation."
+      ],
+      "unknowns": [
+        "Model-use eligibility for intended pipeline",
+        "Point-in-time security/outcome completeness",
+        "Current access and freshness"
+      ],
+      "next_action": "Use retained evidence for scoped audits; establish remaining rights and point-in-time labels before any training.",
+      "evidence": [
+        {
+          "url": "https://www.alphavantage.co/terms_of_service/",
+          "supports": "Official source documentation or applicable terms; no broader permission inferred",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.alphavantage.co/documentation/",
+          "supports": "Official source documentation or applicable terms; no broader permission inferred",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.alphavantage.co/support/api-key/",
+          "supports": "Official source documentation or applicable terms; no broader permission inferred",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      },
+      "project_evidence": [
+        "docs/operational-checkpoint.md",
+        "docs/private-retention.md",
+        "docs/price-feed-audit.md"
+      ]
+    },
+    {
+      "id": "alpaca_basic_equities",
+      "provider": "Alpaca",
+      "dataset": [
+        "US stock and ETF historical bars/trades/quotes",
+        "IEX real-time equity feed"
+      ],
+      "status": "PARTIAL",
+      "priority": "P0",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Basic free",
+        "authentication": "Existing authorized key/secret required; none accessed",
+        "documented_quota": "200 historical API requests/minute;30 streaming symbols",
+        "endpoint_base": "https://data.alpaca.markets/v2/"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "API documented; account entitlement unverified",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api",
+            "https://docs.alpaca.markets/us/docs/market-data-faq"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api",
+            "https://docs.alpaca.markets/us/docs/market-data-faq"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN; no explicit license reviewed",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api",
+            "https://docs.alpaca.markets/us/docs/market-data-faq"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN; must not infer permission from free access",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api",
+            "https://docs.alpaca.markets/us/docs/market-data-faq"
+          ]
+        }
+      },
+      "quotas": "200 historical API requests/minute;30 streaming symbols",
+      "delay": "Free real-time IEX only; historical SIP requests require end at least15 minutes old",
+      "history": "Since 2016, per plan documentation",
+      "instruments": "US stocks/ETFs; actual ticker and delisted coverage untested",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Intraday outcome labels",
+        "Relative volume with feed provenance",
+        "Daily momentum"
+      ],
+      "limitations": [
+        "IEX volume is not consolidated market volume",
+        "Free historical access does not authorize publishing raw data"
+      ],
+      "unknowns": [
+        "Existing account authorization",
+        "Training/storage/redistribution license",
+        "Actual historical completeness and corporate-action adjustment behavior"
+      ],
+      "next_action": "Check existing authorized access and applicable rights before a bounded read-only data probe. Do not create an account or activate trading.",
+      "evidence": [
+        {
+          "url": "https://docs.alpaca.markets/us/docs/about-market-data-api",
+          "supports": "Basic price, quotas, history, feed and authentication",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://docs.alpaca.markets/us/docs/market-data-faq",
+          "supports": "Historical SIP query end restriction",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "alpaca_basic_options",
+      "provider": "Alpaca",
+      "dataset": [
+        "Indicative options feed"
+      ],
+      "status": "PARTIAL",
+      "priority": "P2",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Basic free",
+        "authentication": "Key/secret required; untested",
+        "documented_quota": "200 historical requests/minute;200 streaming quotes"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Documented API; entitlement unverified",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN",
+          "evidence_urls": [
+            "https://docs.alpaca.markets/us/docs/about-market-data-api"
+          ]
+        }
+      },
+      "quotas": "200 historical requests/minute;200 streaming quotes",
+      "delay": "Indicative feed; not real-time OPRA",
+      "history": "Exact start/contract coverage UNKNOWN",
+      "instruments": "Dataset-specific; exact instrument coverage unverified",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Potential options context only after verification"
+      ],
+      "limitations": [
+        "Indicative prices must not be treated as executable OPRA quotes"
+      ],
+      "unknowns": [
+        "Historical start date",
+        "OI/IV availability",
+        "Rights",
+        "Contract survivorship completeness"
+      ],
+      "next_action": "Research rights/contract metadata without enabling account or paper engine.",
+      "evidence": [
+        {
+          "url": "https://docs.alpaca.markets/us/docs/about-market-data-api",
+          "supports": "Basic options indicative feed and quotas",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "massive_basic_stocks",
+      "provider": "Massive",
+      "dataset": [
+        "Stocks Basic historical data"
+      ],
+      "status": "BLOCKED",
+      "priority": "P4",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Basic free",
+        "authentication": "API account/key required; not created",
+        "documented_quota": "5 API calls/minute"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Licensed API route documented; not tested",
+          "evidence_urls": [
+            "https://massive.com/pricing?product=stocks",
+            "https://massive.com/knowledge-base/article/how-much-historical-stock-data-does-massive-have",
+            "https://massive.com/legal/market-data-terms-of-service",
+            "https://massive.com/knowledge-base/article/how-can-i-redistribute-massives-market-data"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Terms document conditional personal storage, not perpetual retention: on license termination delete within 30 days, subject to stricter provider requirements. Account-specific entitlement remains unverified.",
+          "evidence_urls": [
+            "https://massive.com/pricing?product=stocks",
+            "https://massive.com/knowledge-base/article/how-much-historical-stock-data-does-massive-have",
+            "https://massive.com/legal/market-data-terms-of-service",
+            "https://massive.com/knowledge-base/article/how-can-i-redistribute-massives-market-data"
+          ]
+        },
+        "model_training": {
+          "status": "BLOCKED",
+          "detail": "BLOCKED absent express permission under current market-data terms",
+          "evidence_urls": [
+            "https://massive.com/pricing?product=stocks",
+            "https://massive.com/knowledge-base/article/how-much-historical-stock-data-does-massive-have",
+            "https://massive.com/legal/market-data-terms-of-service",
+            "https://massive.com/knowledge-base/article/how-can-i-redistribute-massives-market-data"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "Requires suitable explicit license; not established",
+          "evidence_urls": [
+            "https://massive.com/pricing?product=stocks",
+            "https://massive.com/knowledge-base/article/how-much-historical-stock-data-does-massive-have",
+            "https://massive.com/legal/market-data-terms-of-service",
+            "https://massive.com/knowledge-base/article/how-can-i-redistribute-massives-market-data"
+          ]
+        }
+      },
+      "quotas": "5 API calls/minute",
+      "delay": "End-of-day Basic plan",
+      "history": "Rolling2-year plan window",
+      "instruments": "US stocks; actual coverage untested",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Potential daily labels if licensed"
+      ],
+      "limitations": [
+        "Free access is not a training or redistribution license",
+        "Retention and termination obligations apply even if a dataset is downloaded while access is free."
+      ],
+      "unknowns": [
+        "Any project-specific express permission",
+        "Storage rights",
+        "Existing authorization"
+      ],
+      "next_action": "Do not ingest for model training absent explicit applicable permission; no signup under current task.",
+      "evidence": [
+        {
+          "url": "https://massive.com/pricing?product=stocks",
+          "supports": "Basic plan eligibility, rate and EOD coverage",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://massive.com/knowledge-base/article/how-much-historical-stock-data-does-massive-have",
+          "supports": "Rolling historical window",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://massive.com/legal/market-data-terms-of-service",
+          "supports": "AI training/fine-tuning/distillation restriction",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://massive.com/knowledge-base/article/how-can-i-redistribute-massives-market-data",
+          "supports": "Redistribution license requirement",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "databento_historical",
+      "provider": "Databento",
+      "dataset": [
+        "Historical trades/quotes/orderbook/reference data"
+      ],
+      "status": "RESEARCHED",
+      "priority": "P4",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Metered paid service with signup credit, not durable free source",
+        "authentication": "Account required; not created",
+        "documented_quota": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "UNVERIFIED",
+          "detail": "API offered subject to paid/venue terms",
+          "evidence_urls": [
+            "https://databento.com/pricing/",
+            "https://databento.com/docs/getting-started/build-first-app"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN per dataset license",
+          "evidence_urls": [
+            "https://databento.com/pricing/",
+            "https://databento.com/docs/getting-started/build-first-app"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN per dataset license",
+          "evidence_urls": [
+            "https://databento.com/pricing/",
+            "https://databento.com/docs/getting-started/build-first-app"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN per venue license",
+          "evidence_urls": [
+            "https://databento.com/pricing/",
+            "https://databento.com/docs/getting-started/build-first-app"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "Historical/live offerings; entitlements vary",
+      "history": "Dataset/schema-specific",
+      "instruments": "Dataset-specific; exact instrument coverage unverified",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Potential orderbook features"
+      ],
+      "limitations": [
+        "Promotional credit conflicts with no-trial/no-new-spend constraints"
+      ],
+      "unknowns": [
+        "Venue licenses",
+        "Durable zero-cost access",
+        "Fees and permitted uses"
+      ],
+      "next_action": "Defer; no trial signup, credit redemption or billable request.",
+      "evidence": [
+        {
+          "url": "https://databento.com/pricing/",
+          "supports": "Usage-based pricing and signup credit",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://databento.com/docs/getting-started/build-first-app",
+          "supports": "Credit and dataset licensing",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "bls_direct",
+      "provider": "US Bureau of Labor Statistics",
+      "dataset": [
+        "CPI/PPI/employment/wages historical series",
+        "Archived economic releases"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Public API free",
+        "authentication": "v1 keyless;v2 registration not performed",
+        "endpoint": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+        "documented_quota": "v1:25 requests/day,25 series/request,10 years/request;50requests/10seconds. v2:500/day,50series,20years;annual registration renewal"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official API documented",
+          "evidence_urls": [
+            "https://www.bls.gov/developers/api_faqs.htm",
+            "https://www.bls.gov/developers/api_signature.htm",
+            "https://www.bls.gov/bls/linksite.htm"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Agency data public-domain policy supports reuse",
+          "evidence_urls": [
+            "https://www.bls.gov/developers/api_faqs.htm",
+            "https://www.bls.gov/developers/api_signature.htm",
+            "https://www.bls.gov/bls/linksite.htm"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "No explicit ML-specific grant reviewed; agency-data public-domain policy supports use, inference not endorsement",
+          "evidence_urls": [
+            "https://www.bls.gov/developers/api_faqs.htm",
+            "https://www.bls.gov/developers/api_signature.htm",
+            "https://www.bls.gov/bls/linksite.htm"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "Public-domain agency material permitted with requested citation; exclude copyrighted photos/illustrations and trademark",
+          "evidence_urls": [
+            "https://www.bls.gov/developers/api_faqs.htm",
+            "https://www.bls.gov/developers/api_signature.htm",
+            "https://www.bls.gov/bls/linksite.htm"
+          ]
+        }
+      },
+      "quotas": "v1:25 requests/day,25 series/request,10 years/request;50requests/10seconds. v2:500/day,50series,20years;annual registration renewal",
+      "delay": "Release-specific; not verified at ingestion",
+      "history": "Series-specific; query-window limit is not full available history",
+      "instruments": "Published BLS survey series",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Inflation/labor regime",
+        "Release calendar context"
+      ],
+      "limitations": [
+        "Current API observations may be revised; not historical surprise without vintage and consensus"
+      ],
+      "unknowns": [
+        "Actual network access",
+        "Selected series completeness",
+        "Point-in-time vintages",
+        "Exact historic publication timestamps",
+        "Consensus expectations"
+      ],
+      "next_action": "Bounded keyless probe and archived-release metadata; retain original/revised distinctions.",
+      "evidence": [
+        {
+          "url": "https://www.bls.gov/developers/api_faqs.htm",
+          "supports": "Quotas, registration and renewal",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.bls.gov/developers/api_signature.htm",
+          "supports": "v1 API endpoint",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.bls.gov/bls/linksite.htm",
+          "supports": "Public-domain policy and exceptions",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "bea_direct",
+      "provider": "US Bureau of Economic Analysis",
+      "dataset": [
+        "GDP/PCE/income/industry data",
+        "Original release downloads"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Public data/free registered API",
+        "authentication": "API requires registered UserID and email activation; not performed",
+        "endpoint": "https://apps.bea.gov/api/data",
+        "documented_quota": "Not independently extracted in this research"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official API documented; keyless download route still to select",
+          "evidence_urls": [
+            "https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf",
+            "https://www.bea.gov/help/faq/147",
+            "https://apps.bea.gov/api/_pdf/bea_api_tos.pdf"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Public-domain unless otherwise marked",
+          "evidence_urls": [
+            "https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf",
+            "https://www.bea.gov/help/faq/147",
+            "https://apps.bea.gov/api/_pdf/bea_api_tos.pdf"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "No explicit ML-specific terms verified; broad agency public-domain use supports research inference",
+          "evidence_urls": [
+            "https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf",
+            "https://www.bea.gov/help/faq/147",
+            "https://apps.bea.gov/api/_pdf/bea_api_tos.pdf"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "Public-domain unless otherwise stated; citation appreciated; API obligations separately apply",
+          "evidence_urls": [
+            "https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf",
+            "https://www.bea.gov/help/faq/147",
+            "https://apps.bea.gov/api/_pdf/bea_api_tos.pdf"
+          ]
+        }
+      },
+      "quotas": "Not independently extracted in this research",
+      "delay": "Release-specific; revisions occur",
+      "history": "Dataset-specific",
+      "instruments": "BEA economic statistics",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Growth/inflation regime",
+        "Industry sensitivity"
+      ],
+      "limitations": [
+        "Revised GDP cannot be used as an original-release signal"
+      ],
+      "unknowns": [
+        "Existing authorized key",
+        "Precise keyless download endpoints",
+        "Vintage completeness",
+        "Release timestamps and consensus"
+      ],
+      "next_action": "Prefer bounded official public downloads before considering new registration.",
+      "evidence": [
+        {
+          "url": "https://apps.bea.gov/api/_pdf/bea_web_service_api_user_guide.pdf",
+          "supports": "API and registration",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.bea.gov/help/faq/147",
+          "supports": "Public-domain data policy",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://apps.bea.gov/api/_pdf/bea_api_tos.pdf",
+          "supports": "API terms requiring separate review before use",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "eia_bulk",
+      "provider": "US Energy Information Administration",
+      "dataset": [
+        "Petroleum/gas/electricity time series",
+        "Inventories/production/prices"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Free bulk/API",
+        "authentication": "Bulk keyless;API requires free key not requested",
+        "entrypoint": "https://www.eia.gov/opendata/",
+        "documented_quota": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Bulk facility and API officially documented",
+          "evidence_urls": [
+            "https://www.eia.gov/developer/",
+            "https://www.eia.gov/opendata/",
+            "https://www.eia.gov/opendata/v1/bulkfiles.php",
+            "https://www.eia.gov/about/copyrights_reuse.php"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "Agency data/databases use permitted by public-domain policy",
+          "evidence_urls": [
+            "https://www.eia.gov/developer/",
+            "https://www.eia.gov/opendata/",
+            "https://www.eia.gov/opendata/v1/bulkfiles.php",
+            "https://www.eia.gov/about/copyrights_reuse.php"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "ML-specific grant not stated; agency public-domain use inference; exclude protected contributions",
+          "evidence_urls": [
+            "https://www.eia.gov/developer/",
+            "https://www.eia.gov/opendata/",
+            "https://www.eia.gov/opendata/v1/bulkfiles.php",
+            "https://www.eia.gov/about/copyrights_reuse.php"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "Government data/files/database redistribution permitted; publication-date attribution requested; photos/logos/contributed protected material excluded",
+          "evidence_urls": [
+            "https://www.eia.gov/developer/",
+            "https://www.eia.gov/opendata/",
+            "https://www.eia.gov/opendata/v1/bulkfiles.php",
+            "https://www.eia.gov/about/copyrights_reuse.php"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "Daily/weekly/monthly series; manifest documented generally daily",
+      "history": "Dataset-specific",
+      "instruments": "Energy data, not equity universe",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Energy inventory changes",
+        "Production/consumption regime"
+      ],
+      "limitations": [
+        "Actual-versus-prior change is not actual-versus-consensus surprise"
+      ],
+      "unknowns": [
+        "Current downloadable manifest URL and availability",
+        "Actual vintage retention",
+        "Series-specific timestamps",
+        "Consensus data"
+      ],
+      "next_action": "Validate current bulk link; fetch bounded selected official agency dataset, not obsolete v1 API.",
+      "evidence": [
+        {
+          "url": "https://www.eia.gov/developer/",
+          "supports": "Keyless bulk access",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.eia.gov/opendata/",
+          "supports": "Current bulk entrypoint",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.eia.gov/opendata/v1/bulkfiles.php",
+          "supports": "Legacy manifest documentation; current URL requires validation",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.eia.gov/about/copyrights_reuse.php",
+          "supports": "Reuse rights and protected-material exceptions",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "treasury_fiscaldata",
+      "provider": "US Treasury Bureau of Fiscal Service",
+      "dataset": [
+        "Debt/revenue/spending/average interest rates",
+        "Treasury reporting FX"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Free",
+        "authentication": "Keyless GET examples; not probed",
+        "endpoint_base": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/",
+        "example_paths": [
+          "v2/accounting/od/avg_interest_rates",
+          "v1/accounting/od/rates_of_exchange"
+        ],
+        "documented_quota": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official REST API documented",
+          "evidence_urls": [
+            "https://fiscaldata.treasury.gov/api-documentation/"
+          ]
+        },
+        "storage": {
+          "status": "VERIFIED",
+          "detail": "Explicit free unrestricted copy/adapt/use",
+          "evidence_urls": [
+            "https://fiscaldata.treasury.gov/api-documentation/"
+          ]
+        },
+        "model_training": {
+          "status": "PARTIAL",
+          "detail": "ML not separately named; unrestricted commercial/noncommercial data use supports inference",
+          "evidence_urls": [
+            "https://fiscaldata.treasury.gov/api-documentation/"
+          ]
+        },
+        "redistribution": {
+          "status": "VERIFIED",
+          "detail": "Explicitly permitted commercial/noncommercial redistribution",
+          "evidence_urls": [
+            "https://fiscaldata.treasury.gov/api-documentation/"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "Endpoint-specific",
+      "history": "Endpoint-specific",
+      "instruments": "Federal fiscal statistics",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Fiscal liquidity context",
+        "Government borrowing cost"
+      ],
+      "limitations": [
+        "Reporting FX is not executable real-time FX",
+        "record_date does not prove availability time"
+      ],
+      "unknowns": [
+        "Actual access",
+        "Selected endpoint revision history/publication timestamps",
+        "Rate limits"
+      ],
+      "next_action": "Bounded keyless probe; validate page counts, schema, dates and revision metadata.",
+      "evidence": [
+        {
+          "url": "https://fiscaldata.treasury.gov/api-documentation/",
+          "supports": "Endpoints, pagination, license and authorization",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "treasury_yield_xml",
+      "provider": "US Treasury",
+      "dataset": [
+        "Daily nominal/real yield curves",
+        "Bill and long-term rate series"
+      ],
+      "status": "PARTIAL",
+      "priority": "P1",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Public XML feed",
+        "authentication": "Keyless documented feed; not probed",
+        "entrypoint": "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed",
+        "documented_quota": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "Official XML feed documented",
+          "evidence_urls": [
+            "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed",
+            "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "Own-source policy not separately verified",
+          "evidence_urls": [
+            "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed",
+            "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN pending own-source rights check",
+          "evidence_urls": [
+            "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed",
+            "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN; do not inherit Fiscal Data license automatically",
+          "evidence_urls": [
+            "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed",
+            "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "Daily publication",
+      "history": "Series-specific archives; exact bounds unverified",
+      "instruments": "Treasury published rate statistics",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Curve slope",
+        "Real-yield level/change"
+      ],
+      "limitations": [
+        "Published curve estimates are not executable bond prices"
+      ],
+      "unknowns": [
+        "Own-source rights",
+        "Actual endpoint/schema",
+        "Release timestamps",
+        "Historical corrections"
+      ],
+      "next_action": "Verify own-source license then bounded XML retrieval.",
+      "evidence": [
+        {
+          "url": "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed",
+          "supports": "Official feed",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/",
+          "supports": "Series catalog and developer notices",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "cftc_cot",
+      "provider": "Commodity Futures Trading Commission",
+      "dataset": [
+        "Commitments of Traders futures-only and combined reports"
+      ],
+      "status": "PARTIAL",
+      "priority": "P2",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Public reports/API",
+        "authentication": "Public Reporting Environment; exact API requirements unverified",
+        "entrypoint": "https://publicreporting.cftc.gov/",
+        "documented_quota": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "PRE API documented",
+          "evidence_urls": [
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+            "https://publicreporting.cftc.gov/stories/s/COT-Help/p2fg-u73y/",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/AbouttheCOTReports/cot_about.html",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+            "https://www.cftc.gov/PressRoom/PressReleases/9316-26"
+          ]
+        },
+        "storage": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN specific policy not reviewed",
+          "evidence_urls": [
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+            "https://publicreporting.cftc.gov/stories/s/COT-Help/p2fg-u73y/",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/AbouttheCOTReports/cot_about.html",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+            "https://www.cftc.gov/PressRoom/PressReleases/9316-26"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN specific policy not reviewed",
+          "evidence_urls": [
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+            "https://publicreporting.cftc.gov/stories/s/COT-Help/p2fg-u73y/",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/AbouttheCOTReports/cot_about.html",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+            "https://www.cftc.gov/PressRoom/PressReleases/9316-26"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "UNKNOWN specific policy not reviewed",
+          "evidence_urls": [
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+            "https://publicreporting.cftc.gov/stories/s/COT-Help/p2fg-u73y/",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/AbouttheCOTReports/cot_about.html",
+            "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+            "https://www.cftc.gov/PressRoom/PressReleases/9316-26"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "Generally Friday15:30ET for precedingTuesday positions; holiday exceptions. Semiweekly by end2026 announced, implementation not verified",
+      "history": "Official descriptions: futures-only1986;combined1995;supplemental2006",
+      "instruments": "Reportable futures/options positioning, not individual-equity short interest",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Trader-class net positioning",
+        "Open-interest concentration"
+      ],
+      "limitations": [
+        "Join by actual release time, not Tuesday position date"
+      ],
+      "unknowns": [
+        "Specific reuse/training rights",
+        "API quota",
+        "Actual current cadence",
+        "Revision history"
+      ],
+      "next_action": "Check permissions and live release schedule before bounded retrieval.",
+      "evidence": [
+        {
+          "url": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+          "supports": "Reports/current schedule",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://publicreporting.cftc.gov/stories/s/COT-Help/p2fg-u73y/",
+          "supports": "PRE/API",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/AbouttheCOTReports/cot_about.html",
+          "supports": "Historical ranges",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+          "supports": "Release schedule",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9316-26",
+          "supports": "Announced semiweekly change",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "fred_alfred",
+      "provider": "Federal Reserve Bank of St Louis FRED/ALFRED",
+      "dataset": [
+        "Economic series and real-time vintages"
+      ],
+      "status": "BLOCKED",
+      "priority": "P4",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Free API service",
+        "authentication": "API key required; not obtained",
+        "documented_quota": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "BLOCKED",
+          "detail": "API exists but proposed use restricted",
+          "evidence_urls": [
+            "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+            "https://fred.stlouisfed.org/legal/"
+          ]
+        },
+        "storage": {
+          "status": "BLOCKED",
+          "detail": "Current API terms prohibit caching/archiving/database incorporation (clause l)",
+          "evidence_urls": [
+            "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+            "https://fred.stlouisfed.org/legal/"
+          ]
+        },
+        "model_training": {
+          "status": "BLOCKED",
+          "detail": "Current terms prohibit ML/AI development/training including API(clause k)",
+          "evidence_urls": [
+            "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+            "https://fred.stlouisfed.org/legal/"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "Series/source-specific restrictions; no blanket permission",
+          "evidence_urls": [
+            "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+            "https://fred.stlouisfed.org/legal/"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "Series/release-specific",
+      "history": "Series-specific; realtime_start/realtime_end support vintage periods",
+      "instruments": "Dataset-specific; exact instrument coverage unverified",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Potential macro vintages if separately authorized"
+      ],
+      "limitations": [
+        "Underlying public-domain status does not erase service restrictions"
+      ],
+      "unknowns": [
+        "Any project-specific written permission"
+      ],
+      "next_action": "Use eligible underlying data directly from original agencies with separate provenance; no FRED ingestion/training/archive.",
+      "evidence": [
+        {
+          "url": "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+          "supports": "Vintage functionality only",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://fred.stlouisfed.org/legal/",
+          "supports": "Terms apply to ALFRED/API; AI and archival restrictions",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "finra_equity_api",
+      "provider": "FINRA",
+      "dataset": [
+        "Short-sale volume via API",
+        "Short interest via API",
+        "ATS/OTC transparency via API"
+      ],
+      "status": "PARTIAL",
+      "priority": "P2",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "API fees/overages unverified",
+        "authentication": "API valid credentials required; not obtained",
+        "documented_quota": "Not established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "PARTIAL",
+          "detail": "API documented; applicable general/specific terms, credentials and zero-cost entitlement unresolved.",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use",
+            "https://developer.finra.org/specific-terms-equity-data",
+            "https://developer.finra.org/terms-and-conditions",
+            "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+            "https://www.finra.org/sites/default/files/OTC-transparency-website-user-guide-v5.pdf"
+          ]
+        },
+        "storage": {
+          "status": "PARTIAL",
+          "detail": "API retention compatibility unresolved.",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use",
+            "https://developer.finra.org/specific-terms-equity-data",
+            "https://developer.finra.org/terms-and-conditions",
+            "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+            "https://www.finra.org/sites/default/files/OTC-transparency-website-user-guide-v5.pdf"
+          ]
+        },
+        "model_training": {
+          "status": "UNVERIFIED",
+          "detail": "Specific derivative-use terms do not establish unrestricted model-training permission.",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use",
+            "https://developer.finra.org/specific-terms-equity-data",
+            "https://developer.finra.org/terms-and-conditions",
+            "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+            "https://www.finra.org/sites/default/files/OTC-transparency-website-user-guide-v5.pdf"
+          ]
+        },
+        "redistribution": {
+          "status": "PARTIAL",
+          "detail": "API Equity conditional noncommercial no-charge distribution with attribution/no onward redistribution and recipient compliance; website not blanket redistribution license",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use",
+            "https://developer.finra.org/specific-terms-equity-data",
+            "https://developer.finra.org/terms-and-conditions",
+            "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+            "https://www.finra.org/sites/default/files/OTC-transparency-website-user-guide-v5.pdf"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "ATS tier1 two-week;otherNMS/OTC four-week lag in official guide; short-interest separate publication schedule",
+      "history": "Dataset-specific unverified",
+      "instruments": "Dataset/reporting-facility specific, not all market volume",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Short-volume ratio with facility coverage",
+        "Venue concentration"
+      ],
+      "limitations": [
+        "Daily short volume is not outstanding short interest",
+        "Facility coverage is not consolidated market coverage",
+        "Lagged ATS data is not current dark-pool sentiment"
+      ],
+      "unknowns": [
+        "Authorized API credentials",
+        "Zero-cost quota/overage safeguards",
+        "General and specific API rights compatibility",
+        "Current endpoint history"
+      ],
+      "next_action": "Review applicable API rights and zero-cost entitlement without creating account or credentials.",
+      "evidence": [
+        {
+          "url": "https://www.finra.org/terms-of-use",
+          "supports": "Website restrictions d/e/m",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://developer.finra.org/specific-terms-equity-data",
+          "supports": "Noncommercial internal/derivative use and conditional redistribution",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://developer.finra.org/terms-and-conditions",
+          "supports": "General API terms",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+          "supports": "Short volume differs from open short interest",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.finra.org/sites/default/files/OTC-transparency-website-user-guide-v5.pdf",
+          "supports": "ATS reporting lag",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    },
+    {
+      "id": "finra_website",
+      "provider": "FINRA",
+      "dataset": [
+        "Short-sale volume",
+        "Short interest",
+        "ATS/OTC transparency"
+      ],
+      "status": "BLOCKED",
+      "priority": "P4",
+      "verified_on": "2026-11-17",
+      "verification_scope": "Official documentation reviewed only; no authenticated requests or dataset downloads performed by catalog researcher.",
+      "documented_access": {
+        "incremental_cost_documented": "Public website; free access is not bulk/model-use permission",
+        "authentication": "Public website",
+        "documented_quota": "No authorized scraping quota established"
+      },
+      "verified_access": {
+        "status": "UNVERIFIED",
+        "downloaded_records": 0,
+        "detail": "No API or data download probe by this researcher"
+      },
+      "integration": {
+        "status": "UNVERIFIED",
+        "detail": "UNVERIFIED: existing project integration not inspected by this researcher"
+      },
+      "rights": {
+        "collection": {
+          "status": "BLOCKED",
+          "detail": "Website terms restrict bulk/database and AI/predictive-trading uses; do not use this route for the proposed research pipeline.",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use"
+          ]
+        },
+        "storage": {
+          "status": "BLOCKED",
+          "detail": "Website terms restrict bulk/database and AI/predictive-trading uses; do not use this route for the proposed research pipeline.",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use"
+          ]
+        },
+        "model_training": {
+          "status": "BLOCKED",
+          "detail": "Website terms restrict bulk/database and AI/predictive-trading uses; do not use this route for the proposed research pipeline.",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use"
+          ]
+        },
+        "redistribution": {
+          "status": "UNVERIFIED",
+          "detail": "No blanket redistribution permission established.",
+          "evidence_urls": [
+            "https://www.finra.org/terms-of-use"
+          ]
+        }
+      },
+      "quotas": "Not established",
+      "delay": "ATS tier1 two-week;otherNMS/OTC four-week lag in official guide; short-interest separate publication schedule",
+      "history": "Dataset-specific unverified",
+      "instruments": "Dataset/reporting-facility specific, not all market volume",
+      "storage_estimate": {
+        "status": "UNVERIFIED",
+        "bytes": null
+      },
+      "quality": {
+        "status": "UNVERIFIED",
+        "detail": "Official-source provenance documented; actual records/completeness/operational reliability not tested"
+      },
+      "features": [
+        "Short-volume ratio with facility coverage",
+        "Venue concentration"
+      ],
+      "limitations": [
+        "Daily short volume is not outstanding short interest",
+        "Facility coverage is not consolidated market coverage",
+        "Lagged ATS data is not current dark-pool sentiment"
+      ],
+      "unknowns": [
+        "Authorized API credentials",
+        "Zero-cost quota/overage safeguards",
+        "General and specific API rights compatibility",
+        "Current endpoint history"
+      ],
+      "next_action": "Do not scrape or ingest website data for the proposed ML pipeline; assess API route separately.",
+      "evidence": [
+        {
+          "url": "https://www.finra.org/terms-of-use",
+          "supports": "Website restrictions d/e/m",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://developer.finra.org/specific-terms-equity-data",
+          "supports": "Noncommercial internal/derivative use and conditional redistribution",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://developer.finra.org/terms-and-conditions",
+          "supports": "General API terms",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://syndication.finra.org/content/short-interest-what-it-what-it-not",
+          "supports": "Short volume differs from open short interest",
+          "checked_date": "2026-11-17"
+        },
+        {
+          "url": "https://www.finra.org/sites/default/files/OTC-transparency-website-user-guide-v5.pdf",
+          "supports": "ATS reporting lag",
+          "checked_date": "2026-11-17"
+        }
+      ],
+      "training_ready": false,
+      "implementation_complexity": {
+        "status": "RESEARCHED",
+        "detail": "Requires source-specific schema, identity, rights, clock and revision validation before integration; no implementation estimate established."
+      },
+      "signal_usefulness": {
+        "status": "UNVERIFIED",
+        "detail": "Proposed features are hypotheses, not measured predictive value. Daily/weekly context cannot replace intraday labels."
+      },
+      "source_reliability": {
+        "status": "UNVERIFIED",
+        "detail": "Official documentation provenance only; uptime, completeness and historical revision behavior not measured."
+      },
+      "current_operational_access": {
+        "status": "UNVERIFIED",
+        "detail": "No current data request performed for this catalog."
+      }
+    }
+  ],
+  "basis_git_head": "41926ce1c4990ad2f169b9f0f7a548cb3a96e51f",
+  "collection_enabled": false,
+  "remaining_survey_categories": [
+    "Nasdaq/NYSE auctions and halt coverage",
+    "Security identifiers and corporate actions",
+    "Issuer IR and licensed news",
+    "FDA/ClinicalTrials.gov",
+    "USAspending/SAM.gov",
+    "USPTO",
+    "GDELT",
+    "ETF/index announcements",
+    "Permitted search/social data",
+    "Point-in-time consensus and revisions"
+  ]
+}
