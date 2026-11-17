@@ -5,7 +5,9 @@ grammar: continuing-operations income paired with an explicitly combined basic
 and diluted common-share amount and a stated prior-quarter comparison.
 
 It preserves separately reported amounts, units and EPS strings, including a
-rounded `0.00`. Scaling uses each operand's own stated thousand/million unit.
+rounded `0.00`. Scaling uses each operand's own stated thousand/million unit. The grammar allows
+at most 15 integer and 8 fractional digits; longer values remain unsupported.
+A local 64-digit decimal context prevents caller-context rounding during scaling.
 Exact original paragraph byte offsets/hash and containing document hash bind
 the extraction to source bytes. The caller first validates filing identity and
 source digest. Comments, scripts, styles, unrelated document types and paragraphs

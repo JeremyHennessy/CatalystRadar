@@ -53,3 +53,12 @@ class ContinuingEvidenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):extract('text')
         with patch('continuing_operations_evidence.MAX_BYTES',1):
             with self.assertRaises(ValueError):extract(filing())
+
+    def test_precision_bound_and_exact_scaling(self):
+        from decimal import localcontext
+        for amount in ('1234567890123456','1.123456789'):
+            self.assertEqual(extract(filing(TEXT.replace('$700', '$'+amount)))['records'],[])
+        with localcontext() as context:
+            context.prec=3
+            r=extract(filing(TEXT.replace('$700 thousand','$999999999999999.12345678 million')))
+        self.assertEqual(r['records'][0]['current_income_scaled'],'999999999999999123456.78000000')

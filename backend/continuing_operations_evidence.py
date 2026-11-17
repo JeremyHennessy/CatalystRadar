@@ -4,18 +4,26 @@ Caller must verify filing identity and byte digest. No network or trade actions.
 Unknown current period, currency ISO, total-company basis and comparability stay
 unknown; a reported combined basic/diluted figure is not two independent facts.
 """
-from decimal import Decimal
+from decimal import Decimal, localcontext
 import re
 from financial_admission_rehearsal import plain
 from filing_feature_rows import sha
 from archive_reviewed_filings import MAX_BYTES
 
-N = r'([0-9]+(?:\.[0-9]+)?)'
+N = r'([0-9]{1,15}(?:\.[0-9]{1,8})?)'
 PAIR = re.compile(r'Net income from continuing operations totaled \$'+N+
     r' (thousand|million), or \$'+N+
     r' per basic and diluted common share, compared to income from continuing operations of \$'+N+
     r' (thousand|million), or \$'+N+
     r' per basic and diluted common share for the (first|second|third|fourth) quarter of (20[0-9]{2})\.')
+
+
+def scale(value, unit):
+    # Grammar admits at most23 significant digits;64 preserves unit scaling
+    # exactly regardless of the caller's Decimal context.
+    with localcontext() as context:
+        context.prec = 64
+        return str(Decimal(value) * (1000 if unit == 'thousand' else 1000000))
 
 
 def extract(raw):
@@ -39,8 +47,8 @@ def extract(raw):
                 metric='CONTINUING_OPERATIONS_INCOME_AND_COMBINED_BASIC_DILUTED_EPS',
                 current_income_reported=current,current_income_unit=unit+' reported dollars',
                 prior_income_reported=prior,prior_income_unit=prior_unit+' reported dollars',
-                current_income_scaled=str(Decimal(current)*(1000 if unit=='thousand' else 1000000)),
-                prior_income_scaled=str(Decimal(prior)*(1000 if prior_unit=='thousand' else 1000000)),
+                current_income_scaled=scale(current,unit),
+                prior_income_scaled=scale(prior,prior_unit),
                 current_eps_reported=eps,prior_eps_reported=prior_eps,
                 eps_basis='REPORTED_COMBINED_BASIC_AND_DILUTED_CONTINUING_OPERATIONS',
                 current_period=None,prior_period=quarter+' quarter '+year,currency_iso=None,
