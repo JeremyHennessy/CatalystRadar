@@ -73,7 +73,7 @@ def build(reviews_path,archive_dir,computed_at=None):
             'fact_admission':unknown_families(),'qualified':False,'signal':None,
             'first_public_utc':None,'decision_utc':None,'economic_event_group_id':None,
             'explicit_document_relationships':None,'dividend_declaration_evidence':None,
-            'continuing_operations_evidence':None,
+            'continuing_operations_evidence':None,'prior_publication_evidence':None,
             'review_status':h['review_status'],'review_reason':h['review_reason'],
             'blockers':['RETROSPECTIVE_SELECTION','HISTORICAL_AVAILABILITY_UNVERIFIED',
                 'ECONOMIC_EVENT_GROUP_UNRESOLVED','MISSING_TOTAL_GAAP_EPS_AND_COMPARABILITY',
@@ -93,6 +93,8 @@ def build(reviews_path,archive_dir,computed_at=None):
                 row['dividend_declaration_evidence']=dividend_evidence(raw)
                 from continuing_operations_evidence import extract as continuing_evidence
                 row['continuing_operations_evidence']=continuing_evidence(raw)
+                from prior_publication_evidence import extract as prior_publication
+                row['prior_publication_evidence']=prior_publication(raw)
             # Intentionally no license-revenue -> gaap_revenue mapping. This
             # invokes the actual admission contract, not a hand-coded outcome.
             row['fact_admission']['EARNINGS_GROWTH']=admit_facts('EARNINGS_GROWTH',{})
