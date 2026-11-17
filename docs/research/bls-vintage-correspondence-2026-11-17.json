@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "MANUALLY_REVIEWED_TWO_VINTAGE_CORRESPONDENCE_NOT_TRAINING_ADMISSION",
+  "source_count": 2,
+  "matched_previous_value_pairs": 2,
+  "metric": "total_nonfarm_payroll_monthly_change",
+  "reference_months": [
+    "2026-08",
+    "2026-09"
+  ],
+  "sources": [
+    {
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_10022026.pdf",
+      "pdf_sha256": "7e727c826f2373094af125d8e6206b64c7c63e8955cbd2eb2217e3db2976cb5b",
+      "extracted_text_sha256": "ec70b923a385b268ae6ab637058aeb7dcf6c2e3daef7ece767b7a1cc9365cecf",
+      "receipt_sha256": "dbe6191e172c0ed254a52affac5ff39cc2c5d917fec8dc2bc65f18450bae4d57",
+      "declared_embargo_utc": "2026-10-02T12:30:00+00:00",
+      "observed_at": "2026-11-17T22:54:06.434634+00:00",
+      "reference_month": "2026-09",
+      "first_public_authenticated": false
+    },
+    {
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_11062026.pdf",
+      "pdf_sha256": "a19b8c3cc6ab7586521bff6ed74d6fd4384be8268790cb5b764487da5ab2b132",
+      "extracted_text_sha256": "94836991f181f9781e6edd5aa09bb8539c78b90d7511137ab68b3a3bceea0f93",
+      "receipt_sha256": "1be79d9301d1c4377ae7f8e2a1c7993f28713f93de02cf5ea2905e4c10fb4837",
+      "declared_embargo_utc": "2026-11-06T13:30:00+00:00",
+      "observed_at": "2026-11-17T22:44:09.264552+00:00",
+      "reference_month": "2026-10",
+      "first_public_authenticated": false
+    }
+  ],
+  "private_evidence_sha256": "708aaf66539231c423967844b6217beb53fab04984a5d18ec1c8cc6438cc4546",
+  "automatic_parser_applied_to_earlier_release": false,
+  "prior_system_possession_verified": false,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Retrospective hand-reviewed source spans, not an unbiased statistical sample or general automated extractor.",
+    "Same numbers across two current archive copies support documentary consistency, not independently authenticated historical first-public availability.",
+    "Earlier negative revisions remain in retained evidence. No current number overwrites older release values.",
+    "No consensus, economic surprise, equity price outcome, prediction or simulated trade.",
+    "Establishment payroll changes count jobs, not unique people; the household unemployment survey has a different population/unit."
+  ],
+  "unit": "payroll_jobs_unscaled_integer"
+}
