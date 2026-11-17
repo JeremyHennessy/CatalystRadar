@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T17:40:35.794554+00:00",
+  "generated_at": "2026-11-17T19:54:39.334805+00:00",
   "mode": "paper",
   "window": {
     "start": "2026-11-16",
@@ -10,8 +10,8 @@
     {
       "name": "SEC filings",
       "status": "snapshot_only",
-      "as_of": "2026-11-17T17:40:35.704821+00:00",
-      "detail": "10/10 configured issuer metadata feeds checked; 8 filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime."
+      "as_of": "2026-11-17T19:54:39.231235+00:00",
+      "detail": "10/10 configured issuer metadata feeds checked; 7 filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime."
     },
     {
       "name": "Price and liquidity",
@@ -188,12 +188,12 @@
     "Historical halt evidence not connected",
     "Three source reviews need further financial or guidance comparison",
     "Paper book is disabled and empty; no results or guaranteed returns",
-    "Trial-week SEC metadata schedule configured; successful scheduled execution not yet verified"
+    "A schedule-triggered SEC poll reported complete issuer checks; trigger punctuality and future reliability are not verified"
   ],
   "activity": [
     {
-      "at": "2026-11-17T17:40:35.704821+00:00",
-      "detail": "Request-triggered fallback SEC poll: 10/10 issuer checks reported; complete metadata window reported. Metadata discoveries are not trade signals."
+      "at": "2026-11-17T19:54:39.231235+00:00",
+      "detail": "Schedule-triggered SEC poll: 10/10 issuer checks reported; complete metadata window reported. Metadata discoveries are not trade signals."
     }
   ],
   "research_updates": [
