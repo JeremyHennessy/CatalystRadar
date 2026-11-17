@@ -1,6 +1,7 @@
 """Public metadata receipt regression tests; no network calls."""
 import copy
 import json
+import os
 import tempfile
 import unittest
 from concurrent.futures import ThreadPoolExecutor
@@ -20,6 +21,7 @@ def report(run=RUN):
 
 class HistoryTests(unittest.TestCase):
     def setUp(self):
+        identity=patch.dict(os.environ,{"SEC_CONTACT_EMAIL":"fixture@example.invalid"});identity.start();self.addCleanup(identity.stop)
         self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
     def tearDown(self):self.tmp.cleanup()
     def test_idempotent_exact_report(self):

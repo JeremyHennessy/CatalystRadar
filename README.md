@@ -73,6 +73,10 @@ The November 16 scheduled SEC runner reached the source but received HTTP 403 on
 its first request and correctly skipped the remaining nine issuers. A green Actions
 run means the failure receipt was published, not that source coverage succeeded.
 Do not retry via alternate runners, IPs, or disguised clients. [SEC guidance](https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data) calls for
-a declared organization/contact-email User-Agent; the current project's URL-only
-identity lacks that contact field. Configure only a truthful, approved contact identity
-before a future permitted attempt. This gap is not proof of the 403's cause.
+a declared organization/contact-email User-Agent. The scanner now requires an
+approved contact in the private runtime variable `SEC_CONTACT_EMAIL`; the scheduled
+workflow reads the same-named Actions secret. Configure it privately, never in code,
+public variables, dashboard data, command output or logs. Missing/invalid contact
+stops before network access. This compliance correction does not prove the 403's
+cause or guarantee access. A future denial still stops the bounded scan without
+retry, disguised identity or alternate-route attempts.
