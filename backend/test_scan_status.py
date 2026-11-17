@@ -39,7 +39,7 @@ class ScanStatusTests(unittest.TestCase):
     def test_missing_report(self):
         self.assertIn("not yet verified", summarize_scan(None)["schedule_note"])
     def test_other_event_not_claimed_manual(self):
-        self.assertIn("Other GitHub", summarize_scan(self.scan(github_event_name="push"))["activity"])
+        self.assertIn("Other GitHub", summarize_scan(self.scan(github_event_name="repository_dispatch"))["activity"])
 
 if __name__ == "__main__": unittest.main()
 
@@ -63,3 +63,9 @@ class DashboardStatusIntegrationTests(unittest.TestCase):
         self.assertIn('Schedule-triggered', state['activity'][0]['detail'])
         self.assertTrue(any('complete issuer coverage is not verified' in x for x in state['blockers']))
         self.assertFalse(any('has run on schedule' in x for x in state['blockers']))
+
+class FallbackLabelTests(unittest.TestCase):
+    def test_push_is_fallback_not_scheduled(self):
+        result = summarize_scan(dict(schedule_status='GITHUB_RUN', github_event_name='push', configured_issuers=10, successful_issuers=10, metadata_window_complete=True, errors=[]))
+        self.assertTrue(result['activity'].startswith('Request-triggered fallback SEC poll'))
+        self.assertIn('not yet verified', result['schedule_note'])

@@ -14,6 +14,8 @@ def summarize_scan(scan):
         label = "Schedule-triggered SEC poll"
     elif context == "GITHUB_RUN" and event == "workflow_dispatch":
         label = "Manually dispatched SEC poll"
+    elif context == "GITHUB_RUN" and event == "push":
+        label = "Request-triggered fallback SEC poll"
     elif context == "MANUAL_RUN" and event is None:
         label = "Manual SEC poll"
     elif context == "GITHUB_RUN":
