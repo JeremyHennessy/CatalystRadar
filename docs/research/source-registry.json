@@ -154,11 +154,11 @@
       "verified_access": {
         "status": "VERIFIED",
         "downloaded_records": null,
-        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status."
+        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
       },
       "integration": {
         "status": "VERIFIED",
-        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status."
+        "detail": "Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog."
       },
       "rights": {
         "collection": {
@@ -253,7 +253,8 @@
       "project_evidence": [
         "docs/operational-checkpoint.md",
         "docs/private-retention.md",
-        "docs/price-feed-audit.md"
+        "docs/price-feed-audit.md",
+        "data/price_feed_status.json"
       ]
     },
     {

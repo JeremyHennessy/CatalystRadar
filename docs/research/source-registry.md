@@ -72,8 +72,8 @@ P0 · PARTIAL · reviewed 2026-11-17
 Datasets: Private unadjusted compact daily OHLCV
 Verification: Existing project artifacts and historical verified receipts inspected; this registry performs no new data requests.
 Documented access: {"incremental_cost_documented": "Existing authorized $0 research route; no expanded entitlement", "authentication": "Existing secure configuration only; no credentials in registry", "documented_quota": "25 requests/day documented free allowance; shared across clients. Existing collector conservatively reserves calls."}
-Historical verified access: VERIFIED — Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status.
-Integration: VERIFIED — Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status.
+Historical verified access: VERIFIED — Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog.
+Integration: VERIFIED — Verified historical private collection: 11 symbols × 100 daily observations through 2026-11-13, checked in Nov14 checkpoint. Not a current run status. Later saved public status records 11 snapshots observed 2026-11-16T21:58:11Z, with sessions 2026-06-26 through 2026-11-16 and an audit at 2026-11-17T13:28:26Z. These are existing verified-metadata claims, not a new private raw-byte re-verification by this catalog.
 Current operational access: UNVERIFIED — No current data request performed for this catalog.
 
 - collection: PARTIAL. Existing bounded project collection/private retention reviewed; not unrestricted future access.
@@ -113,6 +113,7 @@ Next action: Use retained evidence for scoped audits; establish remaining rights
 - Project evidence: `docs/operational-checkpoint.md`
 - Project evidence: `docs/private-retention.md`
 - Project evidence: `docs/price-feed-audit.md`
+- Project evidence: `data/price_feed_status.json`
 
 ## Alpaca / alpaca_basic_equities
 
