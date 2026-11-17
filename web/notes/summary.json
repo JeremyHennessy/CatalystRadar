@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "status": "STATEMENTS_AND_NOTES_BASELINE_NOT_LIVE_SIGNALS",
+  "completed_utc": "2026-11-17T20:00:31.148853+00:00",
+  "source": {
+    "path": "2026_10_notes.zip",
+    "url": "https://www.sec.gov/files/dera/data/financial-statement-notes-data-sets/2026_10_notes.zip",
+    "byte_count": 91722505,
+    "sha256": "44d1b48909babe6611fcf59ff5bd273281616acbf2b91567e9597a51f924cee1",
+    "local_verified_utc": "2026-11-17T19:57:55.179466+00:00",
+    "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+    "http_status": null,
+    "exact_download_utc": null
+  },
+  "table_rows": {
+    "notes_sub": 6670,
+    "notes_tag": 151113,
+    "notes_dim": 103874,
+    "notes_ren": 86822,
+    "notes_cal": 141562,
+    "notes_pre": 984961,
+    "notes_num": 1488444,
+    "notes_txt": 271414,
+    "notes_validation_gaps": 49
+  },
+  "issuer_ciks": 3555,
+  "submissions": 6670,
+  "filing_date_min": "2026-10-01",
+  "filing_date_max": "2026-10-30",
+  "numeric_missing_values": 48289,
+  "submission_and_dimension_joins_verified": true,
+  "taxonomy_joins_complete": false,
+  "numeric_rows_missing_tag_definitions": 49,
+  "missing_tag_definition_keys": 8,
+  "simulation_enabled": false,
+  "orders_created": 0,
+  "limitations": [
+    "October2026 as-filed prepared statements and notes, not all companies/history or a live feed.",
+    "Numeric/text rows retain taxonomy, period, unit/language, dimension hash, co-registrant, precision, duration and footnote context; they are not unique comparable facts.",
+    "Dimension, calculation and presentation tables are retained; no silent company-wide aggregation.",
+    "Text is retained privately as untrusted source data, not rendered HTML or interpreted instructions.",
+    "Missing source taxonomy definitions are retained and explicitly flagged, never invented, dropped or qualified.",
+    "No acquisition, legal allegation, outcome, financial recommendation or trading eligibility is inferred from note text.",
+    "Exact browser download time and HTTP status unavailable; local verification time is not first-public evidence."
+  ],
+  "issuer_metadata": {
+    "sha256": "ff43caedb0390d86be398e1b2f877ef230145865cc3909bedfa835a43e822b50",
+    "byte_count": 277032
+  }
+}
