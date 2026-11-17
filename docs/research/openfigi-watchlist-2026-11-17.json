@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "status": "OBSERVED_IDENTIFIER_CANDIDATES_NOT_HISTORICAL_SECURITY_LINKS",
+  "source_url": "https://api.openfigi.com/v3/mapping",
+  "requested_at": "2026-11-17T22:21:17.955965+00:00",
+  "observed_at": "2026-11-17T22:21:23.258742+00:00",
+  "request_sha256": "3126a4c43db904a2e3bd66f5cd048bcab985d0a1c5261bb4201eacc94556d788",
+  "response_sha256": "0499f0681be0f6430cb3eee7add5de0fda64e7575198dd33164efe5aafd10d14",
+  "receipt_sha256": "31eac5a5e95671ac1e57cea93ea7cfe352d759ac35225e99aa806a6b7602cc7f",
+  "response_bytes": 2704,
+  "job_count": 10,
+  "candidate_count": 10,
+  "dispositions": {
+    "SINGLE_CURRENT_CANDIDATE": 10
+  },
+  "figis_shared_across_queries": 0,
+  "mappings": [
+    {
+      "request_position": 0,
+      "query_ticker": "COHR",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000BLW102",
+          "compositeFIGI": "BBG000BLW102",
+          "shareClassFIGI": "BBG001S5S6N6"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 1,
+      "query_ticker": "HRB",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000BLDV98",
+          "compositeFIGI": "BBG000BLDV98",
+          "shareClassFIGI": "BBG001S5S031"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 2,
+      "query_ticker": "CINF",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000BFPK65",
+          "compositeFIGI": "BBG000BFPK65",
+          "shareClassFIGI": "BBG001S5PTM0"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 3,
+      "query_ticker": "TXMD",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000LKB954",
+          "compositeFIGI": "BBG000LKB954",
+          "shareClassFIGI": "BBG001SDVKL6"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 4,
+      "query_ticker": "RVTY",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000FXW512",
+          "compositeFIGI": "BBG000FXW512",
+          "shareClassFIGI": "BBG001SBKS35"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 5,
+      "query_ticker": "EMR",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000BHX7N2",
+          "compositeFIGI": "BBG000BHX7N2",
+          "shareClassFIGI": "BBG001S5QVT7"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 6,
+      "query_ticker": "GT",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000BKNX95",
+          "compositeFIGI": "BBG000BKNX95",
+          "shareClassFIGI": "BBG001S5RQ62"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 7,
+      "query_ticker": "KEY",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000BMQPL1",
+          "compositeFIGI": "BBG000BMQPL1",
+          "shareClassFIGI": "BBG001S5SKV6"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 8,
+      "query_ticker": "WOR",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG000HL7499",
+          "compositeFIGI": "BBG000HL7499",
+          "shareClassFIGI": "BBG001S6XN51"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    },
+    {
+      "request_position": 9,
+      "query_ticker": "XRX",
+      "query_exchange": "US",
+      "query_market_sector": "Equity",
+      "include_unlisted_equities": true,
+      "disposition": "SINGLE_CURRENT_CANDIDATE",
+      "candidates": [
+        {
+          "figi": "BBG00NNG2ZJ8",
+          "compositeFIGI": "BBG00NNG2ZJ8",
+          "shareClassFIGI": "BBG00NNG2ZK6"
+        }
+      ],
+      "issuer_cik_link_verified": false,
+      "historical_ticker_ownership_verified": false,
+      "active_listing_verified": false,
+      "training_ready": false
+    }
+  ],
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Only the submitted US/equity ticker jobs are covered; includeUnlistedEquities means a match is not proof of active trading.",
+    "FIGI/composite/share-class identifiers retain distinct scopes. A single result is not an independently verified issuer-CIK or historical ticker link.",
+    "Response order aligns with request order per provider documentation; unexpected or conflicting responses fail closed.",
+    "Local request/response receipt clocks are current collection evidence, not historical effective dates or authenticated public-release times.",
+    "No prices, returns, execution, historical universe completeness or model-training admission."
+  ]
+}
