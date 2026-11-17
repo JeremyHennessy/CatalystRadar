@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_SOURCE_PREPARED_CORRESPONDENCE_NOT_EQUIVALENCE",
+  "archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4",
+  "raw_member_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+  "prepared_database_sha256": "4af6790a4b8e0f96beb2c4e2d99bbd011d883b42566a3d60243e65d0dc713b5a",
+  "prepared_archive_sha256": "d7c815395cd420cfbe09b29dbae73a45406c5d0652d5ae1859ae11ea2e22df77",
+  "accession_from_pinned_manifest": "0001640334-26-001075",
+  "identity_manifest_sha256": "7faa83a8083bb5c5ec2667a773be2a35a782701feb2ebed656229f4edf42f334",
+  "source_occurrence_count": 29,
+  "source_local_group_count": 26,
+  "group_dispositions": {
+    "candidate_numeric_equal": 14,
+    "dimension_or_scenario_unassessed": 12
+  },
+  "exact_prepared_start_date_verified": false,
+  "comparability_verified": false,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Hash-pinned manifest links previously independently audited source identity; the manifest is local evidence, not independently authenticated by this tool.",
+    "Calendar-month span supplies a candidate qtrs filter only; prepared rows do not prove exact source duration or comparable accounting scope.",
+    "Prepared EPS USD plus perShare datatype is checked against the explicit inline USD/shares unit, not inferred from unit ID.",
+    "Hash-pinned inputs do not alone prove database derivation from the ZIP; prior ingestion audits supply that lineage.",
+    "No dimensional joins, growth, timing admission, historical availability, outcomes or training qualification."
+  ]
+}
