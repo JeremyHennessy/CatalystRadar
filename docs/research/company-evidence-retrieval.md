@@ -1,0 +1,23 @@
+# Read-only company evidence retrieval
+
+This CLI makes the existing fixed 8,035-CIK company investigation corpus usable by a research agent without an LLM, HTTP service, provider request or file output. It does not extend the cohort or qualify financial comparisons, security identity, events, trading or training.
+
+```sh
+python backend/company_evidence_retrieval.py search --name 'Emerson' --limit 20
+python backend/company_evidence_retrieval.py search --cik 32604 --section insider
+python backend/company_evidence_retrieval.py evidence --cik 32604 --section insider --limit 5 --offset 0
+```
+
+Search is literal NFC/casefold/whitespace-normalized **source-reported name** matching, not regex, ticker resolution or a current preferred name. Unicode controls, empty queries and overlong queries are rejected. Visually confusable letters are not transliterated. Exact CIK accepts only 1–10 ASCII digits and normalizes leading zeros. Each matched company appears once; matching source labels are retained. Global name ambiguity is computed before exact-CIK, section and pagination filters. A section search selects only companies with records in that fixed selected source, not companies with activity generally.
+
+Evidence sections are `prepared`, `insider`, `disclosure` and `scanner`. Prepared records preserve each original source object with its separate batch associations, dates, names and reported tickers; they are not a merged unique filing history. Insider retrieval hydrates actual unchanged public filing records from the source's pinned shard, not merely a category link. Its summary and source context preserve Q2/Q3 filing-batch scope, transaction dates and submission-level plan flag limitations. P/S includes open-market **or private** reported transactions. Missing or unchecked flags do not prove unplanned trades. Disclosure and scanner records retain their original interpretation and source references unchanged.
+
+Every invocation verifies the published company index (1,834,945 bytes, SHA256 `c488e6b0aab25ef2e8b0434e2a518bfb44c03af93c4bbba5ec6dd42682ada013`) and independently rebuilds it through `company_investigation.build`, including all pinned upstream sources. Selected published company shards are checked for exact bytes/hash, fixed path, bucket, membership and unique identity before pagination. Insider source shards are separately pinned and checked for exact CIK, unique batch/accession references and filing/selected-row conservation. No persistent cache hides source changes. Python `search` and `evidence` functions require an index returned by `load`, not arbitrary caller dictionaries.
+
+In evidence mode an out-of-cohort CIK returns `OUTSIDE_FIXED_COHORT_UNASSESSED` and a **null** total, not zero activity. Search mode returns zero matching directory records plus explicit `OUTSIDE_FIXED_COHORT_UNASSESSED` coverage; its zero is not evidence of no company activity. In-cohort zero means only no selected record in the named fixed source projection. Xerox Corporation's scanner-only membership does not fabricate prepared coverage or merge it with Xerox Holdings. All original source-specific dates and unknowns remain separate; the result's null first-public time is not the filing date or processing date.
+
+Results contain snapshot/source pins, scope, limitations, original public records, source references, exact-company app navigation, totals, returned counts and next offset. Official source citations/lookup status already in source objects are preserved, not fetched or newly verified. Search limits are 1–20, evidence limits 1–5, offsets 0–100,000. The serialized response including newline is capped at 250,000 bytes. An oversize page fails entirely; request a smaller page rather than receiving truncated evidence. Source hashes and schemas are fixed; changed versions require review.
+
+The command writes only complete JSON to stdout. It does not write artifacts, access private inputs, make requests or enable execution. Validation failures produce a fixed stderr message, exit 2 and no JSON. Argument syntax/choice failures use standard argparse stderr and exit 2. Filesystem reads are restricted by implementation to the selected repository's fixed public source paths; `--root` selects a repository checkout, not a data URL. Both execution and training flags are always false.
+
+Tests cover complete directory pagination and category counts, actual source pages, Unicode/literal ambiguity, wrong identity/duplicate shard membership, source-pin mismatch, scoped absence, oversize output and CLI no-partial-result failure. No existing static payload, queue API, company dossier or UI is modified.
