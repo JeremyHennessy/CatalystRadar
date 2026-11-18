@@ -17,7 +17,7 @@ def holding(row):
     keep=('INFOTABLE_SK','NAMEOFISSUER','TITLEOFCLASS','CUSIP','FIGI','PUTCALL','SSHPRNAMTTYPE','INVESTMENTDISCRETION','OTHERMANAGER')
     if any(not isinstance(row[k],str) or len(row[k])>500 for k in keep):raise ValueError('public field bounds')
     return {'source_data_row':row['rowid'],**{k:row[k] for k in keep},'security_identity_verified':False}
-def build(database,archive):
+def build(database,archive,*,all_selected_rows=False):
     if sha(database)!=DB_SHA or sha(archive)!=ZIP_SHA:raise ValueError('source pin')
     c=sqlite3.connect(Path(database).resolve().as_uri()+'?mode=ro',uri=True);c.row_factory=sqlite3.Row
     needed={name:{} for name in ('SUBMISSION.tsv','COVERPAGE.tsv','SUMMARYPAGE.tsv','INFOTABLE.tsv')}
@@ -32,7 +32,9 @@ def build(database,archive):
                 sub=dict(sub);acc=sub['ACCESSION_NUMBER'];cover=one(c,'holdings_coverpage',acc);summary=one(c,'holdings_summarypage',acc)
                 if cover['REPORTCALENDARORQUARTER']!=sub['PERIODOFREPORT']:raise ValueError('report period conflict')
                 total=c.execute('SELECT COUNT(*) FROM holdings_infotable WHERE ACCESSION_NUMBER=?',(acc,)).fetchone()[0]
-                selected=[dict(r) for r in c.execute('SELECT rowid,* FROM holdings_infotable WHERE ACCESSION_NUMBER=? ORDER BY CAST(INFOTABLE_SK AS INTEGER),rowid LIMIT 10',(acc,))]
+                if all_selected_rows and total>1000:raise ValueError('full filing row bound')
+                limit=1000 if all_selected_rows else 10
+                selected=[dict(r) for r in c.execute('SELECT rowid,* FROM holdings_infotable WHERE ACCESSION_NUMBER=? ORDER BY CAST(INFOTABLE_SK AS INTEGER),rowid LIMIT ?',(acc,limit))]
                 for name,records in [('SUBMISSION.tsv',[sub]),('COVERPAGE.tsv',[cover]),('SUMMARYPAGE.tsv',[summary]),('INFOTABLE.tsv',selected)]:
                     for r in records:needed[name][r['rowid']]=r
                 filings.append({'manager_cik':manager,'manager_name_as_filed':cover['FILINGMANAGER_NAME'],
@@ -59,13 +61,13 @@ def build(database,archive):
                 if seen!=set(wanted):raise ValueError('source rows absent')
     finally:c.close()
     if sha(database)!=DB_SHA or sha(archive)!=ZIP_SHA:raise ValueError('source changed')
-    return {'version':1,'scope':'BOUNDED_AS_FILED_MANAGER_SAMPLE_NOT_PORTFOLIO_OR_TRADE_FLOW',
-        'selection':'First three reporting-manager CIKs numerically among HR/HR-A forms; first two accession-sorted filings each; first ten INFOTABLE_SK-sorted rows per filing. No value/rank/price selection.',
+    return {'version':1,'scope':('COMPLETE_SELECTED_FILING_ROWS_NOT_COMPLETE_PORTFOLIO' if all_selected_rows else 'BOUNDED_AS_FILED_MANAGER_SAMPLE_NOT_PORTFOLIO_OR_TRADE_FLOW'),
+        'selection':('First three reporting-manager CIKs numerically among HR/HR-A forms; first two accession-sorted filings each; first ten INFOTABLE_SK-sorted rows per filing. No value/rank/price selection.' if not all_selected_rows else 'Same first three reporting-manager CIKs and first two accession-sorted filings; all retained rows per selected filing, capped at1000 or rejected. No value/rank/price selection.'),
         'source':{'archive_url':URL,'archive_sha256':ZIP_SHA,'database_sha256':DB_SHA,'raw_rows_checked':sum(len(v) for v in needed.values())},
         'filings':filings,'training_ready':False,'execution_ready':False,
         'limitations':['Reporting-manager CIK is not held-issuer CIK. Names, class titles, CUSIP and FIGI are exact source strings, not verified historical identity or current ticker mappings.',
         'One filing batch June–August2026, delayed report periods; no inferred purchases, sales, new/discontinued positions or portfolio changes.',
-        'Amendments remain as filed, not reconciled; confidentiality omissions and truncated sample prevent complete holdings conclusions.',
+        'Amendments remain as filed, not reconciled; no restatement/additions replacement or chronological confidential-release reconstruction. Confidentiality omissions prevent complete portfolio conclusions; row coverage describes this filing only.' if all_selected_rows else 'Amendments remain as filed, not reconciled; confidentiality omissions and truncated sample prevent complete holdings conclusions.',
         'No share counts, values, portfolio totals, contacts, addresses, signatures or raw narratives published.',
         'Blank option flag does not establish common-stock ownership. Shares/principal type and other-manager reference remain as filed; no look-through aggregation.',
         'SEC filing-reported identifiers only, not licensed security-list or commercial enrichment. No provider requests.']}

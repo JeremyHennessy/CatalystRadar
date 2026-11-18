@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "scope": "COMPLETE_SELECTED_FILING_ROWS_NOT_COMPLETE_PORTFOLIO",
+  "selection": "Same first three reporting-manager CIKs and first two accession-sorted filings; all retained rows per selected filing, capped at1000 or rejected. No value/rank/price selection.",
+  "source": {
+    "archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/form-13f-data-sets/01jun2026-31aug2026_form13f.zip",
+    "archive_sha256": "4db97d5652e262de51617971104e06313211de4d092e6bcb5d7bf34ee7efe054",
+    "database_sha256": "5117bb2573288481d336dde11232ffb8bc64cb04a495f0fc179a64bf0e2aafda",
+    "raw_rows_checked": 625
+  },
+  "filings": [
+    {
+      "manager_cik": "0000002230",
+      "accession": "0001104659-26-085614",
+      "report_period_as_filed": "30-JUN-2026",
+      "source_holding_rows": 103,
+      "path": "0001104659-26-085614.json",
+      "bytes": 42449,
+      "sha256": "e02e4fd6fd63d7bf7526dddac52728d44497c197b4ddbee0d94b3e66f1c6f1bb"
+    },
+    {
+      "manager_cik": "0000002488",
+      "accession": "0001193125-26-352454",
+      "report_period_as_filed": "30-JUN-2026",
+      "source_holding_rows": 6,
+      "path": "0001193125-26-352454.json",
+      "bytes": 4821,
+      "sha256": "30c2301294f4a8251f3b7674cbf2bde71715efc02deb703df1aa60cb0b8aa943"
+    },
+    {
+      "manager_cik": "0000003520",
+      "accession": "0001193125-26-352250",
+      "report_period_as_filed": "30-JUN-2026",
+      "source_holding_rows": 507,
+      "path": "0001193125-26-352250.json",
+      "bytes": 200057,
+      "sha256": "434e6cf73b9461ecbda4f22a2cbfa694646e304345f6dfd2b096189478849f7b"
+    }
+  ],
+  "limitations": [
+    "Reporting-manager CIK is not held-issuer CIK. Names, class titles, CUSIP and FIGI are exact source strings, not verified historical identity or current ticker mappings.",
+    "One filing batch June\u2013August2026, delayed report periods; no inferred purchases, sales, new/discontinued positions or portfolio changes.",
+    "Amendments remain as filed, not reconciled; no restatement/additions replacement or chronological confidential-release reconstruction. Confidentiality omissions prevent complete portfolio conclusions; row coverage describes this filing only.",
+    "No share counts, values, portfolio totals, contacts, addresses, signatures or raw narratives published.",
+    "Blank option flag does not establish common-stock ownership. Shares/principal type and other-manager reference remain as filed; no look-through aggregation.",
+    "SEC filing-reported identifiers only, not licensed security-list or commercial enrichment. No provider requests."
+  ],
+  "training_ready": false,
+  "execution_ready": false
+}
