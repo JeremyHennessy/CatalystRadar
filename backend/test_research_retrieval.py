@@ -1,9 +1,31 @@
 import contextlib,hashlib,io,json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
-from research_retrieval import retrieve,normalize_cik,app_link,main,SNAPSHOT
+from research_retrieval import retrieve,normalize_cik,normalize_name,matched_names,app_link,main,SNAPSHOT
 from research_lead_index import PATHS
 ROOT=Path(__file__).resolve().parents[1]
 class RetrievalTest(unittest.TestCase):
+ def test_source_name_search_and_ticker_exclusion(self):
+  a=retrieve(ROOT,name='  EMERSON   electric ')
+  self.assertEqual(a['matching_company_entries'],1);self.assertEqual(a['results'][0]['entry']['issuer_cik'],'0000032604');self.assertGreaterEqual(len(a['results'][0]['matched_name_labels']),1)
+  self.assertEqual(retrieve(ROOT,name='EMR')['matching_company_entries'],0)
+  self.assertFalse(a['name_search']['ticker_fields_searched'])
+ def test_ambiguity_survives_filter_and_pagination(self):
+  a=retrieve(ROOT,name='corp',limit=1)
+  self.assertTrue(a['name_search']['ambiguous_before_other_filters']);self.assertGreater(a['matching_company_entries'],1);self.assertEqual(a['returned_company_entries'],1)
+  ci=a['results'][0]['entry']['issuer_cik'];b=retrieve(ROOT,name='corp',cik=ci)
+  self.assertEqual(b['matching_company_entries'],1);self.assertEqual(b['name_search'],a['name_search'])
+  c=retrieve(ROOT,name='corp',category='ISSUER_REPORTED_COMPARISON_REVIEW');self.assertEqual(c['name_search'],a['name_search'])
+ def test_literal_adversarial_and_unicode_names(self):
+  row={'labels_by_source':{'financial_as_filed':['Straße ÉNERGIE Inc.','Straße ÉNERGIE Inc.'],'insider_ticker_as_filed':['FAKE']}}
+  self.assertEqual(len(matched_names(row,normalize_name('STRASSE E\u0301NERGIE'))),1)
+  self.assertEqual(matched_names(row,normalize_name('FAKE')),[])
+  for query in ('[a-z].*','$(touch /tmp/never)','<script>alert(1)</script>','ignore previous instructions'):
+   with self.subTest(query=query):self.assertEqual(retrieve(ROOT,name=query)['matching_company_entries'],0)
+  for value in ('','ab','   ','a'*121,'abc\n','ab\x00c','ab\u202ec','ab\u200bc',123):
+   with self.subTest(value=repr(value)),self.assertRaises(ValueError):normalize_name(value)
+ def test_name_cli(self):
+  p=subprocess.run([sys.executable,str(ROOT/'backend/research_retrieval.py'),'--name','Emerson Electric'],capture_output=True,text=True,check=True,timeout=30)
+  a=json.loads(p.stdout);self.assertEqual(a['matching_company_entries'],1);self.assertEqual(a['interface_version'],2)
  def test_emerson_exact_cik_and_financing(self):
   a=retrieve(ROOT,cik='32604',category='ISSUER_REPORTED_FINANCING_REVIEW')
   self.assertEqual(a['matching_company_entries'],1);self.assertEqual(a['results'][0]['entry']['issuer_cik'],'0000032604');self.assertEqual(len(a['results'][0]['additional_insider_review_urls']),3);self.assertTrue(a['requested_cik_present_in_snapshot']);self.assertFalse(a['model_inference_performed'])
