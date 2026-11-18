@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "REPORTED_INSIDER_CODE_DIAGNOSTICS_NOT_SIGNALS",
+  "audit_completed_at": "2026-11-18T00:26:53.801927+00:00",
+  "source_archive_sha256": "a4e6a681cfcfa43a3d9e4ca9cfec1fd26a59d0a01eac7e9f7b5a0122092c90f3",
+  "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+  "bundled_readme_sha256": "38a414683130ea5371267aec6279273d0184785ca3a26225f8af686b920c9186",
+  "source_tables": [
+    "NONDERIV_TRANS.tsv",
+    "SUBMISSION.tsv",
+    "FOOTNOTES.tsv"
+  ],
+  "counts": {
+    "transaction_rows": 59885,
+    "rows_without_listed_diagnostics_not_qualified": 7745
+  },
+  "reported_code_counts": {
+    "A": 9817,
+    "C": 903,
+    "D": 1382,
+    "F": 6802,
+    "G": 1035,
+    "I": 23,
+    "J": 1679,
+    "L": 65,
+    "M": 7433,
+    "MISSING": 4,
+    "O": 1,
+    "P": 5184,
+    "S": 25441,
+    "U": 38,
+    "W": 14,
+    "X": 56,
+    "Z": 8
+  },
+  "transaction_rows_by_submission_form": {
+    "4": 58855,
+    "4/A": 979,
+    "5": 51
+  },
+  "diagnostic_flag_counts": {
+    "AMENDMENT_NOT_RECONCILED": 979,
+    "DEEMED_EXECUTION_DATE_REQUIRES_REVIEW": 567,
+    "EQUITY_SWAP_REPORTED": 67,
+    "FOOTNOTE_CONTEXT_REQUIRED": 49551,
+    "MISSING_OR_UNKNOWN_TRANSACTION_CODE": 4,
+    "PURCHASE_SALE_DIRECTION_CONTRADICTION": 82,
+    "TRANSACTION_DATE_AFTER_FILING_DATE": 2,
+    "TRANSACTION_SUBMISSION_FORM_DIFFERENCE": 562,
+    "TRANS_PRICEPERSHARE_MISSING": 3939,
+    "TRANS_PRICEPERSHARE_ZERO": 11385,
+    "TRANS_SHARES_ZERO": 48,
+    "UNKNOWN_EQUITY_SWAP_FLAG": 4,
+    "UNKNOWN_TRANSACTION_FORM": 4
+  },
+  "submission_plan_flag_per_transaction_counts": {
+    "REPORTED_FALSE": 41422,
+    "REPORTED_TRUE": 18463
+  },
+  "calendar_day_lag_buckets": {
+    "1_TO_7": 52228,
+    "8_TO_30": 1176,
+    "NEGATIVE": 2,
+    "OVER_30": 1478,
+    "ZERO": 5001
+  },
+  "transaction_accessions": 28972,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "P/S codes describe open-market OR private transactions, not verified exchange executions or directional signals.",
+    "Code/direction contradictions, amendments and footnotes require primary-source review; no rows are repaired or removed. Diagnostics overlap and cannot be summed as distinct transactions.",
+    "Form 10b5-1 flag is submission-level and does not establish every individual row was under a valid plan or imply intent.",
+    "Transaction and filing fields are date-only; calendar-day differences are not business-day deadlines, compliance findings or first-public timestamps.",
+    "Shares, prices and ownership remain as filed. No currency is inferred, no dollar totals or current positions computed, and reporting-owner joins do not multiply transaction rows.",
+    "No owner names, addresses or individual transaction values appear in the public aggregate. Private row hashes/rowids bind original data, not source authenticity or prospectively known features.",
+    "A row without listed diagnostics is not financially qualified, a complete validation or an approved training example. Derivative transactions/holdings are outside this scoped audit."
+  ]
+}
