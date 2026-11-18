@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('node:assert/strict');const fs=require('node:fs');const {validate,init,ID}=require('./company.js');
+const data=JSON.parse(fs.readFileSync(__dirname+'/company-findings/vitaspring-revenue.json','utf8'));
+assert.equal(validate(data),data);
+for(const mutate of [d=>d.facts[1].value='10',d=>d.facts.pop(),d=>d.facts[0].period_start='2026-05-01',d=>d.calculation.value=0,d=>d.execution_ready=true,d=>d.issuer.ticker='VSBC',d=>d.filing.source_primary_document_url='https://evil.test/',d=>d.provenance.source_first_public_utc=d.generated_at,d=>d.blockers=[],d=>d.provenance.original_member_sha256='x',d=>d.filing.fiscal_year_as_filed='2025']) { const d=structuredClone(data);mutate(d);assert.throws(()=>validate(d)); }
+class Node{constructor(){this.children=[];this.hidden=false;this.handlers={};this.textContent='';}append(...n){this.children.push(...n);}replaceChildren(...n){this.children=n;}addEventListener(k,v){this.handlers[k]=v;}}
+function document(){const ids={};return{ids,getElementById(id){return ids[id]??=(new Node());},createElement(){return new Node();}};}
+function all(n){return [n.textContent,...n.children.map(all)].flat().join(' ');}
+(async()=>{let calls=0;const doc=document();await init(doc,{search:''},async()=>{calls++;return{ok:true,json:async()=>data};});assert.equal(calls,1);assert.match(all(doc.ids['company-finding']),/undefined, not 0%/);assert.match(all(doc.ids['company-finding']),/2024-05-01/);assert.equal(doc.ids['company-finding'].hidden,false);
+const unknown=document();await init(unknown,{search:'?finding=missing'},()=>{throw Error('should not fetch');});assert.match(unknown.ids['company-state'].textContent,/No reviewed finding/);assert.equal(unknown.ids['company-reset'].hidden,false);
+const retry=document();let failed=true;await init(retry,{search:'?finding='+ID},async()=>({ok:true,json:async()=>failed?{...data,execution_ready:true}:data}));assert.equal(retry.ids['company-finding'].hidden,true);assert.equal(retry.ids['company-finding'].children.length,0);assert.equal(retry.ids['company-retry'].hidden,false);failed=false;await retry.ids['company-retry'].handlers.click();assert.equal(retry.ids['company-finding'].hidden,false);
+const html=fs.readFileSync(__dirname+'/company.html','utf8');assert.match(html,/company-state/);assert.match(html,/company\.js/);console.log('Company intelligence contracts and failure/retry/unknown-route tests passed');})();
