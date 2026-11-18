@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "REPEATED_CONTEXT_WARNINGS_NOT_EVENT_OR_RESTATEMENT_LABELS",
+  "checkpoint_sha256": "2a3c91807f7af3a84e8102ba6b24a0e16c5b835e3636cd6c6fd7d643afd4448b",
+  "inputs": {
+    "q1_2026_filing_batch": {
+      "candidate_pairs_sha256": "962850df10f79f743691a27790adbf4d9a33b85e84e58f014c261c2a12b878fb",
+      "database_sha256": "ce306b9ec556b3687fc4e1b5e0da53d2a1c2a36a119356f90b73bf9eb08fcea6",
+      "source_archive_sha256": "d18c01c615da8f5cd46273b0dacaeee5b1163f4089171da0f84153a5f3c362f6"
+    },
+    "q2_2026_filing_batch": {
+      "candidate_pairs_sha256": "1463013fb0f4e0409a009d53fc1edd9e0edb8988fa240628b13b4bdc2373fa7b",
+      "database_sha256": "4af6790a4b8e0f96beb2c4e2d99bbd011d883b42566a3d60243e65d0dc713b5a",
+      "source_archive_sha256": "d7c815395cd420cfbe09b29dbae73a45406c5d0652d5ae1859ae11ea2e22df77"
+    },
+    "q3_2026_filing_batch": {
+      "candidate_pairs_sha256": "c88fbdcc42dd87a2833f9779dfca2c9740b9dac8dc0e9ce1fedc7137a9562d4b",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "source_archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21"
+    },
+    "q4_2025_filing_batch": {
+      "candidate_pairs_sha256": "237a3e0913a30977c9e2a50d4e667ca7db32215bc96cd479c73e1a314d463509",
+      "database_sha256": "e63fa4c89bd3735fb15aa45b00dbb612a0324484e52c9ebd75d3cc0ffccdf7fa",
+      "source_archive_sha256": "2b36ac3850c022cf19edd882e31c3c453c7666677b9fdd2e1f7748fdb5768c6e"
+    }
+  },
+  "fact_observations": 81256,
+  "exact_context_keys": 80636,
+  "repeated_contexts": 605,
+  "unique_accessions": 16364,
+  "version_different_near_contexts_unassessed": 269,
+  "overlap_counts": {
+    "cross_batch_different_reported_numbers": 62,
+    "cross_batch_multiple_accession_contexts": 275,
+    "cross_batch_numerically_equal": 213,
+    "different_reported_numbers": 90,
+    "multiple_accession_context": 605,
+    "numerically_equal": 515
+  },
+  "comparability_verified": false,
+  "event_groups_verified": false,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Exact raw taxonomy version/unit/dimension/date keys are intentionally narrow; unmatched contexts can still describe related events.",
+    "Different reported numbers are not proof of error, restatement or economic change; equal numbers are not proof of independent observations.",
+    "CIK groups issuers, not individual tradable securities. No historical symbol mapping is established.",
+    "Filing/accepted dates remain source fields; no historical public-availability or decision clock inferred.",
+    "These warnings do not define complete event families, train/test splits or qualified examples. No values, returns or model metrics published."
+  ]
+}
