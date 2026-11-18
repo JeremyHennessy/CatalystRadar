@@ -1,0 +1,964 @@
+{
+  "schema_version": 1,
+  "id": "fixed-eleven-original-financial-assertion-audit",
+  "status": "SOURCE_REPORTED_ASSERTION_AND_ARITHMETIC_REVIEW_NOT_QUALIFIED_GROWTH",
+  "generated_at": "2026-11-18T12:02:43.600982+00:00",
+  "policy": {
+    "existing_module_versions": {
+      "company_loss_finding.py": "8d25acae9a848e6f99a4771a1f4f5c5305352c16d53b4f7777e6db4a2eeb0415",
+      "company_revenue_finding.py": "1b9827d54af2da02883340d63c3aec87d2e4d6268d5bc3172c005758bbda759e",
+      "frozen_outcome_source_review.py": "baadadcf3c2ecc720353d6e26241b2e69a3de99ffe4c0d4ac623171bfd3774e6",
+      "inline_context_evidence.py": "b36bebc7e5f284256f773ff045454798b1129a12db0f3c8a7b94b43f31c0ff23",
+      "inline_numeric_evidence.py": "2625d175583efde8fecde43185b327b6c8361ee3429cea05f94da97795c9166d",
+      "inline_occurrence_evidence.py": "728d83fe4a48f018383da0ac2088407ed23f94881bc2e47b2bb23f96acc4596f",
+      "issuer_quarterly_results.py": "87398ab4098611959dea80c8af7de52c5588285375f793030ea6a06f4792dab7",
+      "issuer_revenue_comparison.py": "96926f83431ea506ca9caaf5355cb61cecbca08c7c0a6b5b2afa422584e7ae69",
+      "material_agreement_screen.py": "d59daea45f670b1aac0d72034dc01d34fd6663f7fe91264e00bc4cb817d80f2d",
+      "source_prepared_correspondence.py": "4db4786cabb5561b64b6b2452fa58d2193b22b50be02c6bc27f02940e9039f1a"
+    },
+    "frozen_local_utc": "2026-11-18T11:44:11.347845+00:00",
+    "id": "all-eleven-pinned-original-packages-financial-assertions-v1",
+    "original_archive_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "selection": "All ten identity-validated 8-K members of the explicitly pinned original archive plus the one explicitly pinned VitaSpring XBRL ZIP; no value, direction, outcome, replacement or availability filter. This is a retrospective inventory-specific audit, not global retained-library coverage or unbiased/preregistered statistical sampling.",
+    "supported_adapters": [
+      "IEH whole-paragraph revenue and operating/net/basic-EPS",
+      "VitaSpring revalidated inline source/prepared correspondence",
+      "TXMD strict complete license-revenue paragraph with attribution tail and period conflict preserved"
+    ],
+    "unsupported_means": "NOT_SUPPORTED_GRAMMAR, not no financial results or no event",
+    "vita_archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4"
+  },
+  "policy_sha256": "69b856309123380dd824dd2537d62e6596ffab56edc05812aedb370ad3eab7eb",
+  "released_sources": {
+    "ieh_revenue": {
+      "path": "web/company-findings/ieh-reported-revenue.json",
+      "bytes": 4778,
+      "sha256": "74c4fff28c44a4213993cfa487b7745006a71a23d9274f5cbdd5516257719002"
+    },
+    "ieh_results": {
+      "path": "web/company-findings/ieh-reported-quarterly-results.json",
+      "bytes": 8936,
+      "sha256": "dbfc2234fce3275894fe908331f57f1ca0cd1f0bbedbebceccb2868f067ad18a"
+    },
+    "vita_revenue": {
+      "path": "web/company-findings/vitaspring-revenue.json",
+      "bytes": 5874,
+      "sha256": "56b604c79e02b7ca45f5bf3cf46c3fc2b5d6cb1957324ed2ccb761d4ce38d98b"
+    },
+    "vita_loss": {
+      "path": "web/company-findings/vitaspring-net-loss.json",
+      "bytes": 7545,
+      "sha256": "854a68cd119b608e34a081b562f7070b27dbfc009f518cb28d3aeac57bfef835"
+    },
+    "txmd_annotation": {
+      "path": "web/company-findings/frozen-outcome-txmd-source-review.json",
+      "bytes": 5885,
+      "sha256": "fe7fc58256104bae75d7c5822f03a5a625e7c03cc8c6cbaa575cab218654953f"
+    }
+  },
+  "counts": {
+    "packages": 11,
+    "supported_packages": 3,
+    "unsupported_packages": 8,
+    "metric_pairs": 7
+  },
+  "packages": [
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-10",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:32:59.782393+00:00",
+      "package_id": "0000012659-26-000042",
+      "accession": "0000012659-26-000042",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000012659",
+          "name_as_filed": "H&R BLOCK INC"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+      "source_sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:03.633657+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-13",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:05.636951+00:00",
+      "package_id": "0000020286-26-000064",
+      "accession": "0000020286-26-000064",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000020286",
+          "name_as_filed": "CINCINNATI FINANCIAL CORP"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+      "source_sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:09.026985+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-13",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:21.053917+00:00",
+      "package_id": "0001140361-26-043782",
+      "accession": "0001140361-26-043782",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000032604",
+          "name_as_filed": "EMERSON ELECTRIC CO"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+      "source_sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:23.564369+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-12",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:29.625421+00:00",
+      "package_id": "0001174947-26-000991",
+      "accession": "0001174947-26-000991",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000050292",
+          "name_as_filed": "IEH Corp"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+      "source_sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:31.646886+00:00",
+      "first_public_utc": null,
+      "status": "SUPPORTED_REPORTED_ASSERTIONS_NOT_COMPARABILITY",
+      "metric_pairs": [
+        {
+          "metric": "Revenues",
+          "current_value_for_arithmetic": "10700084",
+          "prior_value_for_arithmetic": "7077592",
+          "unit_as_reported": "dollars_as_reported",
+          "currency_iso": null,
+          "periods_as_reported": {
+            "current_end": "2026-09-30",
+            "prior_end": "2025-09-30",
+            "current_start": null,
+            "prior_start": null,
+            "basis": "ISSUER_REPORTED_QUARTER_ENDS_NOT_INDEPENDENT_DURATION"
+          },
+          "source_evidence": {
+            "paragraph_span": {
+              "byte_start": 29667,
+              "byte_end": 30325,
+              "sha256": "897b835de2af6d93bf24217d5442d8cd31fd939bc387531641c0f9759e003880"
+            },
+            "exhibit_sha256": "b24cb88970229bcca0c9fc34a4ca352c021e8b2264a7b47c51c47ca64ed9474e",
+            "exhibit_filename": "ex99-1.htm",
+            "released_source_key": "ieh_revenue"
+          },
+          "arithmetic": {
+            "basis": "REPORTED_UNSCALED_LITERALS",
+            "current_normalized_literal": "10700084",
+            "prior_normalized_literal": "7077592",
+            "signed_difference_of_literals": "3622492",
+            "difference_status": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_VALUES",
+            "reported_increase": null,
+            "reported_percent": "51",
+            "endpoint_percentage_check": {
+              "numerator": "45281150",
+              "denominator": "884699",
+              "rounded_value": "51",
+              "decimal_places": 0,
+              "rounding_rule_for_check": "ROUND_HALF_UP_NOT_INFERRED_ISSUER_POLICY",
+              "meaning": "REPORTED_ENDPOINT_ARITHMETIC_NOT_ACCOUNTING_COMPARABILITY",
+              "matches_reported_percent_at_check_precision": true
+            },
+            "reported_increase_percentage_check": null,
+            "percentage_abstention": null,
+            "true_unrounded_change": null,
+            "accounting_comparability_verified": false,
+            "qualified_growth": false
+          },
+          "first_public_utc": null,
+          "comparability_verified": false,
+          "training_ready": false,
+          "execution_ready": false
+        },
+        {
+          "metric": "OperatingProfitLoss",
+          "current_value_for_arithmetic": "1046496",
+          "prior_value_for_arithmetic": "-104380",
+          "unit_as_reported": "dollars_as_reported",
+          "currency_iso": null,
+          "periods_as_reported": {
+            "current_end": "2026-09-30",
+            "prior_end": "2025-09-30",
+            "current_start": null,
+            "prior_start": null,
+            "basis": "ISSUER_REPORTED_QUARTER_ENDS_NOT_INDEPENDENT_DURATION",
+            "current_fiscal_label": "2nd quarter fiscal year 2027",
+            "prior_fiscal_label": "2nd quarter fiscal year 2026"
+          },
+          "source_evidence": {
+            "released_source_key": "ieh_results",
+            "source_evidence": {
+              "exhibit_filename": "ex99-1.htm",
+              "document_sha256": "b24cb88970229bcca0c9fc34a4ca352c021e8b2264a7b47c51c47ca64ed9474e",
+              "paragraph_span": {
+                "byte_start": 29667,
+                "byte_end": 30325,
+                "sha256": "897b835de2af6d93bf24217d5442d8cd31fd939bc387531641c0f9759e003880"
+              },
+              "normalized_text_method": "financial_admission_rehearsal.plain; character spans and UTF-8 substring hashes are not raw byte spans"
+            },
+            "facts_as_reported": [
+              {
+                "comparison_role": "current",
+                "signed_value": "1046496",
+                "literal_as_reported": "1,046,496",
+                "sign_term_as_reported": "profit",
+                "fiscal_period_label_as_reported": "2nd quarter fiscal year 2027",
+                "period_end_as_reported": "2026-09-30",
+                "period_start": null,
+                "normalized_literal_span": {
+                  "character_start": 193,
+                  "character_end": 202,
+                  "utf8_sha256": "e01abbba1dd315b97e9d8ec3299a785d60ce1611b855f01fe22219c4251e0aaa"
+                }
+              },
+              {
+                "comparison_role": "prior",
+                "signed_value": "-104380",
+                "literal_as_reported": "104,380",
+                "sign_term_as_reported": "loss",
+                "fiscal_period_label_as_reported": "2nd quarter fiscal year 2026",
+                "period_end_as_reported": "2025-09-30",
+                "period_start": null,
+                "normalized_literal_span": {
+                  "character_start": 273,
+                  "character_end": 280,
+                  "utf8_sha256": "f412dc9296d5c5ebd21228e252b4b9a2206edd1e25928253ccc097194215da66"
+                }
+              }
+            ]
+          },
+          "arithmetic": {
+            "basis": "REPORTED_UNSCALED_LITERALS",
+            "current_normalized_literal": "1046496",
+            "prior_normalized_literal": "-104380",
+            "signed_difference_of_literals": "1150876",
+            "difference_status": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_VALUES",
+            "reported_increase": null,
+            "reported_percent": null,
+            "endpoint_percentage_check": null,
+            "reported_increase_percentage_check": null,
+            "percentage_abstention": "NEGATIVE_BASE_NOT_PRESENTED_AS_GROWTH",
+            "true_unrounded_change": null,
+            "accounting_comparability_verified": false,
+            "qualified_growth": false
+          },
+          "first_public_utc": null,
+          "comparability_verified": false,
+          "training_ready": false,
+          "execution_ready": false
+        },
+        {
+          "metric": "NetIncomeLoss",
+          "current_value_for_arithmetic": "1363414",
+          "prior_value_for_arithmetic": "-26861",
+          "unit_as_reported": "dollars_as_reported",
+          "currency_iso": null,
+          "periods_as_reported": {
+            "current_end": "2026-09-30",
+            "prior_end": "2025-09-30",
+            "current_start": null,
+            "prior_start": null,
+            "basis": "ISSUER_REPORTED_QUARTER_ENDS_NOT_INDEPENDENT_DURATION",
+            "current_fiscal_label": "2nd quarter fiscal year 2027",
+            "prior_fiscal_label": "2nd quarter fiscal year 2026"
+          },
+          "source_evidence": {
+            "released_source_key": "ieh_results",
+            "source_evidence": {
+              "exhibit_filename": "ex99-1.htm",
+              "document_sha256": "b24cb88970229bcca0c9fc34a4ca352c021e8b2264a7b47c51c47ca64ed9474e",
+              "paragraph_span": {
+                "byte_start": 29667,
+                "byte_end": 30325,
+                "sha256": "897b835de2af6d93bf24217d5442d8cd31fd939bc387531641c0f9759e003880"
+              },
+              "normalized_text_method": "financial_admission_rehearsal.plain; character spans and UTF-8 substring hashes are not raw byte spans"
+            },
+            "facts_as_reported": [
+              {
+                "comparison_role": "current",
+                "signed_value": "1363414",
+                "literal_as_reported": "1,363,414",
+                "sign_term_as_reported": "income",
+                "fiscal_period_label_as_reported": "2nd quarter fiscal year 2027",
+                "period_end_as_reported": "2026-09-30",
+                "period_start": null,
+                "normalized_literal_span": {
+                  "character_start": 330,
+                  "character_end": 339,
+                  "utf8_sha256": "1af11d83eb3920b0610cadfd89452eb610dce9a2fe6d14881fb3feee13e72340"
+                }
+              },
+              {
+                "comparison_role": "prior",
+                "signed_value": "-26861",
+                "literal_as_reported": "26,861",
+                "sign_term_as_reported": "loss",
+                "fiscal_period_label_as_reported": "2nd quarter fiscal year 2026",
+                "period_end_as_reported": "2025-09-30",
+                "period_start": null,
+                "normalized_literal_span": {
+                  "character_start": 403,
+                  "character_end": 409,
+                  "utf8_sha256": "ca0fc10178a57d430db700e6bca0a5c8d5e1ab57aa1d019ffe88d9ef3cb287e9"
+                }
+              }
+            ]
+          },
+          "arithmetic": {
+            "basis": "REPORTED_UNSCALED_LITERALS",
+            "current_normalized_literal": "1363414",
+            "prior_normalized_literal": "-26861",
+            "signed_difference_of_literals": "1390275",
+            "difference_status": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_VALUES",
+            "reported_increase": null,
+            "reported_percent": null,
+            "endpoint_percentage_check": null,
+            "reported_increase_percentage_check": null,
+            "percentage_abstention": "NEGATIVE_BASE_NOT_PRESENTED_AS_GROWTH",
+            "true_unrounded_change": null,
+            "accounting_comparability_verified": false,
+            "qualified_growth": false
+          },
+          "first_public_utc": null,
+          "comparability_verified": false,
+          "training_ready": false,
+          "execution_ready": false
+        },
+        {
+          "metric": "BasicEarningsLossPerShare",
+          "current_value_for_arithmetic": "0.55",
+          "prior_value_for_arithmetic": "-0.01",
+          "unit_as_reported": "dollars_per_basic_share_as_reported",
+          "currency_iso": null,
+          "periods_as_reported": {
+            "current_end": "2026-09-30",
+            "prior_end": "2025-09-30",
+            "current_start": null,
+            "prior_start": null,
+            "basis": "ISSUER_REPORTED_QUARTER_ENDS_NOT_INDEPENDENT_DURATION",
+            "current_fiscal_label": "2nd quarter fiscal year 2027",
+            "prior_fiscal_label": "2nd quarter fiscal year 2026"
+          },
+          "source_evidence": {
+            "released_source_key": "ieh_results",
+            "source_evidence": {
+              "exhibit_filename": "ex99-1.htm",
+              "document_sha256": "b24cb88970229bcca0c9fc34a4ca352c021e8b2264a7b47c51c47ca64ed9474e",
+              "paragraph_span": {
+                "byte_start": 29667,
+                "byte_end": 30325,
+                "sha256": "897b835de2af6d93bf24217d5442d8cd31fd939bc387531641c0f9759e003880"
+              },
+              "normalized_text_method": "financial_admission_rehearsal.plain; character spans and UTF-8 substring hashes are not raw byte spans"
+            },
+            "facts_as_reported": [
+              {
+                "comparison_role": "current",
+                "signed_value": "0.55",
+                "literal_as_reported": ".55",
+                "sign_term_as_reported": "gain",
+                "fiscal_period_label_as_reported": "2nd quarter fiscal year 2027",
+                "period_end_as_reported": "2026-09-30",
+                "period_start": null,
+                "normalized_literal_span": {
+                  "character_start": 475,
+                  "character_end": 478,
+                  "utf8_sha256": "78831038c79d8c3352d3cbed684df8d7ed5d4faeafa02dd361691cd5550dd7f7"
+                }
+              },
+              {
+                "comparison_role": "prior",
+                "signed_value": "-0.01",
+                "literal_as_reported": ".01",
+                "sign_term_as_reported": "loss",
+                "fiscal_period_label_as_reported": "2nd quarter fiscal year 2026",
+                "period_end_as_reported": "2025-09-30",
+                "period_start": null,
+                "normalized_literal_span": {
+                  "character_start": 554,
+                  "character_end": 557,
+                  "utf8_sha256": "d8b5a5b00ed2b1cf3dd049e020b10e2d48136df749839e9bc0668da74945986d"
+                }
+              }
+            ]
+          },
+          "arithmetic": {
+            "basis": "REPORTED_UNSCALED_LITERALS",
+            "current_normalized_literal": "0.55",
+            "prior_normalized_literal": "-0.01",
+            "signed_difference_of_literals": "0.56",
+            "difference_status": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_VALUES",
+            "reported_increase": null,
+            "reported_percent": null,
+            "endpoint_percentage_check": null,
+            "reported_increase_percentage_check": null,
+            "percentage_abstention": "NEGATIVE_BASE_NOT_PRESENTED_AS_GROWTH",
+            "true_unrounded_change": null,
+            "accounting_comparability_verified": false,
+            "qualified_growth": false
+          },
+          "first_public_utc": null,
+          "comparability_verified": false,
+          "training_ready": false,
+          "execution_ready": false
+        }
+      ],
+      "source_period_conflict": null,
+      "unsupported_meaning": null
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-10",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:37.716444+00:00",
+      "package_id": "0001193125-26-460589",
+      "accession": "0001193125-26-460589",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000108516",
+          "name_as_filed": "WORTHINGTON ENTERPRISES, INC."
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+      "source_sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:39.735127+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-13",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:41.739130+00:00",
+      "package_id": "0001193125-26-460692",
+      "accession": "0001193125-26-460692",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0001770450",
+          "name_as_filed": "Xerox Holdings Corp"
+        },
+        {
+          "cik": "0000108772",
+          "name_as_filed": "XEROX CORP"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+      "source_sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:43.933078+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-13",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:11.029464+00:00",
+      "package_id": "0001213900-26-119681",
+      "accession": "0001213900-26-119681",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000025743",
+          "name_as_filed": "TherapeuticsMD, Inc."
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+      "source_sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:13.530724+00:00",
+      "first_public_utc": null,
+      "status": "SUPPORTED_REPORTED_ASSERTIONS_NOT_COMPARABILITY",
+      "metric_pairs": [
+        {
+          "metric": "LicenseRevenueNotVerifiedTotalGAAPRevenue",
+          "current_value_for_arithmetic": "1300000.0",
+          "prior_value_for_arithmetic": "784000",
+          "unit_as_reported": "display_scaled_dollars_as_reported",
+          "currency_iso": null,
+          "periods_as_reported": {
+            "current_quarter_as_reported": "third quarter 2026",
+            "prior_quarter_as_reported": "third quarter 2025",
+            "current_end_declared_in_exhibit_body": "2026-09-30",
+            "current_start": null,
+            "prior_end": null,
+            "prior_start": null,
+            "exact_comparable_durations_verified": false
+          },
+          "source_evidence": {
+            "values_as_reported": {
+              "current": "1.3",
+              "current_scale": "million",
+              "current_quarter": "third",
+              "current_year": "2026",
+              "increase": "475",
+              "increase_scale": "thousand",
+              "percent": "60.6",
+              "prior": "784",
+              "prior_scale": "thousand",
+              "prior_quarter": "third",
+              "prior_year": "2025",
+              "product": "IMVEXXY",
+              "counterparty": "Knight",
+              "sales_end": "December 31, 2025",
+              "milestone": "365",
+              "milestone_scale": "thousand",
+              "recognition_quarter": "third",
+              "recognition_year": "2026"
+            },
+            "normalized_literal_spans": {
+              "current": {
+                "character_start": 22,
+                "character_end": 25,
+                "utf8_sha256": "9c193c604ad7de942961af97b39ff541f2e611fdf0b93a3044e16dfbd808f41b"
+              },
+              "prior": {
+                "character_start": 137,
+                "character_end": 140,
+                "utf8_sha256": "ff108b68b0e9bc1e5a744f80f9ef1b8575c7d041eeb3e8d2eae300347de6e7fc"
+              },
+              "increase": {
+                "character_start": 100,
+                "character_end": 103,
+                "utf8_sha256": "b1585fdb272b31401eaac5dd46a936c1c09b4861e53e23f12ac72fc077b3c82c"
+              },
+              "percent": {
+                "character_start": 117,
+                "character_end": 121,
+                "utf8_sha256": "3b647d96b22cf20b41b8478fe385b19b4bf99e18f1ff6f29c35e55d6d500c55c"
+              },
+              "milestone": {
+                "character_start": 384,
+                "character_end": 387,
+                "utf8_sha256": "4e47eb5525df25f94da777993dafa41d9ab2bfa80a89e28f76d42cd46ab082e7"
+              }
+            },
+            "paragraph_span": {
+              "byte_start": 44820,
+              "byte_end": 45447,
+              "sha256": "7914e6669818458f59bc1f2e5d34254fdb1ac7cae147f202529ee1605a3c5c8c"
+            },
+            "exhibit_sha256": "67bc57f4dbbbae2f39dd9c3c842b4b74cedca1970a9c440b7d846276e2960890",
+            "exhibit_filename": "ea031220401ex99-1.htm"
+          },
+          "arithmetic": {
+            "basis": "DISPLAYED_MIXED_SCALE_LITERALS",
+            "current_normalized_literal": "1300000.0",
+            "prior_normalized_literal": "784000",
+            "signed_difference_of_literals": "516000.0",
+            "difference_status": "DISPLAY_LITERAL_ARITHMETIC_NOT_UNROUNDED_CHANGE",
+            "reported_increase": "475000",
+            "reported_percent": "60.6",
+            "endpoint_percentage_check": {
+              "numerator": "3225",
+              "denominator": "49",
+              "rounded_value": "65.8",
+              "decimal_places": 1,
+              "rounding_rule_for_check": "ROUND_HALF_UP_NOT_INFERRED_ISSUER_POLICY",
+              "meaning": "DISPLAY_LITERAL_RATIO_NOT_TRUE_GROWTH",
+              "matches_reported_percent_at_check_precision": false
+            },
+            "reported_increase_percentage_check": {
+              "numerator": "11875",
+              "denominator": "196",
+              "rounded_value": "60.6",
+              "decimal_places": 1,
+              "rounding_rule_for_check": "ROUND_HALF_UP_NOT_INFERRED_ISSUER_POLICY",
+              "meaning": "REPORTED_INCREASE_OVER_DISPLAYED_PRIOR_INTERNAL_CLAIM_CHECK",
+              "matches_reported_percent_at_check_precision": true
+            },
+            "percentage_abstention": null,
+            "true_unrounded_change": null,
+            "accounting_comparability_verified": false,
+            "qualified_growth": false
+          },
+          "first_public_utc": null,
+          "comparability_verified": false,
+          "training_ready": false,
+          "execution_ready": false,
+          "assertion_review_status": "DISPLAYED_ROUNDED_VALUES_NOT_EXACT_RECONCILIATION",
+          "display_precision": {
+            "current_literal": "1.3",
+            "current_scale": "million",
+            "prior_literal": "784",
+            "prior_scale": "thousand",
+            "actual_unrounded_values": null,
+            "rounding_policy": null
+          },
+          "issuer_reported_attribution": {
+            "basis": "ISSUER_REPORTED_NOT_CAUSALLY_VERIFIED",
+            "product": "IMVEXXY",
+            "counterparty_as_reported": "Knight",
+            "milestone_literal": "365",
+            "milestone_scale": "thousand",
+            "milestone_normalized_display_value": "365000",
+            "sales_year_end_as_reported": "December 31, 2025",
+            "recognition_quarter_as_reported": "third quarter 2026"
+          },
+          "interpretation": "Displayed endpoint arithmetic does not reconcile the issuer-reported increase or percentage. Precision and context require review; this is not proof of an accounting error, and no hidden values or rounding policy are inferred."
+        }
+      ],
+      "source_period_conflict": {
+        "description": {
+          "text_as_reported": "PRESS RELEASE FROM THERAPEUTICSMD, INC., DATED NOVEMBER 13, 2026, ENTITLED \"THERAPEUTICSMD ANNOUNCES SECOND QUARTER 2026 FINANCIAL RESULTS.\"",
+          "source_span": {
+            "byte_start": 39696,
+            "byte_end": 39849,
+            "sha256": "063568179decb24c17d9487dad177bf11fbfb5c3868aed5b7fda46bb6fc92e32"
+          }
+        },
+        "body_reported_period": {
+          "end": "2026-09-30",
+          "start": null,
+          "duration_as_reported": "three months",
+          "quarter_as_reported": "third quarter 2026",
+          "status": "BODY_DECLARATION_NOT_ACCOUNTING_COMPARABILITY"
+        },
+        "description_period_as_reported": "second quarter 2026",
+        "description_body_period_conflict": true,
+        "conflict_resolution": "UNRESOLVED_NO_SILENT_CORRECTION",
+        "released_source_key": "txmd_annotation"
+      },
+      "unsupported_meaning": null
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-13",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:15.532072+00:00",
+      "package_id": "0001628280-26-073578",
+      "accession": "0001628280-26-073578",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000031791",
+          "name_as_filed": "REVVITY, INC."
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+      "source_sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:19.038501+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-13",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:25.568497+00:00",
+      "package_id": "0001628280-26-073584",
+      "accession": "0001628280-26-073584",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000042582",
+          "name_as_filed": "GOODYEAR TIRE & RUBBER CO /OH/"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+      "source_sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:27.622944+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-11-13",
+      "report_date_as_reported": "2026-11-13",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": "2026-11-14T23:33:33.651377+00:00",
+      "package_id": "0001628280-26-073875",
+      "accession": "0001628280-26-073875",
+      "form_as_filed": "8-K",
+      "filers_as_reported": [
+        {
+          "cik": "0000091576",
+          "name_as_filed": "KEYCORP /NEW/"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+      "source_sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:35.714449+00:00",
+      "first_public_utc": null,
+      "status": "NOT_SUPPORTED_GRAMMAR",
+      "metric_pairs": [],
+      "source_period_conflict": null,
+      "unsupported_meaning": "No supported whole-context grammar in this explicitly pinned package, not no results/event."
+    },
+    {
+      "filing_date_as_reported": "2026-06-17",
+      "report_date_as_reported": "2025-07-31",
+      "amendment_as_filed": false,
+      "source_request_utc_as_recorded": null,
+      "package_id": "0001640334-26-001075",
+      "accession": "0001640334-26-001075",
+      "form_as_filed": "10-Q",
+      "filers_as_reported": [
+        {
+          "cik": "0001697884",
+          "name_as_filed": "VITASPRING BIOMEDICAL CO. LTD."
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1697884/000164033426001075/vsbc_10q.htm",
+      "source_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+      "source_observed_utc_as_recorded": null,
+      "local_source_verified_utc": "2026-11-17T21:34:38.194086+00:00",
+      "first_public_utc": null,
+      "status": "SUPPORTED_REPORTED_ASSERTIONS_NOT_COMPARABILITY",
+      "metric_pairs": [
+        {
+          "metric": "Revenues",
+          "current_value_for_arithmetic": "0",
+          "prior_value_for_arithmetic": "0",
+          "unit_as_reported": "USD",
+          "currency_iso": "USD",
+          "periods_as_reported": {
+            "current_start": "2025-05-01",
+            "current_end": "2025-07-31",
+            "prior_start": "2024-05-01",
+            "prior_end": "2024-07-31",
+            "basis": "EXACT_RETAINED_INLINE_CONTEXTS_NOT_FULL_ACCOUNTING_COMPARABILITY"
+          },
+          "source_evidence": {
+            "released_source_key": "vita_revenue",
+            "facts_as_reported": [
+              {
+                "fact_id": "fid_2230",
+                "concept": "Revenues",
+                "taxonomy_namespace": "http://fasb.org/us-gaap/2025",
+                "value": "0",
+                "currency": "USD",
+                "period_start": "2025-05-01",
+                "period_end": "2025-07-31",
+                "source_context_ref": "From2025-05-01to2025-07-31",
+                "context_serialization_sha256": "84847539d78962008de8ae858b6aa1365f896c7d9ecfeff533801c186f419b61",
+                "declared_decimals": "0",
+                "source_literal": "-",
+                "source_transform": "TRR3 zerodash",
+                "dimension_or_scenario_present": false,
+                "prepared_num_rowid": 3041506,
+                "prepared_value_as_filed": "0.0000",
+                "prepared_end_date": "20250731",
+                "prepared_qtrs": "1",
+                "prepared_exact_start_date_verified": false
+              },
+              {
+                "fact_id": "fid_2231",
+                "concept": "Revenues",
+                "taxonomy_namespace": "http://fasb.org/us-gaap/2025",
+                "value": "0",
+                "currency": "USD",
+                "period_start": "2024-05-01",
+                "period_end": "2024-07-31",
+                "source_context_ref": "From2024-05-01to2024-07-31",
+                "context_serialization_sha256": "4765fabace42d77faf58748ae99909da8130d47ff0e92b4ea4fc0e7bbfa00b44",
+                "declared_decimals": "0",
+                "source_literal": "-",
+                "source_transform": "TRR3 zerodash",
+                "dimension_or_scenario_present": false,
+                "prepared_num_rowid": 3041504,
+                "prepared_value_as_filed": "0.0000",
+                "prepared_end_date": "20240731",
+                "prepared_qtrs": "1",
+                "prepared_exact_start_date_verified": false
+              }
+            ],
+            "original_member_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+            "original_archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4"
+          },
+          "arithmetic": {
+            "basis": "DECLARED_INLINE_NUMERIC_VALUES",
+            "current_normalized_literal": "0",
+            "prior_normalized_literal": "0",
+            "signed_difference_of_literals": "0",
+            "difference_status": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_VALUES",
+            "reported_increase": null,
+            "reported_percent": null,
+            "endpoint_percentage_check": null,
+            "reported_increase_percentage_check": null,
+            "percentage_abstention": "ZERO_COMPARISON_BASE_UNDEFINED",
+            "true_unrounded_change": null,
+            "accounting_comparability_verified": false,
+            "qualified_growth": false
+          },
+          "first_public_utc": null,
+          "comparability_verified": false,
+          "training_ready": false,
+          "execution_ready": false
+        },
+        {
+          "metric": "NetIncomeLoss",
+          "current_value_for_arithmetic": "-110845",
+          "prior_value_for_arithmetic": "-218662",
+          "unit_as_reported": "USD",
+          "currency_iso": "USD",
+          "periods_as_reported": {
+            "current_start": "2025-05-01",
+            "current_end": "2025-07-31",
+            "prior_start": "2024-05-01",
+            "prior_end": "2024-07-31",
+            "basis": "EXACT_RETAINED_INLINE_CONTEXTS_NOT_FULL_ACCOUNTING_COMPARABILITY"
+          },
+          "source_evidence": {
+            "released_source_key": "vita_loss",
+            "facts_as_reported": [
+              {
+                "concept": "NetIncomeLoss",
+                "taxonomy_namespace": "http://fasb.org/us-gaap/2025",
+                "value": "-110845",
+                "currency": "USD",
+                "period_start": "2025-05-01",
+                "period_end": "2025-07-31",
+                "dimension_or_scenario_present": false,
+                "source_occurrences": [
+                  {
+                    "fact_id": "fid_2251",
+                    "context_ref": "From2025-05-01to2025-07-31",
+                    "context_serialization_sha256": "84847539d78962008de8ae858b6aa1365f896c7d9ecfeff533801c186f419b61",
+                    "source_literal": "110,845",
+                    "sign_as_filed": "-",
+                    "scale_as_filed": null,
+                    "declared_decimals": "0"
+                  },
+                  {
+                    "fact_id": "fid_2284",
+                    "context_ref": "From2025-05-01to2025-07-31",
+                    "context_serialization_sha256": "84847539d78962008de8ae858b6aa1365f896c7d9ecfeff533801c186f419b61",
+                    "source_literal": "110,845",
+                    "sign_as_filed": "-",
+                    "scale_as_filed": null,
+                    "declared_decimals": "0"
+                  }
+                ],
+                "occurrences_are_not_independent_facts": true,
+                "source_transform": "TRR3 numdotdecimal with explicit negative sign",
+                "prepared_num_rowid": 3041479,
+                "prepared_value_as_filed": "-110845.0000",
+                "prepared_qtrs": "1",
+                "prepared_exact_start_date_verified": false
+              },
+              {
+                "concept": "NetIncomeLoss",
+                "taxonomy_namespace": "http://fasb.org/us-gaap/2025",
+                "value": "-218662",
+                "currency": "USD",
+                "period_start": "2024-05-01",
+                "period_end": "2024-07-31",
+                "dimension_or_scenario_present": false,
+                "source_occurrences": [
+                  {
+                    "fact_id": "fid_2252",
+                    "context_ref": "From2024-05-01to2024-07-31",
+                    "context_serialization_sha256": "4765fabace42d77faf58748ae99909da8130d47ff0e92b4ea4fc0e7bbfa00b44",
+                    "source_literal": "218,662",
+                    "sign_as_filed": "-",
+                    "scale_as_filed": null,
+                    "declared_decimals": "0"
+                  },
+                  {
+                    "fact_id": "fid_2315",
+                    "context_ref": "From2024-05-01to2024-07-31",
+                    "context_serialization_sha256": "4765fabace42d77faf58748ae99909da8130d47ff0e92b4ea4fc0e7bbfa00b44",
+                    "source_literal": "218,662",
+                    "sign_as_filed": "-",
+                    "scale_as_filed": null,
+                    "declared_decimals": "0"
+                  }
+                ],
+                "occurrences_are_not_independent_facts": true,
+                "source_transform": "TRR3 numdotdecimal with explicit negative sign",
+                "prepared_num_rowid": 3041470,
+                "prepared_value_as_filed": "-218662.0000",
+                "prepared_qtrs": "1",
+                "prepared_exact_start_date_verified": false
+              }
+            ],
+            "original_member_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+            "original_archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4"
+          },
+          "arithmetic": {
+            "basis": "DECLARED_INLINE_NUMERIC_VALUES",
+            "current_normalized_literal": "-110845",
+            "prior_normalized_literal": "-218662",
+            "signed_difference_of_literals": "107817",
+            "difference_status": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_VALUES",
+            "reported_increase": null,
+            "reported_percent": null,
+            "endpoint_percentage_check": null,
+            "reported_increase_percentage_check": null,
+            "percentage_abstention": "NEGATIVE_BASE_NOT_PRESENTED_AS_GROWTH",
+            "true_unrounded_change": null,
+            "accounting_comparability_verified": false,
+            "qualified_growth": false
+          },
+          "first_public_utc": null,
+          "comparability_verified": false,
+          "training_ready": false,
+          "execution_ready": false
+        }
+      ],
+      "source_period_conflict": null,
+      "unsupported_meaning": null
+    }
+  ],
+  "limitations": [
+    "This is exhaustive only within the explicitly pinned ten-8K archive plus one VitaSpring XBRL ZIP, not all retained sources, the entire Library or a statistical sample. Local policy chronology is not authenticated preregistration.",
+    "Supported source grammar and arithmetic consistency do not establish accounting truth, exact comparability, novelty, earnings quality, future returns or current profitability.",
+    "Displayed precision is preserved. No actual unrounded value, inferred rounding rule, margin, share count, diluted EPS or GAAP metric substitution is invented.",
+    "Reported-increase consistency and endpoint-display arithmetic are different checks. A mismatch can require reconciliation without establishing source error.",
+    "Negative or zero baselines abstain from percentage growth. First-public, decision-time availability, security identity and outcome qualification remain unknown.",
+    "All old source artifacts, parsers, reports, scanner/queue memberships and trading safeguards remain unchanged. No provider request or order is made."
+  ],
+  "next_action": "Open the exact issuer source context, reconcile precision and period/metric definitions, and review underlying statements before interpreting the assertions.",
+  "qualified_growth_count": 0,
+  "qualified_outcomes": 0,
+  "provider_requests_made": false,
+  "training_ready": false,
+  "execution_ready": false
+}
