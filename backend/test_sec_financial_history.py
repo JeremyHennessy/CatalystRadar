@@ -40,3 +40,28 @@ class FinancialHistoryTests(unittest.TestCase):
     root=Path(td);self.fixture(root);p=root/'browser-receipt.json';raw=p.read_text();raw=raw[:-1]+',"http_status":200}' if mode=='duplicate' else raw.replace(m.digest(root/m.ARCHIVE),'0'*64);p.write_text(raw)
     with self.assertRaises(ValueError):m.ingest(root,root/'out')
     self.assertFalse((root/'out').exists())
+
+ def q1_fixture(self,root,filed='20260101'):
+  self.fixture(root,lambda d:d['sub.txt'][0].update(filed=filed))
+  old=root/m.ARCHIVE;new=root/'2026q1.zip';old.rename(new)
+  p=root/'browser-receipt.json';r=json.loads(p.read_text());r.update(path=new.name,url=m.URL.replace('2026q2','2026q1'));p.write_text(json.dumps(r))
+ def test_explicit_q1_and_retained_fiscal_context(self):
+  for filed in ['20260101','20260331']:
+   with tempfile.TemporaryDirectory() as d:
+    root=Path(d);self.q1_fixture(root,filed);s=m.ingest(root,root/'out','2026q1')
+    self.assertEqual(s['filing_date_min'],filed[:4]+'-'+filed[4:6]+'-'+filed[6:])
+    self.assertEqual(s['status'],'HISTORICAL_FINANCIAL_Q1_NOT_COMPARABLE_FACTS')
+    with sqlite3.connect(root/'out/financial.sqlite') as db:
+     self.assertEqual(db.execute('SELECT ddate,segments,coreg FROM financial_num').fetchone(),('20260331','segment=fixture','Subsidiary fixture'))
+ def test_q1_outside_quarter_rejected(self):
+  for filed in ['20251231','20260401']:
+   with tempfile.TemporaryDirectory() as d:
+    root=Path(d);self.q1_fixture(root,filed)
+    with self.assertRaises(ValueError):m.ingest(root,root/'out','2026q1')
+    self.assertFalse((root/'out/summary.json').exists())
+ def test_quarter_receipt_mismatch_and_unknown_rejected(self):
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d);self.q1_fixture(root)
+   for q in ['2026q2','2025q1','2026q3','2026Q1']:
+    with self.assertRaises(ValueError):m.ingest(root,root/'out',q)
+    self.assertFalse((root/'out').exists())
