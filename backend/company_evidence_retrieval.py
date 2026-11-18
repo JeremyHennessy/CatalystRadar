@@ -152,6 +152,7 @@ def output_bytes(result):
     return raw
 
 LAYER_PINS = {
+    'redemption_calls': {'path': 'web/company-findings/planned-debt-redemption.json', 'bytes': 2959, 'sha256': 'f16dd2c90aff5d3bcc96f40874c20751f31a6f5c22e688e01ac68dd3d473d4ee'},
     'offerings': {'path':'web/company-findings/formd-notice-history.json','bytes':450574,'sha256':'38b21e9f921c6be5ce8db840d9f400d0dcb1ff8b9a25709cb451fbdad4db3d22'},
     'going_concern': {'path':'web/company-findings/going-concern-contexts.json','bytes':304958,'sha256':'4aef0578d20f4f391decf33738917ae4c7e97d36d38ea2f41b69704e666f0170'},
     'assertions': {'path':'web/company-findings/financial-assertion-audit.json','bytes':44334,'sha256':'1540ffdad2a5b31ee8bd024657621cd1d08c3e551903aa9b2e3275372d6eab90'}}
@@ -168,7 +169,12 @@ def validate_layer(index, section, obj):
         if ci not in members or exact_cik(ci)!=ci or (ci,rid) in seen:
             raise ValueError('layer membership/duplicate')
         seen.add((ci,rid));groups.setdefault(ci,[]).append({'record_id':rid,'source_record':record,'source_ref':{'path':LAYER_PINS[section]['path'],'json_pointer':pointer,'object_sha256':source.digest(record)}})
-    if section in ('offerings','going_concern'):
+    if section=='redemption_calls':
+        from planned_debt_redemption import ACCESSION, CIK, SOURCE_SHA
+        if (obj['issuer_cik'],obj['accession'],obj['source_sha256'],obj['status']) != (CIK,ACCESSION,SOURCE_SHA,'ISSUER_REPORTED_REDEMPTION_CALL_NOT_COMPLETION') or obj['first_public_utc'] is not None or obj['currency_iso'] is not None or any(obj[k] is not False for k in ('redemption_completion_verified','market_outcome_qualified','filing_is_redemption_notice','historical_availability_verified')):
+            raise ValueError('redemption interpretation/identity')
+        add(CIK,obj['finding_id'],'',obj)
+    elif section in ('offerings','going_concern'):
         if obj['cohort_ciks']!=cohort or obj['sources']['cohort']!={'path':INDEX['path'],'sha256':INDEX['sha256']}:
             raise ValueError('sidecar cohort pin')
         company_seen=set(); ids=set()
@@ -252,7 +258,7 @@ def load_layer(root,index,section):
 
 
 def layer_metadata(obj,section):
-    return {'layer_snapshot':LAYER_PINS[section], 'layer_source_context':{k:v for k,v in obj.items() if k not in ('companies','cohort_ciks','packages')},
+    return {'layer_snapshot':LAYER_PINS[section], 'layer_source_context':({k:obj[k] for k in ('status','limitations','provenance')} if section=='redemption_calls' else {k:v for k,v in obj.items() if k not in ('companies','cohort_ciks','packages')}),
             'validation_scope':'PINNED_PUBLISHED_PROJECTION_AND_ASSOCIATIONS_NOT_FRESH_ORIGINAL_AUDIT'}
 
 
@@ -263,6 +269,8 @@ def layer_evidence(root,index,cik,section,limit=5,offset=0):
     out.update(mode='evidence',issuer_cik=ci,section=section,company_url=company_url(ci),offset=offset)
     if ci not in {r['issuer_cik'] for r in index['directory']}:
         coverage='OUTSIDE_FIXED_COHORT_UNASSESSED';total=None
+    elif section=='redemption_calls' and ci not in groups:
+        coverage='NOT_ASSESSED_IN_SINGLE_ORIGINAL_REDEMPTION_REVIEW';total=None
     elif section=='assertions' and ci not in groups:
         coverage='NOT_ASSESSED_IN_FIXED_ELEVEN_PACKAGE_ASSERTION_INVENTORY';total=None
     else:
