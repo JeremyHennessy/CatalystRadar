@@ -35,12 +35,14 @@ def review_questions(flags,form):
  questions.append('The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance.')
  return questions
 
-def project(batch,records,subs):
+def project(batch,records,subs,cohort=None):
+ cohort=set(COHORT) if cohort is None else cohort
+ if not isinstance(cohort,set) or not 1<=len(cohort)<=500 or any(cik(k)!=k for k in cohort):raise ValueError('bounded canonical CIK cohort required')
  if batch not in BATCHES:raise ValueError('unsupported batch')
  groups=defaultdict(list);selected=[];seen=set()
  for r in records:
   s=r['submission_as_filed'];key=cik(s['ISSUERCIK'])
-  if key not in COHORT or r['transaction_fields_as_filed']['TRANS_CODE'] not in {'P','S'}:continue
+  if key not in cohort or r['transaction_fields_as_filed']['TRANS_CODE'] not in {'P','S'}:continue
   acc=r['accession']
   if not re.fullmatch(r'[0-9]{10}-[0-9]{2}-[0-9]{6}',acc) or s['ACCESSION_NUMBER']!=acc:raise ValueError('accession identity')
   ident=(acc,r['transaction_key'])
