@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "id": "xerox-dual-filer-identity",
+  "status": "BOTH_CIKS_EXPLICIT_FILERS_NOT_INTERCHANGEABLE",
+  "accession": "0001193125-26-460692",
+  "form": "8-K",
+  "filing_date_as_reported": "2026-11-13",
+  "identity_evidence": {
+    "accession": "0001193125-26-460692",
+    "filers": [
+      {
+        "cik": "0001770450",
+        "name_as_filed": "Xerox Holdings Corp",
+        "role": "FILER",
+        "field_spans": {
+          "cik": {
+            "byte_start": 734,
+            "byte_end": 744,
+            "sha256": "78b3b6f3e822a0271125bcdb407786da57b5f7e29380b6e5ac235f453e142122"
+          },
+          "name": {
+            "byte_start": 691,
+            "byte_end": 710,
+            "sha256": "0303d8d8c8ef854e9fc3d427f9639c577a8e2658cc08473251c56d3fcf99dfcb"
+          }
+        }
+      },
+      {
+        "cik": "0000108772",
+        "name_as_filed": "XEROX CORP",
+        "role": "FILER",
+        "field_spans": {
+          "cik": {
+            "byte_start": 1332,
+            "byte_end": 1342,
+            "sha256": "419d6f76c5aea3fd509825822fd65d1da079e5ab9f2aee766e3c2b3a6eef00ad"
+          },
+          "name": {
+            "byte_start": 1298,
+            "byte_end": 1308,
+            "sha256": "07b8410910ae1bbf0d9135504cbab597426fb127e81768b9d9f08194775dc9a2"
+          }
+        }
+      }
+    ],
+    "multiple_filers": true,
+    "header_span": {
+      "byte_start": 50,
+      "byte_end": 1949,
+      "sha256": "79c3090648960c9abedffeb6413087e047ca6607172d2665d7cf00533738f2c5"
+    },
+    "entities_interchangeable": false,
+    "facts_propagated_between_filers": false,
+    "security_mapping_verified": false
+  },
+  "finding": "The retained submission explicitly lists Xerox Holdings Corp (0001770450) and XEROX CORP (0000108772) as separate FILER entries. Different CIK associations for this accession are supported by the two-filer header; neither CIK is replaced or merged.",
+  "associations": [
+    {
+      "role": "RETAINED_ORIGINAL_ARCHIVE_RECEIPT",
+      "cik": "0000108772",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+      "source_sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+      "observed_utc_as_recorded": "2026-11-14T23:33:43.933078+00:00"
+    },
+    {
+      "role": "RETAINED_SUBMISSIONS_METADATA",
+      "cik": "0001770450",
+      "source_url": "https://data.sec.gov/submissions/CIK0001770450.json",
+      "source_sha256": "7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243",
+      "observed_utc_as_recorded": "2026-11-17T19:54:39.227044+00:00"
+    }
+  ],
+  "provenance": {
+    "retained_zip_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+    "original_submission_sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+    "original_submission_bytes": 1983577,
+    "metadata_snapshot_sha256": "7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243",
+    "metadata_scan_sha256": "fbc6dc9b0287a113ab2f2ecdd61f4a7810fad525040c0afdbb37e1ea056f8db9",
+    "first_public_utc": null,
+    "historical_availability_verified": false,
+    "current_source_access_verified": false
+  },
+  "limitations": [
+    "Co-filing establishes two named filing registrants, not interchangeable legal entities, a corporate hierarchy or a verified security relationship.",
+    "A fact or obligation must be attributed to its explicit document context; nothing is propagated from one filer to the other.",
+    "Existing saved issuer associations, discrepancy history and held research reports remain unchanged. This is a separate first-layer identity annotation.",
+    "Names and CIKs are header-as-filed. No current name/ticker mapping, first-public timestamp, event novelty or financial qualification is inferred.",
+    "Only allowlisted identity fields and byte-span hashes are published; no addresses, contacts, signatures or full source narrative."
+  ],
+  "training_ready": false,
+  "execution_ready": false,
+  "issuer_merge_performed": false,
+  "facts_reassigned": false
+}
