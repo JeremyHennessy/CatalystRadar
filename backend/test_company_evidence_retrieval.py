@@ -106,7 +106,7 @@ class ReviewedLayers(unittest.TestCase):
   cls.index=m.load(ROOT)
   cls.layers={s:m.load_layer(ROOT,cls.index,s) for s in m.LAYER_SECTIONS}
  def test_all_company_memberships_and_original_objects(self):
-  expected_counts={'offerings':(187,223),'going_concern':(97,123),'assertions':(12,12)}
+  expected_counts={'redemption_calls':(1,1),'offerings':(187,223),'going_concern':(97,123),'assertions':(12,12)}
   for section,(obj,groups) in self.layers.items():
    count=0;selected=0
    with patch.object(m,'load_layer',return_value=(obj,groups)):
@@ -114,14 +114,15 @@ class ReviewedLayers(unittest.TestCase):
      ci=company['issuer_cik'];expected=groups.get(ci,[]);actual=[]
      for offset in range(0,max(1,len(expected)),5):
       page=m.layer_evidence(ROOT,self.index,ci,section,offset=offset)
-      self.assertEqual(page['total_records'],len(expected) if section!='assertions' or ci in groups else None)
+      self.assertEqual(page['total_records'],len(expected) if section not in ('assertions','redemption_calls') or ci in groups else None)
       actual+=page['records']
       if expected:m.output_bytes(page)
      self.assertEqual(actual,expected);selected+=bool(expected);count+=len(actual)
     self.assertEqual(m.layer_search(ROOT,self.index,section=section)['total_records'],len(groups))
    self.assertEqual((selected,count),expected_counts[section])
    originals=[]
-   if section=='assertions':
+   if section=='redemption_calls':originals=[(obj['issuer_cik'],'',obj)]
+   elif section=='assertions':
     originals=[(f['cik'],f'/packages/{i}',r) for i,r in enumerate(obj['packages']) for f in r['filers_as_reported']]
    else:originals=[(c['issuer_cik'],f'/companies/{i}/records/{j}',r) for i,c in enumerate(obj['companies']) for j,r in enumerate(c['records'])]
    for ci,pointer,record in originals:
@@ -134,6 +135,11 @@ class ReviewedLayers(unittest.TestCase):
   self.assertEqual(hashlib.sha256(m.output_bytes(m.search(self.index,name='Emerson'))).hexdigest(),'6a3aee13b9a91db29c2e2f2826607ec9fd5ca4196ab66bb50778fa2420a8bb21')
  def test_layer_bad_identity_duplicates_status_counts(self):
   for section,(obj,_) in self.layers.items():
+   if section=='redemption_calls':
+    for key,value in [('issuer_cik','9999999999'),('status','COMPLETED'),('currency_iso','USD'),('redemption_completion_verified',True),('first_public_utc','2026-11-13')]:
+     bad=copy.deepcopy(obj);bad[key]=value
+     with self.assertRaises(ValueError):m.validate_layer(self.index,section,bad)
+    continue
    for mode in ('identity','duplicate','status','counts'):
     bad=copy.deepcopy(obj)
     if section=='assertions':

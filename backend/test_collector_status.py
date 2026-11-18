@@ -10,8 +10,11 @@ class CollectorStatusTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory(); self.root=Path(self.temp.name)
         for folder in ('.github/workflows','backend','data'): (self.root/folder).mkdir(parents=True)
         original=Path(__file__).resolve().parent.parent
-        for name in ('.github/workflows/sec-observations.yml','backend/trial_gate.py','data/latest_scan.json','data/price_feed_status.json'):
+        for name in ('.github/workflows/sec-observations.yml','backend/trial_gate.py','data/price_feed_status.json'):
             (self.root/name).write_bytes((original/name).read_bytes())
+        # Freeze the observation used by this historical clock; latest_scan is mutable.
+        frozen_sec = original/'data/sec-observations/20261117T195421146121Z.json'
+        (self.root/'data/latest_scan.json').write_bytes(frozen_sec.read_bytes())
         import shutil
         shutil.copytree(original/'data/sec-snapshots', self.root/'data/sec-snapshots')
         self.now='2026-11-18T02:00:00+00:00'
@@ -27,6 +30,12 @@ class CollectorStatusTests(unittest.TestCase):
         self.assertEqual(av['saved_snapshots'],11)
         self.assertIsNone(sec['last_attempt']); self.assertIsNone(av['last_attempt'])
         self.assertEqual(manual['mode'],'MANUAL_OFFLINE_IMPORTS')
+    def test_historical_fixture_is_not_mutable_latest(self):
+        sec = self.rows()[0]
+        self.assertEqual(sec['last_successful_observation'], '2026-11-17T19:54:39.231235+00:00')
+        self.mutate('data/latest_scan.json', lambda x:x.update(finished_at='2026-11-18T19:26:45+00:00'))
+        with self.assertRaisesRegex(ValueError, 'invalid/future SEC receipt'):
+            self.rows()
     def test_expiry_and_no_future_year(self):
         for row in build(self.root,'2027-11-18T02:00:00+00:00')['collectors'][:2]:
             self.assertEqual(row['policy_state'],'EXPIRED'); self.assertIsNone(row['next_configured_slot'])

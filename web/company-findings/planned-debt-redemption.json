@@ -1,0 +1,66 @@
+{
+  "accession": "0001628280-26-073584",
+  "accrued_unpaid_interest_additional_as_reported": true,
+  "actual_completion_date": null,
+  "cash_change": null,
+  "category": "REPORTED_PLANNED_DEBT_REDEMPTION",
+  "company_name_as_filed": "GOODYEAR TIRE & RUBBER CO /OH/",
+  "coupon_percent_as_reported": "4.875",
+  "currency_iso": null,
+  "exact_maturity_date": null,
+  "execution_ready": false,
+  "filing_is_redemption_notice": false,
+  "finding_id": "planned-redemption:0000042582:0001628280-26-073584",
+  "first_public_utc": null,
+  "historical_availability_verified": false,
+  "instrument_description_as_reported": "4.875% Senior Notes Due 2027",
+  "interest_amount": null,
+  "issuer_cik": "0000042582",
+  "limitations": [
+    "One retrospectively selected retained original, not market-wide discovery.",
+    "Issuer-reported future redemption terms, not proof of payment, retirement or completion.",
+    "The 8-K explicitly is not a redemption notice; the referenced notice is not independently reviewed.",
+    "Dollar symbol does not independently establish ISO currency; interest and cash/debt changes are unknown.",
+    "Coupon and redemption percentage are reported instrument terms, not market yields or executable prices.",
+    "Observation clock is archive retrieval, not first-public availability. No verified security mapping or qualified outcome."
+  ],
+  "market_outcome_qualified": false,
+  "maturity_year_as_reported": "2027",
+  "net_debt_change": null,
+  "planned_redemption_date": "2026-12-15",
+  "primary_filename": "gt-20261113.htm",
+  "principal_as_reported": "700 million",
+  "principal_scaled_value": "700000000",
+  "provenance": {
+    "archive_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a"
+  },
+  "provider_requests_made": false,
+  "redemption_completion_verified": false,
+  "redemption_percent_of_principal_as_reported": "100",
+  "referenced_notice_date": "2026-11-13",
+  "referenced_notice_independently_reviewed": false,
+  "reported_call_date": "2026-11-13",
+  "schema_version": 1,
+  "security_id": null,
+  "source_bytes": 136144,
+  "source_observed_utc_as_recorded": "2026-11-14T23:33:27.622944+00:00",
+  "source_sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+  "source_spans": {
+    "notice_limitation": {
+      "byte_end": 20231,
+      "byte_start": 19904,
+      "sha256": "0b8773d049fab1a6e9c5143d7dd49b9a5616b49c701fccf3aa2d50865ca67886"
+    },
+    "reported_terms": {
+      "byte_end": 19875,
+      "byte_start": 19300,
+      "sha256": "f617c0b13e1cf2912f9edb565cdad71bad624f14bfdf30cd4b674f2e4ff73137"
+    }
+  },
+  "source_url": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+  "status": "ISSUER_REPORTED_REDEMPTION_CALL_NOT_COMPLETION",
+  "total_outstanding_principal": null,
+  "training_ready": false,
+  "unit_as_reported": "$"
+}
