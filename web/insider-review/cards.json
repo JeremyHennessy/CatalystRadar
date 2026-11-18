@@ -1,0 +1,1325 @@
+{
+  "schema_version": 1,
+  "status": "HISTORICAL_INSIDER_FILING_REVIEW_NOT_TRADING_SIGNALS",
+  "generated_at": "2026-11-18T01:37:02.580358+00:00",
+  "sources": [
+    {
+      "batch_id": "2026q2",
+      "source_archive_sha256": "11f1b2bbbdcbe6347a34437c02d04202fda0eca1dbb023726e4b56504b802e27",
+      "database_sha256": "503b308fe6529dd2573f4e307e2855d672a407009b71b8b5eb453c4907859386",
+      "readme_sha256": "38a414683130ea5371267aec6279273d0184785ca3a26225f8af686b920c9186",
+      "source_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "filing_date_start": "2026-04-01",
+      "filing_date_end": "2026-06-30",
+      "selected_transaction_rows": 10,
+      "selected_filings": 7,
+      "source_retrieved_at": null
+    },
+    {
+      "batch_id": "2026q3",
+      "source_archive_sha256": "a4e6a681cfcfa43a3d9e4ca9cfec1fd26a59d0a01eac7e9f7b5a0122092c90f3",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "readme_sha256": "38a414683130ea5371267aec6279273d0184785ca3a26225f8af686b920c9186",
+      "source_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q3_form345.zip",
+      "filing_date_start": "2026-07-01",
+      "filing_date_end": "2026-09-30",
+      "selected_transaction_rows": 31,
+      "selected_filings": 20,
+      "source_retrieved_at": null
+    }
+  ],
+  "selection": "All reported P/S nonderivative rows for the exact existing ten-CIK watchlist in two retained SEC filing batches; no ranking or price/outcome selection.",
+  "counts": {
+    "watchlist_issuers": 10,
+    "issuers_with_selected_rows": 6,
+    "filings": 27,
+    "selected_transaction_rows": 41
+  },
+  "issuers": [
+    {
+      "issuer_cik": "0000820318",
+      "watchlist_label": "COHR",
+      "filings": 12,
+      "selected_transaction_rows": 16,
+      "status": "SELECTED_FILING_EVIDENCE"
+    },
+    {
+      "issuer_cik": "0000012659",
+      "watchlist_label": "HRB",
+      "filings": 0,
+      "selected_transaction_rows": 0,
+      "status": "NO_SELECTED_P_S_ROWS_IN_THESE_BATCHES"
+    },
+    {
+      "issuer_cik": "0000020286",
+      "watchlist_label": "CINF",
+      "filings": 2,
+      "selected_transaction_rows": 2,
+      "status": "SELECTED_FILING_EVIDENCE"
+    },
+    {
+      "issuer_cik": "0000025743",
+      "watchlist_label": "TXMD",
+      "filings": 0,
+      "selected_transaction_rows": 0,
+      "status": "NO_SELECTED_P_S_ROWS_IN_THESE_BATCHES"
+    },
+    {
+      "issuer_cik": "0000031791",
+      "watchlist_label": "RVTY",
+      "filings": 4,
+      "selected_transaction_rows": 4,
+      "status": "SELECTED_FILING_EVIDENCE"
+    },
+    {
+      "issuer_cik": "0000032604",
+      "watchlist_label": "EMR",
+      "filings": 3,
+      "selected_transaction_rows": 3,
+      "status": "SELECTED_FILING_EVIDENCE"
+    },
+    {
+      "issuer_cik": "0000042582",
+      "watchlist_label": "GT",
+      "filings": 0,
+      "selected_transaction_rows": 0,
+      "status": "NO_SELECTED_P_S_ROWS_IN_THESE_BATCHES"
+    },
+    {
+      "issuer_cik": "0000091576",
+      "watchlist_label": "KEY",
+      "filings": 3,
+      "selected_transaction_rows": 3,
+      "status": "SELECTED_FILING_EVIDENCE"
+    },
+    {
+      "issuer_cik": "0000108516",
+      "watchlist_label": "WOR",
+      "filings": 3,
+      "selected_transaction_rows": 13,
+      "status": "SELECTED_FILING_EVIDENCE"
+    },
+    {
+      "issuer_cik": "0001770450",
+      "watchlist_label": "XRX",
+      "filings": 0,
+      "selected_transaction_rows": 0,
+      "status": "NO_SELECTED_P_S_ROWS_IN_THESE_BATCHES"
+    }
+  ],
+  "filings": [
+    {
+      "batch_id": "2026q2",
+      "accession": "0000899140-26-000393",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-04-24",
+      "period_of_report_as_filed": "22-APR-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-04-22",
+      "transaction_date_max": "2026-04-22",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-000393",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 9153,
+      "source_submission_sha256": "9ffb7514acfd6247d9b64803267efae5a4526858e2e6c90decf237e83c60436c",
+      "source_transaction_rowids": [
+        61599
+      ],
+      "source_transaction_row_hashes": [
+        "6622ad65caec73c9b6f700dafda97b10f16faef17442de14cb8d16baeeb5cbdd"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q2",
+      "accession": "0000899140-26-000475",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-05-13",
+      "period_of_report_as_filed": "12-MAY-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-05-12",
+      "transaction_date_max": "2026-05-12",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-000475",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 28056,
+      "source_submission_sha256": "4a6f15c1c8f1f6e7490e3e08b9c4025c5b40019a0a73ff34c9aaee70b699b9df",
+      "source_transaction_rowids": [
+        46289
+      ],
+      "source_transaction_row_hashes": [
+        "f74a60df4f2075825007b003ec8a3de6358cbf8980aba5505b7a2299beedd9f9"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q2",
+      "accession": "0000899140-26-000476",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-05-13",
+      "period_of_report_as_filed": "11-MAY-2026",
+      "selected_transaction_rows": 4,
+      "reported_code_counts": {
+        "S": 4
+      },
+      "transaction_date_min": "2026-05-11",
+      "transaction_date_max": "2026-05-11",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {},
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-000476",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 28101,
+      "source_submission_sha256": "72471a30a73bd9aeb79890856f381309a6d4f012693e72a1c880cb74d2617b6e",
+      "source_transaction_rowids": [
+        46283,
+        46284,
+        46285,
+        46286
+      ],
+      "source_transaction_row_hashes": [
+        "95675811bbb5c1939b4d25835afb8b88b7c75f8809cbafec8afe20f0ebf0b9dc",
+        "c526d452efe3dc68575283909d6a0f200afba54e275d5a445f1ecd8bbb8d8a70",
+        "5226415e3a9ec92fad2353bd6a0aca4e3fc1cd5c088feea3c2a8f2e015e332d4",
+        "dec9ec48882fc4b0a45785fb008ea2cb90a9e395bbf4ca55512dacd6031e96fc"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q2",
+      "accession": "0001193125-26-170346",
+      "issuer_cik": "0000031791",
+      "issuer_name_as_filed": "REVVITY, INC.",
+      "issuer_ticker_as_filed": "RVTY",
+      "form_as_filed": "4",
+      "filing_date": "2026-04-22",
+      "period_of_report_as_filed": "20-APR-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-04-20",
+      "transaction_date_max": "2026-04-20",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-170346",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 13132,
+      "source_submission_sha256": "0a293ed30e5278b551a5b16110a943d6f7dbb10551bbe5406de3e83828a28839",
+      "source_transaction_rowids": [
+        63194
+      ],
+      "source_transaction_row_hashes": [
+        "dc68f0543e80a06449422d0f1c466a5970ed312d634bb5a8a4dcdd643222ec71"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q2",
+      "accession": "0001487311-26-000003",
+      "issuer_cik": "0000091576",
+      "issuer_name_as_filed": "KEYCORP /NEW/",
+      "issuer_ticker_as_filed": "KEY",
+      "form_as_filed": "4",
+      "filing_date": "2026-06-05",
+      "period_of_report_as_filed": "03-JUN-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-06-03",
+      "transaction_date_max": "2026-06-03",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001487311-26-000003",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 44073,
+      "source_submission_sha256": "58d1b419a3b333f2dbb52cfba3c630c817b016209cd8de71b6e6b53bed768d54",
+      "source_transaction_rowids": [
+        20835
+      ],
+      "source_transaction_row_hashes": [
+        "e574b2b86969e9977a0bd0ce1c6de86e008b3bef353c2352e5a84bc1e7d79dc3"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q2",
+      "accession": "0001669893-26-000003",
+      "issuer_cik": "0000091576",
+      "issuer_name_as_filed": "KEYCORP /NEW/",
+      "issuer_ticker_as_filed": "KEY",
+      "form_as_filed": "4",
+      "filing_date": "2026-05-12",
+      "period_of_report_as_filed": "08-MAY-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-05-08",
+      "transaction_date_max": "2026-05-08",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {},
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001669893-26-000003",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 29818,
+      "source_submission_sha256": "3c51fc7fa37912af217b819774392727c6d1379aefc27002a649dfdd9a1cbc5d",
+      "source_transaction_rowids": [
+        47758
+      ],
+      "source_transaction_row_hashes": [
+        "a035edd297e7ab98f4ddec088df9727c4d082bea1d04e9500da1747dd7076a36"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q2",
+      "accession": "0001847946-26-000006",
+      "issuer_cik": "0000032604",
+      "issuer_name_as_filed": "EMERSON ELECTRIC CO",
+      "issuer_ticker_as_filed": "EMR",
+      "form_as_filed": "4",
+      "filing_date": "2026-06-02",
+      "period_of_report_as_filed": "01-JUN-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-06-01",
+      "transaction_date_max": "2026-06-01",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001847946-26-000006",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 50749,
+      "source_submission_sha256": "b07b6ffb7b0e1a403a04ff60b16e43ab185dfdf59e1f8ed388ca77b14d0c45ac",
+      "source_transaction_rowids": [
+        26568
+      ],
+      "source_transaction_row_hashes": [
+        "e2e3411ea02076a03cb39b0ba6ae24d0c8ca08bb032dd8c8f3ca337818ce6e39"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-000726",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-07-24",
+      "period_of_report_as_filed": "22-JUL-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-07-22",
+      "transaction_date_max": "2026-07-22",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-000726",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 6805,
+      "source_submission_sha256": "b7d81f36b5372bb70e3ed30d44b4e730edc995cfb22fa18b21a8ab7ca97edaeb",
+      "source_transaction_rowids": [
+        44854
+      ],
+      "source_transaction_row_hashes": [
+        "6fabc7f4ee44afd7fd4b251fda0f797171ad7cd5a1e6b147f2961c67acf61074"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-000912",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-08-20",
+      "period_of_report_as_filed": "18-AUG-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-08-18",
+      "transaction_date_max": "2026-08-18",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-000912",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 10849,
+      "source_submission_sha256": "bf501e1d7c1ba38f36d84bb964c55596d64b43a45baa76b3123182c96a8afea3",
+      "source_transaction_rowids": [
+        25864
+      ],
+      "source_transaction_row_hashes": [
+        "f2b4049ae0ab5c46aa008f027198298f937b70ff4b85fabf82335b711d6d6a8d"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-001037",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-01",
+      "period_of_report_as_filed": "28-AUG-2026",
+      "selected_transaction_rows": 2,
+      "reported_code_counts": {
+        "S": 2
+      },
+      "transaction_date_min": "2026-08-31",
+      "transaction_date_max": "2026-09-01",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 2
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-001037",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 36586,
+      "source_submission_sha256": "9137440984c906a22350cce840203634a22bf23b2830c8ffe7adeb4ab7a573ed",
+      "source_transaction_rowids": [
+        17641,
+        17643
+      ],
+      "source_transaction_row_hashes": [
+        "bc8169fafb5e2c44fc11690f631d4aba1601102e27fa2f49499d93039c6e38fa",
+        "1fdd399d5787f450544beaed88b1ebcb81f30cf4fa9e61bd83f455f801003716"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-001046",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4/A",
+      "filing_date": "2026-09-02",
+      "period_of_report_as_filed": "06-MAR-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-03-06",
+      "transaction_date_max": "2026-03-06",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "AMENDMENT_NOT_RECONCILED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": false,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-001046",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Compare this amendment with its original and any later amendments; do not count both as independent economic trades.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 33870,
+      "source_submission_sha256": "efddf3bac8ff1c406bcc47a54cde4e3a2658bb3bf5728fd1a10683b3fcb3b6f8",
+      "source_transaction_rowids": [
+        16418
+      ],
+      "source_transaction_row_hashes": [
+        "ae7e8c2ef537c4fb5a33e64e4fda53bab98b4752e7030e13078d8e319d6bc9a8"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-001047",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-02",
+      "period_of_report_as_filed": "31-AUG-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-08-31",
+      "transaction_date_max": "2026-08-31",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-001047",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 33336,
+      "source_submission_sha256": "ffa286d13702da0bebedecb0dde5167c398c7a9779e8fd81caa50378bb17116c",
+      "source_transaction_rowids": [
+        16414
+      ],
+      "source_transaction_row_hashes": [
+        "a475b7d7883b606cac1cb782c339067d7a6e5185a47a084e3395a7f002519f1d"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-001048",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-02",
+      "period_of_report_as_filed": "31-AUG-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-08-31",
+      "transaction_date_max": "2026-08-31",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-001048",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 33940,
+      "source_submission_sha256": "e5743c952f07c91f0078d075ba138daeebc10c2dd646d39db93b3effabb298a5",
+      "source_transaction_rowids": [
+        16413
+      ],
+      "source_transaction_row_hashes": [
+        "32ddef4ca4a0af35007e56a2c667d4c596c053d5f9a5798969334ffc6dc9c743"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-001054",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-04",
+      "period_of_report_as_filed": "02-SEP-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-09-02",
+      "transaction_date_max": "2026-09-02",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-001054",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 30214,
+      "source_submission_sha256": "b0e7ee1be2a5a38ce2350ba16e9004b7054cb8742277f690f6f6f1ddff957f64",
+      "source_transaction_rowids": [
+        14230
+      ],
+      "source_transaction_row_hashes": [
+        "87ab045ba1b73ccb47ea7efd880172b22c5476423e050db78d3c1d922fecc03e"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-001056",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-11",
+      "period_of_report_as_filed": "09-SEP-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-09-09",
+      "transaction_date_max": "2026-09-09",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {},
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-001056",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 21309,
+      "source_submission_sha256": "34cf2b80c8d211ceb0b24cdd1a00ad317b7d46642b38cef09687c70ee4d8cd19",
+      "source_transaction_rowids": [
+        10483
+      ],
+      "source_transaction_row_hashes": [
+        "bb1f16c66e164707e5ebcffcb489f7cc259cdf910479488c95233b1859a43c98"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000899140-26-001064",
+      "issuer_cik": "0000820318",
+      "issuer_name_as_filed": "COHERENT CORP.",
+      "issuer_ticker_as_filed": "COHR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-15",
+      "period_of_report_as_filed": "11-SEP-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-09-11",
+      "transaction_date_max": "2026-09-11",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {},
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000899140-26-001064",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 17080,
+      "source_submission_sha256": "67e3666b82b2db2b44e8c6c4ea1f4875b33bdcf616550ef389ec5b8beaf5f877",
+      "source_transaction_rowids": [
+        8365
+      ],
+      "source_transaction_row_hashes": [
+        "486f42b8cbf62bd88f557cb4af240b2c9bd58f0f38ee8d557a10363c2f8d654e"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0000950138-26-000021",
+      "issuer_cik": "0000032604",
+      "issuer_name_as_filed": "EMERSON ELECTRIC CO",
+      "issuer_ticker_as_filed": "EMR",
+      "form_as_filed": "4",
+      "filing_date": "2026-08-12",
+      "period_of_report_as_filed": "11-AUG-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-08-11",
+      "transaction_date_max": "2026-08-11",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0000950138-26-000021",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 20883,
+      "source_submission_sha256": "22a51d35d56073be299e8248701556ca09c7e7e3f77db3e64bf20ae41bdf68f4",
+      "source_transaction_rowids": [
+        33206
+      ],
+      "source_transaction_row_hashes": [
+        "742cadc7e67c29e589c75f0e7b12680d233e0823a43283f2d0cbad3c3495371a"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001193125-26-309869",
+      "issuer_cik": "0000108516",
+      "issuer_name_as_filed": "WORTHINGTON ENTERPRISES, INC.",
+      "issuer_ticker_as_filed": "WOR",
+      "form_as_filed": "4",
+      "filing_date": "2026-07-21",
+      "period_of_report_as_filed": "07-MAY-2024",
+      "selected_transaction_rows": 7,
+      "reported_code_counts": {
+        "S": 7
+      },
+      "transaction_date_min": "2024-05-07",
+      "transaction_date_max": "2026-07-01",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 7
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-309869",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 9720,
+      "source_submission_sha256": "95e4ca56d050da3b4d7595c7bc6735f90d240971cf2f3c86627d2558526987fa",
+      "source_transaction_rowids": [
+        46506,
+        46507,
+        46509,
+        46511,
+        46513,
+        46514,
+        46516
+      ],
+      "source_transaction_row_hashes": [
+        "8727204776d378e3243a7c26002aeefbc9d5e8bbb0353f901c0d004174bfd53c",
+        "c60bc090c42f8b9cb35b05fe3d5a798f6fe3bc2fe4189e72be8cb55fda5ea3ef",
+        "56c810d9fc2684c9e5d556489b9d746e2d2c1eb0e5b355fab9162663bd009de8",
+        "ae0f6468452d0d43614c3fa817340add2dec37ab268dbd191f4552060978380e",
+        "9a8986f98e45abf5ce699ffd60015cfbddfbd8714db50040885cde9a62c8fd87",
+        "c9145d7ffd6adce99d4f230c246e5728a7263e3bd47fb62b6fce38f97a9af6ce",
+        "43392a0e6229b10a26df06f1aab527a9e9835adf43297bd298567be5927cdaeb"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001193125-26-312389",
+      "issuer_cik": "0000031791",
+      "issuer_name_as_filed": "REVVITY, INC.",
+      "issuer_ticker_as_filed": "RVTY",
+      "form_as_filed": "4",
+      "filing_date": "2026-07-22",
+      "period_of_report_as_filed": "20-JUL-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-07-20",
+      "transaction_date_max": "2026-07-20",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-312389",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 8720,
+      "source_submission_sha256": "f5fbc15ce26c1c440c59aee8e39a6041b393527a4a7b07d9bbedb9ffed06e406",
+      "source_transaction_rowids": [
+        46076
+      ],
+      "source_transaction_row_hashes": [
+        "3fa5d02e71317d4e567940dec38ed06552ceb476549fcce4c75e69a50d77d578"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001193125-26-395510",
+      "issuer_cik": "0000031791",
+      "issuer_name_as_filed": "REVVITY, INC.",
+      "issuer_ticker_as_filed": "RVTY",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-18",
+      "period_of_report_as_filed": "16-SEP-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-09-16",
+      "transaction_date_max": "2026-09-16",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-395510",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 12433,
+      "source_submission_sha256": "ef9d87822ca367e3432a656fadae556098576c3fb14d1cc5fa65839150659528",
+      "source_transaction_rowids": [
+        5304
+      ],
+      "source_transaction_row_hashes": [
+        "f8405d9a51543ae20fc54667633d6bab39e2e6c476e1dbb896600ff9ce917798"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001193125-26-399376",
+      "issuer_cik": "0000031791",
+      "issuer_name_as_filed": "REVVITY, INC.",
+      "issuer_ticker_as_filed": "RVTY",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-23",
+      "period_of_report_as_filed": "21-SEP-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-09-21",
+      "transaction_date_max": "2026-09-21",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_TRUE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-399376",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 7741,
+      "source_submission_sha256": "85bef46508c3fde4aee0bac7a4d29a73057eada2393a33a7f9ad6b055feae421",
+      "source_transaction_rowids": [
+        3208
+      ],
+      "source_transaction_row_hashes": [
+        "5ef51e355010014a6b35598174854a7e28cba03f8d246c262c54138d05bb399b"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001193125-26-403905",
+      "issuer_cik": "0000108516",
+      "issuer_name_as_filed": "WORTHINGTON ENTERPRISES, INC.",
+      "issuer_ticker_as_filed": "WOR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-28",
+      "period_of_report_as_filed": "24-SEP-2026",
+      "selected_transaction_rows": 4,
+      "reported_code_counts": {
+        "S": 4
+      },
+      "transaction_date_min": "2026-09-24",
+      "transaction_date_max": "2026-09-25",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 4
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-403905",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 2668,
+      "source_submission_sha256": "6aa3b5e7dcaa77e2a4c0e87e6e2212397d05f5cfb5785a84668a89b90e00e168",
+      "source_transaction_rowids": [
+        1775,
+        1776,
+        1778,
+        1779
+      ],
+      "source_transaction_row_hashes": [
+        "934f93ff63b285c2b4fdcdf105be177a35c3d4eb727b771236bbea69ca58353a",
+        "237f3199eac77bc1ea27e13c4c83f3cdb49c9808c829a050cdebe9fa25c1fe2a",
+        "5aafb693c21380e9b206bd73e110606e5eeb34c6d062239fe012213969eeafd8",
+        "9547d609fca55ab3dada80c5e2ffb8515c9cac968f2a9856b59aafea92d11396"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001193125-26-406248",
+      "issuer_cik": "0000108516",
+      "issuer_name_as_filed": "WORTHINGTON ENTERPRISES, INC.",
+      "issuer_ticker_as_filed": "WOR",
+      "form_as_filed": "4",
+      "filing_date": "2026-09-29",
+      "period_of_report_as_filed": "28-SEP-2026",
+      "selected_transaction_rows": 2,
+      "reported_code_counts": {
+        "S": 2
+      },
+      "transaction_date_min": "2026-09-28",
+      "transaction_date_max": "2026-09-28",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 2
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-406248",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 2010,
+      "source_submission_sha256": "0fe83c7de764d1420a77b490f3f04fd522c8df02e38af6fb1b0d1ec00179589e",
+      "source_transaction_rowids": [
+        1209,
+        1210
+      ],
+      "source_transaction_row_hashes": [
+        "985ed7b2d68486a6e04effc8438431b3cf255d10a7cf9e75c1170768a43001e1",
+        "5f04dd0e3522fbfcf764f946ab09c6669bc3a63cc3b7d2c2141316995d47db51"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001289454-26-000006",
+      "issuer_cik": "0000020286",
+      "issuer_name_as_filed": "CINCINNATI FINANCIAL CORP",
+      "issuer_ticker_as_filed": "CINF",
+      "form_as_filed": "4",
+      "filing_date": "2026-08-27",
+      "period_of_report_as_filed": "25-AUG-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "P": 1
+      },
+      "transaction_date_min": "2026-08-25",
+      "transaction_date_max": "2026-08-25",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001289454-26-000006",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 4572,
+      "source_submission_sha256": "7d7fa7af4afa08f0fa714573afe79eeb4293a51b5a6969bf831791da9a5dfa53",
+      "source_transaction_rowids": [
+        20441
+      ],
+      "source_transaction_row_hashes": [
+        "0751b40b4132c1998c4d209e98a42c68b4939498363116c0ca18951a844f6c64"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001686963-26-000004",
+      "issuer_cik": "0000032604",
+      "issuer_name_as_filed": "EMERSON ELECTRIC CO",
+      "issuer_ticker_as_filed": "EMR",
+      "form_as_filed": "4",
+      "filing_date": "2026-08-07",
+      "period_of_report_as_filed": "06-AUG-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-08-06",
+      "transaction_date_max": "2026-08-06",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001686963-26-000004",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 27024,
+      "source_submission_sha256": "971d657a9525368238deff5e72566894acd06d515ad1bafbf994876e0d0d61a7",
+      "source_transaction_rowids": [
+        36996
+      ],
+      "source_transaction_row_hashes": [
+        "5203a3c0165cac3e0f3ae9b83fb000a2921b3f16afdc3a0cd5216aacb1c122ea"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0001820994-26-000008",
+      "issuer_cik": "0000020286",
+      "issuer_name_as_filed": "CINCINNATI FINANCIAL CORP",
+      "issuer_ticker_as_filed": "CINF",
+      "form_as_filed": "4",
+      "filing_date": "2026-08-04",
+      "period_of_report_as_filed": "03-AUG-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-08-03",
+      "transaction_date_max": "2026-08-03",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {},
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0001820994-26-000008",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 30778,
+      "source_submission_sha256": "d1d3aa6c2cd42a357e11b810c1191a2d5a73185a8dd13120ebd520c9fa15f787",
+      "source_transaction_rowids": [
+        40889
+      ],
+      "source_transaction_row_hashes": [
+        "7ce9a62c93c4730b1f177454c19165f4a494fa1b4f230f2c4b102dbee589c5ca"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    },
+    {
+      "batch_id": "2026q3",
+      "accession": "0002053125-26-000003",
+      "issuer_cik": "0000091576",
+      "issuer_name_as_filed": "KEYCORP /NEW/",
+      "issuer_ticker_as_filed": "KEY",
+      "form_as_filed": "4",
+      "filing_date": "2026-07-24",
+      "period_of_report_as_filed": "22-JUL-2026",
+      "selected_transaction_rows": 1,
+      "reported_code_counts": {
+        "S": 1
+      },
+      "transaction_date_min": "2026-07-22",
+      "transaction_date_max": "2026-07-22",
+      "invalid_transaction_date_rows": 0,
+      "diagnostic_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "submission_plan_flag_status": "REPORTED_FALSE",
+      "review_status": "ORIGINAL_FILING_REVIEW_REQUIRED",
+      "original_reviewed": false,
+      "amendment_reconciled": null,
+      "sec_accession_lookup_url": "https://www.sec.gov/edgar/search/#/q=0002053125-26-000003",
+      "source_link_status": "CONSTRUCTED_ACCESSION_SEARCH_NOT_VERIFIED_ORIGINAL",
+      "review_questions": [
+        "Locate this exact accession in SEC search and inspect the original transaction codes, dates and explanatory footnotes before interpreting reported activity.",
+        "Determine whether reported P/S activity was open-market or private; neither is established by these codes alone.",
+        "Read the referenced footnotes. Resolved footnote identifiers do not mean the explanation has been reviewed.",
+        "The plan flag is submission-level only: establish any row-specific plan context from the original, without inferring intent or compliance."
+      ],
+      "source_submission_rowid": 6746,
+      "source_submission_sha256": "15201592fa12be2ba6034dd95ea26110db61b34044932e052db194114cd39782",
+      "source_transaction_rowids": [
+        45089
+      ],
+      "source_transaction_row_hashes": [
+        "f49e39630c40bd20207d81bd44b8c899f96e3d5f18efeec056aa1a8a00181d8f"
+      ],
+      "first_public_utc": null,
+      "decision_utc": null,
+      "training_ready": false,
+      "execution_ready": false
+    }
+  ],
+  "limitations": [
+    "P and S mean open-market OR private purchases/sales as reported; these are filing review records, not verified market executions, recommendations or bullish/bearish signals.",
+    "Counts are source nonderivative transaction rows and filings, not unique economic trades, people, positions or dollars. Derivatives and other codes are outside scope.",
+    "Amendments remain separate and unreconciled. Code/direction conflicts and footnotes require original-filing review; no correction, intent, compliance or plan applicability is inferred.",
+    "Dates are as-filed date-only values, not authenticated first-public or decision-time clocks. Download/retrieval clocks are unknown; generation time is an audit clock only.",
+    "The ten issuer CIKs are an existing research watchlist. Its ticker labels are navigation labels, not verified current or historical security mappings. No selected rows does not mean no insider trading.",
+    "Names and ticker text are as reported by each submission, not preferred current identities. Render all strings as inert text.",
+    "Source links identify the retained SEC prepared archive. Individual original filing links are not verified; use accession to locate and review the original before drawing a conclusion.",
+    "No owner names, addresses, quantities, prices, transaction values or footnote narratives are published. No training, execution or price-outcome qualification is granted."
+  ],
+  "training_ready": false,
+  "execution_ready": false
+}
