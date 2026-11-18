@@ -6,15 +6,18 @@ from sec_prepared_data import digest,inventory,tab_rows,finite_number,SCHEMAS
 ARCHIVE='2026q2.zip'
 URL='https://www.sec.gov/files/dera/data/financial-statement-data-sets/'+ARCHIVE
 ORDER=['sub.txt','tag.txt','pre.txt','num.txt']
+QUARTERS={'2026q1':(dt.date(2026,1,1),dt.date(2026,3,31)),'2026q2':(dt.date(2026,4,1),dt.date(2026,6,30))}
 
-def ingest(root,out):
+def ingest(root,out,quarter="2026q2"):
+    if quarter not in QUARTERS:raise ValueError("unsupported filing quarter")
+    start,end=QUARTERS[quarter];archive=quarter+".zip";url="https://www.sec.gov/files/dera/data/financial-statement-data-sets/"+archive;label=quarter[-2:].upper()
     if out.exists() or out.resolve().is_relative_to(Path(__file__).resolve().parents[1]):raise ValueError('new private output outside checkout required')
     r=json.loads((root/'browser-receipt.json').read_text(),object_pairs_hook=unique_object)
     fields={'path','url','byte_count','sha256','local_verified_utc','retrieval_method','http_status','exact_download_utc'}
-    if set(r)!=fields or r['path']!=ARCHIVE or r['url']!=URL or r['http_status'] is not None or r['exact_download_utc'] is not None or r['retrieval_method']!='PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT':raise ValueError('receipt schema')
+    if set(r)!=fields or r['path']!=archive or r['url']!=url or r['http_status'] is not None or r['exact_download_utc'] is not None or r['retrieval_method']!='PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT':raise ValueError('receipt schema')
     seen=dt.datetime.fromisoformat(r['local_verified_utc'])
     if seen.tzinfo is None or seen>dt.datetime.now(dt.timezone.utc):raise ValueError('verification clock')
-    p=root/ARCHIVE
+    p=root/archive
     if p.stat().st_size>100_000_000 or p.stat().st_size!=r['byte_count'] or digest(p)!=r['sha256']:raise ValueError('source integrity')
     with zipfile.ZipFile(p) as z:inventory(z,'financial')
     out.mkdir(parents=True,mode=0o700);(out/'INCOMPLETE').write_text('Unverified history. Do not use.\n')
@@ -32,7 +35,7 @@ def ingest(root,out):
                     if name=='sub.txt':
                         day=dt.datetime.strptime(d['filed'],'%Y%m%d').date();cik=d['cik']
                         if acc in accs or not re.fullmatch(r'\d{1,10}',cik) or int(cik)==0:raise ValueError('submission identity')
-                        if not dt.date(2026,4,1)<=day<=dt.date(2026,6,30) or day>seen.date():raise ValueError('filing quarter')
+                        if not start<=day<=end or day>seen.date():raise ValueError('filing quarter')
                         accs.add(acc);ciks.add(str(int(cik)).zfill(10));dates.append(day.isoformat())
                     elif acc is not None and acc not in accs:raise ValueError('orphan accession')
                     if name=='tag.txt':
@@ -54,10 +57,10 @@ def ingest(root,out):
         for table,n in counts.items():
             if db.execute('SELECT COUNT(*) FROM '+table).fetchone()[0]!=n:raise ValueError('persisted rows')
         if not dates:raise ValueError('empty submissions')
-        s={'version':1,'status':'HISTORICAL_FINANCIAL_Q2_NOT_COMPARABLE_FACTS','completed_utc':dt.datetime.now(dt.timezone.utc).isoformat(),'source':r,'table_rows':counts,'issuer_ciks':len(ciks),'submissions':len(accs),'filing_date_min':min(dates),'filing_date_max':max(dates),'numeric_empty_values':empty,'accession_joins_verified':True,'taxonomy_joins_complete':gaps==0,'rows_missing_tag_definitions':gaps,'missing_tag_definition_keys':len(missing_keys),'simulation_enabled':False,'orders_created':0,'limitations':['Q2 2026 filing-date batch, not necessarily fiscal Q2 facts or all historical filings. Issuer count is separate from other batches and not added without deduplication.','Values retain accession, taxonomy version, period, duration in quarters, units, segments, co-registrants, footnotes and presentation context. Repeated periods and amendments are not silently consolidated.','Numeric rows are not unique comparable facts. No automatic quarter-over-quarter growth, financial totals, signals or recommendations are inferred.','Missing taxonomy definitions, if present, remain explicitly flagged and unqualified, never dropped or invented.','All four source tables are retained privately. Only aggregate coverage is public; no source values or private addresses are published.','Exact browser status/download clock unavailable; local verification time is not first-public or prospective decision evidence. No orders, historical decisions or simulated fills.']}
-        (out/'summary.json').write_text(json.dumps(s,indent=2)+'\n');db.close();(out/'INCOMPLETE').unlink();return s
+        s={'version':1,'status':'HISTORICAL_FINANCIAL_'+label+'_NOT_COMPARABLE_FACTS','completed_utc':dt.datetime.now(dt.timezone.utc).isoformat(),'source':r,'table_rows':counts,'issuer_ciks':len(ciks),'submissions':len(accs),'filing_date_min':min(dates),'filing_date_max':max(dates),'numeric_empty_values':empty,'accession_joins_verified':True,'taxonomy_joins_complete':gaps==0,'rows_missing_tag_definitions':gaps,'missing_tag_definition_keys':len(missing_keys),'simulation_enabled':False,'orders_created':0,'limitations':[label+' 2026 filing-date batch, not necessarily fiscal '+label+' facts or all historical filings. Issuer count is separate from other batches and not added without deduplication.','Values retain accession, taxonomy version, period, duration in quarters, units, segments, co-registrants, footnotes and presentation context. Repeated periods and amendments are not silently consolidated.','Numeric rows are not unique comparable facts. No automatic quarter-over-quarter growth, financial totals, signals or recommendations are inferred.','Missing taxonomy definitions, if present, remain explicitly flagged and unqualified, never dropped or invented.','All four source tables are retained privately. Only aggregate coverage is public; no source values or private addresses are published.','Exact browser status/download clock unavailable; local verification time is not first-public or prospective decision evidence. No orders, historical decisions or simulated fills.']}
+        (out/'summary.json').write_text(json.dumps(s,indent=2)+'\n');(out/'summary.json').chmod(0o600);db.close();(out/'INCOMPLETE').unlink();return s
     except Exception:
         db.close();(out/'INCOMPLETE').write_text('Validation failed. Do not publish.\n');raise
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args();print(json.dumps(ingest(a.root,a.out),indent=2))
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--quarter',choices=sorted(QUARTERS),default='2026q2');a=p.parse_args();print(json.dumps(ingest(a.root,a.out,a.quarter),indent=2))
