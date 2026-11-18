@@ -23,8 +23,9 @@ def unique_rows(rows):
   result[a]=r
  return result
 
-def project(submissions,covers,summaries,manager_cik=None,cohort_limit=5):
+def project(submissions,covers,summaries,manager_cik=None,cohort_limit=5,all_managers=False):
  if not 1<=len(submissions)<=20000 or type(cohort_limit) is not int or not 1<=cohort_limit<=10:raise ValueError('source/cohort bounds')
+ if type(all_managers) is not bool or (all_managers and manager_cik is not None):raise ValueError('selection mode')
  subs=unique_rows(submissions);cover=unique_rows(covers);summary=unique_rows(summaries)
  if set(cover)!=set(subs) or set(summary)-set(subs):raise ValueError('source join coverage')
  groups={}
@@ -39,15 +40,21 @@ def project(submissions,covers,summaries,manager_cik=None,cohort_limit=5):
   groups.setdefault(ci,[]).append(row)
  multi=sorted(ci for ci,rows in groups.items() if len({r['report_period_as_filed'] for r in rows})>1)
  requested=None if manager_cik is None else cik(manager_cik)
- chosen=multi[:cohort_limit] if requested is None else ([requested] if requested in groups else [])
+ chosen=sorted(groups) if all_managers else (multi[:cohort_limit] if requested is None else ([requested] if requested in groups else []))
  managers=[]
  for ci in chosen:
   rows=sorted(groups[ci],key=lambda r:(r['report_period_as_filed'],r['filing_date_as_filed'],r['accession']))
   if len(rows)>100:raise ValueError('manager filing bound')
   managers.append({'manager_cik':ci,'identity_role':'REPORTING_MANAGER_NOT_HELD_ISSUER','filings_in_retained_batch':len(rows),'report_periods_as_filed':sorted({r['report_period_as_filed'] for r in rows}),'filings':rows,'research_question':'Which distinct report periods and amendment/confidentiality contexts are present in this filing batch? Inspect originals before interpreting the manager history.','history_complete':False,'positions_assessed':False,'trade_flows_assessed':False})
- return {'version':1,'status':'REPORTING_MANAGER_FILING_HISTORY_NOT_POSITIONS_OR_TRADES','selection_mode':'LOWEST_CIK_MULTI_PERIOD_DIAGNOSTIC_COHORT' if requested is None else 'EXACT_MANAGER_CIK_QUERY','requested_manager_cik':requested,'requested_manager_present':None if requested is None else requested in groups,'selection':'Numerically smallest manager CIKs with multiple distinct report periods in the retained batch; all filings for each selected manager are retained. Diagnostic selection, not statistical sampling or performance ranking.' if requested is None else 'All filings for the exact reporting-manager CIK in this one retained batch; no name, ticker or held-issuer join.','counts':{'retained_batch_filings':len(subs),'retained_batch_manager_ciks':len(groups),'managers_with_multiple_report_periods':len(multi),'selected_managers':len(managers),'selected_filings':sum(len(m['filings']) for m in managers)},'managers':managers,'source_scope':{'source_url':SOURCE_URL,'filing_date_start':'2026-06-01','filing_date_end':'2026-08-31','source_retrieved_utc':None,'first_public_utc':None},'training_ready':False,'execution_ready':False,'limitations':['Reporting-manager CIK is not a held-company issuer CIK. No connection to the company research queue or a security is inferred.','One June–August2026 filing batch is not complete manager history or current positions. Report periods can be much older than filing dates; multiple filings may amend one period.','Amendments, restatements, new-holdings and notice forms remain separate source records. Blank flags are not independent evidence of no amendment or confidentiality; flags are not reconciled.','No holding values, shares, CUSIPs, manager names, addresses, signatures or personal contacts are published. No position changes, purchases/sales, exposure, returns or strategy are reconstructed.','An absent manager means no submission in this retained batch, not no manager, no holdings or no activity. Links are constructed accession lookups, not verified originals.','This deterministic diagnostic cohort is chosen after inspecting batch coverage; it is not preregistered, representative or a performance sample.']}
+ result={'version':1,'status':'REPORTING_MANAGER_FILING_HISTORY_NOT_POSITIONS_OR_TRADES','selection_mode':'LOWEST_CIK_MULTI_PERIOD_DIAGNOSTIC_COHORT' if requested is None else 'EXACT_MANAGER_CIK_QUERY','requested_manager_cik':requested,'requested_manager_present':None if requested is None else requested in groups,'selection':'Numerically smallest manager CIKs with multiple distinct report periods in the retained batch; all filings for each selected manager are retained. Diagnostic selection, not statistical sampling or performance ranking.' if requested is None else 'All filings for the exact reporting-manager CIK in this one retained batch; no name, ticker or held-issuer join.','counts':{'retained_batch_filings':len(subs),'retained_batch_manager_ciks':len(groups),'managers_with_multiple_report_periods':len(multi),'selected_managers':len(managers),'selected_filings':sum(len(m['filings']) for m in managers)},'managers':managers,'source_scope':{'source_url':SOURCE_URL,'filing_date_start':'2026-06-01','filing_date_end':'2026-08-31','source_retrieved_utc':None,'first_public_utc':None},'training_ready':False,'execution_ready':False,'limitations':['Reporting-manager CIK is not a held-company issuer CIK. No connection to the company research queue or a security is inferred.','One June–August2026 filing batch is not complete manager history or current positions. Report periods can be much older than filing dates; multiple filings may amend one period.','Amendments, restatements, new-holdings and notice forms remain separate source records. Blank flags are not independent evidence of no amendment or confidentiality; flags are not reconciled.','No holding values, shares, CUSIPs, manager names, addresses, signatures or personal contacts are published. No position changes, purchases/sales, exposure, returns or strategy are reconstructed.','An absent manager means no submission in this retained batch, not no manager, no holdings or no activity. Links are constructed accession lookups, not verified originals.','This deterministic diagnostic cohort is chosen after inspecting batch coverage; it is not preregistered, representative or a performance sample.']}
 
-def audit(database,database_sha,archive,archive_sha,manager_cik=None,cohort_limit=5):
+ if all_managers:
+  result['selection_mode']='ALL_RETAINED_REPORTING_MANAGERS'
+  result['selection']='Every reporting-manager CIK and submission in this one retained filing batch; no held-issuer or security join.'
+  result['limitations']=result['limitations'][:-1]
+ return result
+
+def audit(database,database_sha,archive,archive_sha,manager_cik=None,cohort_limit=5,all_managers=False):
  for path,pin in ((database,database_sha),(archive,archive_sha)):
   if not re.fullmatch('[a-f0-9]{64}',pin) or sha(path)!=pin:raise ValueError('input hash mismatch')
  conn=sqlite3.connect(Path(database).resolve().as_uri()+'?mode=ro',uri=True);conn.row_factory=sqlite3.Row
@@ -56,7 +63,7 @@ def audit(database,database_sha,archive,archive_sha,manager_cik=None,cohort_limi
   subs=conn.execute('SELECT rowid,* FROM holdings_submission LIMIT 20001').fetchall()
   covers=conn.execute('SELECT rowid,'+','.join(COVER)+' FROM holdings_coverpage LIMIT 20001').fetchall()
   summaries=conn.execute('SELECT rowid,ACCESSION_NUMBER,ISCONFIDENTIALOMITTED FROM holdings_summarypage LIMIT 20001').fetchall()
-  result=project(subs,covers,summaries,manager_cik,cohort_limit)
+  result=project(subs,covers,summaries,manager_cik,cohort_limit,all_managers)
  finally:conn.close()
  if sha(database)!=database_sha or sha(archive)!=archive_sha:raise ValueError('source changed')
  result['source_scope'].update(database_sha256=database_sha,source_archive_sha256=archive_sha)
