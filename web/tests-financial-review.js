@@ -14,3 +14,7 @@ assert.equal(select(d.records,'000000000000000123','all','all').length,0);
 assert.equal(d.records.filter(r=>r.unit_status==='EPS_UNIT_REQUIRES_REVIEW').length,210);
 assert(d.records.every(r=>r.reported_unit==='USD'));
 for(const edit of [x=>x.records[0].reported_unit='USD/shares',x=>x.records.find(r=>r.metric==='EarningsPerShareDiluted').unit_status='SOURCE_REPORTED_NOT_COMPARABILITY_VERIFIED']){const x=structuredClone(d);edit(x);assert.throws(()=>validate(x));}
+assert(select(d.records,'astrotech','all','all').length>0);
+assert(select(d.records,'houston american','all','all').some(r=>r.issuer_cik==='0001156041'));
+assert(select(d.records,'abundia','all','all').some(r=>r.issuer_cik==='0001156041'));
+for(const edit of [x=>x.records[0].issuer_names_as_filed=[],x=>x.records[0].observations[0].issuer_name_as_filed='UNSUPPORTED',x=>x.records[0].observations[0].prepared_sub_rowid=0,x=>x.version=1]){const x=structuredClone(d);edit(x);assert.throws(()=>validate(x));}
