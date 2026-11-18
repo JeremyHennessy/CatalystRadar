@@ -24,3 +24,11 @@ python3 -m unittest discover -s backend -p 'test_historical_outcome_audit.py'
 Both inputs are pinned in code. Changed snapshots fail for review rather than silently extending the cohort. Every selected/excluded accession is retained in the local output. The output is a diagnostic artifact, not an app admission API or a new public data feed.
 
 Next useful evidence: establish a source-bound first-public clock and original event-content/novelty assessment for the single selected accession. Do not substitute its filing acceptance time, later collection time, or another easier event. Price-use permission and historical class/action evidence remain independent blockers even after timing is resolved.
+
+## SEC timing guidance checked November 18, 2026
+
+The [SEC Webmaster FAQ](https://www.sec.gov/about/webmaster-frequently-asked-questions), sections on acceptance lag and EDGAR timestamps, distinguishes acceptance from website availability. Its typical 1–3 minute lag is neither a guaranteed limit nor predictable under load; it states that no timestamp identifies initial availability on sec.gov. Accordingly, neither acceptance time nor acceptance plus a fixed delay establishes this study's first-public clock.
+
+[Accessing EDGAR Data](https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data), Business hours and dissemination, describes form/time-dependent handling, including some late submissions disseminated the next business day. These general rules cannot authenticate an individual filing's availability instant. Do not turn the general 5:30 p.m. or ownership-form 10 p.m. thresholds into an unconditional timing rule.
+
+Study implication, not an SEC assertion about this selected event: an earlier issuer release or other original disclosure could precede the filing. Assess source content, earlier publication and economic-event identity separately. A dated release is not by itself second-resolution publication evidence. Later successful collection proves observation then, not earliest historical public availability. The saved study already excludes the selected event and requires independent timing evidence; no acceptance-to-first-public conversion, outcome calculation or eligibility change is introduced.
