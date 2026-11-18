@@ -1,0 +1,57 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto'),v=require('./company-dossier');
+if(!globalThis.crypto)globalThis.crypto=crypto.webcrypto;
+const raw=fs.readFileSync(__dirname+'/company-dossiers/v1/index.json'),index=JSON.parse(raw),queue=JSON.parse(fs.readFileSync(__dirname+'/company-findings/research-lead-index-v3.json')).records;
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex'),clone=x=>structuredClone(x),read=p=>fs.readFileSync(__dirname+'/../'+p);
+assert.equal(raw.length,v.SIZE);assert.equal(hash(raw),v.SHA);v.validateIndex(index,queue);
+const sources={};for(const[k,ref]of Object.entries(index.sources)){const b=read(ref.path);assert.equal(b.length,ref.bytes);assert.equal(hash(b),ref.sha256);sources[k]=JSON.parse(b);}
+let pages=0;const counts={financial:0,insider:0,disclosure:0,reported:0};
+for(const company of index.companies){const entry=queue.find(r=>r.issuer_cik===company.issuer_cik);assert.ok(entry);
+ for(const[section,meta]of Object.entries(company.sections)){
+  const actual=[];for(const[pageIndex,ref]of meta.pages.entries()){const b=read(ref.path);assert.equal(b.length,ref.bytes);assert.equal(hash(b),ref.sha256);const p=JSON.parse(b);v.validatePage(p,index,entry,section,pageIndex);assert.ok(p.selected_section.records.length<=5);actual.push(...p.selected_section.records);pages++;}
+  let expected=[];
+  if(section==='financial')expected=entry.financial_case_ids.map(id=>sources.financial.records.find(r=>r.id===id));
+  if(section==='insider'){const src=meta.source_key==='watchlist_insider'?sources.watchlist_insider.filings:sources.insider.insider_filings;expected=entry.insider_filing_refs.map(ref=>src.find(r=>r.batch_id+':'+r.accession===ref));}
+  if(section==='disclosure')expected=entry.disclosure_accessions.map(a=>sources.catalog.find(r=>r.accession===a));
+  if(section==='reported'&&entry.finding_ref)expected=[sources[meta.source_key]];
+  assert.deepEqual(actual,expected,'unchanged complete source partition '+company.issuer_cik+' '+section);counts[section]+=actual.length;
+  assert.equal(actual.length,meta.total_source_records??0);if(meta.total_source_records===null)assert.equal(meta.coverage,'NOT_EVALUATED_IN_THIS_SNAPSHOT');
+ }
+}
+assert.equal(pages,257);assert.deepEqual(counts,{financial:605,insider:282,disclosure:5,reported:2});
+const emr=index.companies.find(c=>c.issuer_cik==='0000032604'),ieh=index.companies.find(c=>c.issuer_cik==='0000050292'),cp=index.companies.find(c=>c.issuer_cik==='0001130310');
+assert.equal(emr.sections.financial.total_source_records,null);assert.equal(emr.sections.disclosure.total_source_records,null);assert.equal(emr.sections.insider.total_source_records,3);assert.equal(ieh.sections.insider.total_source_records,null);assert.equal(ieh.sections.reported.total_source_records,1);assert.equal(cp.sections.financial.total_source_records,6);assert.deepEqual(cp.sections.financial.pages.map(p=>p.returned_records),[5,1]);assert.ok(!index.companies.some(c=>c.issuer_cik==='0000012659'));
+for(const change of [x=>x.company_count=109,x=>x.companies.pop(),x=>x.companies[0].issuer_cik='0000000001',x=>x.execution_ready=true,x=>x.holdings_linkage.company_position_count=0,x=>x.snapshot.sha256='0'.repeat(64),x=>x.companies[0].sections.financial.total_source_records=0,x=>x.companies.find(c=>c.issuer_cik==='0001130310').sections.financial.pages[0].path='../evil.json',x=>x.companies.find(c=>c.issuer_cik==='0001130310').sections.financial.pages[1].offset=4]){const d=clone(index);change(d);assert.throws(()=>v.validateIndex(d,queue));}
+const entry=queue.find(r=>r.issuer_cik===cp.issuer_cik),page=JSON.parse(read(cp.sections.financial.pages[0].path));
+for(const change of [x=>x.issuer_cik='0000032604',x=>x.section='insider',x=>x.snapshot.sha256='0'.repeat(64),x=>x.selected_section.source_key='insider',x=>x.selected_section.total_source_records=0,x=>x.selected_section.offset=5,x=>x.selected_section.limit=25,x=>x.selected_section.next_offset=null,x=>x.selected_section.records.pop()]){const d=clone(page);change(d);assert.throws(()=>v.validatePage(d,index,entry,'financial',0));}
+console.log('Company dossier: exact manifest/all257 page pins,unchanged605financial/282insider/5disclosure/2reported partitions,108fixedCIKs,null vs scopedzero and corrupted query metadata pass');
+class Node{constructor(tag){this.tag=tag;this.children=[];this.handlers={};this.style={};this.textContent='';this.hidden=false;}append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;}addEventListener(k,f){this.handlers[k]=f;}setAttribute(k,v){this[k]=v;}scrollIntoView(){this.scrolled=true;}focus(){this.focused=true;}set innerHTML(_){throw Error('Unsafe HTML interpretation');}}
+const text=n=>[n.textContent,...n.children.map(text)].join(' '),doc={createElement:t=>new Node(t)};
+async function until(fn){for(let i=0;i<400;i++){if(fn())return;await new Promise(r=>setTimeout(r,5));}throw Error('Mock did not settle');}
+function mount(app,entry){const root=new Node();app(root,entry,queue);const[open,panel]=root.children;return{open,panel,close:panel.children[2],state:panel.children[3],nav:panel.children[4],retry:panel.children[5],body:panel.children[6],paging:panel.children[7]};}
+(async()=>{
+ let badIndex=true,badPage=false,delayPath=null,release;const calls=[];
+ const app=v.create(doc,async(path,opt)=>{calls.push(path);assert.equal(opt.cache,'no-store');assert.ok(opt.signal);assert.ok(path.startsWith('company-dossiers/v1/'),'no bulk source fetching');if(path===delayPath){delayPath=null;await new Promise(r=>{release=r;});}let b=fs.readFileSync(__dirname+'/'+path);if((path===v.PATH&&badIndex)||(path!==v.PATH&&badPage)){b=Buffer.from(b);b[3]^=1;}return{ok:true,arrayBuffer:async()=>Uint8Array.from(b).buffer};});
+ const m=mount(app,entry);assert.equal(calls.length,0);m.open.handlers.click();await until(()=>/unavailable/.test(m.state.textContent));assert.equal(m.body.children.length,0);assert.equal(m.retry.hidden,false);
+ badIndex=false;badPage=true;m.retry.handlers.click();await until(()=>/unavailable/.test(m.state.textContent));assert.equal(m.body.children.length,0);
+ badPage=false;m.retry.handlers.click();await until(()=>/Page 1 of 2/.test(m.state.textContent));assert.equal(m.body.children.length,5);assert.equal(calls.filter(x=>x===v.PATH).length,2);assert.match(text(m.body),/coarse|rounded|month.end/i);
+ const fetched=calls.length;m.paging.children[1].handlers.click();await until(()=>/Page 2 of 2/.test(m.state.textContent));assert.equal(m.body.children.length,1);assert.equal(m.paging.children[1].disabled,true);assert.equal(calls.length,fetched+1);assert.ok(m.state.scrolled&&m.state.focused);
+ m.paging.children[0].handlers.click();await until(()=>/Page 1 of 2/.test(m.state.textContent));assert.equal(calls.length,fetched+1);
+ const insiderPath=cp.sections.insider.pages[0].path.slice(4);delayPath=insiderPath;m.nav.children[1].handlers.click();await until(()=>!!release);m.nav.children[2].handlers.click();await until(()=>/Disclosure filings: source records/.test(m.state.textContent));release();await new Promise(r=>setTimeout(r,30));assert.match(m.state.textContent,/Disclosure filings/);assert.equal(m.body.children.length,1);
+ m.nav.children[1].handlers.click();await until(()=>/Insider filings: source records/.test(m.state.textContent));assert.match(text(m.body),/private|open.market/i);
+ // Close during a deferred page, then reopen: old completion cannot revive hidden content.
+ const anotherEntry=queue.find(r=>r.issuer_cik==='0000315958'),another=mount(app,anotherEntry),anotherCompany=index.companies.find(c=>c.issuer_cik===anotherEntry.issuer_cik);release=null;delayPath=anotherCompany.sections.financial.pages[0].path.slice(4);another.open.handlers.click();await until(()=>!!release);another.close.handlers.click();release();await new Promise(r=>setTimeout(r,30));assert.equal(another.panel.hidden,true);assert.equal(another.body.children.length,0);assert.ok(another.open.focused);another.open.handlers.click();await until(()=>/Page 1 of/.test(another.state.textContent));assert.equal(another.panel.hidden,false);
+ // Special reported cases preserve not-assessed; no empty/null section fetches.
+ for(const ci of ['0000032604','0000050292']){const special=mount(app,queue.find(r=>r.issuer_cik===ci));special.open.handlers.click();await until(()=>/Issuer-reported findings: source records/.test(special.state.textContent));assert.equal(special.body.children.length,1);const n=calls.length;special.nav.children[0].handlers.click();await until(()=>/not assessed/.test(special.state.textContent));assert.equal(calls.length,n);assert.equal(special.body.children.length,0);assert.match(special.state.textContent,/unknown, not zero/);}
+ const zeroEntry=queue.find(r=>r.issuer_cik==='0001001907'),zero=mount(app,zeroEntry);zero.open.handlers.click();await until(()=>/Page 1 of/.test(zero.state.textContent));const n=calls.length;zero.nav.children[2].handlers.click();await until(()=>/no selected records/.test(zero.state.textContent));assert.equal(calls.length,n);assert.equal(zero.body.children.length,0);
+ // Nine distinct pages evict the oldest under the eight-page bound; same pending page shares its fetch.
+ const cacheCalls=[];let gate;const firstCompany=index.companies.find(c=>c.sections.financial.pages.length),firstEntry=queue.find(r=>r.issuer_cik===firstCompany.issuer_cik),firstPath=firstCompany.sections.financial.pages[0].path.slice(4);let hold=true;
+ const cacheApp=v.create(doc,async path=>{cacheCalls.push(path);if(path===firstPath&&hold)await new Promise(r=>{gate=r;});const b=fs.readFileSync(__dirname+'/'+path);return{ok:true,arrayBuffer:async()=>Uint8Array.from(b).buffer};});
+ const ca=mount(cacheApp,firstEntry),cb=mount(cacheApp,firstEntry);ca.open.handlers.click();cb.open.handlers.click();await until(()=>!!gate);assert.equal(cacheCalls.filter(x=>x===firstPath).length,1);hold=false;gate();await until(()=>ca.body.children.length&&cb.body.children.length);
+ for(const company of index.companies.filter(c=>c.sections.financial.pages.length&&c.issuer_cik!==firstEntry.issuer_cik).slice(0,8)){const x=mount(cacheApp,queue.find(r=>r.issuer_cik===company.issuer_cik));x.open.handlers.click();await until(()=>x.body.children.length);}
+ ca.close.handlers.click();ca.open.handlers.click();await until(()=>ca.body.children.length);assert.equal(cacheCalls.filter(x=>x===firstPath).length,2);
+ let failures=0;const errorApp=v.create(doc,async()=>{failures++;return{ok:false};}),error=mount(errorApp,entry);error.body.append(new Node());error.open.handlers.click();await until(()=>/unavailable/.test(error.state.textContent));assert.equal(error.body.children.length,0);error.retry.handlers.click();await until(()=>failures===2&&/unavailable/.test(error.state.textContent));assert.equal(error.retry.hidden,false);
+ console.log('Dossier mock: lazy selected-page only,index/page corruption retries,5+1paging/cache,stale section and close/reopen guards,typed4sections,null/zero nofetch,pending dedup and8-page eviction passed');
+})().catch(e=>{console.error(e);process.exitCode=1;});
+
+const html=fs.readFileSync(__dirname+'/financial-review.html','utf8'),rpos=html.indexOf('dossier-records.js'),dpos=html.indexOf('company-dossier.js'),qpos=html.indexOf('research-queue.js?v=20261118-dossier-pages');assert.ok(rpos>=0&&dpos>rpos&&qpos>dpos,'dossier rendering and delivery modules load before refreshed queue');

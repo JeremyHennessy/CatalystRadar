@@ -69,6 +69,6 @@ class OutcomeWorkspaceTests(unittest.TestCase):
 
     def test_existing_workspace_preserved(self):
         page=(ROOT/'web/financial-review.html').read_text()
-        for key in ['id="research-queue"','id="review-load"','id="review-results"','company-investigation.js','research-queue.js?v=20261118-financing-queue']:
+        for key in ['id="research-queue"','id="review-load"','id="review-results"','company-investigation.js','research-queue.js?v=20261118-dossier-pages']:
             self.assertIn(key,page)
         self.assertEqual(page.count('id="outcome-eligibility"'),1)
