@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "id": "txmd-retained-cover-class",
+  "status": "FILING_REPORTED_CLASS_ASSERTION_NOT_SECURITY_MAPPING",
+  "issuer_cik": "0000025743",
+  "accession": "0001213900-26-119681",
+  "selection_changed": false,
+  "source": {
+    "url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+    "link_status": "RETAINED_RECEIPT_NOT_NEW_FETCH",
+    "archive_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+    "filing_sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+    "filing_bytes": 233722,
+    "recorded_retrieved_utc": "2026-11-14T23:33:13.530724+00:00",
+    "retrieval_clock_independently_authenticated": false
+  },
+  "finding": {
+    "fields": {
+      "Security12bTitle": {
+        "text_as_reported": "Common Stock, par value $0.001 per share",
+        "context_ref": "AsOf2026-11-13",
+        "source_span": {
+          "byte_start": 22230,
+          "byte_end": 22377,
+          "sha256": "0d07447dc8a4deab14ff08b38a310268a4e7dffb442d490dabe666dc341cbacb"
+        }
+      },
+      "TradingSymbol": {
+        "text_as_reported": "TXMD",
+        "context_ref": "AsOf2026-11-13",
+        "source_span": {
+          "byte_start": 22815,
+          "byte_end": 22919,
+          "sha256": "0e1814905c52369c04f52c15bf53ebf4cd1845fc72ffc731574b3909aafebe0c"
+        }
+      },
+      "SecurityExchangeName": {
+        "text_as_reported": "Nasdaq",
+        "context_ref": "AsOf2026-11-13",
+        "source_span": {
+          "byte_start": 23377,
+          "byte_end": 23518,
+          "sha256": "5b924ed59476a53a40abe2677cb4533383f401f748b8d1c4d7e23070e8a523a3"
+        }
+      }
+    },
+    "exchange_cell_text_as_reported": "The Nasdaq Stock Market LLC",
+    "inline_exchange_transformation": "ixt-sec:exchnameen (not evaluated)",
+    "context": {
+      "issuer_cik_as_reported": "0000025743",
+      "start_date_as_reported": "2026-11-13",
+      "end_date_as_reported": "2026-11-13",
+      "period_kind": "DURATION_AS_FILED_NOT_EFFECTIVE_INTERVAL",
+      "source_span": {
+        "byte_start": 3585,
+        "byte_end": 3919,
+        "sha256": "389cc819f1b1df3a03a8a570be934467cfdcf6d98f2c86b39009116b5aa44c80"
+      }
+    },
+    "registrant_evidence": {
+      "accession": "0001213900-26-119681",
+      "filers": [
+        {
+          "cik": "0000025743",
+          "name_as_filed": "TherapeuticsMD, Inc.",
+          "role": "FILER",
+          "field_spans": {
+            "cik": {
+              "byte_start": 590,
+              "byte_end": 600,
+              "sha256": "56ae7b72d07faf8fb89bf8b3be04b9f00986eca915b9c2f62fbfcba2262a414c"
+            },
+            "name": {
+              "byte_start": 546,
+              "byte_end": 566,
+              "sha256": "886aec598018cd00dcca71c42e4140493a1777a36d5e0dbce7f547f63df1fd96"
+            }
+          }
+        }
+      ],
+      "multiple_filers": false,
+      "header_span": {
+        "byte_start": 50,
+        "byte_end": 1448,
+        "sha256": "4c29e84e991e3fddf6df098a2b5675c0d1ff1182e316e876fb370c036c480b34"
+      },
+      "entities_interchangeable": false,
+      "facts_propagated_between_filers": false,
+      "security_mapping_verified": false
+    },
+    "primary_document_sha256": "ba4f3561d0513e0007bc6cf411148b9ce8ce0c6b6d322df8bedd860366272c6d"
+  },
+  "security_id": null,
+  "effective_from": null,
+  "effective_to": null,
+  "historical_mapping_verified": false,
+  "corporate_action_continuity_verified": false,
+  "price_join_performed": false,
+  "first_public_utc": null,
+  "qualified_outcomes": 0,
+  "execution_ready": false,
+  "training_ready": false,
+  "limitations": [
+    "The cover associates a reported class, symbol and exchange within this filing only. It is not a historical security identifier or verified effective-date interval.",
+    "The context reports equal start and end dates; no instant, listing date or continuous listing is inferred.",
+    "No absence of splits, dividends, symbol changes, delisting or trading halts is established.",
+    "Raw inline Nasdaq text and exchange-cell wording are preserved; the exchange transformation is not evaluated.",
+    "No private quotes, returns, CUSIP/FIGI mapping, first-public time, prices, fills or orders are added. Only a narrow issuer-disclosed class assertion is published; original retained filing bytes stay private."
+  ]
+}
