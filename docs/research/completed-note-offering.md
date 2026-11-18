@@ -23,3 +23,7 @@ Raw originals remain local; output includes only bounded fact metadata and evide
 Independent original-source review must precede public application projection. This extractor alone does not publish a new app view or promote comparability/outcome eligibility.
 
 Invalid calendar dates in an otherwise matching paragraph reject the entire run with an error; they are not quietly omitted or treated as an empty valid dataset. Invalid source archive pin/oversize likewise fail before ZIP parsing. These fail-closed cases have regression coverage.
+
+## Public company projection
+
+`company_note_projection.py` rebuilds the archive audit and checks the exact independently reviewed canonical audit hash before projecting `web/company-findings/emerson-note-offering.json`. The public file contains one reviewed issuer-reported finding, original SEC provenance, nine accession/status abstentions, unknown proceeds/dilution/full maturity/first-public fields and disabled training/execution state. It contains no raw paragraphs, contacts or price data. A changed source/audit requires independent review, not silent projection. Display integration is separate from this projection.
