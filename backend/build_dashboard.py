@@ -19,7 +19,7 @@ def build(root=ROOT, *, preserve_research_report=False):
  price_status=root/'data/price_feed_status.json'
  if price_status.exists():
   state['feeds'][1].update(summarize_price_status(json.loads(price_status.read_text())))
-  state['blockers'][0]='Private daily histories are stored; corporate-action, halt and execution validation remain incomplete'
+  state['blockers'][0]='Historical daily snapshots were reviewed; current storage and redistribution eligibility must be verified before further collection; corporate-action, halt and execution validation remain incomplete'
  scanpath=root/'data/latest_scan.json'
  if scanpath.exists():
   scan=json.loads(scanpath.read_text());state['feeds'][0].update(status='snapshot_only',as_of=scan['finished_at'],detail=f"{scan['successful_issuers']}/{scan['configured_issuers']} configured issuer metadata feeds checked; {len(scan['events'])} filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime.")
