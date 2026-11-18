@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_ISSUER_COVERAGE_NOT_SECURITY_MASTER",
+  "generated_at": "2026-11-18T00:44:03.476122+00:00",
+  "issuer_ciks": 7912,
+  "previous_three_batch_issuer_ciks": 7093,
+  "added_issuer_coverage": 819,
+  "batch_counts": {
+    "financial_2025q4": {
+      "issuer_ciks": 5786,
+      "submissions": 6304
+    },
+    "financial_2026q1": {
+      "issuer_ciks": 5750,
+      "submissions": 6169
+    },
+    "financial_2026q2": {
+      "issuer_ciks": 6179,
+      "submissions": 7714
+    },
+    "financial_2026q3": {
+      "issuer_ciks": 6008,
+      "submissions": 6516
+    },
+    "insider_2026q3": {
+      "issuer_ciks": 4716,
+      "submissions": 38152
+    },
+    "notes_2026_10": {
+      "issuer_ciks": 3555,
+      "submissions": 6670
+    }
+  },
+  "issuers_with_multiple_reported_names": 2851,
+  "sources": {
+    "financial_2025q4": {
+      "database_sha256": "e63fa4c89bd3735fb15aa45b00dbb612a0324484e52c9ebd75d3cc0ffccdf7fa",
+      "archive_sha256": "2b36ac3850c022cf19edd882e31c3c453c7666677b9fdd2e1f7748fdb5768c6e",
+      "source_url": "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q4.zip",
+      "source_table": "financial_sub",
+      "filing_batch_start": "2025-10-01",
+      "filing_batch_end": "2025-12-31"
+    },
+    "financial_2026q1": {
+      "database_sha256": "ce306b9ec556b3687fc4e1b5e0da53d2a1c2a36a119356f90b73bf9eb08fcea6",
+      "archive_sha256": "d18c01c615da8f5cd46273b0dacaeee5b1163f4089171da0f84153a5f3c362f6",
+      "source_url": "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q1.zip",
+      "source_table": "financial_sub",
+      "filing_batch_start": "2026-01-01",
+      "filing_batch_end": "2026-03-31"
+    },
+    "financial_2026q2": {
+      "database_sha256": "4af6790a4b8e0f96beb2c4e2d99bbd011d883b42566a3d60243e65d0dc713b5a",
+      "archive_sha256": "d7c815395cd420cfbe09b29dbae73a45406c5d0652d5ae1859ae11ea2e22df77",
+      "source_url": "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q2.zip",
+      "source_table": "financial_sub",
+      "filing_batch_start": "2026-04-01",
+      "filing_batch_end": "2026-06-30"
+    },
+    "financial_2026q3": {
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "source_url": "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q3.zip",
+      "source_table": "financial_sub",
+      "filing_batch_start": "2026-07-01",
+      "filing_batch_end": "2026-09-30"
+    },
+    "insider_2026q3": {
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "archive_sha256": "a4e6a681cfcfa43a3d9e4ca9cfec1fd26a59d0a01eac7e9f7b5a0122092c90f3",
+      "source_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q3_form345.zip",
+      "source_table": "insider_submission",
+      "filing_batch_start": "2026-07-01",
+      "filing_batch_end": "2026-09-30"
+    },
+    "notes_2026_10": {
+      "database_sha256": "f2e9a91fb48a3c91fc47d2eff55d4cc63f77157cabab9e96278815621f10e597",
+      "archive_sha256": "44d1b48909babe6611fcf59ff5bd273281616acbf2b91567e9597a51f924cee1",
+      "source_url": "https://www.sec.gov/files/dera/data/financial-statement-notes-data-sets/2026_10_notes.zip",
+      "source_table": "notes_sub",
+      "filing_batch_start": "2026-10-01",
+      "filing_batch_end": "2026-10-31"
+    }
+  },
+  "issuer_metadata": {
+    "sha256": "d2f865683fca6681b54295b144efc1e62d9950ae5ec0ac2d2290ffd08a01ef58",
+    "byte_count": 5607678
+  },
+  "simulation_enabled": false,
+  "training_ready": false,
+  "orders_created": 0,
+  "limitations": [
+    "CIK joins issuer source coverage only, not securities, active listings, ticker history or stock returns.",
+    "Names and insider-reported tickers (including placeholders such as NONE) are retained by filing batch, not preferred, validated or current identifiers. Name variation is not proof of a corporate event.",
+    "Financial filing quarters contain mixed fiscal periods; counts retain amendments and repeated reporting. The same accession can occur in distinct dataset families.",
+    "No owner names, addresses, raw disclosures or financial values included. Text must be rendered inertly, not as HTML.",
+    "Generated time is local audit time, not download or first-public timing. Input hashes pin retained evidence; earlier ingestion audits establish database-to-archive derivation.",
+    "Prior public snapshots remain unchanged. Added coverage means newly searchable retained evidence, not newly listed companies or training examples."
+  ]
+}
