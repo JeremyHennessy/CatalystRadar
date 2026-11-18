@@ -1,0 +1,14 @@
+{
+  "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_yield_curve&field_tdr_date_value_month=202611",
+  "request_utc": "2026-11-18T18:00:37.919178+00:00",
+  "maximum_bytes": 1000000,
+  "timeout_seconds": 30,
+  "redirects_allowed": false,
+  "retries": 0,
+  "http_status": 200,
+  "content_type": "text/xml; charset=UTF-8",
+  "byte_count": 17668,
+  "sha256": "cfd253bd6330538ed93bc1a876fb8c197742adacd82a131955cc83304233239e",
+  "outcome": "RETAINED_RESPONSE_NOT_YET_VALIDATED",
+  "finish_utc": "2026-11-18T18:00:43.499761+00:00"
+}
