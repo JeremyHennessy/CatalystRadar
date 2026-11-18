@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_OUTCOME_CASE_SOURCE_CONTENT_REVIEW_NOT_QUALIFIED_OUTCOME",
+  "accession": "0001213900-26-119681",
+  "issuer_cik": "0000025743",
+  "selection_policy": "results-header-next-session-close-v1",
+  "selection_changed": false,
+  "frozen_input_sha256": {
+    "feature_rows": "db3af91a42cb7d9bc948af75ec47f8900855afb997549c4c1d4955cf701f2453",
+    "horizon_readiness": "0a0cc2fea2e9baffeeedfb3d303b53df28373e9ad4e6e2c420a8922c55f758da"
+  },
+  "source": {
+    "url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+    "link_status": "RETAINED_RECEIPT_NOT_NEW_FETCH",
+    "archive_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+    "filing_sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+    "filing_bytes": 233722,
+    "recorded_retrieved_utc": "2026-11-14T23:33:13.530724+00:00",
+    "retrieval_clock_independently_authenticated": false
+  },
+  "finding": {
+    "filename": "ea031220401ex99-1.htm",
+    "document_sha256": "67bc57f4dbbbae2f39dd9c3c842b4b74cedca1970a9c440b7d846276e2960890",
+    "description": {
+      "text_as_reported": "PRESS RELEASE FROM THERAPEUTICSMD, INC., DATED NOVEMBER 13, 2026, ENTITLED \"THERAPEUTICSMD ANNOUNCES SECOND QUARTER 2026 FINANCIAL RESULTS.\"",
+      "source_span": {
+        "byte_start": 39696,
+        "byte_end": 39849,
+        "sha256": "063568179decb24c17d9487dad177bf11fbfb5c3868aed5b7fda46bb6fc92e32"
+      }
+    },
+    "body_anchors": [
+      {
+        "text_as_reported": "TherapeuticsMD Announces Third Quarter 2026 Financial Results",
+        "source_span": {
+          "byte_start": 40897,
+          "byte_end": 41145,
+          "sha256": "aa061478884ed971e46fad0c505a8b9dca2d3359255784c48944fb7a647e0320"
+        }
+      },
+      {
+        "text_as_reported": "BOCA RATON, Fla.--(BUSINESS WIRE)\u2014November 13, 2026 -- TherapeuticsMD, Inc. (\u201cTherapeuticsMD\u201d or the \u201cCompany\u201d) (NASDAQ: TXMD), a company that owns rights to pharmaceutical royalties, today reported financial results for the three months ended September 30, 2026.",
+        "source_span": {
+          "byte_start": 41340,
+          "byte_end": 41818,
+          "sha256": "94224dd1a9a0ed78bac323d3d5737216ed2ea2e0e3081f921b2d6d7f9cc41e96"
+        }
+      },
+      {
+        "text_as_reported": "Third Quarter 2026 Financial Results",
+        "source_span": {
+          "byte_start": 42020,
+          "byte_end": 42248,
+          "sha256": "32dea02659030f2829e02493c6945ff5f78cac35e039b6b4f0771e95e34cba86"
+        }
+      },
+      {
+        "text_as_reported": "Net Income from Continuing Operations",
+        "source_span": {
+          "byte_start": 42443,
+          "byte_end": 42672,
+          "sha256": "1cc049882c8035791898469b10046081671e55e694723c620a82d531cabc7069"
+        }
+      }
+    ],
+    "continuing_operations_evidence": {
+      "metric": "CONTINUING_OPERATIONS_INCOME_AND_COMBINED_BASIC_DILUTED_EPS",
+      "current_income_reported": "501",
+      "current_income_unit": "thousand reported dollars",
+      "prior_income_reported": "50",
+      "prior_income_unit": "thousand reported dollars",
+      "current_income_scaled": "501000",
+      "prior_income_scaled": "50000",
+      "current_eps_reported": "0.04",
+      "prior_eps_reported": "0.00",
+      "eps_basis": "REPORTED_COMBINED_BASIC_AND_DILUTED_CONTINUING_OPERATIONS",
+      "current_period": null,
+      "prior_period": "third quarter 2025",
+      "currency_iso": null,
+      "total_company_gaap_eps_verified": false,
+      "comparability_verified": false,
+      "calculated_growth_percent": null,
+      "document_sha256": "67bc57f4dbbbae2f39dd9c3c842b4b74cedca1970a9c440b7d846276e2960890",
+      "evidence_span": {
+        "byte_start": 43310,
+        "byte_end": 43824,
+        "sha256": "3047331f693920737308cad6716409e4e0eff72dd6b76377f2d35a0c752889ea"
+      },
+      "status": "REPORTED_PAIR_NOT_ADMISSIBLE"
+    },
+    "body_reported_period": {
+      "end": "2026-09-30",
+      "start": null,
+      "duration_as_reported": "three months",
+      "quarter_as_reported": "third quarter 2026",
+      "status": "BODY_DECLARATION_NOT_ACCOUNTING_COMPARABILITY"
+    },
+    "description_period_as_reported": "second quarter 2026",
+    "description_body_period_conflict": true,
+    "conflict_resolution": "UNRESOLVED_NO_SILENT_CORRECTION",
+    "source_content_reviewed": true,
+    "financial_comparability_verified": false
+  },
+  "first_public_utc": null,
+  "decision_utc": null,
+  "entry_session": null,
+  "endpoint_session": null,
+  "return_value": null,
+  "qualified_outcomes": 0,
+  "training_ready": false,
+  "execution_ready": false,
+  "remaining_dependencies": [
+    "VERIFIED_EVENT_FIRST_PUBLIC_TIME",
+    "SOURCE_BOUND_ENTRY_CONVENTION_AND_DECISION",
+    "HISTORICAL_SECURITY_CLASS_MAPPING",
+    "INTENDED_USE_PRICE_RIGHTS",
+    "EFFECTIVE_CORPORATE_ACTION_COVERAGE",
+    "QUALIFIED_ENTRY_AND_NEXT_SESSION_ENDPOINTS"
+  ],
+  "limitations": [
+    "Source content is now explicitly reviewed for this unchanged frozen case; header-only classification is not the full evidence anymore.",
+    "The body declares third-quarter results while exhibit description declares second-quarter. Both are preserved; this review does not adjudicate accounting truth or silently fix the source.",
+    "Continuing-operations earnings and reported combined basic/diluted EPS are not total-company GAAP/comparability proof. Rounded prior EPS 0.00 must not become an exact-zero denominator.",
+    "Release date is not first-public time. Retained observation does not establish novelty, historical availability or a frozen decision.",
+    "No prices, inferred ticker joins, returns, performance metrics, orders or changes to frozen evidence are introduced."
+  ]
+}
