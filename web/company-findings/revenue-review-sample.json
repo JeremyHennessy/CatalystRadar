@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "policy_sha256": "d8d6fc6fb315c42762a6421e04ba37302454423b2c7f5a677d2e426f71624782",
+  "policy": {
+    "policy_version": 2,
+    "created_at_utc": "2026-11-18T08:49:10.511943+00:00",
+    "selection": "Five smallest numeric nonzero CIKs outside pinned108 queue with existing completed standard-revenue candidate pairs. Within each CIK latest retained filing_date; ties lexical accession,tag,version,batch. No value/change filtering; no replacement on audit failure.",
+    "metrics": [
+      "Revenues",
+      "RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "issuer_limit": 5,
+    "tie_break_fields": [
+      "accession",
+      "current.tag",
+      "current.version",
+      "batch",
+      "submission_period",
+      "current.ddate",
+      "prior.ddate",
+      "current.qtrs",
+      "prior.qtrs",
+      "current.uom",
+      "prior.uom",
+      "current.segments",
+      "prior.segments",
+      "current.coreg",
+      "prior.coreg",
+      "current.rowid",
+      "prior.rowid"
+    ],
+    "duplicate_tie_policy": "Reject duplicate full identity rather than choose first"
+  },
+  "queue_exclusion_pin": {
+    "path": "web/company-findings/research-lead-index-v3.json",
+    "sha256": "3d8db27dc45ed84fa44d5604e1839aa2aa9e1f263f2ed9e18cef04aed7a0e4e3"
+  },
+  "completed_input_pins": {
+    "q4": {
+      "COMPLETE.json": "d2bc6dea467412f8f7a3ae7246286e07b3d1115ca46771621967980539d21565",
+      "summary.json": "ab4afa4792087bf668b633247bf41ba3a9c5ae0f93a3088ce290d2f47221beea",
+      "candidate-pairs.json": "237a3e0913a30977c9e2a50d4e667ca7db32215bc96cd479c73e1a314d463509"
+    },
+    "q1": {
+      "COMPLETE.json": "0b1fde8eb57a7797c1c05fe0007d37f849f92d81c1a8d0b5b3717df8661def60",
+      "summary.json": "8d7f7f14bd78148297df0b57181757c8afb44d0f861344cf14156ad31d493557",
+      "candidate-pairs.json": "962850df10f79f743691a27790adbf4d9a33b85e84e58f014c261c2a12b878fb"
+    },
+    "q2": {
+      "COMPLETE.json": "3627d54e18e5310d50a5b02fdfd075691a9141a8491d9f9a7c48044fb7b274b9",
+      "summary.json": "4a327fb8436c2653cfb6112930e8c4cb1bc1ddd77d7fcc49aeefbd7e8d6da520",
+      "candidate-pairs.json": "1463013fb0f4e0409a009d53fc1edd9e0edb8988fa240628b13b4bdc2373fa7b"
+    },
+    "q3": {
+      "COMPLETE.json": "79168365f65b1ea95e2adbd343b6d8073399cba81a37482e9616f45eca102894",
+      "summary.json": "3c556a3489726d0dff5deedf97e26956474412f2eddaa6b1004545381d001b83",
+      "candidate-pairs.json": "c88fbdcc42dd87a2833f9779dfca2c9740b9dac8dc0e9ce1fedc7137a9562d4b"
+    }
+  },
+  "counts": {
+    "eligible_ciks": 3841,
+    "eligible_pairs": 11134,
+    "eligible_pairs_not_selected": 11129,
+    "eligible_unselected_ciks": 3836,
+    "excluded_existing_queue_pairs": 336,
+    "excluded_other_metric_pairs": 29158,
+    "input_pairs": 40628,
+    "selected_ciks": 5
+  },
+  "upstream_group_dispositions": {
+    "q4": {
+      "context_groups": 13861,
+      "group_dispositions": {
+        "context_matched_candidate": 12874,
+        "footnote_requires_review": 22,
+        "missing_current_calendar_period": 33,
+        "missing_or_invalid_value": 193,
+        "missing_prior_calendar_period": 210,
+        "unsupported_form": 510,
+        "unsupported_unit": 19
+      },
+      "row_counts": {
+        "excluded_non_single_quarter_rows": 30593,
+        "excluded_segment_or_coreg_rows": 210954,
+        "single_quarter_empty_dimension_rows": 34952,
+        "target_tag_rows": 276499
+      }
+    },
+    "q1": {
+      "context_groups": 3531,
+      "group_dispositions": {
+        "context_matched_candidate": 2828,
+        "footnote_requires_review": 5,
+        "missing_current_calendar_period": 96,
+        "missing_or_invalid_value": 55,
+        "missing_prior_calendar_period": 147,
+        "unsupported_form": 392,
+        "unsupported_unit": 8
+      },
+      "row_counts": {
+        "excluded_non_single_quarter_rows": 34939,
+        "excluded_segment_or_coreg_rows": 165361,
+        "single_quarter_empty_dimension_rows": 10663,
+        "target_tag_rows": 210963
+      }
+    },
+    "q2": {
+      "context_groups": 13623,
+      "group_dispositions": {
+        "context_matched_candidate": 12632,
+        "footnote_requires_review": 45,
+        "missing_current_calendar_period": 69,
+        "missing_or_invalid_value": 196,
+        "missing_prior_calendar_period": 299,
+        "unsupported_form": 365,
+        "unsupported_unit": 17
+      },
+      "row_counts": {
+        "excluded_non_single_quarter_rows": 12465,
+        "excluded_segment_or_coreg_rows": 139473,
+        "single_quarter_empty_dimension_rows": 28066,
+        "target_tag_rows": 180004
+      }
+    },
+    "q3": {
+      "context_groups": 13563,
+      "group_dispositions": {
+        "context_matched_candidate": 12294,
+        "footnote_requires_review": 143,
+        "missing_current_calendar_period": 40,
+        "missing_or_invalid_value": 155,
+        "missing_prior_calendar_period": 343,
+        "unsupported_form": 572,
+        "unsupported_unit": 16
+      },
+      "row_counts": {
+        "excluded_non_single_quarter_rows": 30130,
+        "excluded_segment_or_coreg_rows": 203100,
+        "single_quarter_empty_dimension_rows": 30892,
+        "target_tag_rows": 264122
+      }
+    }
+  },
+  "source_receipts": {
+    "q3": {
+      "archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "members_sha256": {
+        "num.txt": "d2fb1c4809c36f29c621349bfb30a134766458ecb102b6cf91709ae8641f2074",
+        "sub.txt": "6e83cb59365d55ed6fd1db24dfca05a715a0a76ffa56b11af7493a35e39d1459",
+        "tag.txt": "b3904d0807451e149d4a260e9d50b4737655446bf086b116688d727cd8d5ad5e",
+        "pre.txt": "58692545dbe8dd53593e2ad91739c02c74879fb2fc58b7a0e08d4a6d6cc40e51"
+      },
+      "archive_url": "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2026q3.zip"
+    }
+  },
+  "scoped_original_inventory": {
+    "accessions_checked": 11,
+    "ten_package_archive": {
+      "archive_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+      "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a"
+    },
+    "xbrl_receipt_sha256": "7faa83a8083bb5c5ec2667a773be2a35a782701feb2ebed656229f4edf42f334",
+    "xbrl_archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4"
+  },
+  "packets": [
+    {
+      "id": "0125c265a7c566c331151876c3dd1d56284f475285db1e3ad5c2b670bbfeb346",
+      "issuer_cik": "0000001800",
+      "issuer_name_as_filed": "ABBOTT LABORATORIES",
+      "status": "PREPARED_REVENUE_REVIEW_CANDIDATE_NOT_COMPARABLE",
+      "filing_batch": "q3_2026_filing_batch",
+      "accession": "0001628280-26-050134",
+      "form_as_filed": "10-Q",
+      "amendment_as_filed": false,
+      "filing_date_as_filed": "20260728",
+      "submission_report_period_as_filed": "20260630",
+      "fiscal_year_as_filed": "2026",
+      "fiscal_period_as_filed": "Q2",
+      "source_sub_rowid": 5009,
+      "source_sub_row_sha256": "79befe50441b2a1904e57bc14d774add9683f9d61a3677305d08fb770742c28e",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1800/000162828026050134/0001628280-26-050134-index.html",
+      "source_link_verified_by_fetch": false,
+      "facts": [
+        {
+          "candidate_role": "current",
+          "metric": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "12593000000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20260630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 2871495,
+          "source_row_sha256": "6508d779161563f7b950b06ebbe3febfd3dd21c939ab876d275f90257935a073",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        },
+        {
+          "candidate_role": "prior",
+          "metric": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "11142000000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20250630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 2871371,
+          "source_row_sha256": "016ac33f48065bed65197632b296300311e97e48bdec6d0ec018ce49239cbec1",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        }
+      ],
+      "taxonomy": {
+        "rowid": 8251,
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "version": "us-gaap/2026",
+        "custom": "0",
+        "abstract": "0",
+        "datatype": "monetary",
+        "iord": "D"
+      },
+      "source_tag_row_sha256": "c067cea98fc87e3510f02ac3ce51f2df46fca679b36da7dcccb9e26eade1d765",
+      "presentation": [
+        {
+          "rowid": 560855,
+          "adsh": "0001628280-26-050134",
+          "report": "2",
+          "line": "1",
+          "stmt": "IS",
+          "inpth": "0",
+          "rfile": "H",
+          "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "version": "us-gaap/2026",
+          "plabel": "Net sales",
+          "negating": "0"
+        }
+      ],
+      "source_pre_row_sha256": {
+        "560855": "e3f8651daeb9aeabf5867fa662ee2a94c1751c1b9f217892341e98678d81d2a9"
+      },
+      "source_archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "other_candidate_pairs_for_issuer_not_shown": 2,
+      "other_candidates_reconciled": false,
+      "original_status": "NO_EXACT_ACCESSION_IN_SCOPED_RETAINED_ORIGINAL_INVENTORY",
+      "original_filing_text_checked": false,
+      "first_public_utc": null,
+      "first_observed_utc": null,
+      "consolidated_scope_verified": false,
+      "comparability_verified": false,
+      "absolute_change": null,
+      "percentage_change": null,
+      "outcome_status": "INSUFFICIENT_EVIDENCE",
+      "next_review_action": "Read the exact accession original statements and contexts to establish start/end dates, unit, consolidation and comparative presentation before considering any change calculation."
+    },
+    {
+      "id": "4e84385bb69c57a0de217bd5e673e45dbb7f7e945c4f18811a83e6c4de8b6ecb",
+      "issuer_cik": "0000002098",
+      "issuer_name_as_filed": "ACME UNITED CORP",
+      "status": "PREPARED_REVENUE_REVIEW_CANDIDATE_NOT_COMPARABLE",
+      "filing_batch": "q3_2026_filing_batch",
+      "accession": "0001193125-26-338211",
+      "form_as_filed": "10-Q",
+      "amendment_as_filed": false,
+      "filing_date_as_filed": "20260806",
+      "submission_report_period_as_filed": "20260630",
+      "fiscal_year_as_filed": "2026",
+      "fiscal_period_as_filed": "Q2",
+      "source_sub_rowid": 2093,
+      "source_sub_row_sha256": "41cb807d6036fd195dfc5539a31e41ab166bc4d586012927a4560cd2f8db667a",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2098/000119312526338211/0001193125-26-338211-index.html",
+      "source_link_verified_by_fetch": false,
+      "facts": [
+        {
+          "candidate_role": "current",
+          "metric": "Revenues",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "62716000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20260630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 1175474,
+          "source_row_sha256": "1627cb820414300c264767500d6ab78c9a6d4038fb5605f3525d74a74fb15fcc",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        },
+        {
+          "candidate_role": "prior",
+          "metric": "Revenues",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "53996000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20250630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 1175466,
+          "source_row_sha256": "73c7414943ff446fe8e24975a1eead43efda2a6d4c9d271b3ad2130933024fb9",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        }
+      ],
+      "taxonomy": {
+        "rowid": 4876,
+        "tag": "Revenues",
+        "version": "us-gaap/2026",
+        "custom": "0",
+        "abstract": "0",
+        "datatype": "monetary",
+        "iord": "D"
+      },
+      "source_tag_row_sha256": "6bdf296e197748de699ba968e59617538ad85e28115a78b8e1422e369b9ab4b1",
+      "presentation": [
+        {
+          "rowid": 247148,
+          "adsh": "0001193125-26-338211",
+          "report": "4",
+          "line": "2",
+          "stmt": "IS",
+          "inpth": "0",
+          "rfile": "H",
+          "tag": "Revenues",
+          "version": "us-gaap/2026",
+          "plabel": "Net sales",
+          "negating": "0"
+        }
+      ],
+      "source_pre_row_sha256": {
+        "247148": "63c21c0663bdba31e10a4cd8d5cf9bb541ec28e1b88fa74420b8e6dd344fb0ea"
+      },
+      "source_archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "other_candidate_pairs_for_issuer_not_shown": 2,
+      "other_candidates_reconciled": false,
+      "original_status": "NO_EXACT_ACCESSION_IN_SCOPED_RETAINED_ORIGINAL_INVENTORY",
+      "original_filing_text_checked": false,
+      "first_public_utc": null,
+      "first_observed_utc": null,
+      "consolidated_scope_verified": false,
+      "comparability_verified": false,
+      "absolute_change": null,
+      "percentage_change": null,
+      "outcome_status": "INSUFFICIENT_EVIDENCE",
+      "next_review_action": "Read the exact accession original statements and contexts to establish start/end dates, unit, consolidation and comparative presentation before considering any change calculation."
+    },
+    {
+      "id": "f9d8ff71357ad53a181de86ad2295164d300026976bfe2fb926ba0bdb481cd41",
+      "issuer_cik": "0000002488",
+      "issuer_name_as_filed": "ADVANCED MICRO DEVICES INC",
+      "status": "PREPARED_REVENUE_REVIEW_CANDIDATE_NOT_COMPARABLE",
+      "filing_batch": "q3_2026_filing_batch",
+      "accession": "0000002488-26-000123",
+      "form_as_filed": "10-Q",
+      "amendment_as_filed": false,
+      "filing_date_as_filed": "20260805",
+      "submission_report_period_as_filed": "20260630",
+      "fiscal_year_as_filed": "2026",
+      "fiscal_period_as_filed": "Q2",
+      "source_sub_rowid": 1,
+      "source_sub_row_sha256": "c9a625ff65076cc6e00b7eea4213297945859489ed347de5459ff57ff7982afa",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/0000002488-26-000123-index.html",
+      "source_link_verified_by_fetch": false,
+      "facts": [
+        {
+          "candidate_role": "current",
+          "metric": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "11536000000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20260630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 308,
+          "source_row_sha256": "d3925ad89d15e62a1956f4fe9162a1224f7d63d490beeed063aa46e3d2337f31",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        },
+        {
+          "candidate_role": "prior",
+          "metric": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "7685000000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20250630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 296,
+          "source_row_sha256": "3252b0dd7cac6990cadc00cfd202ecd50ff583ecdf91d578b0de90354be9b90f",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        }
+      ],
+      "taxonomy": {
+        "rowid": 8251,
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "version": "us-gaap/2026",
+        "custom": "0",
+        "abstract": "0",
+        "datatype": "monetary",
+        "iord": "D"
+      },
+      "source_tag_row_sha256": "c067cea98fc87e3510f02ac3ce51f2df46fca679b36da7dcccb9e26eade1d765",
+      "presentation": [
+        {
+          "rowid": 1,
+          "adsh": "0000002488-26-000123",
+          "report": "2",
+          "line": "1",
+          "stmt": "IS",
+          "inpth": "0",
+          "rfile": "H",
+          "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "version": "us-gaap/2026",
+          "plabel": "Net revenue",
+          "negating": "0"
+        }
+      ],
+      "source_pre_row_sha256": {
+        "1": "f93d4587a3007e132674e965d626f1e9a88c75a719055a78242b3b9517a833fc"
+      },
+      "source_archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "other_candidate_pairs_for_issuer_not_shown": 2,
+      "other_candidates_reconciled": false,
+      "original_status": "NO_EXACT_ACCESSION_IN_SCOPED_RETAINED_ORIGINAL_INVENTORY",
+      "original_filing_text_checked": false,
+      "first_public_utc": null,
+      "first_observed_utc": null,
+      "consolidated_scope_verified": false,
+      "comparability_verified": false,
+      "absolute_change": null,
+      "percentage_change": null,
+      "outcome_status": "INSUFFICIENT_EVIDENCE",
+      "next_review_action": "Read the exact accession original statements and contexts to establish start/end dates, unit, consolidation and comparative presentation before considering any change calculation."
+    },
+    {
+      "id": "199d4d8a1bc37532dea5ab516ae8e72ad0c7734f687e972c9b15ef8b9b3de72e",
+      "issuer_cik": "0000002969",
+      "issuer_name_as_filed": "AIR PRODUCTS & CHEMICALS, INC.",
+      "status": "PREPARED_REVENUE_REVIEW_CANDIDATE_NOT_COMPARABLE",
+      "filing_batch": "q3_2026_filing_batch",
+      "accession": "0000002969-26-000036",
+      "form_as_filed": "10-Q",
+      "amendment_as_filed": false,
+      "filing_date_as_filed": "20260730",
+      "submission_report_period_as_filed": "20260630",
+      "fiscal_year_as_filed": "2026",
+      "fiscal_period_as_filed": "Q3",
+      "source_sub_rowid": 2,
+      "source_sub_row_sha256": "dc5be70a5f2c156f235b84c4863390c2725afbac6b647f95c616464cdb4c3cf7",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000036/0000002969-26-000036-index.html",
+      "source_link_verified_by_fetch": false,
+      "facts": [
+        {
+          "candidate_role": "current",
+          "metric": "Revenues",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "3161000000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20260630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 1109,
+          "source_row_sha256": "9618d469dc60922a5d22b034e91ec624c0e7b30787e384ccdbd23552e9e29fc7",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        },
+        {
+          "candidate_role": "prior",
+          "metric": "Revenues",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "3022700000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20250630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 1055,
+          "source_row_sha256": "8efed6ff18796d180d4da4fe167ba34e267b828f4ee8dcd99733c92be8b87394",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        }
+      ],
+      "taxonomy": {
+        "rowid": 4876,
+        "tag": "Revenues",
+        "version": "us-gaap/2026",
+        "custom": "0",
+        "abstract": "0",
+        "datatype": "monetary",
+        "iord": "D"
+      },
+      "source_tag_row_sha256": "6bdf296e197748de699ba968e59617538ad85e28115a78b8e1422e369b9ab4b1",
+      "presentation": [
+        {
+          "rowid": 123,
+          "adsh": "0000002969-26-000036",
+          "report": "2",
+          "line": "1",
+          "stmt": "IS",
+          "inpth": "0",
+          "rfile": "H",
+          "tag": "Revenues",
+          "version": "us-gaap/2026",
+          "plabel": "Sales",
+          "negating": "0"
+        }
+      ],
+      "source_pre_row_sha256": {
+        "123": "25792e9ee24e80cd8982dc35b762cb102a48959f68c17831b7e41ee2516b279e"
+      },
+      "source_archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "other_candidate_pairs_for_issuer_not_shown": 2,
+      "other_candidates_reconciled": false,
+      "original_status": "NO_EXACT_ACCESSION_IN_SCOPED_RETAINED_ORIGINAL_INVENTORY",
+      "original_filing_text_checked": false,
+      "first_public_utc": null,
+      "first_observed_utc": null,
+      "consolidated_scope_verified": false,
+      "comparability_verified": false,
+      "absolute_change": null,
+      "percentage_change": null,
+      "outcome_status": "INSUFFICIENT_EVIDENCE",
+      "next_review_action": "Read the exact accession original statements and contexts to establish start/end dates, unit, consolidation and comparative presentation before considering any change calculation."
+    },
+    {
+      "id": "b888b4c4e0ba9c66d55db0b13ec69e3dd4fe5bec5d6a6e1db395845861402e1e",
+      "issuer_cik": "0000003197",
+      "issuer_name_as_filed": "CECO ENVIRONMENTAL CORP",
+      "status": "PREPARED_REVENUE_REVIEW_CANDIDATE_NOT_COMPARABLE",
+      "filing_batch": "q3_2026_filing_batch",
+      "accession": "0001193125-26-342536",
+      "form_as_filed": "10-Q",
+      "amendment_as_filed": false,
+      "filing_date_as_filed": "20260810",
+      "submission_report_period_as_filed": "20260630",
+      "fiscal_year_as_filed": "2026",
+      "fiscal_period_as_filed": "Q2",
+      "source_sub_rowid": 2244,
+      "source_sub_row_sha256": "0fdbb6d9164def35e448b2adb33d83557fb28816e5a880df7dd1471eb82092cc",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/3197/000119312526342536/0001193125-26-342536-index.html",
+      "source_link_verified_by_fetch": false,
+      "facts": [
+        {
+          "candidate_role": "current",
+          "metric": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "284961000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20260630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 1323729,
+          "source_row_sha256": "7b520fc2c012491ffee70e5d34537905fcb8bfb7b376c999c95ae42113452173",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        },
+        {
+          "candidate_role": "prior",
+          "metric": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "taxonomy_as_reported": "us-gaap/2026",
+          "value_as_reported": "185391000.0000",
+          "unit_as_reported": "USD",
+          "reported_context_date_as_filed": "20250630",
+          "quarters_as_reported": "1",
+          "segments_as_reported": "",
+          "coreg_as_reported": "",
+          "footnote_as_reported": "",
+          "source_num_rowid": 1323709,
+          "source_row_sha256": "57d5abfb3ce29ca6c665a606a4680b39fd3223a9057b29f77b918c9dbe860c99",
+          "exact_period_start": null,
+          "exact_period_end_verified": false
+        }
+      ],
+      "taxonomy": {
+        "rowid": 8251,
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "version": "us-gaap/2026",
+        "custom": "0",
+        "abstract": "0",
+        "datatype": "monetary",
+        "iord": "D"
+      },
+      "source_tag_row_sha256": "c067cea98fc87e3510f02ac3ce51f2df46fca679b36da7dcccb9e26eade1d765",
+      "presentation": [
+        {
+          "rowid": 263925,
+          "adsh": "0001193125-26-342536",
+          "report": "4",
+          "line": "1",
+          "stmt": "IS",
+          "inpth": "0",
+          "rfile": "H",
+          "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "version": "us-gaap/2026",
+          "plabel": "Net sales",
+          "negating": "0"
+        }
+      ],
+      "source_pre_row_sha256": {
+        "263925": "3b58ddf482e263742354e33945f82141a5743dc39e055866f22deb0f2b8ded75"
+      },
+      "source_archive_sha256": "b6ebdc56b78526a6423f5b99f6e355afcb0510e7264324300ee5f0d3bd1bad21",
+      "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+      "other_candidate_pairs_for_issuer_not_shown": 2,
+      "other_candidates_reconciled": false,
+      "original_status": "NO_EXACT_ACCESSION_IN_SCOPED_RETAINED_ORIGINAL_INVENTORY",
+      "original_filing_text_checked": false,
+      "first_public_utc": null,
+      "first_observed_utc": null,
+      "consolidated_scope_verified": false,
+      "comparability_verified": false,
+      "absolute_change": null,
+      "percentage_change": null,
+      "outcome_status": "INSUFFICIENT_EVIDENCE",
+      "next_review_action": "Read the exact accession original statements and contexts to establish start/end dates, unit, consolidation and comparative presentation before considering any change calculation."
+    }
+  ],
+  "limitations": [
+    "Purposeful retrospective lowest-CIK diagnostic sample, not representative or selected for performance. Most recent means only among these retained candidate batches.",
+    "Prepared values match raw archive fields; qtrs and rounded context dates do not establish exact durations or accounting comparability. Empty dimensions do not prove consolidated scope.",
+    "Each selected pair remains unqualified. Missing originals refer only to the explicit checked inventory; no network availability or global absence claim.",
+    "Other candidate filings and all upstream rejection categories remain in pinned inputs. No values are reconciled, amendments collapsed, or conflicts overwritten.",
+    "No change arithmetic, forecasts, prices, timing eligibility, security mapping, training admission or trading actions. Existing108 queue is unchanged."
+  ],
+  "training_ready": false,
+  "execution_ready": false
+}
