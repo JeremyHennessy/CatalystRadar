@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "audit_as_of": "2026-11-18T03:19:50Z",
+  "public_history": {
+    "source": "GITHUB_WORKFLOW_RUNS_API",
+    "total_count": 6,
+    "pagination_next": null,
+    "runs": [
+      {
+        "run_id": 44223484988,
+        "created_at": "2026-11-18T02:28:15Z",
+        "job": {
+          "id": 134530858947,
+          "name": "observe",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 44223484988,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run python3 -m unittest discover -s backend -p 'test_*.py'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run python3 backend/build_dashboard.py --preserve-research-report",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 4
+            },
+            {
+              "name": "Run git config user.name 'github-actions[bot]'",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 5
+            },
+            {
+              "name": "Run python3 backend/publish_observations.py",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        "gate_evidence": "OUTSIDE_TRIAL_WINDOW",
+        "receipt_path": null
+      },
+      {
+        "run_id": 44163556564,
+        "created_at": "2026-11-17T19:54:12Z",
+        "job": {
+          "id": 134323481060,
+          "name": "observe",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 44163556564,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run python3 -m unittest discover -s backend -p 'test_*.py'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run python3 backend/build_dashboard.py --preserve-research-report",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run git config user.name 'github-actions[bot]'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run python3 backend/publish_observations.py",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        "gate_evidence": null,
+        "receipt_path": "data/sec-observations/20261117T195421146121Z.json"
+      },
+      {
+        "run_id": 44139510493,
+        "created_at": "2026-11-17T17:40:10Z",
+        "job": {
+          "id": 134238122172,
+          "name": "observe",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 44139510493,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run python3 -m unittest discover -s backend -p 'test_*.py'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run python3 backend/build_dashboard.py --preserve-research-report",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run git config user.name 'github-actions[bot]'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run python3 backend/publish_observations.py",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        "gate_evidence": null,
+        "receipt_path": "data/sec-observations/20261117T174017624874Z.json"
+      },
+      {
+        "run_id": 44126305984,
+        "created_at": "2026-11-17T16:29:14Z",
+        "job": {
+          "id": 134190939978,
+          "name": "observe",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 44126305984,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run echo \"allowed=$(python3 backend/trial_gate.py)\" >> \"$GITHUB_OUTPUT\"",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run python3 -m unittest discover -s backend -p 'test_*.py'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run git config user.name 'github-actions[bot]'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run python3 backend/publish_observations.py",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        "gate_evidence": null,
+        "receipt_path": "data/sec-observations/20261117T162921498482Z.json"
+      },
+      {
+        "run_id": 44013891129,
+        "created_at": "2026-11-17T03:58:28Z",
+        "job": {
+          "id": 133807086662,
+          "name": "observe",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 44013891129,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run echo \"allowed=$(python3 backend/trial_gate.py)\" >> \"$GITHUB_OUTPUT\"",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run python3 -m unittest discover -s backend -p 'test_*.py'",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 4
+            },
+            {
+              "name": "Run git config user.name 'github-actions[bot]'",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 5
+            },
+            {
+              "name": "Run python3 backend/publish_observations.py",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        "gate_evidence": "WINDOW_GATE_OUTPUT_FALSE",
+        "receipt_path": null
+      },
+      {
+        "run_id": 43956540805,
+        "created_at": "2026-11-16T21:05:50Z",
+        "job": {
+          "id": 133612467808,
+          "name": "observe",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 43956540805,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run echo \"allowed=$(python3 backend/trial_gate.py)\" >> \"$GITHUB_OUTPUT\"",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run python3 -m unittest discover -s backend -p 'test_*.py'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run git config user.name 'github-actions[bot]'",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run python3 backend/publish_observations.py",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        "gate_evidence": null,
+        "receipt_path": "data/sec-observations/20261116T210556263571Z.json"
+      }
+    ]
+  },
+  "private_history": {
+    "source": "SIGNED_IN_WORKFLOW_LIST_AND_JOB_STEPS",
+    "listed_count": 3,
+    "runs": [
+      {
+        "run_id": 44172913902,
+        "created_at": "2026-11-17T20:46:59Z",
+        "job": {
+          "id": 134356491132,
+          "name": "collect",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 44172913902,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Load reviewed public collector",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Private collection only",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Reverify privacy and retain private snapshots",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Load reviewed public collector",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        }
+      },
+      {
+        "run_id": 43964984450,
+        "created_at": null,
+        "job": {
+          "id": 133641934728,
+          "name": "collect",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 43964984450,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Load reviewed public collector",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Private collection only",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Reverify privacy and retain private snapshots",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Load reviewed public collector",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        }
+      },
+      {
+        "run_id": 43628448789,
+        "created_at": null,
+        "job": {
+          "id": 132549490356,
+          "name": "collect",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 43628448789,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Load reviewed public collector",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Private collection only",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Reverify privacy and retain private snapshots",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Load reviewed public collector",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        }
+      }
+    ],
+    "latest_receipt": {
+      "observed_utc": "2026-11-17T20:49:18.653849+00:00",
+      "saved_snapshots": 11,
+      "sessions_per_snapshot": 100,
+      "blob": "51daf3312f9bc79d12eb2e370590d0b379fdfe32"
+    }
+  },
+  "unlinked_sec_receipts": [
+    "data/sec-observations/20261115T021704113580Z.json",
+    "data/sec-observations/20261116T181527938922Z.json",
+    "data/sec-observations/20261117T142027564955Z.json"
+  ]
+}
