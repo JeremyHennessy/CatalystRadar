@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_DISCLOSURE_FILING_CATALOG_NOT_CONFIRMED_DEALS",
+  "generated_at": "2026-11-18T01:00:18.359038+00:00",
+  "filings": 466,
+  "issuer_ciks": 454,
+  "disclosure_records": 546,
+  "records_with_dimensions": 8,
+  "source_url": "https://www.sec.gov/files/dera/data/financial-statement-notes-data-sets/2026_10_notes.zip",
+  "source_archive_sha256": "44d1b48909babe6611fcf59ff5bd273281616acbf2b91567e9597a51f924cee1",
+  "database_sha256": "f2e9a91fb48a3c91fc47d2eff55d4cc63f77157cabab9e96278815621f10e597",
+  "selection": {
+    "tags": [
+      "BusinessCombinationDisclosureTextBlock",
+      "MergersAcquisitionsAndDispositionsDisclosuresTextBlock",
+      "DisposalGroupsIncludingDiscontinuedOperationsDisclosureTextBlock",
+      "AssetAcquisitionTextBlock"
+    ],
+    "taxonomy_versions": [
+      "us-gaap/2025",
+      "us-gaap/2026"
+    ],
+    "custom": "0",
+    "abstract": "0",
+    "datatype": "textBlock"
+  },
+  "metadata": {
+    "sha256": "e9ff960153c9ea13c4afd3ba049a46e61d30699989c126303ca093c81451c036",
+    "byte_count": 215476
+  },
+  "filing_date_min": "2026-10-01",
+  "filing_date_max": "2026-10-30",
+  "link_status": "CONSTRUCTED_FROM_FILED_IDENTIFIERS_NOT_FETCH_VERIFIED",
+  "verified_events": 0,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Historical filing evidence selected by exact standard concepts, not confirmed deals, new announcements or investment signals.",
+    "Names and forms are as filed. CIK identifies the reporting issuer, not a target or security. No current identity, listing or ticker inference.",
+    "Filing dates are dates only, not earliest public, announcement, transaction or effective times. Text may discuss prior periods or accounting updates.",
+    "Concept counts include repeated contexts and dimensions. Multiple concepts may describe the same activity; no deduplication into events.",
+    "Links use standard SEC archive paths constructed from source CIK/accession. Availability was not fetched or independently verified; use SEC issuer search if unavailable.",
+    "No narratives, amounts, counterparties, owner details, source addresses or inferred deal fields are included. Names must be rendered as inert text.",
+    "The narrow concept/version selection is not complete M&A coverage; absence does not mean no acquisition or disposal.",
+    "Review original filings and announcements before interpreting. Price/outcome, materiality, novelty and historical availability are unqualified."
+  ]
+}
