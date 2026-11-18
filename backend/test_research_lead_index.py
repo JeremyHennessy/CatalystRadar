@@ -1,4 +1,4 @@
-import copy,hashlib,json,unittest
+import copy,hashlib,json,unittest,subprocess,sys,tempfile
 from pathlib import Path
 from research_lead_index import PATHS,build,index
 ROOT=Path(__file__).resolve().parents[1]
@@ -6,9 +6,30 @@ class LeadIndexTest(unittest.TestCase):
  def setUp(self):
   self.data={k:json.loads((ROOT/v).read_bytes()) for k,v in PATHS.items()};self.pins={k:hashlib.sha256((ROOT/v).read_bytes()).hexdigest() for k,v in PATHS.items()}
  def test_deterministic_complete_index(self):
-  a=build(ROOT,self.pins);self.assertEqual(a,build(ROOT,self.pins));self.assertEqual(a['counts'],{'company_entries':107,'financial_review_issuers':106,'reported_comparison_only_issuers':1,'financial_contexts':605,'with_selected_insider_filings':36,'with_selected_disclosure_filings':5})
-  rows=a['records'];self.assertEqual(len({r['issuer_cik'] for r in rows}),107);self.assertEqual([r['issuer_cik'] for r in rows],sorted(r['issuer_cik'] for r in rows))
+  a=build(ROOT,self.pins);self.assertEqual(a,build(ROOT,self.pins));self.assertEqual(a['counts'],{'company_entries':108,'financial_review_issuers':106,'reported_comparison_only_issuers':1,'reported_financing_only_issuers':1,'financial_contexts':605,'with_selected_insider_filings':37,'with_selected_disclosure_filings':5})
+  rows=a['records'];self.assertEqual(len({r['issuer_cik'] for r in rows}),108);self.assertEqual([r['issuer_cik'] for r in rows],sorted(r['issuer_cik'] for r in rows))
   for r in rows:self.assertFalse(r['training_ready']);self.assertFalse(r['execution_ready']);self.assertIsNone(r['first_public_utc']);self.assertNotIn('score',r)
+ def test_documented_cli_reproduces(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   out=Path(tmp)/'index.json';args=[sys.executable,str(ROOT/'backend/research_lead_index.py'),'--root',str(ROOT),'--out',str(out)]
+   for key,value in self.pins.items():args+=['--'+key.replace('_','-')+'-sha',value]
+   subprocess.run(args,check=True,capture_output=True,timeout=30)
+   self.assertEqual(json.loads(out.read_bytes()),build(ROOT,self.pins))
+ def test_emerson_identity_and_separate_source_links(self):
+  a=build(ROOT,self.pins);r=next(r for r in a['records'] if r['issuer_cik']=='0000032604')
+  self.assertEqual(len(r['insider_filing_refs']),3);self.assertEqual(r['financial_case_ids'],[]);self.assertEqual(r['evidence_url'],'company.html#debt-offering');self.assertEqual(r['financial_coverage'],'NOT_IN_EXISTING_FINANCIAL_REVIEW_COHORT')
+ def test_old_entries_preserved(self):
+  old=json.loads((ROOT/'web/company-findings/research-lead-index-v2.json').read_bytes());new=build(ROOT,self.pins)
+  self.assertEqual(old['records'],[r for r in new['records'] if r['issuer_cik']!='0000032604'])
+ def test_emerson_changed_facts_identity_and_duplicate_reject(self):
+  original=copy.deepcopy(self.data)
+  for kind in ('cik','debt','refs','qualification'):
+   self.data=copy.deepcopy(original)
+   if kind=='cik':self.data['emerson']['issuer']['cik']='0000000001'
+   elif kind=='debt':self.data['emerson']['facts']['previously_announced']=False
+   elif kind=='qualification':next(r for r in self.data['watchlist_insider']['filings'] if r['issuer_cik']=='0000032604')['original_reviewed']=True
+   else:self.data['watchlist_insider']['filings'].append(copy.deepcopy(self.data['watchlist_insider']['filings'][0]))
+   with self.subTest(kind=kind),self.assertRaises(ValueError):index(self.data,self.pins)
  def test_holdings_unknown_not_zero_positions(self):
   a=index(self.data,self.pins)
   self.assertFalse(a['holdings_linkage']['company_holdings_assessed']);self.assertIsNone(a['holdings_linkage']['company_position_count'])
