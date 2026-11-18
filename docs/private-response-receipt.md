@@ -1,0 +1,13 @@
+# Offline private response classification compatibility
+
+The protected private collector currently catches failures with one secret-safe generic stop. This new pure helper makes a future runner's response classification testable without changing that collector, its pin, credentials, request budget, trial dates, workflow, or retry behavior. It imports no network or persistence tools and is not imported by any production collector. No source request or new real failure is claimed.
+
+`private_response_receipt.receipt` accepts caller-supplied transport state, HTTP status/body and an aware observation clock. It returns only fixed classifications, normalized clock, supplied status and false qualification flags. No response text, exception, header, URL, key, symbol, quote or derived price value is emitted. The caller's clock and transport evidence are not independently authenticated. A future private runner must bind them to actual request and immutable storage receipts; this output alone proves neither execution nor persistence.
+
+HTTP401,403,429 and redirects are distinguished from non-200 errors. HTTP429 establishes only the supplied HTTP rate-limit response, not a daily/monthly quota balance. Provider `Information`, `Note` and `Error Message` bodies can describe several different causes; their wording is not used to guess authentication, premium rights or quota exhaustion. Mixed messages and data remain conflicted. Duplicate JSON fields at any depth, nonfinite constants, malformed encoding, oversized/bound-reached bodies and unknown schemas fail closed. Empty body/series never becomes a valid empty dataset.
+
+A structurally recognizable daily response is a **candidate, not successful collection**. Calendar freshness, exact symbol/timezone, OHLCV validity, corporate actions, rights and account quotas remain the existing validators' responsibility. Deliberately invalid prices/dates in tests still produce only the nonvalidated candidate state; no admission flag can become true. All paths forbid retries and leave collection/execution/training disabled.
+
+This does not yet fix production reporting. Activation remains blocked until an independently reviewed runner wires trusted request evidence and secret-safe error handling to private append-only receipts, preserves partial-run/no-retry rules, verifies quota consumers/free Actions capacity, and passes pin-compatibility review. Existing historical receipts are not reclassified from generic log text.
+
+Run `python3 -m unittest discover -s backend -p test_private_response_receipt.py`. Tests use synthetic values only. No raw licensed market data or actual credentials are fixtures.
