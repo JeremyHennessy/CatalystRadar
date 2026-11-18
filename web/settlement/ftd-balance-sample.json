@@ -1,0 +1,677 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_OUTSTANDING_SETTLEMENT_BALANCES_NOT_TRADING_SIGNAL",
+  "selection": "First five lexicographically smallest source CUSIPs in the entire retained file; every source settlement date shown. Diagnostic selection after inspecting batch coverage, not a representative sample or performance ranking.",
+  "counts": {
+    "source_rows": 63157,
+    "source_cusips": 13097,
+    "source_settlement_dates": 12,
+    "selected_cusips": 5,
+    "reported_selected_observations": 22,
+    "unreported_selected_date_slots": 38
+  },
+  "settlement_dates_as_reported": [
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30"
+  ],
+  "series": [
+    {
+      "cusip_as_reported": "00032Q104",
+      "identity_scope": "SOURCE_CUSIP_ONLY_NOT_VERIFIED_ISSUER_OR_CURRENT_SECURITY",
+      "issuer_cik": null,
+      "issuer_mapping_verified": false,
+      "current_security_identity_verified": false,
+      "observations": [
+        {
+          "settlement_date_as_reported": "2026-10-15",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-16",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-19",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-20",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-21",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-22",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-23",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-26",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "188",
+          "symbol_as_reported": "WHWK",
+          "description_as_reported": "WHITEHAWK THERAPEUTICS, INC. C",
+          "source_row": {
+            "sqlite_rowid": 37332,
+            "archive_line_1based": 37333,
+            "full_six_field_canonical_sha256": "6033aa096720db8a47f0c959dfb75ce44b6c92ee8e89e81f99d660c68b1a8e41"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-27",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-28",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-29",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-30",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        }
+      ],
+      "reported_observations": 1,
+      "unreported_date_slots": 11
+    },
+    {
+      "cusip_as_reported": "000360206",
+      "identity_scope": "SOURCE_CUSIP_ONLY_NOT_VERIFIED_ISSUER_OR_CURRENT_SECURITY",
+      "issuer_cik": null,
+      "issuer_mapping_verified": false,
+      "current_security_identity_verified": false,
+      "observations": [
+        {
+          "settlement_date_as_reported": "2026-10-15",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-16",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-19",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-20",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-21",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-22",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-23",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-26",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "10",
+          "symbol_as_reported": "AAON",
+          "description_as_reported": "AAON INC",
+          "source_row": {
+            "sqlite_rowid": 37333,
+            "archive_line_1based": 37334,
+            "full_six_field_canonical_sha256": "eb21e7a96443f506e7a6c8e3fed87ac2130bddf6e66a2bc2e966da53cb201fce"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-27",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-28",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "428",
+          "symbol_as_reported": "AAON",
+          "description_as_reported": "AAON INC",
+          "source_row": {
+            "sqlite_rowid": 47652,
+            "archive_line_1based": 47653,
+            "full_six_field_canonical_sha256": "76c318a7a002deebb4f5dcdb3ddd2c266203f2aef29e8f0ada52d43cf2e8667c"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-29",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-30",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        }
+      ],
+      "reported_observations": 2,
+      "unreported_date_slots": 10
+    },
+    {
+      "cusip_as_reported": "000375204",
+      "identity_scope": "SOURCE_CUSIP_ONLY_NOT_VERIFIED_ISSUER_OR_CURRENT_SECURITY",
+      "issuer_cik": null,
+      "issuer_mapping_verified": false,
+      "current_security_identity_verified": false,
+      "observations": [
+        {
+          "settlement_date_as_reported": "2026-10-15",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "7826",
+          "symbol_as_reported": "ABBNY",
+          "description_as_reported": "ABB LTD ADS ( 1 REG SHS)",
+          "source_row": {
+            "sqlite_rowid": 436,
+            "archive_line_1based": 437,
+            "full_six_field_canonical_sha256": "919889eac2a4d6f2cb6562e0d62d52752dc41a477ed882bf8c860a813935b414"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-16",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-19",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-20",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-21",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-22",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-23",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-26",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "50",
+          "symbol_as_reported": "ABBNY",
+          "description_as_reported": "ABB LTD ADS ( 1 REG SHS)",
+          "source_row": {
+            "sqlite_rowid": 37334,
+            "archive_line_1based": 37335,
+            "full_six_field_canonical_sha256": "501e6ac9bb6f0b98e6193e6f340ffd1fd473398aa22af31d86a2022ed9e2bb13"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-27",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "57",
+          "symbol_as_reported": "ABBNY",
+          "description_as_reported": "ABB LTD ADS ( 1 REG SHS)",
+          "source_row": {
+            "sqlite_rowid": 42458,
+            "archive_line_1based": 42459,
+            "full_six_field_canonical_sha256": "f38c878a207384fe83c2b030850ff466cae6d6888b5e58202809c9f266216747"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-28",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-29",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-30",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        }
+      ],
+      "reported_observations": 3,
+      "unreported_date_slots": 9
+    },
+    {
+      "cusip_as_reported": "00039J103",
+      "identity_scope": "SOURCE_CUSIP_ONLY_NOT_VERIFIED_ISSUER_OR_CURRENT_SECURITY",
+      "issuer_cik": null,
+      "issuer_mapping_verified": false,
+      "current_security_identity_verified": false,
+      "observations": [
+        {
+          "settlement_date_as_reported": "2026-10-15",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-16",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-19",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-20",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-21",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-22",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-23",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "6",
+          "symbol_as_reported": "YEAR",
+          "description_as_reported": "AB ACTIVE ETFS INC ULTRA SHORT",
+          "source_row": {
+            "sqlite_rowid": 32212,
+            "archive_line_1based": 32213,
+            "full_six_field_canonical_sha256": "4deb8127569a627a1d16d46d83c214ca59b0c2eb9b2b0c9d9019491b75e252fd"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-26",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-27",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "112",
+          "symbol_as_reported": "YEAR",
+          "description_as_reported": "AB ACTIVE ETFS INC ULTRA SHORT",
+          "source_row": {
+            "sqlite_rowid": 42459,
+            "archive_line_1based": 42460,
+            "full_six_field_canonical_sha256": "8ca57fb42b5178424a28deec3ba4787baa489ac9518980ee7464f1efb21ed206"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-28",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "17",
+          "symbol_as_reported": "YEAR",
+          "description_as_reported": "AB ACTIVE ETFS INC ULTRA SHORT",
+          "source_row": {
+            "sqlite_rowid": 47653,
+            "archive_line_1based": 47654,
+            "full_six_field_canonical_sha256": "d4249b3547d0c0574eccb3dbc9fbf57ccafcf2f100169bc233ff385cff1ef2ba"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-29",
+          "status": "NO_SOURCE_ROW",
+          "outstanding_fail_shares_as_reported": null,
+          "symbol_as_reported": null,
+          "description_as_reported": null,
+          "source_row": null
+        },
+        {
+          "settlement_date_as_reported": "2026-10-30",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "39",
+          "symbol_as_reported": "YEAR",
+          "description_as_reported": "AB ACTIVE ETFS INC ULTRA SHORT",
+          "source_row": {
+            "sqlite_rowid": 58117,
+            "archive_line_1based": 58118,
+            "full_six_field_canonical_sha256": "b6c7c90c8a476a31bbb38b8eb93234bd546805d551b369a8d0dd6925310971b8"
+          }
+        }
+      ],
+      "reported_observations": 4,
+      "unreported_date_slots": 8
+    },
+    {
+      "cusip_as_reported": "00039J202",
+      "identity_scope": "SOURCE_CUSIP_ONLY_NOT_VERIFIED_ISSUER_OR_CURRENT_SECURITY",
+      "issuer_cik": null,
+      "issuer_mapping_verified": false,
+      "current_security_identity_verified": false,
+      "observations": [
+        {
+          "settlement_date_as_reported": "2026-10-15",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "2480",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 437,
+            "archive_line_1based": 438,
+            "full_six_field_canonical_sha256": "ed27491dacbe1525516b96aae4be1471bdee53cfd8d7204503884a49a7f2baac"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-16",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "1975",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 5728,
+            "archive_line_1based": 5729,
+            "full_six_field_canonical_sha256": "ff5751f0a34bcfb0ebd1b4870cbd0e5fd1baca2915b386cc5ac6f2de9a610928"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-19",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "9622",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 10966,
+            "archive_line_1based": 10967,
+            "full_six_field_canonical_sha256": "d70197020164dd8c9c1a60f299ced85acee55616ce2cca3983361753785d93fa"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-20",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "9305",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 16704,
+            "archive_line_1based": 16705,
+            "full_six_field_canonical_sha256": "e980148a9f4d782a1a6f91633480b072b51fa2d894373dff2809b447e3fdeae0"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-21",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "2617",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 21898,
+            "archive_line_1based": 21899,
+            "full_six_field_canonical_sha256": "4497e621899dc455e55ab9a5e7396b99c3a08e8965a39fb68632f7880e89d3c8"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-22",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "374334",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 27021,
+            "archive_line_1based": 27022,
+            "full_six_field_canonical_sha256": "6da406544afb9df93bec6c6d5a05cf7eb096ce8c7591d0ab0946c058a90eca9c"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-23",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "25066",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 32213,
+            "archive_line_1based": 32214,
+            "full_six_field_canonical_sha256": "ca8eb560d10df2f4c9909765273b923342dc12903001d2c7e5455950865fb822"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-26",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "19069",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 37335,
+            "archive_line_1based": 37336,
+            "full_six_field_canonical_sha256": "6a9f4fe3207d62154e593ff443c14ef34ef6faa1a4ace8c66fc9d591715bfc56"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-27",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "1243",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 42460,
+            "archive_line_1based": 42461,
+            "full_six_field_canonical_sha256": "f3cf6623dc94ea0f59658aa17288ee95955344fcd6d5ab6f660db0b0a3081306"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-28",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "4235",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 47654,
+            "archive_line_1based": 47655,
+            "full_six_field_canonical_sha256": "b3469048ad466e87999f229162d14eb302d6ef3a93c977fcef2ff69ed144d62f"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-29",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "1718",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 53017,
+            "archive_line_1based": 53018,
+            "full_six_field_canonical_sha256": "d087853f5d25a77e2bbe18142054de2cf11f3df27adf5c32387e04b51b534697"
+          }
+        },
+        {
+          "settlement_date_as_reported": "2026-10-30",
+          "status": "REPORTED_BALANCE",
+          "outstanding_fail_shares_as_reported": "3308",
+          "symbol_as_reported": "TAFI",
+          "description_as_reported": "AB ACTIVE ETFS INC TAX-AWARE S",
+          "source_row": {
+            "sqlite_rowid": 58118,
+            "archive_line_1based": 58119,
+            "full_six_field_canonical_sha256": "263a9519321a9ba59fcff600dfc6d6a483afa003da2e2236b5157a628c095aa9"
+          }
+        }
+      ],
+      "reported_observations": 12,
+      "unreported_date_slots": 0
+    }
+  ],
+  "measure": "Aggregate net shares failing delivery outstanding on the stated settlement date, not new daily fails.",
+  "missing_convention": "NO_SOURCE_ROW retains a null numeric value rather than inventing an explicit source zero. SEC says zero net balances after September 16, 2008 produce no row. Absence is not a current-market or full-history claim.",
+  "provenance": {
+    "source_url": "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202610b.zip",
+    "guidance_url": "https://www.sec.gov/data/foiadocsfailsdatahtm",
+    "guidance_checked_date": "2026-11-18",
+    "source_zip_sha256": "d54748d8ecba8c56c3caf41e8d0cd9cc1886275dff7a9dbd9b1c4da87cf56178",
+    "database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+    "source_retrieved_utc": null,
+    "first_public_utc": null,
+    "historical_availability_verified": false
+  },
+  "limitations": [
+    "Do not sum balances across dates. No new-fail volume, age, carryover, resolution rate or common underlying participants are inferred.",
+    "Balances may involve long or short sales. This is not short interest, threshold-list status or evidence of abusive activity, manipulation or a squeeze.",
+    "CUSIP, symbol and description are source-reported identifiers/labels only; no issuer CIK, security-class continuity, corporate-action or current ticker mapping is established.",
+    "The selected descriptions include different instrument types. No independent common-stock classification is asserted.",
+    "Only this retained October2026 file is covered. Data accuracy, release timing and current balances are not guaranteed.",
+    "Previous-day prices are omitted; no dollar totals, returns, execution prices, participant identity or trade recommendations are computed."
+  ],
+  "training_ready": false,
+  "execution_ready": false,
+  "cross_date_balance_sum": null,
+  "short_interest": null,
+  "manipulation_assessed": false
+}
