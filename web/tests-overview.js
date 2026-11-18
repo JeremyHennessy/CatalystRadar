@@ -17,3 +17,10 @@ for(const bad of [{...h,retained_price_evidence:{...h.retained_price_evidence,ob
 for(const [file,key,value]of [['prepared/summary.json','insider_submission',38152],['holdings/summary.json','holdings_infotable',3830274],['prepared/summary.json','ftd',63157],['smalloffers/summary.json','cf_form_c_submission',559],['smalloffers/summary.json','rega_reg_a_submission',184]])assert.equal(count(load(file).table_rows[key]),value);
 assert.equal(count(load('notes/summary.json').submissions),6670);assert.equal(count(load('notes/summary.json').numeric_rows_missing_tag_definitions),49);assert.equal(count(load('formd/summary.json').submissions),15952);
 console.log('Malformed readiness and all six dataset counts checked.');
+const {insider}=require('./overview.js');
+const insiderEvidence=load('../docs/research/insider-code-diagnostics-2026-11-18.json');
+assert.deepEqual(insider(insiderEvidence),{total:59885,contradictions:82,footnotes:49551,amendments:979,at:'2026-11-18 00:26:53 UTC'});
+for(const bad of [null,{...insiderEvidence,training_ready:true},{...insiderEvidence,execution_ready:true},{...insiderEvidence,status:'SIGNALS'},{...insiderEvidence,audit_completed_at:'bad'},{...insiderEvidence,counts:{}},{...insiderEvidence,diagnostic_flag_counts:{...insiderEvidence.diagnostic_flag_counts,FOOTNOTE_CONTEXT_REQUIRED:59886}},{...insiderEvidence,diagnostic_flag_counts:{...insiderEvidence.diagnostic_flag_counts,AMENDMENT_NOT_RECONCILED:null}}])assert.throws(()=>insider(bad));
+// Overlapping flags are independently bounded by the total, never summed as distinct rows.
+assert.equal(insider({...insiderEvidence,diagnostic_flag_counts:{...insiderEvidence.diagnostic_flag_counts,FOOTNOTE_CONTEXT_REQUIRED:59885,AMENDMENT_NOT_RECONCILED:59885}}).total,59885);
+console.log('Insider aggregate schema, provenance date and overlapping-flag guards passed.');
