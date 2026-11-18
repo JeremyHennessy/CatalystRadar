@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "status": "ACQUISITION_DISPOSAL_DISCLOSURES_UNADJUDICATED",
+  "database_sha256": "f2e9a91fb48a3c91fc47d2eff55d4cc63f77157cabab9e96278815621f10e597",
+  "source_archive_sha256": "44d1b48909babe6611fcf59ff5bd273281616acbf2b91567e9597a51f924cee1",
+  "source_url": "https://www.sec.gov/files/dera/data/financial-statement-notes-data-sets/2026_10_notes.zip",
+  "selection": {
+    "tags": [
+      "BusinessCombinationDisclosureTextBlock",
+      "MergersAcquisitionsAndDispositionsDisclosuresTextBlock",
+      "DisposalGroupsIncludingDiscontinuedOperationsDisclosureTextBlock",
+      "AssetAcquisitionTextBlock"
+    ],
+    "taxonomy_versions": [
+      "us-gaap/2025",
+      "us-gaap/2026"
+    ],
+    "custom": "0",
+    "abstract": "0",
+    "datatype": "textBlock"
+  },
+  "counts": {
+    "disclosure_records": 546,
+    "filings": 466,
+    "issuer_ciks": 454,
+    "by_concept": {
+      "AssetAcquisitionTextBlock": 38,
+      "BusinessCombinationDisclosureTextBlock": 295,
+      "DisposalGroupsIncludingDiscontinuedOperationsDisclosureTextBlock": 130,
+      "MergersAcquisitionsAndDispositionsDisclosuresTextBlock": 83
+    },
+    "by_taxonomy_version": {
+      "us-gaap/2025": 38,
+      "us-gaap/2026": 508
+    },
+    "by_filing_form": {
+      "10-K": 28,
+      "10-K/A": 3,
+      "10-KT": 1,
+      "10-Q": 432,
+      "10-Q/A": 5,
+      "20-F": 13,
+      "6-K": 9,
+      "6-K/A": 1,
+      "8-K": 2,
+      "F-4/A": 1,
+      "POS AM": 3,
+      "S-1": 19,
+      "S-1/A": 16,
+      "S-4": 2,
+      "S-4/A": 11
+    },
+    "records_with_dimensions": 8,
+    "empty_text_records": 0,
+    "text_utf8_bytes": 2703647
+  },
+  "audit_completed_at": "2026-11-18T00:54:01.117516+00:00",
+  "source_retrieval_utc": null,
+  "source_first_public_utc": null,
+  "verified_events": 0,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Records are selected disclosure contexts, not unique deals, new announcements, completed transactions or trading signals. Multiple concepts and dimensions can describe the same activity.",
+    "A disclosure may contain prior-period activity, denial, planned transactions, accounting updates or no activity. No event, target, amount, materiality or novelty is extracted from taxonomy alone.",
+    "Accession, filing date, reporting period and source context dates are not announcement or effective dates. Retrospective collection is not historical decision-time availability.",
+    "Exact standard concepts and two taxonomy versions only; custom concepts, other versions and untagged disclosures are outside scope. Absence is not evidence of no acquisition or divestiture.",
+    "Raw prepared TXT including escaping, language, footnotes, duration, context and dimensions stays private and uninterpreted. It is not original filing byte evidence.",
+    "Full TXT canonical row hash excludes SQLite rowid; value hash covers UTF-8 of retained text exactly, without HTML unescape, normalization or inference.",
+    "Database and archive pins identify retained inputs. Prior full-field ingestion audit establishes derivation; this utility does not authenticate source clocks or independently prove database-to-archive derivation.",
+    "Queue fields remain unknown until source interpretation and independent temporal/security qualification. No paper-engine activation or price/outcome/model admission."
+  ]
+}
