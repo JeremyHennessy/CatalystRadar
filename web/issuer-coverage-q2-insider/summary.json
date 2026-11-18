@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_INSIDER_ISSUER_EXTENSION_NOT_SECURITY_MASTER",
+  "generated_at": "2026-11-18T01:25:17.435434+00:00",
+  "batch_id": "insider_2026q2",
+  "issuer_ciks": 5065,
+  "submissions": 56102,
+  "baseline": {
+    "sha256": "d2f865683fca6681b54295b144efc1e62d9950ae5ec0ac2d2290ffd08a01ef58",
+    "issuer_ciks": 7912
+  },
+  "combined_issuer_ciks": 8034,
+  "added_issuer_coverage": 122,
+  "source": {
+    "archive_sha256": "11f1b2bbbdcbe6347a34437c02d04202fda0eca1dbb023726e4b56504b802e27",
+    "database_sha256": "503b308fe6529dd2573f4e307e2855d672a407009b71b8b5eb453c4907859386",
+    "ingest_summary_sha256": "73f02a04b8168f65cf5ee1aed0d5b26eb53aaad81606491553e7fc6e6ef503e3",
+    "source_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+    "source_table": "insider_submission",
+    "filing_batch_start": "2026-04-01",
+    "filing_batch_end": "2026-06-30"
+  },
+  "issuer_metadata": {
+    "sha256": "f578d45f320c79a30e0a4201091a68fbbc86993345b3b4d87d2d5891c6a921b0",
+    "byte_count": 1033537
+  },
+  "simulation_enabled": false,
+  "training_ready": false,
+  "orders_created": 0,
+  "limitations": [
+    "Extension only: original six-batch issuer snapshot remains unchanged. Combined count deduplicates issuer CIK, not securities or current listings.",
+    "Source-associated names and reported tickers include placeholders and conflicting/as-filed names. No preferred/current name, valid ticker or historical security mapping is inferred.",
+    "Filing quarter is not transaction quarter; amendments remain separate source submissions. Names must render as inert text, never HTML.",
+    "No owner information, signatures, addresses, narrative or transaction values are included. No signals, economic totals or qualified outcomes.",
+    "Generation is local audit time; no download or first-public time is inferred. Database-to-archive derivation relies on the completed ingestion and independent field audit."
+  ]
+}
