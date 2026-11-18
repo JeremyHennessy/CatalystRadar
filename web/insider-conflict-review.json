@@ -1,0 +1,1559 @@
+{
+  "schema_version": 1,
+  "status": "BOUNDED_OFFLINE_SOURCE_REVIEW_QUEUE",
+  "filing_batch": "2026q2",
+  "generated_at": "2026-11-18T02:01:08.735399+00:00",
+  "selection_rule": "Every audited nonderivative row with P:D or S:A in Q2 filing-date batch; grouped by accession; max100 filings",
+  "source_archive_sha256": "11f1b2bbbdcbe6347a34437c02d04202fda0eca1dbb023726e4b56504b802e27",
+  "database_sha256": "503b308fe6529dd2573f4e307e2855d672a407009b71b8b5eb453c4907859386",
+  "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+  "audited_nonderivative_rows": 78328,
+  "conflicting_source_rows": 65,
+  "filings": 45,
+  "issuer_ciks": 34,
+  "collection_performed": false,
+  "execution_ready": false,
+  "training_ready": false,
+  "limitations": [
+    "This is a source-review queue, not evidence of erroneous filings, misconduct, market trades, coordinated intent, or profitable opportunities.",
+    "P/S includes open-market OR private transactions. Opposing acquisition/disposition fields remain as filed and unresolved.",
+    "Counts are source rows, not unique economic transactions or people. Amendments remain separate, not independent confirmations; Form 4/A may amend selected lines without repeating unchanged lines, so whole-filing replacement is not assumed.",
+    "Q2 is a filing-date batch, not a transaction quarter. Audit time is not download, first-public availability or a decision clock.",
+    "Footnote links have not been substantively reviewed; original filing and amendment lineage remain prerequisites.",
+    "No owner names, prices, quantities, currency, dollar totals or footnote narratives are published. No prediction, execution or training qualification is granted.",
+    "The archive is retained evidence; SEC search links are navigation aids, not verified original-document retrievals."
+  ],
+  "cards": [
+    {
+      "lead_id": "insider-field-conflict:2026q2:0000812295-26-000008",
+      "issuer_cik": "0002017579",
+      "accession": "0000812295-26-000008",
+      "filing_date": "2026-06-24",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "9013360",
+          "sha256": "0ef0979abbb01179641f750462bd3ae751c7d35b3fb97a1208a5fb3bc7e88dc4"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0000812295-26-000008",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0000929638-26-001773",
+      "issuer_cik": "0001872195",
+      "accession": "0000929638-26-001773",
+      "filing_date": "2026-05-06",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "TRANS_PRICEPERSHARE_ZERO": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8964358",
+          "sha256": "ef2983f6578527959e5dd82fdafdc10954564f22bdfb89a718d05c13a8b41fe7"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0000929638-26-001773",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0000935836-26-000208",
+      "issuer_cik": "0002091349",
+      "accession": "0000935836-26-000208",
+      "filing_date": "2026-04-22",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8954583",
+          "sha256": "7a0dcadd660e386369c14407b21153dd60b7fef42cdcf5f37c760744100666b4"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0000935836-26-000208",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001104659-26-039534",
+      "issuer_cik": "0001720592",
+      "accession": "0001104659-26-039534",
+      "filing_date": "2026-04-03",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "P:D": 2
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 2
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8943199",
+          "sha256": "65836b6f97e5752f29d3894dbabb96c0802d1f402b7199c50e788adcfd8a89f0"
+        },
+        {
+          "transaction_key": "8943198",
+          "sha256": "0480c0ac37d1e771d22f85c65f38a1be3a5c21b9ab8556d31a3c1437fd0f8ba8"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001104659-26-039534",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001104659-26-041600",
+      "issuer_cik": "0001720592",
+      "accession": "0001104659-26-041600",
+      "filing_date": "2026-04-09",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 3,
+      "reported_code_direction_counts": {
+        "P:D": 3
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 3
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8948018",
+          "sha256": "10b7bafdb051e14c9bec2e0610cf0c921829aeadd58c6a9921ad69e8807f07ad"
+        },
+        {
+          "transaction_key": "8948020",
+          "sha256": "9251bfdc32b185b1030f7fb9d51a2b6da6401c73e9fb804972ea97e746eb6e8b"
+        },
+        {
+          "transaction_key": "8948019",
+          "sha256": "041829e18ea120e77836786e5886e3f233162cb3a3711db62ba46e4aafe2a41b"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001104659-26-041600",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001104659-26-073241",
+      "issuer_cik": "0001835724",
+      "accession": "0001104659-26-073241",
+      "filing_date": "2026-06-12",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "9004288",
+          "sha256": "11bd9c07a59fdce7297b78e86212a71345f60f9571e6bae27cd13fd085493de0"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001104659-26-073241",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001106578-26-000062",
+      "issuer_cik": "0001082554",
+      "accession": "0001106578-26-000062",
+      "filing_date": "2026-05-27",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8986190",
+          "sha256": "9ece45610f447b58c96f987fc359e86beee4cb387238cdb2585fd4b949401cdc"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001106578-26-000062",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001178913-26-003004",
+      "issuer_cik": "0001534248",
+      "accession": "0001178913-26-003004",
+      "filing_date": "2026-06-01",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "P:D": 2
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8989440",
+          "sha256": "1935b90c5c12af226f02a9af98a1dd9d87b8f6b07036be4bead76cb9f3779adc"
+        },
+        {
+          "transaction_key": "8989441",
+          "sha256": "3fa04812061bb5f672e320da441fd71a887f5282c29483e12a0f4852bf32a5c2"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001178913-26-003004",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001193125-26-162187",
+      "issuer_cik": "0001824920",
+      "accession": "0001193125-26-162187",
+      "filing_date": "2026-04-17",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8952567",
+          "sha256": "f7bfd209b00ba72f25b4d974ef349b2233ebf7e5634dfa14e34069e07fd20626"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-162187",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001193125-26-220232",
+      "issuer_cik": "0002080921",
+      "accession": "0001193125-26-220232",
+      "filing_date": "2026-05-12",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8971902",
+          "sha256": "ff854e8aa0c813f6db774a253eeec079e42f40df41e02bf13d3a8b86d8a1db0d"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-220232",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001193125-26-241848",
+      "issuer_cik": "0002006100",
+      "accession": "0001193125-26-241848",
+      "filing_date": "2026-05-27",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8986251",
+          "sha256": "95ba0662bb25be7287de72d4f28e7820384ffcc5cacb9abd2ef41ec04888636e"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-241848",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001193125-26-273170",
+      "issuer_cik": "0001633917",
+      "accession": "0001193125-26-273170",
+      "filing_date": "2026-06-16",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "9007563",
+          "sha256": "52bd120e3a8de4a9a8800f55361468288284cfcfff309c5bd2a99b717f86358e"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001193125-26-273170",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001282208-26-000005",
+      "issuer_cik": "0000767405",
+      "accession": "0001282208-26-000005",
+      "filing_date": "2026-06-15",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "9006170",
+          "sha256": "b17bdaf398197aa52b978c40e3be46cc60954f54f79c8ec31f8b2de1d216ad3e"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001282208-26-000005",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001394670-26-000005",
+      "issuer_cik": "0001126741",
+      "accession": "0001394670-26-000005",
+      "filing_date": "2026-05-26",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8986360",
+          "sha256": "0c2cd4982eee9994c1affeb89661d96b68e666e8fc3de9f227d51063f979bb7b"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001394670-26-000005",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001475597-26-000089",
+      "issuer_cik": "0001726711",
+      "accession": "0001475597-26-000089",
+      "filing_date": "2026-06-17",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "9009394",
+          "sha256": "b968b073f19cb162bc02e38fe99c825483e77627d65ff783f1a48d7a8f2437b0"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001475597-26-000089",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001477932-26-002040",
+      "issuer_cik": "0001546853",
+      "accession": "0001477932-26-002040",
+      "filing_date": "2026-04-06",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8945555",
+          "sha256": "bb2c4207279b4f609a3cf12528cb7b9335cb982e825d47eea76f5c8b0107eea3"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001477932-26-002040",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001477932-26-002603",
+      "issuer_cik": "0001546853",
+      "accession": "0001477932-26-002603",
+      "filing_date": "2026-04-28",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "P:D": 2
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8957019",
+          "sha256": "be44882ac1b3b76f7041cccd1d6d086d897842937f1c187a3abf979066eb8381"
+        },
+        {
+          "transaction_key": "8957020",
+          "sha256": "dbc35ecf41c8a5af7686a1c85a1e2e770a4a6ea3e7cc746de6c4ebf4706df2c0"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001477932-26-002603",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001493152-26-020985",
+      "issuer_cik": "0001807887",
+      "accession": "0001493152-26-020985",
+      "filing_date": "2026-05-01",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 5,
+      "reported_code_direction_counts": {
+        "P:D": 5
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8960414",
+          "sha256": "adbef694f47fc09e5b4c7f335c48100fe43bfd31a26a793d94a194adb236f6d6"
+        },
+        {
+          "transaction_key": "8960416",
+          "sha256": "dc32d4f80c752b46db8d9debf205e2f50580213150f7f54a82c21b39b7e32af2"
+        },
+        {
+          "transaction_key": "8960418",
+          "sha256": "676ca15308c0a5ce206362cca43f3a3af0e7073de4b790794115e999304af8cb"
+        },
+        {
+          "transaction_key": "8960415",
+          "sha256": "14263e7e0034b8df7e02e4625e08244d63287c0db6f3f61ae92dc2abad48f00d"
+        },
+        {
+          "transaction_key": "8960417",
+          "sha256": "e027a8c5ec9c7da01645be1ba150270f9eb73cc0cef914efbe1bcaae3e7d6126"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001493152-26-020985",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001493152-26-023113",
+      "issuer_cik": "0001566610",
+      "accession": "0001493152-26-023113",
+      "filing_date": "2026-05-14",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8969592",
+          "sha256": "e2c55f8dce9c7910a585999ea42351cdfb2fe5369de419bd281ee6af8ad78d67"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001493152-26-023113",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001493152-26-023418",
+      "issuer_cik": "0001566610",
+      "accession": "0001493152-26-023418",
+      "filing_date": "2026-05-15",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8974327",
+          "sha256": "7d4647518ea064c1100e6382babddd1eedab7803d4d6e52dbd060e0c3a1647e6"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001493152-26-023418",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001494971-26-000002",
+      "issuer_cik": "0001481513",
+      "accession": "0001494971-26-000002",
+      "filing_date": "2026-05-19",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8975736",
+          "sha256": "c34108beaf68d6a41e29d2cfde0bc219c3f3f8832fc00070b8a6f495dc7aa1db"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001494971-26-000002",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001501552-26-000007",
+      "issuer_cik": "0001809750",
+      "accession": "0001501552-26-000007",
+      "filing_date": "2026-06-03",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "P:D": 2
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8993197",
+          "sha256": "b13ce63468eaf1d6053a625a60e440fb5aa2e6558a4bd8e16d103697c34d3427"
+        },
+        {
+          "transaction_key": "8993198",
+          "sha256": "29f6e207a3fcfcb08687a1e195fad88fb3be5d73bb6f8ef983819bdddb6c6339"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001501552-26-000007",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001501552-26-000009",
+      "issuer_cik": "0001809750",
+      "accession": "0001501552-26-000009",
+      "filing_date": "2026-06-16",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "9008866",
+          "sha256": "e03521d66fdd39edd9a303d7104846773e74e5594e6a6acd209e65bd09757b41"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001501552-26-000009",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001510281-26-000141",
+      "issuer_cik": "0001864843",
+      "accession": "0001510281-26-000141",
+      "filing_date": "2026-04-03",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "P:D": 2
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8943458",
+          "sha256": "4da86d236b211b636d2628e796fec3e91440a8e8c0e64b2636843080c4c607c2"
+        },
+        {
+          "transaction_key": "8943457",
+          "sha256": "a71c4177a58c42d348a88232e476b3fee4c867aace7cc2b7540b617e4d66bfda"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001510281-26-000141",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001651625-26-000005",
+      "issuer_cik": "0001651625",
+      "accession": "0001651625-26-000005",
+      "filing_date": "2026-04-16",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8950880",
+          "sha256": "5dce154a67ee41d82dc606a3166d7a6b4eb7bf90e9e92536b1dd8ca5c1380906"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001651625-26-000005",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001654954-26-004431",
+      "issuer_cik": "0001075736",
+      "accession": "0001654954-26-004431",
+      "filing_date": "2026-05-06",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8964689",
+          "sha256": "9d68143493646a45e9ddc605f02fb4027192e6cad976839284262ca31fcc5985"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001654954-26-004431",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001654954-26-004434",
+      "issuer_cik": "0001075736",
+      "accession": "0001654954-26-004434",
+      "filing_date": "2026-05-06",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8965023",
+          "sha256": "77317d64ca572a479c5523ed8e43b5fe645e8f9dd2957f992602b3cf8a26c1c0"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001654954-26-004434",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001786095-26-000004",
+      "issuer_cik": "0001704715",
+      "accession": "0001786095-26-000004",
+      "filing_date": "2026-06-04",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8995940",
+          "sha256": "a91347dedf361411f7dba3bc7993624adaa484c70dd321726e7d9817b0e50a48"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001786095-26-000004",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001794034-26-000004",
+      "issuer_cik": "0000884624",
+      "accession": "0001794034-26-000004",
+      "filing_date": "2026-05-29",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8989315",
+          "sha256": "212e602830b0fe96c26c2c67ccaff20ee1ac9d20481e3864d45e8afc25cf30e4"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001794034-26-000004",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001815638-26-000005",
+      "issuer_cik": "0000921299",
+      "accession": "0001815638-26-000005",
+      "filing_date": "2026-05-18",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8976169",
+          "sha256": "23472669a74519f99db463ca38a1150149d05e0feab70f115b9aebaeac656a77"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001815638-26-000005",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001872303-26-000006",
+      "issuer_cik": "0001535527",
+      "accession": "0001872303-26-000006",
+      "filing_date": "2026-06-22",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1,
+        "TRANS_PRICEPERSHARE_ZERO": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "9010985",
+          "sha256": "ab91788f25f991a2640405595e606f084a512deaafd34812d3b8e4a03783bcfd"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001872303-26-000006",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001881949-26-000003",
+      "issuer_cik": "0000945114",
+      "accession": "0001881949-26-000003",
+      "filing_date": "2026-04-01",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 3,
+      "reported_code_direction_counts": {
+        "S:A": 3
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8939009",
+          "sha256": "2666dfc7668648c88b3eeeb92e41adbaefc7659dc32fd66ae181f111976866f4"
+        },
+        {
+          "transaction_key": "8939008",
+          "sha256": "9536b47afe576b7783ad09ab37a20acb4e513511cad3faa7fd6e437ccad9e41e"
+        },
+        {
+          "transaction_key": "8939002",
+          "sha256": "e46fd3b976b6cff8bebaccc6104e80a3e558f4f249cb8e9ae6288e684352185c"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001881949-26-000003",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001927715-26-000008",
+      "issuer_cik": "0001341170",
+      "accession": "0001927715-26-000008",
+      "filing_date": "2026-04-16",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "P:D": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8951347",
+          "sha256": "a5a42420a37f1e7a960e1608fc7786ae80acbb9edea1a105574f3ebc843a4537"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001927715-26-000008",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0001978604-26-000002",
+      "issuer_cik": "0001386716",
+      "accession": "0001978604-26-000002",
+      "filing_date": "2026-04-16",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8950541",
+          "sha256": "60b8caa7297014122d837e5984044c1d6f85066f9ca2340ddfa48937cebeddd8"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0001978604-26-000002",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002003074-26-000004",
+      "issuer_cik": "0001114995",
+      "accession": "0002003074-26-000004",
+      "filing_date": "2026-05-12",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 4,
+      "reported_code_direction_counts": {
+        "S:A": 4
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 4,
+        "DEEMED_EXECUTION_DATE_REQUIRES_REVIEW": 4
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8970770",
+          "sha256": "07473d896555d656cb0663c4728432ef1f39ecf31cb68c2dfaafc92b21069d71"
+        },
+        {
+          "transaction_key": "8970773",
+          "sha256": "c0d5255bffad1f5e46fd4877dda5566887d363d525f1142ca517d55e2eb863f6"
+        },
+        {
+          "transaction_key": "8970772",
+          "sha256": "3674868868b08c9b0293d7abe19de88cd877562d6281146671a821b07856372f"
+        },
+        {
+          "transaction_key": "8970771",
+          "sha256": "808350a0858bc3f41dc08959959e0f5cddd8fdd754e4c0e948e57083524c6b60"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002003074-26-000004",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002005037-26-000007",
+      "issuer_cik": "0001386716",
+      "accession": "0002005037-26-000007",
+      "filing_date": "2026-04-01",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "DEEMED_EXECUTION_DATE_REQUIRES_REVIEW": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8940105",
+          "sha256": "b9732550d997dba4a54fc9e44a5e4924c0224c7ec638e63168a518f6d0f89d1d"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002005037-26-000007",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002005037-26-000009",
+      "issuer_cik": "0001386716",
+      "accession": "0002005037-26-000009",
+      "filing_date": "2026-04-01",
+      "form_as_filed": "4/A",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "AMENDMENT_NOT_RECONCILED": 1,
+        "DEEMED_EXECUTION_DATE_REQUIRES_REVIEW": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8940083",
+          "sha256": "29445b74da6bd298551306cc51bf24145a09437d59de8548730597cf98952e56"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002005037-26-000009",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002016329-26-000004",
+      "issuer_cik": "0001945619",
+      "accession": "0002016329-26-000004",
+      "filing_date": "2026-04-02",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {},
+      "source_row_lineage": [
+        {
+          "transaction_key": "8940967",
+          "sha256": "88b608061444784d7baf7292fcbcb0dec80cdc714ecc0db7fb4d1c6acc65467d"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002016329-26-000004",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002040500-26-000004",
+      "issuer_cik": "0001477815",
+      "accession": "0002040500-26-000004",
+      "filing_date": "2026-05-19",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8979164",
+          "sha256": "88e3dc29cd9aeea39b09c943d90a3873f73981105c44b9c046e87ddd2db4cd36"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002040500-26-000004",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002066778-26-000004",
+      "issuer_cik": "0001477815",
+      "accession": "0002066778-26-000004",
+      "filing_date": "2026-05-19",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8977067",
+          "sha256": "e863ea180b2ab4c46376f4a080bf6a0e39ccda7b603ed9fcc3b9a80e63664d55"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002066778-26-000004",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002117102-26-000003",
+      "issuer_cik": "0001969373",
+      "accession": "0002117102-26-000003",
+      "filing_date": "2026-05-27",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 1,
+      "reported_code_direction_counts": {
+        "S:A": 1
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 1
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8985480",
+          "sha256": "c8629c15721c6848e4b5465db34e94300164713afdf1f597994b0f58fe2c6caa"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002117102-26-000003",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002127484-26-000003",
+      "issuer_cik": "0001731388",
+      "accession": "0002127484-26-000003",
+      "filing_date": "2026-04-09",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "P:D": 2
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 2
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8947827",
+          "sha256": "6d95044bde1ed6fa042392040c2a06e3013ccecc04d860639932fd4702ddd1ab"
+        },
+        {
+          "transaction_key": "8947826",
+          "sha256": "5b1618a89f1aa33aae346606ea7da2d5ca23d3e7de8ee94c46d738d6eecc5afa"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002127484-26-000003",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002127484-26-000005",
+      "issuer_cik": "0001731388",
+      "accession": "0002127484-26-000005",
+      "filing_date": "2026-04-10",
+      "form_as_filed": "4/A",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "S:A": 2
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 2,
+        "AMENDMENT_NOT_RECONCILED": 2
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8948859",
+          "sha256": "1ff4b9b565f58152a3f4067f3397bc5967f3825c80a4cd0cf4cd16d5a04bab99"
+        },
+        {
+          "transaction_key": "8948858",
+          "sha256": "95099b51637cfae0189d52c8401c3b4dd16d5f263190943418b7afbd83d88309"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002127484-26-000005",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002127484-26-000006",
+      "issuer_cik": "0001731388",
+      "accession": "0002127484-26-000006",
+      "filing_date": "2026-04-15",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "S:A": 2
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 2
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8950634",
+          "sha256": "be99a0120b465847d36b48b9a5f3a9f9ab70f13054a3446c4799e63dbf6f5082"
+        },
+        {
+          "transaction_key": "8950635",
+          "sha256": "553a3d529802710853b8b27b76fe083267af7ea59d21b1353169d82b14c960de"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002127484-26-000006",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    },
+    {
+      "lead_id": "insider-field-conflict:2026q2:0002127484-26-000007",
+      "issuer_cik": "0001341170",
+      "accession": "0002127484-26-000007",
+      "filing_date": "2026-04-15",
+      "form_as_filed": "4",
+      "status": "REQUIRES_SOURCE_REVIEW_NOT_SOURCE_ERROR_FINDING",
+      "conflicting_source_rows": 2,
+      "reported_code_direction_counts": {
+        "S:A": 2
+      },
+      "additional_context_row_counts": {
+        "FOOTNOTE_CONTEXT_REQUIRED": 2
+      },
+      "source_row_lineage": [
+        {
+          "transaction_key": "8950417",
+          "sha256": "7cafd35fa9e96b383a25687a99f8abca0370179bf76a550f9480dacdf6588e74"
+        },
+        {
+          "transaction_key": "8950418",
+          "sha256": "62a7dbda5ab3f2142b0e1b186ca33139fdaf6e6673dea2eccc5be0cd14d388a8"
+        }
+      ],
+      "source_archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/insider-transactions-data-sets/2026q2_form345.zip",
+      "sec_search_url": "https://www.sec.gov/edgar/search/#/q=0002127484-26-000007",
+      "missing_requirements": [
+        "Original filing and field context review",
+        "Referenced footnote explanation review",
+        "Original/amended filing line-level lineage reconciliation",
+        "Verified security identity and historical availability"
+      ],
+      "research_question": "How do the original filing and footnotes explain these opposing reported code and acquisition/disposition fields?",
+      "economic_direction_verified": false,
+      "execution_ready": false,
+      "training_ready": false
+    }
+  ]
+}
