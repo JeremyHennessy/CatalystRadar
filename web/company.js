@@ -56,7 +56,7 @@
       dl(provenance,[['Local source verification',d.provenance.source_local_verified_utc],['Finding generated',d.generated_at],['Exact download time','Unknown'],['Full accounting comparability','Not verified']]);provenance.append(link('Inspect reviewed finding JSON',PATH));grid.append(provenance);
       const detail=section('Evidence boundaries',true);const disclosure=el('details');disclosure.append(el('summary','Source hashes and limitations'));dl(disclosure,[['Original archive SHA-256',d.provenance.original_archive_sha256],['Original member SHA-256',d.provenance.original_member_sha256]]);list(disclosure,d.limitations);detail.append(disclosure);grid.append(detail);
       root.replaceChildren(grid);root.hidden=false;
-      state.textContent='1 reviewed historical company finding · Saved evidence, not a live financial feed.';
+      state.textContent='Reviewed historical revenue finding loaded · Saved evidence, not a live financial feed.';
     }
     let busy=false;
     async function load() {
@@ -68,5 +68,5 @@
     retry.addEventListener('click',load);return load();
   }
   if(typeof module!=='undefined') module.exports={validate,init,ID};
-  if(typeof document!=='undefined') init(document,window.location,window.fetch.bind(window));
+  if(typeof document!=='undefined') window.catalystRevenueReady=init(document,window.location,window.fetch.bind(window));
 })();
