@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-18T01:13:16+00:00",
+  "collection_enabled_by_this_index": false,
+  "execution_ready": false,
+  "scope": "Saved evidence only; Refresh does not collect data",
+  "history_completeness": "LATEST_ACTIONS_ATTEMPTS_NOT_VERIFIED",
+  "collectors": [
+    {
+      "id": "sec_watchlist",
+      "mode": "SCHEDULED_BOUNDED",
+      "storage": "PUBLIC_METADATA",
+      "last_attempt": null,
+      "last_attempt_status": "UNVERIFIED_ACTIONS_HISTORY",
+      "last_successful_observation": "2026-11-17T19:54:39.231235+00:00",
+      "last_verified_complete_run": "https://github.com/JeremyHennessy/CatalystRadar/actions/runs/44163556564",
+      "accepted_records": null,
+      "rejected_records": null,
+      "held_records": null,
+      "missing_periods": null,
+      "missing_periods_status": "NOT_AUDITED",
+      "workflow_failure": null,
+      "workflow_failure_status": "UNVERIFIED_ACTIONS_HISTORY",
+      "expiry_utc": "2026-11-21T00:00:00+00:00",
+      "policy_state": "BOUNDED_TRIAL",
+      "next_configured_slot": "2026-11-18T11:17:00+00:00",
+      "next_run_guaranteed": false,
+      "source_status": "COMPLETE_RETAINED_METADATA",
+      "evidence": [
+        {
+          "path": ".github/workflows/sec-observations.yml",
+          "sha256": "118290b70cf5394b1631b5deb23e598f139ec8b7902f04ca018c7ef366b4d375"
+        },
+        {
+          "path": "data/latest_scan.json",
+          "sha256": "9697cfd0cf36c6109f7d69c7cbbbeb159ea9156d5c316d2a8e4e90b3f5c0ae57"
+        }
+      ],
+      "blockers": [
+        "Trial expires; continuation requires reviewed bounded policy.",
+        "Unresolved reservation or failed latest scan blocks automatic collection.",
+        "Latest Actions attempt and missing slots are not established by retained receipts."
+      ],
+      "configured_cron": "17,47 11-23 16-20 11 *",
+      "quota_status": "BOUNDED_10_ISSUER_SCOPE_NOT_PROVIDER_ENTITLEMENT",
+      "rights_status": "PUBLIC_METADATA_ONLY_NO_EXTENSION_APPROVED",
+      "configured_issuers": 10,
+      "successful_issuers": 10,
+      "observation_age_seconds": 19116,
+      "last_retained_reservation": {
+        "reserved_at": "2026-11-17T19:54:19.734224+00:00",
+        "run_id": "44163556564",
+        "trigger": "schedule"
+      },
+      "reservation_warning": "Reservation proves admission intent, not successful requests or latest Actions attempt."
+    },
+    {
+      "id": "private_daily_prices",
+      "mode": "SCHEDULED_BOUNDED",
+      "storage": "PRIVATE_OWNER_ONLY",
+      "last_attempt": null,
+      "last_attempt_status": "UNVERIFIED_ACTIONS_HISTORY",
+      "last_successful_observation": "2026-11-17T20:49:18.653849+00:00",
+      "last_verified_complete_run": null,
+      "accepted_records": null,
+      "rejected_records": null,
+      "held_records": null,
+      "missing_periods": null,
+      "missing_periods_status": "NOT_AUDITED",
+      "workflow_failure": null,
+      "workflow_failure_status": "UNVERIFIED_ACTIONS_HISTORY",
+      "expiry_utc": "2026-11-22T00:00:00+00:00",
+      "policy_state": "BOUNDED_TRIAL",
+      "next_configured_slot": "2026-11-18T12:10:00+00:00",
+      "next_run_guaranteed": false,
+      "source_status": "PUBLIC_METADATA_OF_PRIVATE_COMPLETE_RECEIPT",
+      "evidence": [
+        {
+          "path": "data/price_feed_status.json",
+          "sha256": "f9a17c563cadbac89702f626af4bd4e746d521e5dced2ad46c2fce74917c49ef"
+        }
+      ],
+      "blockers": [
+        "Runtime gate expires Nov22 UTC; no continuation activated.",
+        "External consumers of the same key and private Actions cost allowance are unverified.",
+        "Run-history budget fails closed at 100 combined rows; indefinite operation needs reviewed accounting.",
+        "Failure reasons are sanitized but not yet classified; latest success does not establish latest attempt."
+      ],
+      "configured_cron": "10 12 16-21 11 *",
+      "policy_verified_at": "2026-11-18T01:08:00+00:00",
+      "policy_basis_private_commit": "9a9225f76201e86f83c61f1a4c7bec104f226ffa",
+      "policy_basis_workflow_blob": "094a279366d11bfb3972b24d36535df8ff08f35c",
+      "collector_pin": "2cc42023deddf3ad275848d6631e59b21ca80680",
+      "quota_status": "11_CALL_RUN_RESERVATION_MAX_22_ROLLING_24H_EXTERNAL_KEY_USE_UNKNOWN",
+      "rights_status": "PRIVATE_PERSONAL_RESEARCH_NO_PUBLIC_PRICES_OR_RETURNS",
+      "saved_snapshots": 11,
+      "rows_per_snapshot": 100,
+      "observation_age_seconds": 15837
+    },
+    {
+      "id": "prepared_and_reference_imports",
+      "mode": "MANUAL_OFFLINE_IMPORTS",
+      "storage": "SOURCE_SPECIFIC_PUBLIC_SUMMARIES_PRIVATE_RETAINED_DATA",
+      "last_attempt": null,
+      "last_attempt_status": "UNVERIFIED_ACTIONS_HISTORY",
+      "last_successful_observation": null,
+      "last_verified_complete_run": null,
+      "accepted_records": null,
+      "rejected_records": null,
+      "held_records": null,
+      "missing_periods": null,
+      "missing_periods_status": "NOT_AUDITED",
+      "workflow_failure": null,
+      "workflow_failure_status": "UNVERIFIED_ACTIONS_HISTORY",
+      "expiry_utc": null,
+      "policy_state": "MANUAL_ONLY",
+      "next_configured_slot": null,
+      "next_run_guaranteed": false,
+      "source_status": "NO_SCHEDULED_COLLECTOR_IN_AUDITED_REPOSITORIES",
+      "evidence": [],
+      "blockers": [
+        "Financial, insider, 13F, notes and reference imports are not ongoing scheduled collection.",
+        "Select analytically useful window and verify permissions, storage and integrity before importing.",
+        "This grouped row does not certify every source receipt; inspect individual source manifests."
+      ],
+      "quota_status": "NO_REQUESTS_FROM_THIS_INDEX",
+      "rights_status": "SOURCE_SPECIFIC_REVIEW_REQUIRED"
+    }
+  ]
+}
