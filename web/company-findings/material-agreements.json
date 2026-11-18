@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "category": "MATERIAL_DEFINITIVE_AGREEMENT_HEADER_AND_ORIGINAL_REVIEW",
+  "selection": "ALL_TEN_RETAINED_PACKAGES_FIXED_HEADER_RULE_RETROSPECTIVE_NOT_REPRESENTATIVE",
+  "counts": {
+    "packages": 10,
+    "item_1_01_declared": 1,
+    "source_reviewed_findings": 1,
+    "no_item_declaration": 9
+  },
+  "packages": [
+    {
+      "accession": "0000012659-26-000042",
+      "filers_as_reported": [
+        {
+          "cik": "0000012659",
+          "name_as_filed": "H&R BLOCK INC"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/12659/000001265926000042/0000012659-26-000042.txt",
+      "source_sha256": "334e2d3e421d2fc51bb45c89ccca169284bd66b9ed9865292d39b0a3e41a592e",
+      "source_bytes": 721243,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:03.633657+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "hrb-20261110.htm",
+        "source_span": {
+          "byte_start": 1279,
+          "byte_end": 57996,
+          "sha256": "6ba8b1384f8ce074b44aea2d0d853d944a3c0cb97a55dc8db275faa3ca6139e1"
+        }
+      },
+      "contract_or_security_exhibits": [
+        {
+          "type_as_filed": "EX-10.1",
+          "filename": "hrb-2026longxtermincentive.htm",
+          "source_span": {
+            "byte_start": 57997,
+            "byte_end": 236318,
+            "sha256": "877f80333f2908dd86767f4719b605db023c5e1a6319fde208e3ed65ee83538a"
+          }
+        },
+        {
+          "type_as_filed": "EX-10.2",
+          "filename": "exhibit102111026.htm",
+          "source_span": {
+            "byte_start": 236319,
+            "byte_end": 357919,
+            "sha256": "e89fa09c37a7127a4964de2aeae505e487c3df378b76c5fceb3d045b19b2b210"
+          }
+        },
+        {
+          "type_as_filed": "EX-10.3",
+          "filename": "a2026ltippsuawardagreement.htm",
+          "source_span": {
+            "byte_start": 357920,
+            "byte_end": 510455,
+            "sha256": "615cc010ac3efa54b92f132e4b9ba469ab523449047d9241d1e4ce54f4422da4"
+          }
+        }
+      ],
+      "event_verified": false
+    },
+    {
+      "accession": "0000020286-26-000064",
+      "filers_as_reported": [
+        {
+          "cik": "0000020286",
+          "name_as_filed": "CINCINNATI FINANCIAL CORP"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000064/0000020286-26-000064.txt",
+      "source_sha256": "de96448e9d4cc3d9556a9843aee0f4021f0673a7a3a23738556e12f1a06f1698",
+      "source_bytes": 380707,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:09.026985+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "cinf-20261113.htm",
+        "source_span": {
+          "byte_start": 1092,
+          "byte_end": 23447,
+          "sha256": "8b07e0801814045b9f431aa14bf8566071d7f681db12b1159cd302c4501c9d67"
+        }
+      },
+      "contract_or_security_exhibits": [],
+      "event_verified": false
+    },
+    {
+      "accession": "0001140361-26-043782",
+      "filers_as_reported": [
+        {
+          "cik": "0000032604",
+          "name_as_filed": "EMERSON ELECTRIC CO"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/32604/000114036126043782/0001140361-26-043782.txt",
+      "source_sha256": "718d6fcd0cb1a5abc155a94021d20145ced43d74406de1f0fdefc01072893e91",
+      "source_bytes": 807943,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:23.564369+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "ef20085543_8k.htm",
+        "source_span": {
+          "byte_start": 1214,
+          "byte_end": 41351,
+          "sha256": "80a93ac1bd4d007fa2aab35f84c6c8104a9b4932632b6333c033664170d67ae7"
+        }
+      },
+      "contract_or_security_exhibits": [
+        {
+          "type_as_filed": "EX-4.2",
+          "filename": "ef20085543_ex4-2.htm",
+          "source_span": {
+            "byte_start": 41352,
+            "byte_end": 222333,
+            "sha256": "b0fc8e102e2655e1089ad6a346a784e56a7a96efc07146e777c5fd5312c8973b"
+          }
+        },
+        {
+          "type_as_filed": "EX-4.3",
+          "filename": "ef20085543_ex4-3.htm",
+          "source_span": {
+            "byte_start": 222334,
+            "byte_end": 421044,
+            "sha256": "c19938f17f74faf8caf6fd2fd9cbe518e81ca022f4a3dbc831d97da1214355de"
+          }
+        },
+        {
+          "type_as_filed": "EX-4.4",
+          "filename": "ef20085543_ex4-4.htm",
+          "source_span": {
+            "byte_start": 421045,
+            "byte_end": 491867,
+            "sha256": "3d68212d4bf5aab99cea052b872861cdbdd895562164928875ae6d152281d897"
+          }
+        }
+      ],
+      "event_verified": false
+    },
+    {
+      "accession": "0001174947-26-000991",
+      "filers_as_reported": [
+        {
+          "cik": "0000050292",
+          "name_as_filed": "IEH Corp"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+      "source_sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+      "source_bytes": 207107,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:31.646886+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "form8k-36531_iehc.htm",
+        "source_span": {
+          "byte_start": 1363,
+          "byte_end": 26625,
+          "sha256": "f1d4a38d48460dec4b519261f5b37c45bca5bfc8085490be6155cf966ecc527e"
+        }
+      },
+      "contract_or_security_exhibits": [],
+      "event_verified": false
+    },
+    {
+      "accession": "0001193125-26-460589",
+      "filers_as_reported": [
+        {
+          "cik": "0000108516",
+          "name_as_filed": "WORTHINGTON ENTERPRISES, INC."
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108516/000119312526460589/0001193125-26-460589.txt",
+      "source_sha256": "e3f07321579124a551b9fc3a4e58409e4f794ea137f244900a10083ae0edd733",
+      "source_bytes": 560483,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:39.735127+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "wor-20261110.htm",
+        "source_span": {
+          "byte_start": 1347,
+          "byte_end": 63229,
+          "sha256": "0b514c44940ed34e0f22a300a3e19531def6eb25d33714176d1bd06251cae5d2"
+        }
+      },
+      "contract_or_security_exhibits": [],
+      "event_verified": false
+    },
+    {
+      "accession": "0001193125-26-460692",
+      "filers_as_reported": [
+        {
+          "cik": "0001770450",
+          "name_as_filed": "Xerox Holdings Corp"
+        },
+        {
+          "cik": "0000108772",
+          "name_as_filed": "XEROX CORP"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108772/000119312526460692/0001193125-26-460692.txt",
+      "source_sha256": "1e6110051c0653b7ac636de5bee60ec2feed9a91c59621470ac5fd0dafb1234e",
+      "source_bytes": 1983577,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:43.933078+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": {
+        "status": "ISSUER_REPORTED_COMPLETED_EXCHANGE_NOT_INDEPENDENT_SETTLEMENT",
+        "settlement_date_as_reported": "2026-11-13",
+        "support_agreement_date_as_reported": "2026-10-29",
+        "exchange_agreement_date_as_reported": "2026-11-13",
+        "previously_announced_as_reported": true,
+        "exchanged_old_notes": {
+          "obligor_cik": "0001770450",
+          "obligor_name": "Xerox Holdings Corporation",
+          "principal_as_reported": "173679000",
+          "unit_as_reported": "dollars",
+          "currency_iso": null,
+          "coupon_percent_as_reported": "5.500",
+          "maturity_year_as_reported": "2028"
+        },
+        "new_notes": {
+          "issuer_cik": "0000108772",
+          "issuer_name": "Xerox Corporation",
+          "principal_as_reported": "121086000",
+          "unit_as_reported": "dollars",
+          "currency_iso": null,
+          "coupon_percent_as_reported": "10.250",
+          "maturity_year_as_reported": "2030",
+          "parent_guarantor_cik": "0001770450"
+        },
+        "equity_component": {
+          "issuer_cik": "0001770450",
+          "issuer_name": "Xerox Holdings Corporation",
+          "common_shares_as_reported": "3872062",
+          "share_price": null,
+          "equity_value": null
+        },
+        "source_spans": {
+          "exchange_paragraph": {
+            "byte_start": 27877,
+            "byte_end": 29552,
+            "sha256": "1ba6de6354d62854127f01e4695c3012b0fbf9b14e6067ba18fb96ece5064aa5"
+          },
+          "equity_issuance_paragraph": {
+            "byte_start": 41461,
+            "byte_end": 41840,
+            "sha256": "06ff07ad75583095b474cf60ee94a75ad62129a4ea68e449716ff0d3ef131060"
+          },
+          "indenture_roles_table_row": {
+            "byte_start": 43266,
+            "byte_end": 43803,
+            "sha256": "afaa109f08483752f026990322f99ad1ce1624fb6376566ee53d95c604d2aff1"
+          },
+          "exchange_agreement_table_row": {
+            "byte_start": 46000,
+            "byte_end": 46461,
+            "sha256": "75de7153e467d3f2bfe597a7dc155698b5ef377fc92162e549c32a83ceaeabe8"
+          }
+        },
+        "independent_settlement_verified": false,
+        "net_debt_change": null,
+        "transaction_value": null,
+        "economic_gain": null,
+        "training_ready": false,
+        "execution_ready": false
+      },
+      "status": "ITEM_1_01_DECLARED_REQUIRES_DOCUMENT_REVIEW",
+      "item_1_01_declared": true,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "d134827d8k.htm",
+        "source_span": {
+          "byte_start": 1950,
+          "byte_end": 52761,
+          "sha256": "3fb600485ec40de2a3b49468f944e92e271472aaf6b048f1471999fe52f8812e"
+        }
+      },
+      "contract_or_security_exhibits": [
+        {
+          "type_as_filed": "EX-4.1",
+          "filename": "d134827dex41.htm",
+          "source_span": {
+            "byte_start": 52762,
+            "byte_end": 1166239,
+            "sha256": "e79a385c63c6a4fa2955968824ad6155c8804b59dc1bddb68c6fd7e781a3cc64"
+          }
+        },
+        {
+          "type_as_filed": "EX-4.3",
+          "filename": "d134827dex43.htm",
+          "source_span": {
+            "byte_start": 1166240,
+            "byte_end": 1239531,
+            "sha256": "4c7598abb84d33993acb80276f19734c1325647642879b4fdf1c86038d19ca7e"
+          }
+        },
+        {
+          "type_as_filed": "EX-10.2",
+          "filename": "d134827dex102.htm",
+          "source_span": {
+            "byte_start": 1239532,
+            "byte_end": 1495410,
+            "sha256": "04d49dd0b50e387f1ca8d9a830c34e79710fcebc7aefa52ad7562951b24fafeb"
+          }
+        }
+      ],
+      "event_verified": false
+    },
+    {
+      "accession": "0001213900-26-119681",
+      "filers_as_reported": [
+        {
+          "cik": "0000025743",
+          "name_as_filed": "TherapeuticsMD, Inc."
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681.txt",
+      "source_sha256": "e69ffeb2329ad596f652619d63e6c9195ad2b411258315b259fee04a2f131c47",
+      "source_bytes": 233722,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:13.530724+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "ea0312204-8k_therapeu.htm",
+        "source_span": {
+          "byte_start": 1449,
+          "byte_end": 39626,
+          "sha256": "ba4f3561d0513e0007bc6cf411148b9ce8ce0c6b6d322df8bedd860366272c6d"
+        }
+      },
+      "contract_or_security_exhibits": [],
+      "event_verified": false
+    },
+    {
+      "accession": "0001628280-26-073578",
+      "filers_as_reported": [
+        {
+          "cik": "0000031791",
+          "name_as_filed": "REVVITY, INC."
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/31791/000162828026073578/0001628280-26-073578.txt",
+      "source_sha256": "01690a89df5c831901cc0c495e772925e1c9eafcc9876e48afd676656e3f31d9",
+      "source_bytes": 13893584,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:19.038501+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "pki-20261113.htm",
+        "source_span": {
+          "byte_start": 1388,
+          "byte_end": 34214,
+          "sha256": "b228ab3fa11003d0f8f9a94f9c60402b4e6d36a40ab2c49eb34ca555234bdb22"
+        }
+      },
+      "contract_or_security_exhibits": [],
+      "event_verified": false
+    },
+    {
+      "accession": "0001628280-26-073584",
+      "filers_as_reported": [
+        {
+          "cik": "0000042582",
+          "name_as_filed": "GOODYEAR TIRE & RUBBER CO /OH/"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/42582/000162828026073584/0001628280-26-073584.txt",
+      "source_sha256": "238617de38af3365b142edf1572e4123870a674196f4ef369a2f81df883e65a1",
+      "source_bytes": 136144,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:27.622944+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "gt-20261113.htm",
+        "source_span": {
+          "byte_start": 1035,
+          "byte_end": 24254,
+          "sha256": "6906227494a7af88dde8b3422d5508fc0323944112a24ed96fb33a16c138a754"
+        }
+      },
+      "contract_or_security_exhibits": [],
+      "event_verified": false
+    },
+    {
+      "accession": "0001628280-26-073875",
+      "filers_as_reported": [
+        {
+          "cik": "0000091576",
+          "name_as_filed": "KEYCORP /NEW/"
+        }
+      ],
+      "source_url": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+      "source_sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+      "source_bytes": 250966,
+      "source_observed_utc_as_recorded": "2026-11-14T23:33:35.714449+00:00",
+      "first_public_utc": null,
+      "historical_availability_verified": false,
+      "reviewed_finding": null,
+      "status": "NO_ITEM_1_01_HEADER_DECLARATION_NOT_NO_AGREEMENT",
+      "item_1_01_declared": false,
+      "primary": {
+        "type_as_filed": "8-K",
+        "filename": "key-20261113.htm",
+        "source_span": {
+          "byte_start": 1152,
+          "byte_end": 37489,
+          "sha256": "988e7d93e519becf6c6d053e872586783563775a0056d35607593b434c5a7d84"
+        }
+      },
+      "contract_or_security_exhibits": [],
+      "event_verified": false
+    }
+  ],
+  "provenance": {
+    "archive_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a"
+  },
+  "limitations": [
+    "All ten retained packages are screened by exact filed header item, not a market-wide or unbiased discovery sample.",
+    "No Item1.01 declaration means no such header label in this package, not no contract, material agreement or corporate event.",
+    "Exhibit4/10 inventory is document evidence, not proof every listed instrument is new, effective or independently executed.",
+    "Only the exact independently inspected Xerox original receives a structured exchange finding; the general screen does not parse legal obligations automatically.",
+    "Xerox Corporation and Xerox Holdings Corporation remain distinct. Debt, guarantee and equity roles are attributed only to explicit reviewed context.",
+    "The source says previously announced and completed; this is issuer reporting, not independent settlement or first-public authentication.",
+    "Dollar symbols do not independently establish ISO currency. No par-value-as-price, total consideration, equity value, net debt change, return or economic gain is computed.",
+    "Public output excludes full narrative, contacts and addresses. Training and execution remain disabled."
+  ],
+  "training_ready": false,
+  "execution_ready": false
+}
