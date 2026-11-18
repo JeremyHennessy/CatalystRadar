@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "status": "HISTORICAL_FINANCIAL_Q4_NOT_COMPARABLE_FACTS",
+  "completed_utc": "2026-11-18T00:07:57.264240+00:00",
+  "source": {
+    "path": "2025q4.zip",
+    "url": "https://www.sec.gov/files/dera/data/financial-statement-data-sets/2025q4.zip",
+    "byte_count": 65830170,
+    "sha256": "2b36ac3850c022cf19edd882e31c3c453c7666677b9fdd2e1f7748fdb5768c6e",
+    "local_verified_utc": "2026-11-18T00:07:08.333839+00:00",
+    "retrieval_method": "PUBLIC_BROWSER_LINK_DOWNLOAD_NO_PRIVATE_CONTACT",
+    "http_status": null,
+    "exact_download_utc": null
+  },
+  "table_rows": {
+    "financial_sub": 6304,
+    "financial_tag": 84907,
+    "financial_pre": 719346,
+    "financial_num": 3832977,
+    "financial_validation_gaps": 0
+  },
+  "issuer_ciks": 5786,
+  "submissions": 6304,
+  "filing_date_min": "2025-10-01",
+  "filing_date_max": "2025-12-31",
+  "numeric_empty_values": 182388,
+  "accession_joins_verified": true,
+  "taxonomy_joins_complete": true,
+  "rows_missing_tag_definitions": 0,
+  "missing_tag_definition_keys": 0,
+  "simulation_enabled": false,
+  "orders_created": 0,
+  "limitations": [
+    "Q4 2025 filing-date batch, not necessarily fiscal Q4 facts or all historical filings. Issuer count is separate from other batches and not added without deduplication.",
+    "Values retain accession, taxonomy version, period, duration in quarters, units, segments, co-registrants, footnotes and presentation context. Repeated periods and amendments are not silently consolidated.",
+    "Numeric rows are not unique comparable facts. No automatic quarter-over-quarter growth, financial totals, signals or recommendations are inferred.",
+    "Missing taxonomy definitions, if present, remain explicitly flagged and unqualified, never dropped or invented.",
+    "All four source tables are retained privately. Only aggregate coverage is public; no source values or private addresses are published.",
+    "Exact browser status/download clock unavailable; local verification time is not first-public or prospective decision evidence. No orders, historical decisions or simulated fills."
+  ]
+}

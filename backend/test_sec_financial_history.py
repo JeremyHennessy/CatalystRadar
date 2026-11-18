@@ -65,3 +65,24 @@ class FinancialHistoryTests(unittest.TestCase):
    for q in ['2026q2','2025q1','2026q3','2026Q1']:
     with self.assertRaises(ValueError):m.ingest(root,root/'out',q)
     self.assertFalse((root/'out').exists())
+
+ def q4_fixture(self,root,filed):
+  self.fixture(root,lambda d:d['sub.txt'][0].update(filed=filed))
+  (root/m.ARCHIVE).rename(root/'2025q4.zip');p=root/'browser-receipt.json';r=json.loads(p.read_text());r.update(path='2025q4.zip',url=m.URL.replace('2026q2','2025q4'));p.write_text(json.dumps(r))
+ def test_q4_boundaries_and_year_label(self):
+  for filed in ['20251001','20251231']:
+   with tempfile.TemporaryDirectory() as d:
+    root=Path(d);self.q4_fixture(root,filed);s=m.ingest(root,root/'out','2025q4')
+    self.assertEqual(s['status'],'HISTORICAL_FINANCIAL_Q4_NOT_COMPARABLE_FACTS')
+    self.assertTrue(s['limitations'][0].startswith('Q4 2025 filing-date batch'))
+    self.assertEqual(s['table_rows']['financial_num'],1)
+ def test_q4_outside_boundaries_and_wrong_receipt(self):
+  for filed in ['20250930','20260101']:
+   with tempfile.TemporaryDirectory() as d:
+    root=Path(d);self.q4_fixture(root,filed)
+    with self.assertRaises(ValueError):m.ingest(root,root/'out','2025q4')
+    self.assertFalse((root/'out/summary.json').exists())
+  with tempfile.TemporaryDirectory() as d:
+   root=Path(d);self.fixture(root)
+   with self.assertRaises(ValueError):m.ingest(root,root/'out','2025q4')
+   self.assertFalse((root/'out').exists())
