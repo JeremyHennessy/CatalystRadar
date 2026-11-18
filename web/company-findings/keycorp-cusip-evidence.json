@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "id": "keycorp-retrospective-cusip-evidence",
+  "status": "RETROSPECTIVE_EXACT_CUSIP_REVIEW_NOT_HISTORICAL_MAPPING",
+  "issuer_cik_as_filed": "0000091576",
+  "issuer_name_as_filed": "KEYCORP /NEW/",
+  "cusip_as_reported": "493267702",
+  "accession": "0001628280-26-073875",
+  "disclosure_date_as_reported": "2026-11-13",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/0001628280-26-073875.txt",
+  "exhibit_url": "https://www.sec.gov/Archives/edgar/data/91576/000162828026073875/exhibit991pressreleasedate.htm",
+  "links_constructed_not_fetched_this_audit": true,
+  "issuer_reported_security_description": "Depositary shares each representing a 1/40th ownership interest in Series E Fixed-to-Floating Rate Perpetual Non-Cumulative Preferred Stock",
+  "notice_status": "INTENTION_TO_REDEEM_NOT_VERIFIED_COMPLETION",
+  "planned_redemption_date_as_reported": "2026-12-15",
+  "source_evidence": {
+    "filers": [
+      {
+        "cik": "0000091576",
+        "name_as_filed": "KEYCORP /NEW/",
+        "role": "FILER",
+        "field_spans": {
+          "cik": {
+            "byte_start": 506,
+            "byte_end": 516,
+            "sha256": "a006c1c8c4aa0d537fde773371654945fd81752eacb79366b8ae87a2a36d5580"
+          },
+          "name": {
+            "byte_start": 469,
+            "byte_end": 482,
+            "sha256": "42e8b282516f2f0de09fa0cafa305b666111c8af6104f6ead797943fd5a7e7b2"
+          }
+        }
+      }
+    ],
+    "exhibit_filename": "exhibit991pressreleasedate.htm",
+    "exhibit_span": {
+      "byte_start": 37490,
+      "byte_end": 46648,
+      "sha256": "e1f0687121d398b0e6f0c7280ac7bf4e166b9dde90b7d259c3eadacf92632bfb"
+    },
+    "disclosure_span": {
+      "byte_start": 38594,
+      "byte_end": 39155,
+      "sha256": "e06f73174ffb240f7f3d485eb9f934c34ed16f95be555c15cc914994e573b2e7"
+    },
+    "cusip_span": {
+      "byte_start": 39074,
+      "byte_end": 39083,
+      "sha256": "171ab7b711455b92fcce6995b27883758b3b5e7c9d83b9b2563a086749d8474a"
+    }
+  },
+  "ftd_exact_cusip_records": [
+    {
+      "source_rowid": 8351,
+      "settlement_date_as_reported": "20261016",
+      "cusip_as_reported": "493267702",
+      "symbol_as_reported": "KEYPRI",
+      "description_as_reported": "KEYCORP NEW DS RPT 1/40 OWN IN",
+      "full_source_row_sha256": "c1100c28c5554342648213b9a9670613e717739e0c40b0e763bd88b255485777"
+    },
+    {
+      "source_rowid": 13939,
+      "settlement_date_as_reported": "20261019",
+      "cusip_as_reported": "493267702",
+      "symbol_as_reported": "KEYPRI",
+      "description_as_reported": "KEYCORP NEW DS RPT 1/40 OWN IN",
+      "full_source_row_sha256": "99a9a1efcf41e820251eee75865284b36b2ca2f1562c3a9eced2e9ad560d8d5c"
+    },
+    {
+      "source_rowid": 24499,
+      "settlement_date_as_reported": "20261021",
+      "cusip_as_reported": "493267702",
+      "symbol_as_reported": "KEYPRI",
+      "description_as_reported": "KEYCORP NEW DS RPT 1/40 OWN IN",
+      "full_source_row_sha256": "ee39d5a1de726a6281e5ee40cc8e070552f199b3ec8b8d19540a4517c6a8eea2"
+    },
+    {
+      "source_rowid": 39938,
+      "settlement_date_as_reported": "20261026",
+      "cusip_as_reported": "493267702",
+      "symbol_as_reported": "KEYPRI",
+      "description_as_reported": "KEYCORP NEW DS RPT 1/40 OWN IN",
+      "full_source_row_sha256": "5efbf8bb546362bb43e4ac5301a0c5bc6f19efad492433199b021cfee9f486a6"
+    }
+  ],
+  "holdings_exact_cusip_records": [
+    {
+      "source_rowid": 1872646,
+      "accession": "0001727336-26-000009",
+      "name_as_reported": "KEY 6 1/8 PERP",
+      "class_as_reported": "PUBLIC",
+      "cusip_as_reported": "493267702",
+      "full_source_row_sha256": "69edd9609a58a551e9896a53beed90cbf79fbdd55440e1c1ca5d905233d54865",
+      "submission_rowid": 9021,
+      "submission_row_sha256": "cb376abddc97ab1c09fadd30ba860a1831729b2b0cd3dda1ffdb2f33a043f8d1",
+      "filing_date_as_reported": "10-AUG-2026",
+      "form_as_reported": "13F-HR",
+      "report_period_as_reported": "30-JUN-2026"
+    },
+    {
+      "source_rowid": 2118318,
+      "accession": "0001193125-26-339298",
+      "name_as_reported": "KEYCORP NEW DEP SHS",
+      "class_as_reported": "Common Stock",
+      "cusip_as_reported": "493267702",
+      "full_source_row_sha256": "ee8ea2f09b4c37839aa4604e4b5eeff94f572737dd30d665665f117373b47d89",
+      "submission_rowid": 10258,
+      "submission_row_sha256": "848c06572fc4b52278779f7b201caa37d56dc54e7bdff0680ea543ad042178cf",
+      "filing_date_as_reported": "07-AUG-2026",
+      "form_as_reported": "13F-HR",
+      "report_period_as_reported": "30-JUN-2026"
+    }
+  ],
+  "finding": "The later issuer disclosure provides class context for the same CUSIP string in four earlier FTD rows and two earlier 13F records. One 13F record says Common Stock; original labels remain unchanged and require review.",
+  "provenance": {
+    "original_zip_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "original_member_sha256": "7ee77f6bef8c0f9639a5a695f0119cab7d57dc917d961bd3bdef5af6e2df9e42",
+    "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+    "ftd_database_sha256": "360491837fa5a8fd45d9d7c3b6b06a19324954bc839e203f2ad6235e88b14cae",
+    "holdings_database_sha256": "5117bb2573288481d336dde11232ffb8bc64cb04a495f0fc179a64bf0e2aafda",
+    "source_observed_utc_as_recorded": "2026-11-14T23:33:35.714449+00:00",
+    "first_public_utc": null
+  },
+  "limitations": [
+    "November issuer evidence is later than the October settlement dates and June holdings report periods. No historical effective interval or contemporary availability is established.",
+    "Exact CUSIP string correspondence is a retrospective review lead, not a verified historical identity join, correction of filed class labels or conversion between preferred and common shares.",
+    "Notice of intended redemption is not completed redemption, current listing or current security status.",
+    "13F manager identity is not held issuer identity. No position values, quantities, ownership flows or trades are inferred.",
+    "FTD amounts are net outstanding settlement failures, not short interest or manipulation; no amounts or daily sums are published here.",
+    "This single retained issuer disclosure is not a complete CUSIP master, class history or corporate-action feed."
+  ],
+  "historical_mapping_verified": false,
+  "class_labels_corrected": false,
+  "current_security_identity_verified": false,
+  "redemption_completion_verified": false,
+  "training_ready": false,
+  "execution_ready": false
+}
