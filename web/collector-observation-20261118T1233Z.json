@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "scope": "SAVED_READ_ONLY_OBSERVATION_NOT_LIVE",
+  "as_of": "2026-11-18T12:33:00Z",
+  "checked_interval_utc": [
+    "2026-11-18T12:32:00Z",
+    "2026-11-18T12:33:00Z"
+  ],
+  "collection_triggered": false,
+  "new_collection_verified": false,
+  "collectors": [
+    {
+      "id": "sec",
+      "name": "SEC metadata",
+      "dispatch_status": "UNOBSERVED",
+      "slots_utc": [
+        "2026-11-18T11:17:00Z",
+        "2026-11-18T11:47:00Z",
+        "2026-11-18T12:17:00Z"
+      ],
+      "latest_successful_receipt": "2026-11-17T19:54:39.231235+00:00",
+      "coverage": "10 of 10 configured issuer metadata feeds; not marketwide coverage.",
+      "latest_run_url": "https://github.com/JeremyHennessy/CatalystRadar/actions/runs/44223484988",
+      "latest_run_status": "Green job at 02:28 UTC skipped outside the admitted window; no source request, persistence or publication.",
+      "source_history_url": "https://api.github.com/repos/JeremyHennessy/CatalystRadar/actions/runs?event=schedule&per_page=100",
+      "history_scope": "4 scheduled runs returned; latest scheduled execution unchanged. Receipt and reservation paths separately inspected.",
+      "publication_status": "No new collection publication verified."
+    },
+    {
+      "id": "private_prices",
+      "name": "Private daily prices",
+      "dispatch_status": "UNOBSERVED",
+      "slots_utc": [
+        "2026-11-18T12:10:00Z"
+      ],
+      "latest_successful_receipt": "2026-11-17T20:49:18.653849+00:00",
+      "coverage": "11 retained private snapshots, each 100 daily observations; last returned session November 16. Raw-schema validation only, not outcome-qualified.",
+      "latest_run_url": "https://github.com/JeremyHennessy/CatalystRadar-Private/actions/runs/44172913902",
+      "latest_run_status": "Latest collection completed November 17 at 20:49:23 UTC. No November 18 run observed in reviewed history.",
+      "source_history_url": "https://api.github.com/repos/JeremyHennessy/CatalystRadar-Private/actions/runs?per_page=20",
+      "history_scope": "All 8 returned repository runs reviewed; private access required. No price values included.",
+      "publication_status": "Private snapshots are not publicly published."
+    }
+  ],
+  "fallback": {
+    "status": "REPORTED_CAS_ABORT_BEFORE_SUBMISSION",
+    "source_requests": null,
+    "submitted": null,
+    "explanation": "The operator reported that fallback preparation stopped before submission because main changed during the final compare-and-swap precheck. No retained execution receipt independently establishes submission or source-request counts; those fields remain unknown here. No fallback collection success is established. This is not evidence of a provider failure."
+  },
+  "limitations": [
+    "Unobserved dispatch is not a failed collection. No run exists in the reviewed history from which a runtime result can be inferred; the scheduler cause is unknown.",
+    "This saved checkpoint does not contact GitHub or providers when opened or refreshed. Receipt age and next-slot comparisons are frozen at this checkpoint.",
+    "No new data collection is verified. Earlier successful receipts are historical, not fresh observations for November 18.",
+    "The earlier immutable workflow audit and receipt/configuration snapshot below remain separate historical evidence. Public application deployment does not establish collection success.",
+    "The 12:32\u201312:33 workflow-history checks are recorded reviewer observations. Original API response bytes were not retained, so the absence of a dispatch at that historical checkpoint is not independently reproducible from this artifact."
+  ],
+  "evidence_basis": "MANUAL_TOOL_OBSERVATION_NO_RETAINED_API_RESPONSE_BYTES"
+}
