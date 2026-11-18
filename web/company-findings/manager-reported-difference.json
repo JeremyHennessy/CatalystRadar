@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "status": "AS_FILED_LITERAL_KEY_DIFFERENCE_NOT_POSITION_OR_TRADE_CHANGE",
+  "selection": "First numeric HR/HR-A manager with multiple reported periods; earliest two periods; fail rather than replace on ambiguity or source-scope blockers. Retrospective diagnostic, not representative.",
+  "manager_cik": "0000051762",
+  "filings": [
+    {
+      "accession": "0000051762-26-000004",
+      "report_period": "2026-03-31",
+      "filing_date": "2026-08-06",
+      "form_as_filed": "13F-HR",
+      "manager_name_as_filed": "RNC CAPITAL MANAGEMENT LLC",
+      "row_count": 172,
+      "amendment_flag_as_filed": "",
+      "amendment_type_as_filed": "",
+      "confidential_omitted_as_filed": "N",
+      "confidential_denied_expired_as_filed": "",
+      "source_rows": {
+        "submission": 10810,
+        "cover": 6168,
+        "summary": 4808
+      },
+      "source_url": "https://www.sec.gov/Archives/edgar/data/51762/000005176226000004/0000051762-26-000004-index.html",
+      "source_url_status": "CONSTRUCTED_NOT_FETCHED"
+    },
+    {
+      "accession": "0000051762-26-000005",
+      "report_period": "2026-06-30",
+      "filing_date": "2026-08-07",
+      "form_as_filed": "13F-HR",
+      "manager_name_as_filed": "RNC CAPITAL MANAGEMENT LLC",
+      "row_count": 181,
+      "amendment_flag_as_filed": "",
+      "amendment_type_as_filed": "",
+      "confidential_omitted_as_filed": "N",
+      "confidential_denied_expired_as_filed": "",
+      "source_rows": {
+        "submission": 10078,
+        "cover": 6150,
+        "summary": 4773
+      },
+      "source_url": "https://www.sec.gov/Archives/edgar/data/51762/000005176226000005/0000051762-26-000005-index.html",
+      "source_url_status": "CONSTRUCTED_NOT_FETCHED"
+    }
+  ],
+  "comparison": {
+    "key_fields": [
+      "CUSIP",
+      "TITLEOFCLASS",
+      "PUTCALL",
+      "SSHPRNAMTTYPE",
+      "INVESTMENTDISCRETION",
+      "OTHERMANAGER"
+    ],
+    "common_literal_keys": 168,
+    "earlier_only": [
+      {
+        "key": [
+          "127097103",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2148791,
+            "INFOTABLE_SK": "131362103",
+            "NAMEOFISSUER": "COTERRA ENERGY INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "127097103",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "26614N102",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2148798,
+            "INFOTABLE_SK": "131362110",
+            "NAMEOFISSUER": "DUPONT DE NEMOURS INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "26614N102",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "438516106",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2148816,
+            "INFOTABLE_SK": "131362128",
+            "NAMEOFISSUER": "HONEYWELL INTERNATIONAL INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "438516106",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "98978V103",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2148894,
+            "INFOTABLE_SK": "131362206",
+            "NAMEOFISSUER": "ZOETIS INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "98978V103",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      }
+    ],
+    "later_only": [
+      {
+        "key": [
+          "172967424",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144130,
+            "INFOTABLE_SK": "131410611",
+            "NAMEOFISSUER": "CITIGROUP INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "172967424",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "244199105",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144154,
+            "INFOTABLE_SK": "131410620",
+            "NAMEOFISSUER": "DEERE & CO",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "244199105",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "25179M103",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144155,
+            "INFOTABLE_SK": "131410621",
+            "NAMEOFISSUER": "DEVON ENERGY CORP NEW",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "25179M103",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "26614N201",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144159,
+            "INFOTABLE_SK": "131410625",
+            "NAMEOFISSUER": "DUPONT DE NEMOURS INC COMMON S",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "26614N201",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "36828A101",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144172,
+            "INFOTABLE_SK": "131410638",
+            "NAMEOFISSUER": "GE VERNOVA INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "36828A101",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "43849R105",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144178,
+            "INFOTABLE_SK": "131410644",
+            "NAMEOFISSUER": "HONEYWELL AEROSPACE INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "43849R105",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "438516205",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144179,
+            "INFOTABLE_SK": "131410645",
+            "NAMEOFISSUER": "HONEYWELL INTL INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "438516205",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "458140100",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144181,
+            "INFOTABLE_SK": "131410647",
+            "NAMEOFISSUER": "INTEL CORPORATION",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "458140100",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "74144T108",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144039,
+            "INFOTABLE_SK": "131410686",
+            "NAMEOFISSUER": "PRICE T ROWE GROUP INC",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "74144T108",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "756109104",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144082,
+            "INFOTABLE_SK": "131410729",
+            "NAMEOFISSUER": "REALTY INCOME CORP REIT",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "756109104",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "842587107",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144057,
+            "INFOTABLE_SK": "131410704",
+            "NAMEOFISSUER": "SOUTHERN COMPANY",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "842587107",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "89832Q109",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144066,
+            "INFOTABLE_SK": "131410713",
+            "NAMEOFISSUER": "TRUIST FINANCIAL CORPORATION",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "89832Q109",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      },
+      {
+        "key": [
+          "Y74718100",
+          "COM",
+          "",
+          "SH",
+          "SOLE",
+          ""
+        ],
+        "source_rows": [
+          {
+            "source_data_row": 2144050,
+            "INFOTABLE_SK": "131410697",
+            "NAMEOFISSUER": "SAMSUNG ELECTRONIC ORDF",
+            "TITLEOFCLASS": "COM",
+            "CUSIP": "Y74718100",
+            "FIGI": "",
+            "PUTCALL": "",
+            "SSHPRNAMTTYPE": "SH",
+            "INVESTMENTDISCRETION": "SOLE",
+            "OTHERMANAGER": "",
+            "security_identity_verified": false
+          }
+        ]
+      }
+    ],
+    "repeated_key_groups_earlier": 0,
+    "repeated_key_groups_later": 0,
+    "economic_changes_qualified": false
+  },
+  "source": {
+    "archive_url": "https://www.sec.gov/files/datastandardsinnovation/data/form-13f-data-sets/01jun2026-31aug2026_form13f.zip",
+    "archive_sha256": "4db97d5652e262de51617971104e06313211de4d092e6bcb5d7bf34ee7efe054",
+    "database_sha256": "5117bb2573288481d336dde11232ffb8bc64cb04a495f0fc179a64bf0e2aafda",
+    "rows_checked": 359
+  },
+  "limitations": [
+    "Literal source-key presence only. Earlier/later-only is not purchase, sale, opened or closed economic position; common key does not prove same security or unchanged exposure.",
+    "Blank amendment/denied-expired flags are unknown, not proof of no amendments or confidential releases. No amendment history reconciliation or complete-portfolio claim.",
+    "Class/option/discretion/other-manager label changes can split one economic position; same labels can hide corporate actions. Names are source labels, not issuer mapping.",
+    "No share/value arithmetic, security mapping, total exposure, first-public timing, prices or outcomes. Missing records outside the retained filing batch remain unknown."
+  ],
+  "first_public_utc": null,
+  "training_ready": false,
+  "execution_ready": false
+}
