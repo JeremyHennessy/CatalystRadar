@@ -25,8 +25,15 @@ function validate(d){
  }
  return d;
 }
+// The publication projection is separate from the frozen operational audit.
+function publishedSec(d){
+ const feed=Array.isArray(d?.feeds)?d.feeds.filter(x=>x?.name==='SEC filings'):[];
+ if(feed.length!==1||feed[0].status!=='snapshot_only'||!date(feed[0].as_of)||!date(d.generated_at)||Date.parse(feed[0].as_of)>Date.parse(d.generated_at)||typeof feed[0].detail!=='string'||!feed[0].detail.trim()||feed[0].detail.length>1000)throw Error('Invalid published SEC metadata');
+ return {observed:feed[0].as_of,generated:d.generated_at,detail:feed[0].detail};
+}
 function init(doc,fetcher){
  const root=doc.getElementById('collector-list'),state=doc.getElementById('collector-state'),asof=doc.getElementById('collector-asof'),button=doc.getElementById('collector-refresh');let busy=false;
+ const published=doc.getElementById('collector-published-sec');
  const el=(tag,text)=>{const n=doc.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
  const dl=(parent,rows)=>{const n=el('dl');rows.forEach(([k,v])=>n.append(el('dt',k),el('dd',v)));parent.append(n);};
  const link=(label,url)=>{const n=el('a',label);n.href=url;return n;};
@@ -50,12 +57,20 @@ function init(doc,fetcher){
   state.textContent='Three collection groups loaded from saved evidence. Latest attempts and failures remain unknown.';
  }
  async function load(){if(busy)return;busy=true;button.disabled=true;root.hidden=true;root.replaceChildren();asof.textContent='Snapshot time unknown until validation completes.';state.textContent='Loading and validating saved evidence…';
+  published.textContent='Loading latest saved SEC projection…';
+  const readPublished=(async()=>{try{
+   const r=await fetcher('app-data.json',{cache:'no-store',signal:AbortSignal.timeout(30000)});
+   if(!r.ok)throw Error();
+   const x=publishedSec(await r.json());
+   published.replaceChildren(el('p',x.detail));
+   dl(published,[['Saved successful observation (UTC)',x.observed],['Dashboard generation (UTC, not deploy time)',x.generated],['Later attempts or failure status','Unknown from this projection']]);
+  }catch{published.replaceChildren();published.textContent='Latest saved SEC projection unavailable or unverified; the earlier checkpoint is not a substitute.';}})();
   try{const r=await fetcher('collector-status.json',{cache:'no-store',signal:AbortSignal.timeout(30000)});if(!r.ok)throw Error();render(validate(await r.json()));}
   catch{state.textContent='Saved status unavailable or invalid. Collection health, timestamps and counts are unknown. Use Refresh saved evidence to retry; no collector will run.';asof.textContent='Snapshot time unknown.';}
-  finally{busy=false;button.disabled=false;}
+  finally{await readPublished;busy=false;button.disabled=false;}
  }
  button.addEventListener('click',load);return load();
 }
-if(typeof module!=='undefined')module.exports={validate,init};
+if(typeof module!=='undefined')module.exports={validate,init,publishedSec};
 if(typeof document!=='undefined')init(document,window.fetch.bind(window));
 })();
