@@ -9,6 +9,22 @@ class LeadIndexTest(unittest.TestCase):
   a=build(ROOT,self.pins);self.assertEqual(a,build(ROOT,self.pins));self.assertEqual(a['counts'],{'company_entries':107,'financial_review_issuers':106,'reported_comparison_only_issuers':1,'financial_contexts':605,'with_selected_insider_filings':36,'with_selected_disclosure_filings':5})
   rows=a['records'];self.assertEqual(len({r['issuer_cik'] for r in rows}),107);self.assertEqual([r['issuer_cik'] for r in rows],sorted(r['issuer_cik'] for r in rows))
   for r in rows:self.assertFalse(r['training_ready']);self.assertFalse(r['execution_ready']);self.assertIsNone(r['first_public_utc']);self.assertNotIn('score',r)
+ def test_holdings_unknown_not_zero_positions(self):
+  a=index(self.data,self.pins)
+  self.assertFalse(a['holdings_linkage']['company_holdings_assessed']);self.assertIsNone(a['holdings_linkage']['company_position_count'])
+  self.assertEqual(a['holdings_linkage']['existing_identifier_correspondences'],1507)
+  for r in a['records']:
+   self.assertEqual(r['holdings_coverage'],'NOT_ASSESSED_MISSING_VERIFIED_ISSUER_SECURITY_MAPPING');self.assertNotIn('holdings',r)
+ def test_holdings_provenance_or_qualification_change_rejects(self):
+  original=copy.deepcopy(self.data)
+  for kind in ('hash','issuer','history','count','positions'):
+   self.data=copy.deepcopy(original)
+   if kind=='hash':self.data['holdings']['mapping_response_sha256']='0'*64
+   elif kind=='issuer':self.data['mapping']['mappings'][0]['issuer_cik_link_verified']=True
+   elif kind=='history':self.data['holdings']['historical_security_link_verified']=True
+   elif kind=='positions':self.data['mapping']['mappings'][0]['request_position']=1
+   else:self.data['holdings']['census']['holding_rows']+=1
+   with self.subTest(kind=kind),self.assertRaises(ValueError):index(self.data,self.pins)
  def test_ieh_not_evaluated_is_not_absence(self):
   r=next(r for r in index(self.data,self.pins)['records'] if r['issuer_cik']=='0000050292')
   self.assertEqual(r['insider_coverage'],'NOT_EVALUATED_IN_THIS_FINANCIAL_COHORT');self.assertEqual(r['evidence_url'],'company-ieh.html')
