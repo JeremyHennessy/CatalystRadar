@@ -17,7 +17,7 @@
       "name": "Price and liquidity",
       "status": "snapshot_only",
       "as_of": "2026-11-17T20:49:18.653849+00:00",
-      "detail": "Initial private daily-price sample verified through 2026-11-13. A scheduled collection was verified: 11 private snapshots, 100 rows each. Retained response hashes and symbols checked at 2026-11-17T22:13:49.112658+00:00; all 11 cover 2026-06-26 through 2026-11-16. Calendar completeness is not established. Raw daily data only; not realtime, official auction or total-return data. Execution remains disabled."
+      "detail": "Previously reviewed daily-price sample covers through 2026-11-13. A historical scheduled collection was verified: 11 stored snapshots, 100 rows each. Retained response hashes and symbols checked at 2026-11-17T22:13:49.112658+00:00; all 11 cover 2026-06-26 through 2026-11-16. Calendar completeness is not established. These historical receipts do not establish current storage privacy or permission to redistribute prices. Further collection requires current storage and source-permission checks. Raw daily data only; not realtime, official auction or total-return data. Execution remains disabled."
     },
     {
       "name": "Trading halts",
@@ -184,7 +184,7 @@
     }
   ],
   "blockers": [
-    "Private daily histories are stored; corporate-action, halt and execution validation remain incomplete",
+    "Historical daily snapshots were reviewed; current storage and redistribution eligibility must be verified before further collection; corporate-action, halt and execution validation remain incomplete",
     "Historical halt evidence not connected",
     "Three source reviews need further financial or guidance comparison",
     "Paper book is disabled and empty; no results or guaranteed returns",

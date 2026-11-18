@@ -27,7 +27,7 @@ def summarize_price_status(p):
     if first > last:
         raise ValueError('invalid session range')
     as_of = p['verified_at']
-    detail = f"Initial private daily-price sample verified through {p['last_session']}. "
+    detail = f"Previously reviewed daily-price sample covers through {p['last_session']}. "
     if 'latest_collection' in p:
         c = p['latest_collection']
         fields = {'observed_at', 'saved_snapshots', 'rows_per_symbol', 'scheduled_run_verified'}
@@ -38,7 +38,7 @@ def summarize_price_status(p):
         if type(c['saved_snapshots']) is not int or c['saved_snapshots'] != 11 or type(c['rows_per_symbol']) is not int or c['rows_per_symbol'] != 100 or c['scheduled_run_verified'] is not True:
             raise ValueError('unreviewed collection evidence')
         as_of = c['observed_at']
-        detail += 'A scheduled collection was verified: 11 private snapshots, 100 rows each. '
+        detail += 'A historical scheduled collection was verified: 11 stored snapshots, 100 rows each. '
         if 'coverage_audit' in c:
             a = c['coverage_audit']
             if set(a) != {'verified_at', 'first_session', 'last_session', 'hashes_and_symbols_verified'} or a['hashes_and_symbols_verified'] is not True:
@@ -55,5 +55,5 @@ def summarize_price_status(p):
 
     else:
         detail += 'Scheduled collection not yet verified. '
-    detail += 'Raw daily data only; not realtime, official auction or total-return data. Execution remains disabled.'
+    detail += 'These historical receipts do not establish current storage privacy or permission to redistribute prices. Further collection requires current storage and source-permission checks. Raw daily data only; not realtime, official auction or total-return data. Execution remains disabled.'
     return {'status': 'snapshot_only', 'as_of': as_of, 'detail': detail}
