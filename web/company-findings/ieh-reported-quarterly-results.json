@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "id": "ieh-reported-quarterly-operating-net-basic-results",
+  "status": "ISSUER_REPORTED_FINANCIAL_RESULTS_NOT_INDEPENDENTLY_COMPARABLE",
+  "generated_at": "2026-11-18T10:35:47.339297+00:00",
+  "issuer": {
+    "cik": "0000050292",
+    "name_as_filed": "IEH Corp",
+    "ticker": null,
+    "security_mapping_verified": false
+  },
+  "filing": {
+    "accession": "0001174947-26-000991",
+    "form": "8-K",
+    "filing_date_as_reported": "2026-11-13",
+    "report_date_as_reported": "2026-11-12",
+    "release_date_as_reported": "2026-11-12",
+    "exhibit": "EX-99.1",
+    "exhibit_filename": "ex99-1.htm",
+    "retained_source_url": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991.txt",
+    "source_url_basis": "EXACT_RETAINED_RECEIPT_URL_NOT_FRESHLY_REQUESTED",
+    "source_current_access_verified": false
+  },
+  "metrics": [
+    {
+      "metric": "OperatingProfitLoss",
+      "unit_as_reported": "dollars_as_reported",
+      "currency_symbol_as_reported": "$",
+      "currency_iso": null,
+      "facts": [
+        {
+          "comparison_role": "current",
+          "signed_value": "1046496",
+          "literal_as_reported": "1,046,496",
+          "sign_term_as_reported": "profit",
+          "fiscal_period_label_as_reported": "2nd quarter fiscal year 2027",
+          "period_end_as_reported": "2026-09-30",
+          "period_start": null,
+          "normalized_literal_span": {
+            "character_start": 193,
+            "character_end": 202,
+            "utf8_sha256": "e01abbba1dd315b97e9d8ec3299a785d60ce1611b855f01fe22219c4251e0aaa"
+          }
+        },
+        {
+          "comparison_role": "prior",
+          "signed_value": "-104380",
+          "literal_as_reported": "104,380",
+          "sign_term_as_reported": "loss",
+          "fiscal_period_label_as_reported": "2nd quarter fiscal year 2026",
+          "period_end_as_reported": "2025-09-30",
+          "period_start": null,
+          "normalized_literal_span": {
+            "character_start": 273,
+            "character_end": 280,
+            "utf8_sha256": "f412dc9296d5c5ebd21228e252b4b9a2206edd1e25928253ccc097194215da66"
+          }
+        }
+      ],
+      "absolute_difference_current_minus_prior": "1150876",
+      "difference_unit": "dollars_as_reported",
+      "difference_basis": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_AMOUNTS",
+      "percentage_change": null,
+      "percentage_change_reason": "NEGATIVE_PRIOR_BASELINE_NO_GROWTH_PERCENTAGE",
+      "accounting_comparability_verified": false
+    },
+    {
+      "metric": "NetIncomeLoss",
+      "unit_as_reported": "dollars_as_reported",
+      "currency_symbol_as_reported": "$",
+      "currency_iso": null,
+      "facts": [
+        {
+          "comparison_role": "current",
+          "signed_value": "1363414",
+          "literal_as_reported": "1,363,414",
+          "sign_term_as_reported": "income",
+          "fiscal_period_label_as_reported": "2nd quarter fiscal year 2027",
+          "period_end_as_reported": "2026-09-30",
+          "period_start": null,
+          "normalized_literal_span": {
+            "character_start": 330,
+            "character_end": 339,
+            "utf8_sha256": "1af11d83eb3920b0610cadfd89452eb610dce9a2fe6d14881fb3feee13e72340"
+          }
+        },
+        {
+          "comparison_role": "prior",
+          "signed_value": "-26861",
+          "literal_as_reported": "26,861",
+          "sign_term_as_reported": "loss",
+          "fiscal_period_label_as_reported": "2nd quarter fiscal year 2026",
+          "period_end_as_reported": "2025-09-30",
+          "period_start": null,
+          "normalized_literal_span": {
+            "character_start": 403,
+            "character_end": 409,
+            "utf8_sha256": "ca0fc10178a57d430db700e6bca0a5c8d5e1ab57aa1d019ffe88d9ef3cb287e9"
+          }
+        }
+      ],
+      "absolute_difference_current_minus_prior": "1390275",
+      "difference_unit": "dollars_as_reported",
+      "difference_basis": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_AMOUNTS",
+      "percentage_change": null,
+      "percentage_change_reason": "NEGATIVE_PRIOR_BASELINE_NO_GROWTH_PERCENTAGE",
+      "accounting_comparability_verified": false
+    },
+    {
+      "metric": "BasicEarningsLossPerShare",
+      "unit_as_reported": "dollars_per_basic_share_as_reported",
+      "currency_symbol_as_reported": "$",
+      "currency_iso": null,
+      "facts": [
+        {
+          "comparison_role": "current",
+          "signed_value": "0.55",
+          "literal_as_reported": ".55",
+          "sign_term_as_reported": "gain",
+          "fiscal_period_label_as_reported": "2nd quarter fiscal year 2027",
+          "period_end_as_reported": "2026-09-30",
+          "period_start": null,
+          "normalized_literal_span": {
+            "character_start": 475,
+            "character_end": 478,
+            "utf8_sha256": "78831038c79d8c3352d3cbed684df8d7ed5d4faeafa02dd361691cd5550dd7f7"
+          }
+        },
+        {
+          "comparison_role": "prior",
+          "signed_value": "-0.01",
+          "literal_as_reported": ".01",
+          "sign_term_as_reported": "loss",
+          "fiscal_period_label_as_reported": "2nd quarter fiscal year 2026",
+          "period_end_as_reported": "2025-09-30",
+          "period_start": null,
+          "normalized_literal_span": {
+            "character_start": 554,
+            "character_end": 557,
+            "utf8_sha256": "d8b5a5b00ed2b1cf3dd049e020b10e2d48136df749839e9bc0668da74945986d"
+          }
+        }
+      ],
+      "absolute_difference_current_minus_prior": "0.56",
+      "difference_unit": "dollars_per_basic_share_as_reported",
+      "difference_basis": "CALCULATED_SIGNED_DIFFERENCE_FROM_REPORTED_AMOUNTS",
+      "percentage_change": null,
+      "percentage_change_reason": "NEGATIVE_PRIOR_BASELINE_NO_GROWTH_PERCENTAGE",
+      "accounting_comparability_verified": false
+    }
+  ],
+  "revenue_cross_reference": {
+    "path": "web/company-findings/ieh-reported-revenue.json",
+    "bytes": 4778,
+    "sha256": "74c4fff28c44a4213993cfa487b7745006a71a23d9274f5cbdd5516257719002",
+    "finding_id": "ieh-reported-quarterly-revenue",
+    "same_accession_cik_and_paragraph_verified": true
+  },
+  "source_evidence": {
+    "exhibit_filename": "ex99-1.htm",
+    "document_sha256": "b24cb88970229bcca0c9fc34a4ca352c021e8b2264a7b47c51c47ca64ed9474e",
+    "paragraph_span": {
+      "byte_start": 29667,
+      "byte_end": 30325,
+      "sha256": "897b835de2af6d93bf24217d5442d8cd31fd939bc387531641c0f9759e003880"
+    },
+    "normalized_text_method": "financial_admission_rehearsal.plain; character spans and UTF-8 substring hashes are not raw byte spans"
+  },
+  "provenance": {
+    "retained_zip_sha256": "0f92e2c02a597b14f08c29395ae2fc9b87f2db580016e632c8d76c3059e449c0",
+    "manifest_sha256": "ac6316ad597b9a931613c71e4f1442425f5f83c873d47ba17192f0c1b6a2274a",
+    "original_submission_sha256": "601bce6d1a5d0337271ece9abb6ddf2b91ed84ac42d33806deb4ae378b9418e0",
+    "original_submission_bytes": 207107,
+    "request_utc_as_recorded": "2026-11-14T23:33:29.625421+00:00",
+    "retrieved_utc_as_recorded": "2026-11-14T23:33:31.646886+00:00",
+    "first_public_utc": null,
+    "historical_availability_verified": false,
+    "exact_source_context_reviewed": true,
+    "original_10q_checked": false,
+    "prepared_workspace_join_verified": false
+  },
+  "interpretation": [
+    "The issuer reports an operating profit versus an operating loss, net income versus a net loss, and basic EPS gain versus basic EPS loss in the stated quarters. These are source-reported results, not independently audited accounting truth.",
+    "Absolute differences are exact subtraction of the signed reported values. No percentage growth from a negative prior baseline is presented.",
+    "Basic EPS is not diluted EPS; no weighted-average shares, share dilution, margin, implied currency or earnings quality is inferred.",
+    "Fiscal labels FY2027 Q2 and FY2026 Q2 accompany quarter ends September 30, 2026 and September 30, 2025. Exact start dates and ISO currency remain unknown.",
+    "This uses the same retained EX-99.1 paragraph as the prior revenue finding. It is additional metrics, not independent confirmation or a new economic event.",
+    "The underlying quarterly statements, accounting scope/policies, amendments and full comparability remain unreviewed. Source retrieval is retrospective, not first-public timing or evidence of a current catalyst."
+  ],
+  "next_action": "Review the original quarterly statements and notes for exact durations, ISO currency, accounting scope and comparative basis before any further financial interpretation.",
+  "accounting_comparability_verified": false,
+  "historical_security_mapping_verified": false,
+  "original_10q_checked": false,
+  "first_public_utc": null,
+  "probability": null,
+  "price_target": null,
+  "return_estimate": null,
+  "training_ready": false,
+  "execution_ready": false
+}
