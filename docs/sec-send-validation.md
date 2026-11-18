@@ -1,0 +1,17 @@
+# Offline actual-send-time and response-byte checks
+
+This prototype imports no collector, performs no network operation, and does not alter any original trial gate or schedule. It contains no callback capable of sending a request. Both check functions always return `collection_enabled=false` and `send_authorized=false`.
+
+`send_time_check` replays the supplied bounded accounting history and checks the expected tip, matching unresolved request, failure latch and **proposed actual send clock**. It rejects a send after the candidate's exclusive cutoff or outside daily hours even if the intent was reserved earlier. A reservation older than 60 seconds requires review; prior actual-send spacing must be at least two seconds. That 60-second freshness ceiling is a proposed conservative prototype constraint, not an existing production policy. Missing prior send evidence blocks local checks after the first reservation.
+
+Even passing local checks leaves mandatory blockers for independently verified remote persistence, exclusive sender ownership, complete managed history and unmanaged consumers. No local check eliminates a race between checking and later sending; a future integrated runner must enforce fencing, fresh clocks and cutoff at its actual network boundary. Caller clocks are not authenticated. The state machine still has no automatic lease expiry or failure reset.
+
+`validate_response` takes already-available bytes, claimed request/final URLs, status and clocks. It checks exact reviewed metadata URL/issuer/ticker scope, no changed final URL, HTTP 200, bounded strict JSON with duplicate/nonfinite rejection, recent-filing columns/counts/accession identities, date formats, future acceptance/filing dates, and a proposed maximum 30-second source interval. It returns hashes/counts/identity only, not source text. It accepts a late response to an earlier request for accounting purposes without authorizing the send.
+
+The known-private-value check covers supplied literal/JSON-decoded strings only; it is not an exhaustive secret detector. Unknown fields are never returned. Missing or wrong source evidence fails rather than becoming an empty successful result. Production response validation still needs independent source receipt binding, comprehensive secret-safe handling and the existing complete-lookback checks. This function explicitly does **not** certify network authenticity, full lookback coverage, first-public timing, filing truth, current security mapping or an executable trade.
+
+## Offline retained-data test
+
+The ten retained SEC metadata snapshots from the November 17 19:54 UTC scan were read locally; all original SHA-256 hashes matched and all ten passed the prototype. No new download or request was performed. These historical examples test byte/schema compatibility, not proposed November continuation permission or prospective send timing. The synthetic tests separately cover actual-send cutoff, old/stale tip, stale intent, insufficient spacing, missing intent, redirects/status failures, malformed source identities/columns, duplicate JSON, reflected private text and future clocks/dates. No historical receipt or source bytes were edited.
+
+This is another independently testable building block, not activation. Durable remote CAS, controlled consumer inventory, exclusive actual-send ownership, source-specific rights/cost verification and an independently reviewed end-to-end runner remain necessary.
