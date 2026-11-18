@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "id": "vitaspring-revenue-zero-baseline",
+  "status": "SOURCE_BACKED_HISTORICAL_OBSERVATION_NOT_TRADING_QUALIFIED",
+  "generated_at": "2026-11-18T01:12:27.348436+00:00",
+  "issuer": {
+    "cik": "0001697884",
+    "name_as_filed": "VITASPRING BIOMEDICAL CO. LTD.",
+    "ticker": null,
+    "security_mapping_verified": false
+  },
+  "title": "Historical revenue evidence: zero baseline prevents a percentage-growth finding",
+  "finding": "The retained filing reports revenue of $0 for May\u2013July 2025 and $0 for May\u2013July 2024. A percentage growth rate using the zero comparison base is undefined; this evidence does not establish a revenue-growth lead.",
+  "research_disposition": "ABSTAIN_FROM_REVENUE_GROWTH_INFERENCE",
+  "facts": [
+    {
+      "fact_id": "fid_2230",
+      "concept": "Revenues",
+      "taxonomy_namespace": "http://fasb.org/us-gaap/2025",
+      "value": "0",
+      "currency": "USD",
+      "period_start": "2025-05-01",
+      "period_end": "2025-07-31",
+      "source_context_ref": "From2025-05-01to2025-07-31",
+      "context_serialization_sha256": "84847539d78962008de8ae858b6aa1365f896c7d9ecfeff533801c186f419b61",
+      "declared_decimals": "0",
+      "source_literal": "-",
+      "source_transform": "TRR3 zerodash",
+      "dimension_or_scenario_present": false,
+      "prepared_num_rowid": 3041506,
+      "prepared_value_as_filed": "0.0000",
+      "prepared_end_date": "20250731",
+      "prepared_qtrs": "1",
+      "prepared_exact_start_date_verified": false
+    },
+    {
+      "fact_id": "fid_2231",
+      "concept": "Revenues",
+      "taxonomy_namespace": "http://fasb.org/us-gaap/2025",
+      "value": "0",
+      "currency": "USD",
+      "period_start": "2024-05-01",
+      "period_end": "2024-07-31",
+      "source_context_ref": "From2024-05-01to2024-07-31",
+      "context_serialization_sha256": "4765fabace42d77faf58748ae99909da8130d47ff0e92b4ea4fc0e7bbfa00b44",
+      "declared_decimals": "0",
+      "source_literal": "-",
+      "source_transform": "TRR3 zerodash",
+      "dimension_or_scenario_present": false,
+      "prepared_num_rowid": 3041504,
+      "prepared_value_as_filed": "0.0000",
+      "prepared_end_date": "20240731",
+      "prepared_qtrs": "1",
+      "prepared_exact_start_date_verified": false
+    }
+  ],
+  "calculation": {
+    "metric": "percentage_revenue_growth",
+    "value": null,
+    "reason": "ZERO_COMPARISON_BASE",
+    "not_zero_percent": true
+  },
+  "filing": {
+    "accession": "0001640334-26-001075",
+    "form": "10-Q",
+    "period_of_report": "2025-07-31",
+    "filing_date_as_reported": "2026-06-17",
+    "fiscal_year_as_filed": "2026",
+    "fiscal_period_as_filed": "Q2",
+    "source_filing_index_url": "https://www.sec.gov/Archives/edgar/data/1697884/000164033426001075/0001640334-26-001075-index.html",
+    "source_primary_document_url": "https://www.sec.gov/Archives/edgar/data/1697884/000164033426001075/vsbc_10q.htm",
+    "primary_member": "vsbc_10q.htm"
+  },
+  "provenance": {
+    "original_archive_sha256": "e68c0065e400b19e92d07c7bb9cefdba522eefa9c4c35e6a701083f8552c0ee4",
+    "original_member_sha256": "ea92f6ce189e277c36b47b60a74d6d4d40098dabc1f17fea3d0d0e6b171e7510",
+    "identity_manifest_sha256": "7faa83a8083bb5c5ec2667a773be2a35a782701feb2ebed656229f4edf42f334",
+    "prepared_archive_sha256": "d7c815395cd420cfbe09b29dbae73a45406c5d0652d5ae1859ae11ea2e22df77",
+    "prepared_database_sha256": "4af6790a4b8e0f96beb2c4e2d99bbd011d883b42566a3d60243e65d0dc713b5a",
+    "prepared_submission_rowid": 6719,
+    "source_local_verified_utc": "2026-11-17T21:34:38.194086+00:00",
+    "source_exact_download_utc": null,
+    "source_first_public_utc": null,
+    "original_bytes_retained": true,
+    "source_numeric_extraction_checked": true,
+    "prepared_numeric_correspondence": true,
+    "full_accounting_comparability_verified": false
+  },
+  "blockers": [
+    "These are historical 2025/2024 reporting periods in a filing reported in June 2026, not current company financials.",
+    "Zero comparison base prevents a percentage revenue-growth calculation. Revenue is not earnings; no earnings-growth conclusion is made.",
+    "The second diagnostic filing was not retained after a timeout. Cross-filing comparability, novelty and earliest public timing remain unverified.",
+    "Issuer CIK is not verified tradable-security identity. No licensed price/outcome or execution evidence is joined."
+  ],
+  "next_research_steps": [
+    "Review the linked original statement and accounting context before interpreting the observation.",
+    "Use a separately authorized source with a nonzero comparable baseline if testing a revenue-growth hypothesis; do not fabricate a percentage here.",
+    "Establish security identity, decision-time source availability and permitted outcome data before any predictive evaluation."
+  ],
+  "training_ready": false,
+  "execution_ready": false,
+  "probability": null,
+  "price_target": null,
+  "return_estimate": null,
+  "limitations": [
+    "This card is a narrow source-reported numerical observation, not independent verification of company accounting truth, a current catalyst or financial advice.",
+    "Dash-to-zero interpretation follows the declared Inline XBRL transformation; missing values are not imputed to zero.",
+    "Exact source start/end dates come from retained inline contexts. Prepared qtrs/end-date agreement alone does not prove full duration or accounting equivalence.",
+    "Context hashes cover ElementTree serialization, not original context byte slices or canonical XML. Raw member/archive hashes bind original retained bytes.",
+    "Sources were retained retrospectively. Local verification time is not download or first-public time; no historical decision or future outcome is invented.",
+    "No private addresses, contacts, raw narratives, licensed price data or held research-report contents are republished."
+  ]
+}
