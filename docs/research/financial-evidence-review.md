@@ -1,5 +1,7 @@
 # Financial evidence review workspace
 
+**Prepared-source semantics correction:** `ddate` (including legacy `period_end` / `reported_end_date` fields) is SEC-rounded to nearest month-end, not an exact XBRL context end. `qtrs` is rounded to whole quarters. Values are unscaled archive literals limited to four decimal places, not guaranteed original filing precision. These are coarse review keys, not exact period identity. See [retained source definitions and unit limitations](financial-prepared-semantics.md).
+
 This additive projection makes **605 retained repeated financial contexts** inspectable, including 90 with different reported numbers and 515 numerically equal. These are review cases, not qualified growth facts, confirmed restatements, events or securities. There are zero qualified return outcomes here.
 
 The workspace searches exact retained issuer CIKs and accessions, filters four financial metrics and numeric relation, and paginates 20 cases at a time. It links each case to its original SEC filing index. Company names are now attached only through exact accession and CIK joins to retained SEC submission rows; tickers are not inferred. The sole reviewed original-source company finding remains separate and unchanged.

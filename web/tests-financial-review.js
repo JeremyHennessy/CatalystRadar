@@ -18,3 +18,5 @@ assert(select(d.records,'astrotech','all','all').length>0);
 assert(select(d.records,'houston american','all','all').some(r=>r.issuer_cik==='0001156041'));
 assert(select(d.records,'abundia','all','all').some(r=>r.issuer_cik==='0001156041'));
 for(const edit of [x=>x.records[0].issuer_names_as_filed=[],x=>x.records[0].observations[0].issuer_name_as_filed='UNSUPPORTED',x=>x.records[0].observations[0].prepared_sub_rowid=0,x=>x.version=1]){const x=structuredClone(d);edit(x);assert.throws(()=>validate(x));}
+
+const viewSource=fs.readFileSync(__dirname+'/financial-review.js','utf8');assert(viewSource.includes('SEC rounded month-end (ddate)'));assert(viewSource.includes('Exact start and end dates'));assert(!viewSource.includes('reports USD, not USD/shares'));

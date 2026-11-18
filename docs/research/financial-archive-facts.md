@@ -1,5 +1,7 @@
 # Inspectable SEC archive-reported financial values
 
+**Prepared-source semantics correction:** `ddate` (including legacy `period_end` / `reported_end_date` fields) is SEC-rounded to nearest month-end, not an exact XBRL context end. `qtrs` is rounded to whole quarters. Values are unscaled archive literals limited to four decimal places, not guaranteed original filing precision. These are coarse review keys, not exact period identity. See [retained source definitions and unit limitations](financial-prepared-semantics.md).
+
 This additive capability exposes **802 checked archive-reported monetary observations in 395 repeated contexts across 103 issuer CIKs**. It supports Revenues, RevenueFromContractWithCustomerExcludingAssessedTax and NetIncomeLoss. The 210 EPS contexts remain excluded from numerical presentation because their source-reported USD unit is not verified as a per-share unit.
 
 This is an extraction/correspondence qualification, **not financial comparability**, independently audited company accounting, original filing-text verification, a growth lead, prediction or trading signal. The exact start date is unknown. No absolute/percentage change is calculated, even when two displayed numbers differ. All outcome status remains INSUFFICIENT EVIDENCE.
