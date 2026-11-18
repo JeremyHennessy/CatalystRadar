@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T22:15:10.537302+00:00",
+  "generated_at": "2026-11-18T19:26:45.084080+00:00",
   "mode": "paper",
   "window": {
     "start": "2026-11-16",
@@ -10,8 +10,8 @@
     {
       "name": "SEC filings",
       "status": "snapshot_only",
-      "as_of": "2026-11-17T19:54:39.231235+00:00",
-      "detail": "10/10 configured issuer metadata feeds checked; 7 filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime."
+      "as_of": "2026-11-18T19:26:45.001665+00:00",
+      "detail": "10/10 configured issuer metadata feeds checked; 1 filing discoveries, not eligible signals. Trial-week schedule configured; not continuous or realtime."
     },
     {
       "name": "Price and liquidity",
@@ -192,7 +192,7 @@
   ],
   "activity": [
     {
-      "at": "2026-11-17T19:54:39.231235+00:00",
+      "at": "2026-11-18T19:26:45.001665+00:00",
       "detail": "Schedule-triggered SEC poll: 10/10 issuer checks reported; complete metadata window reported. Metadata discoveries are not trade signals."
     }
   ],
