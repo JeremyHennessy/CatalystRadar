@@ -1,8 +1,11 @@
 """Protect the saved Nov 19 status checkpoint and its evidence boundaries."""
+from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
 import unittest
+
+from sec_collection_control import plan
 
 ROOT = Path(__file__).resolve().parents[1]
 OBS = 'data/sec-observations/20261119T114159492631Z.json'
@@ -22,6 +25,13 @@ class CollectionReconciliation(unittest.TestCase):
         self.assertEqual([source['status'] for source in receipt['sources']], [200] * 10)
         self.assertEqual(len(receipt['events']), 2)
         self.assertEqual((receipt['eligible_count'], receipt['orders_created']), (0, 0))
+
+    def test_logged_skip_precedes_reservation(self):
+        result = plan(now=datetime.fromisoformat('2026-11-19T01:32:29.382275+00:00'),
+                      event='schedule', actor='JeremyHennessy', run_id='44437552657',
+                      attempt='1', request=None, receipts=[], reservations=[])
+        self.assertEqual(result, ('OUTSIDE_TRIAL_WINDOW', None))
+        self.assertFalse((ROOT / 'data/sec-control/attempts/44437552657.json').exists())
 
     def test_operational_stages_and_unknowns_are_separate(self):
         page = (ROOT / 'web/collectors.html').read_text()
