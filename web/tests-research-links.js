@@ -17,8 +17,10 @@ const routes = {
 };
 for (const page of pages) {
   const html = read(page);
-  const scripts = html.match(/<script defer src="research-backspace\.js\?v=20261119-app-history"><\/script>/g);
+  const scripts = html.match(/<script defer src="research-backspace\.js\?v=[a-z0-9-]+"><\/script>/g);
+  const expectedVersion = page === 'datasets.html' ? '20261119-status-focus' : '20261119-app-history';
   assert.equal(scripts?.length, 1, page);
+  assert.ok(scripts[0].includes('?v=' + expectedVersion + '"'), page);
   assert.ok(html.indexOf(scripts[0]) < html.indexOf('</head>'), page);
 }
 for (const [page, links] of Object.entries(routes)) {

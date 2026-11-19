@@ -2,7 +2,10 @@
 (function (host) {
   'use strict';
   const pages = new Set(['collectors.html', 'company-ieh.html', 'company.html', 'datasets.html', 'disclosures.html', 'financial-review.html', 'index.html', 'insider-conflicts.html', 'insider-review.html', 'operations.html']);
-  const blocked = 'input,textarea,select,button,a,form,summary,details,iframe,object,embed,audio,video,[contenteditable],[role],[tabindex]';
+  // The app focuses this plain live status after changing the company view; it is not a control.
+  const status = 'p#company-work-detail-state[role="status"][aria-live="polite"][tabindex="-1"]';
+  const blocked = 'input,textarea,select,button,a,form,summary,details,iframe,object,embed,audio,video,[contenteditable]' +
+    `,[role]:not(${status}),[tabindex]:not(${status})`;
   function editableOrControl(event) {
     const path = typeof event.composedPath === 'function' ? event.composedPath() : [event.target];
     return path.some(node => node && (node.isContentEditable ||
