@@ -21,6 +21,41 @@ assert.ok(links(officialUI.n('list')).some(l=>l.href==='collectors.html#coherent
 assert.ok(links(officialUI.n('list')).some(l=>l.href==='financial-review.html#txmd-companion-10q'));
 assert.match(read('collectors.html').toString(),/id="coherent-saved-case"/);
 assert.match(read('financial-review.html').toString(),/id="txmd-companion-10q"/);
+// The separately pinned overlay must never mutate or conceal the original ranking.
+const assessmentPin=v.ASSESSMENT_PINS[officialManifest.snapshot.sha256];
+const assessmentKey=assessmentPin.path.slice(4);
+const verifiedOverlay=JSON.parse(read(assessmentKey));
+const actualSnapshot=JSON.parse(read(officialManifest.snapshot.path.slice(4)));
+assert.equal(v.validateAssessment(verifiedOverlay,actualSnapshot,officialManifest),verifiedOverlay);
+for(const mutate of [
+ a=>a.snapshot.sha256='0'.repeat(64),
+ a=>a.assessments[0].readiness.state='HYPOTHETICAL_TRADE_QUALIFIED',
+ a=>a.assessments[0].readiness.first_blocker.id='market_data',
+ a=>a.assessments[0].evidence.verified=10,
+ a=>a.assessments[0].evidence.checks[0].id='fake',
+ a=>a.assessments[0].readiness.blockers.splice(1,1),
+ a=>a.assessments[0].id=a.assessments[1].id,
+ a=>a.execution_ready=true
+]){const changed=structuredClone(verifiedOverlay);mutate(changed);assert.throws(()=>v.validateAssessment(changed,actualSnapshot,officialManifest));}
+const overlayUI=mock(fetcher,{assessments:v.ASSESSMENT_PINS});
+await overlayUI.api.initialLoad;
+assert.equal(overlayUI.n('list').children.length,7);
+assert.match(text(overlayUI.n('list')),/Research priority/);
+assert.match(text(overlayUI.n('list')),/Evidence completeness: 2 of 10 requirements verified/);
+assert.match(text(overlayUI.n('list')),/Trade readiness: NEEDS EVENT VERIFICATION/);
+assert.match(text(overlayUI.n('list')),/First blocker: No verified first-public time/);
+assert.match(text(overlayUI.n('summary')),/Prospective decisions awaiting outcomes: none/);
+assert.match(text(overlayUI.n('summary')),/does not change archived scores/);
+const archiveOverlay=mock(fetcher,{search:'?snapshot=original',assessments:v.ASSESSMENT_PINS});await archiveOverlay.api.initialLoad;
+assert.equal(archiveOverlay.n('list').children.length,5);
+assert.match(text(archiveOverlay.n('list')),/Evidence completeness: 2 of 10/);
+const corruptOverlay=mock(async path=>{
+ if(path!==assessmentKey)return fetcher(path);
+ const bytes=Uint8Array.from(read(path));bytes[0]^=1;return {ok:true,arrayBuffer:async()=>bytes.buffer};
+},{assessments:v.ASSESSMENT_PINS});await corruptOverlay.api.initialLoad;
+assert.equal(corruptOverlay.n('list').children.length,7);
+assert.doesNotMatch(text(corruptOverlay.n('list')),/Trade readiness:/);
+assert.match(text(corruptOverlay.n('summary')),/Readiness assessment could not be verified/);
 const empty=structuredClone(d);empty.ideas=[];empty.all_scored_candidates=[];empty.counts={...empty.counts,returned:0,consolidated_theses:0,eligible_source_records:0,excluded:905};empty.candidate_decisions=empty.candidate_decisions.map(x=>({...x,decision:'EXCLUDED',reason:'NO_ELIGIBLE_RESEARCH'}));assert.equal(v.validate(empty,r,m),empty);
 // Deliberately synthetic release transport fixture. Nothing below is written or published.
 const newCutoff='2026-11-19T20:12:00Z';
