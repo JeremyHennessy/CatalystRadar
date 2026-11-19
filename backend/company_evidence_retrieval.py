@@ -152,6 +152,7 @@ def output_bytes(result):
     return raw
 
 LAYER_PINS = {
+    'companion_10q': {'path':'web/company-findings/txmd-companion-10q.json','bytes':4613,'sha256':'72a69128b92c968f4b2777fc106decb7e4b5ef74ae1f3f740243b091f7bbb6cd'},
     'redemption_calls': {'path': 'web/company-findings/planned-debt-redemption.json', 'bytes': 2959, 'sha256': 'f16dd2c90aff5d3bcc96f40874c20751f31a6f5c22e688e01ac68dd3d473d4ee'},
     'offerings': {'path':'web/company-findings/formd-notice-history.json','bytes':450574,'sha256':'38b21e9f921c6be5ce8db840d9f400d0dcb1ff8b9a25709cb451fbdad4db3d22'},
     'going_concern': {'path':'web/company-findings/going-concern-contexts.json','bytes':304958,'sha256':'4aef0578d20f4f391decf33738917ae4c7e97d36d38ea2f41b69704e666f0170'},
@@ -162,14 +163,20 @@ LAYER_SECTIONS = tuple(LAYER_PINS)
 def validate_layer(index, section, obj):
     """Validate a pinned public projection, not a fresh original-document audit."""
     cohort=[r['issuer_cik'] for r in index['directory']]
-    if len(cohort)!=len(set(cohort)) or obj['schema_version']!=1 or any(obj[k] is not False for k in ('training_ready','execution_ready','provider_requests_made')):
+    if len(cohort)!=len(set(cohort)) or obj['schema_version']!=1 or any(obj[k] is not False for k in (('training_ready','execution_ready') if section=='companion_10q' else ('training_ready','execution_ready','provider_requests_made'))):
         raise ValueError('layer cohort/schema/qualification')
     members=set(cohort); groups={}; seen=set()
     def add(ci, rid, pointer, record):
         if ci not in members or exact_cik(ci)!=ci or (ci,rid) in seen:
             raise ValueError('layer membership/duplicate')
         seen.add((ci,rid));groups.setdefault(ci,[]).append({'record_id':rid,'source_record':record,'source_ref':{'path':LAYER_PINS[section]['path'],'json_pointer':pointer,'object_sha256':source.digest(record)}})
-    if section=='redemption_calls':
+    if section=='companion_10q':
+        if (obj['issuer_cik'],obj['accession'],obj['form'],obj['status']) != ('0000025743','0001213900-26-119697','10-Q','SOURCE_REPORTED_COMPANION_CONTEXT_NOT_OUTCOME_QUALIFICATION') or obj['first_public_utc'] is not None or obj['readiness_changed'] is not False or type(obj['qualified_outcomes']) is not int or obj['qualified_outcomes']!=0 or obj['source']['raw_original_published'] is not False:
+            raise ValueError('companion identity/qualification')
+        if [r['id'] for r in obj['findings']]!=['NOTE8_2025_MILESTONE','NOTE14_2026_MILESTONE','MDA_RATE_AND_EXPECTATION'] or obj['source']['raw_sha256']!='b1d9611d086251771ab12b16a836d94aee216ba25c24f1131e70731194c2469a':
+            raise ValueError('companion finding/source scope')
+        add(obj['issuer_cik'],obj['issuer_cik']+':'+obj['accession']+':COMPANION_10Q','',obj)
+    elif section=='redemption_calls':
         from planned_debt_redemption import ACCESSION, CIK, SOURCE_SHA
         if (obj['issuer_cik'],obj['accession'],obj['source_sha256'],obj['status']) != (CIK,ACCESSION,SOURCE_SHA,'ISSUER_REPORTED_REDEMPTION_CALL_NOT_COMPLETION') or obj['first_public_utc'] is not None or obj['currency_iso'] is not None or any(obj[k] is not False for k in ('redemption_completion_verified','market_outcome_qualified','filing_is_redemption_notice','historical_availability_verified')):
             raise ValueError('redemption interpretation/identity')
@@ -244,6 +251,15 @@ def validate_layer(index, section, obj):
 def load_layer(root,index,section):
     if section not in LAYER_PINS:raise ValueError('layer section')
     obj=pinned(root,LAYER_PINS[section]);groups=validate_layer(index,section,obj)
+    if section=='companion_10q':
+        r=obj['separate_release']
+        expected='web/company-findings/txmd-declared-publication-clocks.json'
+        if r['clock_sidecar']!=expected or r['clock_sidecar_sha256']!='265f775ba3a9a693fa63fef78310b6bc6a5300ec59e727e086c7c16a2d8e5139' or r['accession']!='0001213900-26-119681' or r['first_public_utc'] is not None:
+            raise ValueError('companion separate release pin')
+        related,_=read_pinned(Path(root)/expected,r['clock_sidecar_sha256'],20000)
+        clocks=[c for c in related['clocks'] if c['channel']=='SEC EDGAR']
+        if related['issuer_cik']!=obj['issuer_cik'] or related['accession']!=r['accession'] or len(clocks)!=1 or clocks[0]['as_reported']!=obj['acceptance_comparison']['eight_k_as_reported_new_york']:
+            raise ValueError('companion separate release association')
     if section=='assertions':
         paths={'ieh_revenue':'ieh-reported-revenue','ieh_results':'ieh-reported-quarterly-results','vita_revenue':'vitaspring-revenue','vita_loss':'vitaspring-net-loss','txmd_annotation':'frozen-outcome-txmd-source-review'}
         if set(obj['released_sources'])!=set(paths):raise ValueError('assertion source versions')
@@ -258,6 +274,9 @@ def load_layer(root,index,section):
 
 
 def layer_metadata(obj,section):
+    if section=='companion_10q':
+        return {'layer_snapshot':LAYER_PINS[section], 'layer_source_context':{k:obj[k] for k in ('status','limitations','source','separate_release','acceptance_comparison')},
+                'validation_scope':'PINNED_PUBLISHED_PROJECTION_AND_ASSOCIATIONS_NOT_FRESH_ORIGINAL_AUDIT'}
     return {'layer_snapshot':LAYER_PINS[section], 'layer_source_context':({k:obj[k] for k in ('status','limitations','provenance')} if section=='redemption_calls' else {k:v for k,v in obj.items() if k not in ('companies','cohort_ciks','packages')}),
             'validation_scope':'PINNED_PUBLISHED_PROJECTION_AND_ASSOCIATIONS_NOT_FRESH_ORIGINAL_AUDIT'}
 
@@ -269,6 +288,8 @@ def layer_evidence(root,index,cik,section,limit=5,offset=0):
     out.update(mode='evidence',issuer_cik=ci,section=section,company_url=company_url(ci),offset=offset)
     if ci not in {r['issuer_cik'] for r in index['directory']}:
         coverage='OUTSIDE_FIXED_COHORT_UNASSESSED';total=None
+    elif section=='companion_10q' and ci not in groups:
+        coverage='NOT_ASSESSED_IN_SINGLE_COMPANION_10Q_REVIEW';total=None
     elif section=='redemption_calls' and ci not in groups:
         coverage='NOT_ASSESSED_IN_SINGLE_ORIGINAL_REDEMPTION_REVIEW';total=None
     elif section=='assertions' and ci not in groups:
@@ -297,6 +318,8 @@ def layer_search(root,index,name=None,cik=None,section=None,limit=20,offset=0):
     out.update(mode='search',query={'name':name,'issuer_cik':ci,'section':section},global_name_matching_ciks=count,name_ambiguous=count is not None and count>1,
                exact_cik_coverage=('IN_FIXED_COMPANY_COHORT' if any(r['issuer_cik']==ci for r in index['directory']) else 'OUTSIDE_FIXED_COHORT_UNASSESSED') if ci else None,
                total_records=len(rows),offset=offset,records=rows[offset:offset+limit],layer_filter_meaning='HAS_RETAINED_SOURCE_RECORD_NOT_QUALIFIED_ACTIVITY_OR_RISK')
+    if section=='companion_10q':
+        out['layer_exact_cik_coverage']=(obj['status'] if ci in groups else 'NOT_ASSESSED_IN_SINGLE_COMPANION_10Q_REVIEW' if any(r['issuer_cik']==ci for r in index['directory']) else 'OUTSIDE_FIXED_COHORT_UNASSESSED') if ci else None
     return finish_page(out,limit)
 
 

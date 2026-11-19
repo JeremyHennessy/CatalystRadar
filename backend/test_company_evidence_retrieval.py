@@ -106,7 +106,7 @@ class ReviewedLayers(unittest.TestCase):
   cls.index=m.load(ROOT)
   cls.layers={s:m.load_layer(ROOT,cls.index,s) for s in m.LAYER_SECTIONS}
  def test_all_company_memberships_and_original_objects(self):
-  expected_counts={'redemption_calls':(1,1),'offerings':(187,223),'going_concern':(97,123),'assertions':(12,12)}
+  expected_counts={'companion_10q':(1,1),'redemption_calls':(1,1),'offerings':(187,223),'going_concern':(97,123),'assertions':(12,12)}
   for section,(obj,groups) in self.layers.items():
    count=0;selected=0
    with patch.object(m,'load_layer',return_value=(obj,groups)):
@@ -114,14 +114,14 @@ class ReviewedLayers(unittest.TestCase):
      ci=company['issuer_cik'];expected=groups.get(ci,[]);actual=[]
      for offset in range(0,max(1,len(expected)),5):
       page=m.layer_evidence(ROOT,self.index,ci,section,offset=offset)
-      self.assertEqual(page['total_records'],len(expected) if section not in ('assertions','redemption_calls') or ci in groups else None)
+      self.assertEqual(page['total_records'],len(expected) if section not in ('assertions','redemption_calls','companion_10q') or ci in groups else None)
       actual+=page['records']
       if expected:m.output_bytes(page)
      self.assertEqual(actual,expected);selected+=bool(expected);count+=len(actual)
     self.assertEqual(m.layer_search(ROOT,self.index,section=section)['total_records'],len(groups))
    self.assertEqual((selected,count),expected_counts[section])
    originals=[]
-   if section=='redemption_calls':originals=[(obj['issuer_cik'],'',obj)]
+   if section in ('redemption_calls','companion_10q'):originals=[(obj['issuer_cik'],'',obj)]
    elif section=='assertions':
     originals=[(f['cik'],f'/packages/{i}',r) for i,r in enumerate(obj['packages']) for f in r['filers_as_reported']]
    else:originals=[(c['issuer_cik'],f'/companies/{i}/records/{j}',r) for i,c in enumerate(obj['companies']) for j,r in enumerate(c['records'])]
@@ -135,6 +135,13 @@ class ReviewedLayers(unittest.TestCase):
   self.assertEqual(hashlib.sha256(m.output_bytes(m.search(self.index,name='Emerson'))).hexdigest(),'6a3aee13b9a91db29c2e2f2826607ec9fd5ca4196ab66bb50778fa2420a8bb21')
  def test_layer_bad_identity_duplicates_status_counts(self):
   for section,(obj,_) in self.layers.items():
+   if section=='companion_10q':
+    for key,value in [('issuer_cik','0000002488'),('accession','0001213900-26-119681'),('status','QUALIFIED'),('readiness_changed',0),('qualified_outcomes',False),('first_public_utc','2026-11-13')]:
+     bad=copy.deepcopy(obj);bad[key]=value
+     with self.assertRaises(ValueError):m.validate_layer(self.index,section,bad)
+    bad=copy.deepcopy(obj);bad['findings'].append(bad['findings'][0])
+    with self.assertRaises(ValueError):m.validate_layer(self.index,section,bad)
+    continue
    if section=='redemption_calls':
     for key,value in [('issuer_cik','9999999999'),('status','COMPLETED'),('currency_iso','USD'),('redemption_completion_verified',True),('first_public_utc','2026-11-13')]:
      bad=copy.deepcopy(obj);bad[key]=value
@@ -186,6 +193,44 @@ class ReviewedLayers(unittest.TestCase):
   x=m.layer_search(ROOT,self.index,name='corp',section='offerings')
   self.assertEqual(x['global_name_matching_ciks'],m.search(self.index,name='corp')['global_name_matching_ciks'])
   self.assertEqual(m.layer_search(ROOT,self.index,name='.*',section='offerings')['total_records'],0)
+ def test_companion_scoped_search_and_evidence(self):
+  section='companion_10q'; obj,groups=self.layers[section]
+  x=m.layer_evidence(ROOT,self.index,'25743',section)
+  self.assertEqual(x['total_records'],1);self.assertEqual(x['records'][0]['source_record'],obj)
+  self.assertEqual(x['records'][0]['record_id'],'0000025743:0001213900-26-119697:COMPANION_10Q')
+  self.assertEqual(x['records'][0]['source_ref']['json_pointer'],'')
+  self.assertEqual(m.layer_evidence(ROOT,self.index,'25743',section,offset=1)['records'],[])
+  for ci,status in [('2488','NOT_ASSESSED_IN_SINGLE_COMPANION_10Q_REVIEW'),('9999999999','OUTSIDE_FIXED_COHORT_UNASSESSED')]:
+   r=m.layer_evidence(ROOT,self.index,ci,section);self.assertIsNone(r['total_records']);self.assertEqual(r['coverage'],status)
+   r=m.layer_search(ROOT,self.index,cik=ci,section=section);self.assertEqual(r['total_records'],0);self.assertEqual(r['layer_exact_cik_coverage'],status)
+  self.assertEqual(m.layer_search(ROOT,self.index,section=section)['total_records'],1)
+  self.assertEqual(m.layer_search(ROOT,self.index,name='corp',section=section)['global_name_matching_ciks'],m.search(self.index,name='corp')['global_name_matching_ciks'])
+  self.assertEqual(m.layer_search(ROOT,self.index,name='.*',section=section)['total_records'],0)
+ def test_companion_related_clock_identity(self):
+  original=m.read_pinned
+  def wrong(path,pin,limit):
+   obj,size=original(path,pin,limit)
+   if str(path).endswith('txmd-declared-publication-clocks.json'):
+    obj=copy.deepcopy(obj);obj['accession']='0001213900-26-119697'
+   return obj,size
+  with patch.object(m,'read_pinned',side_effect=wrong):
+   with self.assertRaises(ValueError):m.load_layer(ROOT,self.index,'companion_10q')
+ def test_companion_tampered_clock_bytes(self):
+  from tempfile import TemporaryDirectory
+  import shutil
+  with TemporaryDirectory() as folder:
+   root=Path(folder)
+   for path in (m.LAYER_PINS['companion_10q']['path'],'web/company-findings/txmd-declared-publication-clocks.json'):
+    target=root/path;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/path,target)
+   target=root/'web/company-findings/txmd-declared-publication-clocks.json'
+   target.write_bytes(target.read_bytes()+b' ')
+   with self.assertRaises(ValueError):m.load_layer(root,self.index,'companion_10q')
+ def test_companion_cli(self):
+  import json
+  for mode in ('search','evidence'):
+   p=subprocess.run([sys.executable,str(ROOT/'backend/company_evidence_retrieval.py'),mode,'--cik','25743','--section','companion_10q'],capture_output=True,timeout=60)
+   self.assertEqual(p.returncode,0,p.stderr);x=json.loads(p.stdout);self.assertEqual(x['total_records'],1)
+   self.assertLessEqual(len(p.stdout),m.MAX_OUTPUT);self.assertFalse(x['execution_ready'])
  def test_cli_new_section(self):
   p=subprocess.run([sys.executable,str(ROOT/'backend/company_evidence_retrieval.py'),'evidence','--cik','25743','--section','assertions'],capture_output=True)
   self.assertEqual(p.returncode,0,p.stderr)

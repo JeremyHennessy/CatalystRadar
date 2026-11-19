@@ -41,3 +41,35 @@ Every result wraps the unchanged original source object with its stable record I
 The Form D (450,574 bytes / `38b21e9f921c6be5ce8db840d9f400d0dcb1ff8b9a25709cb451fbdad4db3d22`), going-concern (304,958 bytes / `4aef0578d20f4f391decf33738917ae4c7e97d36d38ea2f41b69704e666f0170`) and assertion (44,334 bytes / `1540ffdad2a5b31ee8bd024657621cd1d08c3e551903aa9b2e3275372d6eab90`) artifacts are fixed byte/hash pins. Sidecar cohort pins and exact memberships, duplicate IDs, status/qualification fields and census counts are checked. Assertion-related released findings are separately pinned and their exact CIK/accession membership is verified. The common company index still undergoes its existing full public-source rebuild.
 
 This layer validation is explicitly **published-projection integrity and association validation**, not a new audit of private SQLite, original ZIP/filing bytes or current official websites. No private input is opened and no request or new interpretation occurs. Public source provenance is copied intact, including unknown first-public/retrieval times. Existing five-record evidence pages, twenty-company search pages, output byte cap, no-partial-stdout errors and disabled execution/training flags continue to apply. Tests exhaustively compare all company memberships and every returned source object, preserve old response-byte hashes, and reject changed pins, duplicate/misassociated records, unknown statuses and changed counts.
+
+## Optional TXMD companion 10-Q layer
+
+`--section companion_10q` adds one immutable reviewed companion document, not a
+new scanner record or expansion of the 8,035-company cohort. Both `search` and
+`evidence` accept the existing exact-CIK/name/pagination rules. For example:
+
+```
+python backend/company_evidence_retrieval.py evidence --cik 25743 --section companion_10q
+python backend/company_evidence_retrieval.py search --cik 25743 --section companion_10q
+```
+
+The 4,613-byte sidecar SHA256
+`72a69128b92c968f4b2777fc106decb7e4b5ef74ae1f3f740243b091f7bbb6cd`
+is verified before use, together with its separate released 8-K clock sidecar.
+Exact CIK/accession membership and the three finding IDs are validated. The
+unchanged complete source object is returned under stable record ID
+`0000025743:0001213900-26-119697:COMPANION_10Q`; its empty JSON pointer denotes the
+whole document. This verifies published projections, not fresh original bytes
+or source availability. No original SEC request or private file access occurs.
+
+The calendar-2025 milestone recognized in Q3 and separate calendar-2026 milestone
+amended November 10 remain distinct. Approximate amounts, future issuer
+expectations and acceptance-clock limitations are unchanged. No new arithmetic,
+accounting conclusion, trade or readiness change is introduced.
+
+For an in-cohort CIK other than TXMD, evidence returns
+`NOT_ASSESSED_IN_SINGLE_COMPANION_10Q_REVIEW` and a null total, not no activity.
+Out-of-cohort CIKs retain `OUTSIDE_FIXED_COHORT_UNASSESSED`. Search reports zero
+matching reviewed documents in those cases and the explicit
+`layer_exact_cik_coverage` distinction; that zero does not assert no filings or
+milestones. Existing sections, counts, snapshot pins and responses are unchanged.
