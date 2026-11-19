@@ -12,13 +12,23 @@ assert(!eligibleEvent(event({ getModifierState: key => key === 'AltGraph' })));
 assert(!eligibleEvent(event({ target: { closest: () => ({}) } })));
 assert(!eligibleEvent(event({ composedPath: () => [{ isContentEditable: true }] })));
 assert(!eligibleEvent(event({ composedPath: () => [{ closest: () => null }, { closest: () => ({}) }] })));
+// Model the one programmatically focused status; any actual control or editable ancestor still matches.
+const statusSelector = 'p#company-work-detail-state[role="status"][aria-live="polite"][tabindex="-1"]';
+const status = { closest(selector) {
+  assert(selector.includes('[role]:not(' + statusSelector + ')'));
+  assert(selector.includes('[tabindex]:not(' + statusSelector + ')'));
+  return null;
+} };
+assert(eligibleEvent(event({ target: status })));
+assert(!eligibleEvent(event({ target: { ...status, isContentEditable: true } })));
+assert(!eligibleEvent(event({ composedPath: () => [status, { closest: () => ({}) }] })));
 assert(appURL(a, root));
 for (const bad of ['https://other.test/CatalystRadar/web/index.html', root + '../index.html', root + 'nested/index.html', root + 'data.json', root + 'unknown.html', root + '%2findex.html']) assert(!appURL(bad, root));
 assert(previousAppEntry(navigation(), b, root));
 for (const nav of [null, {}, { ...navigation(), canGoBack: false }, { ...navigation(), currentEntry: { index: 0, url: b } }, { ...navigation(), entries: () => [{ index: 0, key: 'gap', url: a }] }, navigation('https://elsewhere.test/'), { ...navigation(), entries: () => [{ index: 1, key: '1', url: a }, { index: 1, key: '2', url: a }] }]) assert.equal(previousAppEntry(nav, b, root), null);
 assert.equal(previousAppEntry(navigation(), a, root), null);
 let listener; const win = { navigation: navigation(), location: { href: b }, addEventListener: (_, f) => { listener = f; }, removeEventListener: (_, f) => { assert.equal(f, listener); } };
-const uninstall = install(win, root); const yes = event(); listener(yes); assert(yes.prevented && win.navigation.called);
+const uninstall = install(win, root); const yes = event({ target: status }); listener(yes); assert(yes.prevented && win.navigation.called);
 win.navigation = undefined; win.history = { length: 100, back() { throw Error('Forbidden fallback'); } }; const no = event(); listener(no); assert(no.prevented);
 win.navigation = navigation();
 for (const guarded of [event({ target: { closest: () => ({}) } }), event({ ctrlKey: true }), event({ defaultPrevented: true })]) {
