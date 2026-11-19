@@ -11,8 +11,18 @@ await m.api.select('0000108772');m.n('section').value='prepared';m.n('section').
 const other=index.directory.find(i=>i.detail_bucket!==r.detail_bucket&&i.detail_bucket!==index.directory.find(i=>i.issuer_cik==='0000108772').detail_bucket),op=index.detail_shards.find(p=>p.bucket===other.detail_bucket).path.replace(/^web\//,'');hold=op;const stale=m.api.select(other.issuer_cik);m.n('query').value='unknown qzx';m.n('query').handlers.input();release();await stale;assert.equal(m.n('detail').children.length,0);assert.equal(m.n('selected').hidden,true);assert.match(text(m.n('results')),/unassessed, not no company activity/);
 const fresh=index.directory.find(i=>![r.detail_bucket,other.detail_bucket,index.directory.find(i=>i.issuer_cik==='0000108772').detail_bucket].includes(i.detail_bucket));bad=true;await m.api.select(fresh.issuer_cik);assert.equal(m.n('retry').hidden,false);assert.equal(m.n('detail').children.length,0);bad=false;await m.api.select(fresh.issuer_cik);assert.equal(m.n('retry').hidden,true);
 let n=0;const invalid=mock(async()=>{n++;},{valid:false});await invalid.api.load();assert.equal(n,0);let cc=[],bounded=mock(async p=>{cc.push(p);return{ok:true,arrayBuffer:async()=>Uint8Array.from(read(p)).buffer};});await bounded.api.load();const unique=[...new Map(index.directory.map(r=>[r.detail_bucket,r])).values()].slice(0,4);for(const r of unique)await bounded.api.select(r.issuer_cik);await bounded.api.select(unique[0].issuer_cik);const fp=index.detail_shards.find(p=>p.bucket===unique[0].detail_bucket).path.replace(/^web\//,'');assert.equal(cc.filter(p=>p===fp).length,2);
+// Fixed companion navigation mounts only after this exact CIK validates, never by name/ticker.
+const anchors=n=>[...(n.tag==='a'?[n]:[]),...n.children.flatMap(anchors)];
+const companionLinks=n=>anchors(n).filter(a=>a.href==='financial-review.html#txmd-companion-10q');
+let navRelease;const nav=mock(async p=>{if(p.includes('/details/'))await new Promise(r=>navRelease=r);const b=Uint8Array.from(read(p));return{ok:true,arrayBuffer:async()=>b.buffer};});
+await nav.api.load();assert.equal(companionLinks(nav.n('overview')).length,0);
+const tx=nav.api.select('0000025743');assert.equal(companionLinks(nav.n('overview')).length,0);navRelease();await tx;
+assert.equal(companionLinks(nav.n('overview')).length,1);assert.match(text(nav.n('overview')),/Separate fixed source case/);
+const amd=nav.api.select('0000002488');assert.equal(companionLinks(nav.n('overview')).length,0);navRelease();await amd;assert.equal(companionLinks(nav.n('overview')).length,0);
+const failure=mock(async p=>{const b=Uint8Array.from(read(p));if(p.includes('/details/'))b[0]^=1;return{ok:true,arrayBuffer:async()=>b.buffer};});await failure.api.load();await failure.api.select('0000025743');assert.equal(companionLinks(failure.n('overview')).length,0);
+assert.match(read('financial-review.html').toString(),/href="datasets\.html\?company_cik=0000025743#company-investigation">Return to exact-CIK company investigation/);
 // Deferred network and cached validation must never expose an interactive unready selector.
-const html=read('datasets.html').toString();assert.match(html,/<select id="company-work-section" disabled>/);assert.ok(html.includes('company-workspace.js?v=20261119-section-ready'));
+const html=read('datasets.html').toString();assert.match(html,/<select id="company-work-section" disabled>/);assert.ok(html.includes('company-workspace.js?v=20261119-txmd-companion-link'));
 let unblock,blockPath=null,failRequest=false;const ready=mock(async p=>{if(p===blockPath)await new Promise(r=>unblock=r);if(failRequest)return{ok:false};return{ok:true,arrayBuffer:async()=>Uint8Array.from(read(p)).buffer};});
 assert.equal(ready.n('section').disabled,true);await ready.api.load();
 const xerox=index.directory.find(r=>r.issuer_cik==='0000108772'),xp=index.detail_shards.find(p=>p.bucket===xerox.detail_bucket).path.replace(/^web\//,'');blockPath=xp;
