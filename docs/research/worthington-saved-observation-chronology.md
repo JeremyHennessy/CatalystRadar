@@ -11,7 +11,7 @@ The source-content interpretation below is supplied by the coordinating primary-
 ## Distinct clocks and source objects
 
 - [Original 8-K](https://www.sec.gov/Archives/edgar/data/108516/000119312526464853/wor-20261112.htm): reports that the November 12, 2026 Baird conference actually occurred. It states that the presentation deck had already been posted before the conference. The transcript is separately furnished as Exhibit 99.2. This does not establish the transcript's first-public time or that every fact was already public.
-- [Earlier issuer calendar notice](https://ir.worthingtonenterprises.com/news/news-details/2026/Worthington-Enterprises-Participating-in-Baird-Global-Industrial-Conference-Following-Investor-and-Analyst-Day/default.aspx): gives a scheduled November 12 start of 1:35 ET and a distinct November 10 Investor Day. The schedule is not proof of the actual start instant; no ET-to-UTC conversion is made here. Do not merge the two events.
+- [Earlier issuer calendar notice](https://ir.worthingtonenterprises.com/news/news-details/2026/Worthington-Enterprises-Participating-in-Baird-Global-Industrial-Conference-Following-Investor-and-Analyst-Day/default.aspx): gives a scheduled November 12 start of 1:35 p.m. ET and a distinct November 10 Investor Day. The schedule is not proof of the actual start instant; no ET-to-UTC conversion is made here. Do not merge the two events.
 - SEC acceptance: November 17, not the conference start and not authenticated first-public time for the deck, transcript or all information.
 - Collector observation: November 18, the saved metadata discovery clock, not the event start or first-public time.
 

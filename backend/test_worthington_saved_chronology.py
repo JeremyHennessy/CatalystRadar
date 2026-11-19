@@ -57,14 +57,14 @@ class WorthingtonSavedChronologyTests(unittest.TestCase):
 
     def test_clocks_are_separate_not_substituted(self):
         e=self.receipt['events'][0]
-        expected={'cik':CIK,'accession':ACC,'occurrence':'2026-11-12','schedule':'2026-11-12 1:35 ET','accepted':e['sec_accepted_utc'],'observed':e['observed_utc']}
+        expected={'cik':CIK,'accession':ACC,'occurrence':'2026-11-12','schedule':'2026-11-12 13:35 ET','accepted':e['sec_accepted_utc'],'observed':e['observed_utc']}
         self.assertEqual(self.p.fields,{'data-wor-'+k:[v] for k,v in expected.items()})
         occurrence=dt.date.fromisoformat(expected['occurrence'])
         accepted=dt.datetime.fromisoformat(e['sec_accepted_utc'].replace('Z','+00:00'))
         observed=dt.datetime.fromisoformat(e['observed_utc'])
         self.assertLess(occurrence,accepted.date());self.assertLess(accepted,observed)
         # No conversion of the schedule to an actual event instant or first-public clock.
-        for s in ['as scheduled','No UTC conversion','November 10 Investor Day is a distinct event','actual start instant is not established','Neither SEC acceptance nor collector discovery should be substituted']:
+        for s in ['1:35 p.m. ET','as scheduled','No UTC conversion','November 10 Investor Day is a distinct event','actual start instant is not established','Neither SEC acceptance nor collector discovery should be substituted']:
             self.assertIn(s,self.text)
 
     def test_objects_and_unverified_source_provenance(self):
