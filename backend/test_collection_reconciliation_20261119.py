@@ -47,3 +47,35 @@ class CollectionReconciliation(unittest.TestCase):
             self.assertNotIn(forbidden, section)
         self.assertIn('collector-observation-20261118T1233Z.json', page)
         self.assertIn('id="collector-published-sec"', page)
+
+    def test_evening_scheduled_observation_repeats_fallback_events(self):
+        path = 'data/sec-observations/20261119T193148867794Z.json'
+        saved = (ROOT / path).read_bytes()
+        self.assertEqual(hashlib.sha256(saved).hexdigest(),
+                         'be97f6b0e9ee936072bab704619bdebd2b2d962f0929590422153ed6969bfadc')
+        receipt = json.loads(saved)
+        fallback = json.loads((ROOT / OBS).read_bytes())
+        self.assertEqual(receipt['github_event_name'], 'schedule')
+        self.assertTrue(receipt['metadata_window_complete'])
+        self.assertEqual(receipt['github_run_url'].split('/')[-1], '44599095597')
+        self.assertEqual(receipt['finished_at'], '2026-11-19T19:32:06.964007+00:00')
+        self.assertEqual((receipt['successful_issuers'], receipt['configured_issuers']), (10, 10))
+        self.assertEqual([source['status'] for source in receipt['sources']], [200] * 10)
+        def evidence_identity(record):
+            keys = ('issuer_cik', 'accession', 'source_metadata_sha256')
+            return sorted(tuple(event[key] for key in keys) for event in record['events'])
+        self.assertEqual(len(receipt['events']), 2)
+        self.assertEqual(evidence_identity(receipt), evidence_identity(fallback))
+        self.assertEqual((receipt['eligible_count'], receipt['orders_created']), (0, 0))
+        page = (ROOT / 'web/collectors.html').read_text()
+        self.assertEqual(page.count('id="collection-review-20261119-evening"'), 1)
+        section = page.split('id="collection-review-20261119-evening"', 1)[1].split('</section>', 1)[0]
+        for value in ('44599095597', '44599331583', '../' + path, '19:32:06.964007Z',
+                      '44608790032', '20:27:07Z', '44172913902', '2026-11-17T20:49:18.653849Z',
+                      'November 16 session', '44610949703', '20:39:52Z',
+                      'whether a provider request was sent', 'No workflow was rerun'):
+            self.assertIn(value, section)
+        self.assertIn('Historical checkpoint: November 19 morning reconciliation', page)
+        self.assertIn('Historical checkpoint: November 18 midday collection check', page)
+        for forbidden in ('<script', '<button', '<form', '<iframe', '<input'):
+            self.assertNotIn(forbidden, section)
