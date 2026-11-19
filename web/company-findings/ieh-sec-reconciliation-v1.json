@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "ieh-sec-duplicate-revenue-review",
+  "issuer_cik": "0000050292",
+  "archived_revenue_sha256": "74c4fff28c44a4213993cfa487b7745006a71a23d9274f5cbdd5516257719002",
+  "quarter_ends": ["2026-09-30", "2025-09-30"],
+  "filings": [
+    {
+      "form": "10-Q",
+      "accession": "0001213900-26-118861",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/50292/000121390026118861/0001213900-26-118861-index.htm",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/50292/000121390026118861/ea0310481-10q_iehcorp.htm",
+      "acceptance_utc": "2026-11-12T20:30:55Z",
+      "revenue": [10700084, 7077592],
+      "operating_income": [1046496, -104380]
+    },
+    {
+      "form": "8-K EX-99.1",
+      "accession": "0001174947-26-000991",
+      "index_url": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/0001174947-26-000991-index.htm",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/50292/000117494726000991/ex99-1.htm",
+      "acceptance_utc": "2026-11-13T21:09:21Z",
+      "revenue": [10700084, 7077592],
+      "operating_income": [1046496, -104380]
+    }
+  ],
+  "acceptance_gap_seconds": 88706,
+  "exhibit_date_as_reported": "2026-11-12",
+  "tax_benefit_current_quarter_10q": 262109,
+  "revenue_difference": 3622492,
+  "revenue_growth_pct_4dp": "51.1825",
+  "duplicate_revenue_in_later_accepted_filing": true,
+  "first_public_utc": null,
+  "whole_document_novelty_evaluated": false,
+  "accounting_comparability_verified": false,
+  "execution_ready": false
+}
