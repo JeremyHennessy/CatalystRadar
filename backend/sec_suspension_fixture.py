@@ -46,7 +46,7 @@ def fixture():
 
 def _instant(value):
     if not isinstance(value, str) or not re.fullmatch(
-            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2})', value):
+            r'[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]{1,6})?(?:Z|[+-](?:[01][0-9]|2[0-3]):[0-5][0-9])', value):
         raise ValueError('explicit timezone and second precision required')
     return datetime.fromisoformat(value.replace('Z', '+00:00')).astimezone(timezone.utc)
 
@@ -58,7 +58,7 @@ def historical_order_match(*, issuer_cik, instant):
     trading eligibility, current status, market-session calendar or resume proof.
     Matching is issuer-level and does not identify a particular share class.
     """
-    if not isinstance(issuer_cik, str) or not re.fullmatch(r'\d{10}', issuer_cik):
+    if not isinstance(issuer_cik, str) or not re.fullmatch(r'[0-9]{10}', issuer_cik):
         raise ValueError('exact ten-digit CIK required; ticker matching unsupported')
     at = _instant(instant)
     result = {'fixture_id': _FIXTURE['fixture_id'], 'issuer_cik': issuer_cik,

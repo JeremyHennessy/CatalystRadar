@@ -49,6 +49,20 @@ class SuspensionFixtureTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.query(at)
 
+    def test_offset_components_reject_normalization(self):
+        for offset in ('+00:99', '-00:99', '+01:60', '-04:60', '+24:00', '-24:00', '+99:00'):
+            with self.subTest(offset=offset), self.assertRaises(ValueError):
+                self.query('2026-10-20T12:00:00' + offset)
+        for at in ('２０２６-10-20T12:00:00Z', '2026-10-20T12:00:00+００:00'):
+            with self.assertRaises(ValueError):
+                self.query(at)
+        with self.assertRaises(ValueError):
+            self.query('2026-10-20T12:00:00Z', '０００１９６９９２８')
+        # Valid fractional-hour offsets still work without inventing clearance.
+        self.assertEqual(self.query('2026-10-20T08:30:00-03:30'),
+                         self.query('2026-10-20T12:00:00Z'))
+        self.assertIsNone(self.query('2026-10-29T00:30:00-03:30')['positive_order_match'])
+
     def test_fixture_unknowns_and_independent_copy(self):
         f = fixture()
         for key in ('initial_listing_date', 'first_public_utc', 'historical_observation_utc',

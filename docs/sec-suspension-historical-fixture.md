@@ -43,7 +43,7 @@ an exact Nasdaq halt start nor current trading status is inferred here.
 ## Verification
 
 Run `python3 -m unittest discover -s backend -p 'test_sec_suspension_fixture.py'`.
-Eight tests cover multiple dates, weekends, both boundary minutes, adjacent
+Nine tests cover multiple dates, weekends, both boundary minutes, adjacent
 interior instants, UTC/ET equivalence, mismatched identities, invalid timestamps,
-post-window unknowns and copy isolation. All returned states preserve execution
+post-window unknowns, strict ASCII offset-component validation and copy isolation. All returned states preserve execution
 ineligibility; none establish historical knowledge or complete halt coverage.
