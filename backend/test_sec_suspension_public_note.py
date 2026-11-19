@@ -3,6 +3,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import unittest
 from sec_suspension_fixture import fixture
+from tjgc_corporate_action_fixture import fixture as action_fixture
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -73,7 +74,26 @@ class HistoricalSuspensionPublicNote(unittest.TestCase):
     def test_primary_links_are_exact_not_derived_from_user_input(self):
         self.assertEqual(self.note.links, fixture()['source_urls'] + [
             'https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-halts-tjgc-group-limited-0',
-            'https://github.com/JeremyHennessy/CatalystRadar/blob/main/docs/sec-suspension-historical-fixture.md'])
+            'https://github.com/JeremyHennessy/CatalystRadar/blob/main/docs/sec-suspension-historical-fixture.md'] + list(action_fixture()['sources'].values()) + [
+            'https://github.com/JeremyHennessy/CatalystRadar/blob/main/docs/tjgc-corporate-action-fixture.md'])
+
+    def test_corporate_action_identity_and_counts(self):
+        f = action_fixture()
+        e = f['events'][0]
+        self.assertEqual(f['issuer_cik'], fixture()['issuer_cik'])
+        for phrase in ('1-for-3', 'May 26, 2026', e['post_split_cusip_as_reported'],
+                       format(e['nominal_post_split_issued_shares'], ','),
+                       format(e['later_reported_post_rounding_issued_shares'], ','),
+                       'August 12, 2026', 'Class A/Class B'):
+            self.assertIn(phrase, self.words)
+
+    def test_action_warnings_never_adjust_or_clear(self):
+        for phrase in ('Do not apply the ratio twice', 'vendor-price adjustment factor',
+                       'no May 26 trade or fill is established',
+                       'not another reverse split', 'does not verify the same share class',
+                       'No match means unknown, not corporate-action-free',
+                       'complete corporate-action coverage are established'):
+            self.assertIn(phrase, self.words)
 
     def test_no_clearance_or_unproven_clock(self):
         for phrase in ('not current trading status', 'not a live or complete halt feed',
