@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_REPORTED_COMPANION_CONTEXT_NOT_OUTCOME_QUALIFICATION",
+  "issuer_cik": "0000025743",
+  "accession": "0001213900-26-119697",
+  "form": "10-Q",
+  "source": {
+    "url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119697/ea0308826-10q_therapeutics.htm",
+    "complete_submission_url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119697/0001213900-26-119697.txt",
+    "raw_bytes": 4487035,
+    "raw_sha256": "b1d9611d086251771ab12b16a836d94aee216ba25c24f1131e70731194c2469a",
+    "primary_filename": "ea0308826-10q_therapeutics.htm",
+    "primary_html_sha256": "91d20ee56183e515f6414563687133a7edfecab02741f18a1ec7f8d7b5d8224b",
+    "observed_utc": "2026-11-19T15:05:49.496508+00:00",
+    "request_started_utc": "2026-11-19T15:05:43.278917+00:00",
+    "http_status": 200,
+    "raw_original_published": false,
+    "span_method": "Whitespace-normalized primary HTML text, lxml text_content, Unicode character offsets and UTF-8 substring hashes; not raw byte offsets.",
+    "evidence_spans": {
+      "note8": {
+        "normalized_character_start": 66841,
+        "normalized_character_end": 67212,
+        "normalized_utf8_sha256": "f447a3b99633315ad8787305b4ae3475c13ba0f8672cbc917d70bdac02bd40b8"
+      },
+      "note14": {
+        "normalized_character_start": 74536,
+        "normalized_character_end": 75556,
+        "normalized_utf8_sha256": "b3e4dc0e842ee4b517f0a54ae6d32d096368b3f730c8cc2c8fb7b88caf1d600e"
+      },
+      "mda": {
+        "normalized_character_start": 114431,
+        "normalized_character_end": 115035,
+        "normalized_utf8_sha256": "c99f8832156550da960fe81d0714e566e83ad70cc58d33aa8d1ea0d812c7e466"
+      }
+    }
+  },
+  "separate_release": {
+    "accession": "0001213900-26-119681",
+    "clock_sidecar": "web/company-findings/txmd-declared-publication-clocks.json",
+    "clock_sidecar_sha256": "265f775ba3a9a693fa63fef78310b6bc6a5300ec59e727e086c7c16a2d8e5139",
+    "index_url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681-index.htm",
+    "first_public_utc": null
+  },
+  "acceptance_comparison": {
+    "ten_q_raw_header": "20261113160749",
+    "eight_k_as_reported_new_york": "2026-11-13 16:05:47",
+    "difference_seconds": 122,
+    "meaning": "Difference between reported acceptance clocks only; not public availability or disclosure order.",
+    "ten_q_index_url": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119697/0001213900-26-119697-index.htm",
+    "index_bytes_retained": false
+  },
+  "findings": [
+    {
+      "id": "NOTE8_2025_MILESTONE",
+      "section": "Note 8",
+      "sales_year_end": "2025-12-31",
+      "notification_month": "2026-07",
+      "recognized_quarter_end": "2026-09-30",
+      "amount_currency": "CAD",
+      "amount_as_reported": "500.0 thousand",
+      "interpretation": "Issuer reports entitlement and Q3 recognition for the calendar-2025 IMVEXXY sales milestone, not confirmed cash receipt."
+    },
+    {
+      "id": "NOTE14_2026_MILESTONE",
+      "section": "Note 14 subsequent events",
+      "sales_year_end": "2026-12-31",
+      "amendment_date": "2026-11-10",
+      "before_currency": "CAD",
+      "before_as_reported": "1.0 million",
+      "after_currency": "CAD",
+      "after_as_reported": "approximately 0.1 million",
+      "accounting_quarter_end": "2026-12-31",
+      "interpretation": "Separate calendar-2026 milestone amended for historical royalty overpayments. Issuer says license value unchanged; Q4 accounting effects remain to be reflected. No inferred zero net accounting effect, cash receipt or future run rate."
+    },
+    {
+      "id": "MDA_RATE_AND_EXPECTATION",
+      "section": "MD&A liquidity",
+      "interpretation": "Issuer says the amendment did not change the royalty rate for future periods, but expects lower Knight royalty revenue than periods paid using a higher rate. This is an issuer expectation, not a realized outcome or our forecast."
+    }
+  ],
+  "first_public_utc": null,
+  "readiness_changed": false,
+  "qualified_outcomes": 0,
+  "training_ready": false,
+  "execution_ready": false,
+  "limitations": [
+    "Companion 10-Q and separate 8-K release are distinct documents; do not merge their reporting or publication clocks.",
+    "The two milestones concern different calendar sales years and recognition quarters.",
+    "Source statements do not establish cash receipt, zero net accounting effect, share-price causality or return eligibility.",
+    "Existing frozen evidence, price endpoint gaps, historical identity/action continuity and timing blockers remain unchanged."
+  ]
+}
