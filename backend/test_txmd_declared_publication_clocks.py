@@ -2,6 +2,7 @@
 from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
+import hashlib
 import json
 import unittest
 
@@ -14,7 +15,10 @@ PATH = 'company-findings/txmd-declared-publication-clocks.json'
 
 class TXMDDeclaredClockTests(unittest.TestCase):
     def setUp(self):
-        self.d = json.loads((ROOT / 'web' / PATH).read_text())
+        raw = (ROOT / 'web' / PATH).read_bytes()
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),
+                         '265f775ba3a9a693fa63fef78310b6bc6a5300ec59e727e086c7c16a2d8e5139')
+        self.d = json.loads(raw)
 
     def test_same_schedule_for_independently_interpreted_clocks(self):
         clocks = self.d['clocks']
