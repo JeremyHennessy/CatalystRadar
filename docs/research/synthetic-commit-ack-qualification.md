@@ -31,6 +31,29 @@ and 0.04 fee leave cash 463.96, position cost 36.04 and remaining reservation
 60.06. Cancellation changes the reservation to zero, not cash or owned quantity.
 Amounts in the tests use integer millionths of synthetic currency.
 
+## Stop and fill ordering after restart
+
+Three additional tests cover a committed stop racing a synthetic partial fill.
+Each only uses the same disposable SQLite fixture and accounting reducer:
+
+* **Stop commits first, acknowledgment is lost.** Restart recovers the stop.
+  An identical retry acknowledges the existing record. The competing fill
+  conflicts against the old prefix and still fails if submitted against the
+  recovered tip. Cash stays at 500, with no fee or position.
+* **Fill commits first, acknowledgment is lost.** A stop against the old prefix
+  conflicts. Submitting the stop against the verified current tip latches it
+  without reversing the earlier fill. A late fill retry retrieves its original
+  acknowledgment without recording a second fill.
+* **Two processes contend for the same next record.** Exactly one can commit.
+  Neither has implicit priority. If the fill wins, the caller must verify the
+  new tip and explicitly submit the stop again; a conflicting stop must never
+  be reported as latched.
+
+In either order, a latched stop survives restart, rejects subsequent fills and
+does not itself cancel orders. Explicit cancellation releases the remaining
+reservation without changing cash, holdings, cost or fees. This is a local
+journal ordering guarantee, not an emergency-stop latency or broker guarantee.
+
 ## Limits
 
 This qualifies the existing fixture under this local filesystem/SQLite/process

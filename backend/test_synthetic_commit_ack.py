@@ -112,3 +112,70 @@ class SyntheticCommitAckTests(unittest.TestCase):
         accepted = next(r[1] for r in results if r[0] == 'accepted')
         self.assertEqual(chain[-1], accepted)
         self.assertIn(json.loads(chain[-1])['event']['event_id'], ['SYNTH_FILL', 'SYNTH_OTHER_FILL'])
+
+    def crash_and_reopen(self, command):
+        child = self.ctx.Process(target=crash_after_commit, args=(self.path, self.prior, command))
+        child.start()
+        self.join([child])
+        self.assertEqual(child.exitcode, 23)
+        return JournalFixture(self.path)
+
+    def assert_latched_and_cancellable(self, reopened, chain, had_fill):
+        state = s.replay(chain)
+        self.assertTrue(state['killed'])
+        self.assertEqual(len(chain), 4 if had_fill else 3)
+        self.assertEqual(state['cash_units'], 463_960_000 if had_fill else 500_000_000)
+        self.assertEqual(state['fees_units'], 40_000 if had_fill else 0)
+        self.assertEqual(state['positions'], (
+            {'SYNTH_ASSET': {'quantity': 4, 'cost_units': 36_040_000}} if had_fill else {}))
+        self.assertEqual(s.reservations(state), 60_060_000 if had_fill else 100_100_000)
+        with self.assertRaisesRegex(ValueError, 'kill switch blocks synthetic fill'):
+            reopened.submit(chain, {**self.fill, 'event_id': 'SYNTH_POST_KILL_FILL'})
+        self.assertEqual(reopened.restart(), chain)
+        cancel = self.event('CANCEL', 'CANCEL', order_id='SYNTH_BUY')
+        cancelled = reopened.submit(chain, cancel)
+        self.assertEqual(JournalFixture(self.path).restart(), cancelled)
+        recovered = s.replay(cancelled)
+        self.assertTrue(recovered['killed'])
+        self.assertEqual(recovered['orders']['SYNTH_BUY']['status'], 'CANCELLED')
+        self.assertEqual(s.reservations(recovered), 0)
+        for field in ('cash_units', 'fees_units', 'positions', 'realized_pnl_units'):
+            self.assertEqual(recovered[field], state[field])
+        return cancelled
+
+    def test_kill_committed_before_lost_ack_blocks_fill_after_restart(self):
+        kill = self.event('KILL', 'KILL')
+        reopened = self.crash_and_reopen(kill)
+        killed = reopened.restart()
+        self.assertEqual(reopened.submit(self.prior, kill), killed)
+        with self.assertRaisesRegex(ValueError, 'competing event'):
+            reopened.submit(self.prior, self.fill)
+        self.assert_latched_and_cancellable(reopened, killed, had_fill=False)
+
+    def test_fill_committed_before_lost_ack_survives_later_kill(self):
+        kill = self.event('KILL', 'KILL')
+        reopened = self.crash_and_reopen(self.fill)
+        filled = reopened.restart()
+        self.assert_single_fill(filled)
+        with self.assertRaisesRegex(ValueError, 'competing event'):
+            reopened.submit(self.prior, kill)
+        killed = reopened.submit(filled, kill)
+        cancelled = self.assert_latched_and_cancellable(reopened, killed, had_fill=True)
+        self.assertEqual(reopened.submit(self.prior, self.fill), filled)
+        self.assertEqual(reopened.restart(), cancelled)
+
+    def test_contending_kill_and_fill_commit_at_most_one_from_same_prefix(self):
+        kill = self.event('KILL', 'KILL')
+        results = self.race([kill, self.fill])
+        self.assertCountEqual([r[0] for r in results], ['accepted', 'conflict'])
+        reopened = JournalFixture(self.path)
+        chain = reopened.restart()
+        self.assertEqual(len(chain), 3)
+        self.assertEqual(chain[-1], next(r[1] for r in results if r[0] == 'accepted'))
+        had_fill = json.loads(chain[-1])['event']['kind'] == 'FILL'
+        self.assertEqual(chain, s.append(self.prior, self.fill if had_fill else kill))
+        if had_fill:
+            self.assert_single_fill(chain)
+            # Safety action must be explicitly resubmitted against the fresh tip.
+            chain = reopened.submit(chain, kill)
+        self.assert_latched_and_cancellable(reopened, chain, had_fill)
