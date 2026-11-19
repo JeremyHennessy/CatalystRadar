@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "study": "DECLARED_CLOCK_SCHEDULED_DATE_COMPARISON_ONLY",
+  "source_review_date_utc": "2026-11-19",
+  "fingerprint_scope": "Reviewer-calculated response hashes from then-served publisher pages, not historical delivery receipts. Full source responses are not published here.",
+  "issuer_cik": "0000025743",
+  "accession": "0001213900-26-119681",
+  "clocks": [
+    {
+      "channel": "Business Wire",
+      "field": "NewsArticle.datePublished",
+      "as_reported": "2026-11-13T21:05:00+00:00",
+      "utc": "2026-11-13T21:05:00Z",
+      "source": "https://www.businesswire.com/news/home/20261113198733/en/TherapeuticsMD-Announces-Third-Quarter-2026-Financial-Results",
+      "reviewed_response_bytes": 436956,
+      "reviewed_response_sha256": "4261f9457a9d58b65a591acc4fb17313bd2ebca030f467247a701e70e1fb47f6"
+    },
+    {
+      "channel": "TherapeuticsMD investor relations",
+      "field": "NewsArticle.datePublished",
+      "as_reported": "2026-11-13T16:05:35-0500",
+      "utc": "2026-11-13T21:05:35Z",
+      "source": "https://ir.therapeuticsmd.com/news-releases/news-release-details/therapeuticsmd-announces-third-quarter-2026-financial-results",
+      "reviewed_response_bytes": 27269,
+      "reviewed_response_sha256": "8aa3668b4bc853836021447f8b9f11260510c88cff0ae9f837853668c82e2d64"
+    },
+    {
+      "channel": "SEC EDGAR",
+      "field": "Accepted (America/New_York)",
+      "as_reported": "2026-11-13 16:05:47",
+      "utc": "2026-11-13T21:05:47Z",
+      "source": "https://www.sec.gov/Archives/edgar/data/25743/000121390026119681/0001213900-26-119681-index.htm"
+    }
+  ],
+  "calendar_source": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule",
+  "candidate_scheduled_close_dates_for_all_three": ["2026-11-16", "2026-11-17"],
+  "last_session_in_frozen_price_reference": "2026-11-16",
+  "first_public_utc": null,
+  "channel_availability_order_verified": false,
+  "qualified_outcomes": 0,
+  "return_value": null
+}
