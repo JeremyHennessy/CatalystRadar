@@ -56,6 +56,40 @@ const corruptOverlay=mock(async path=>{
 assert.equal(corruptOverlay.n('list').children.length,7);
 assert.doesNotMatch(text(corruptOverlay.n('list')),/Trade readiness:/);
 assert.match(text(corruptOverlay.n('summary')),/Readiness assessment could not be verified/);
+// Documentary overlays are archive- and source-bound independently of trade gates.
+const dossierPin=v.DOSSIER_PINS[officialManifest.snapshot.sha256],dossierKey=dossierPin.path.slice(4);
+const frozenDossier=JSON.parse(read(dossierKey));
+assert.equal(v.validateDossiers(frozenDossier,actualSnapshot,officialManifest),frozenDossier);
+for(const change of [
+ a=>a.snapshot.sha256='0'.repeat(64),
+ a=>a.notes[0].thesis_id=a.notes[1].thesis_id,
+ a=>a.notes[0].unknowns='  ',
+ a=>a.notes[0].execution_ready=true,
+ a=>a.notes[0].sources[0].accessions=['0000000000-00-000000'],
+ a=>a.notes[0].sources[0].file_sha256='0'.repeat(64),
+ a=>a.notes[0].sources[0].json_pointer='/unrelated',
+ a=>a.notes[0].sources[0].path='https://external.invalid/',
+ a=>a.notes[0].sources=[]
+]){const changed=structuredClone(frozenDossier);change(changed);assert.throws(()=>v.validateDossiers(changed,actualSnapshot,officialManifest));}
+const withDossier=mock(fetcher,{assessments:v.ASSESSMENT_PINS,dossiers:v.DOSSIER_PINS});await withDossier.api.initialLoad;
+assert.equal(withDossier.n('list').children.length,7);
+assert.match(text(withDossier.n('list')),/Investigate the research thesis/);
+assert.match(text(withDossier.n('list')),/No completed purchases or spending were reported/);
+assert.match(text(withDossier.n('list')),/0001193125-26-467737/);
+assert.match(text(withDossier.n('list')),/approximately CAD 100,000/);
+assert.match(text(withDossier.n('list')),/Trade readiness: NEEDS EVENT VERIFICATION/);
+const origDossier=mock(fetcher,{search:'?snapshot=original',dossiers:v.DOSSIER_PINS});await origDossier.api.initialLoad;
+assert.equal(origDossier.n('list').children.length,5);
+assert.match(text(origDossier.n('list')),/Evidence supporting the thesis/);
+assert.doesNotMatch(text(origDossier.n('list')),/0001193125-26-467737/);
+const brokenDossier=mock(async path=>{
+ if(path!==dossierKey)return fetcher(path);
+ const bytes=Uint8Array.from(read(path));bytes[0]^=1;return {ok:true,arrayBuffer:async()=>bytes.buffer};
+},{assessments:v.ASSESSMENT_PINS,dossiers:v.DOSSIER_PINS});await brokenDossier.api.initialLoad;
+assert.equal(brokenDossier.n('list').children.length,7);
+assert.doesNotMatch(text(brokenDossier.n('list')),/Investigate the research thesis/);
+assert.match(text(brokenDossier.n('list')),/Trade readiness: NEEDS EVENT VERIFICATION/);
+assert.match(text(brokenDossier.n('summary')),/Research dossiers could not be verified/);
 const empty=structuredClone(d);empty.ideas=[];empty.all_scored_candidates=[];empty.counts={...empty.counts,returned:0,consolidated_theses:0,eligible_source_records:0,excluded:905};empty.candidate_decisions=empty.candidate_decisions.map(x=>({...x,decision:'EXCLUDED',reason:'NO_ELIGIBLE_RESEARCH'}));assert.equal(v.validate(empty,r,m),empty);
 // Deliberately synthetic release transport fixture. Nothing below is written or published.
 const newCutoff='2026-11-19T20:12:00Z';

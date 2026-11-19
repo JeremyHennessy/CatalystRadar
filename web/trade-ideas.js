@@ -8,6 +8,7 @@ const ORIGINAL=Object.freeze({id:'original',cutoff:'2026-11-19T18:57:49Z',path:L
 const RELEASES=Object.freeze([ORIGINAL,Object.freeze({id:'release-2',cutoff:'2026-11-19T20:10:08Z',path:'trade-ideas/v1/releases/0185e53523fb7687fc97a97aeee6e99ddebd6de7a0c3d142f23cb1311fe2ba36.json',bytes:486,sha256:'0185e53523fb7687fc97a97aeee6e99ddebd6de7a0c3d142f23cb1311fe2ba36'})]);
 // Independently pinned assessment overlays; archived ranking bytes are never edited.
 const ASSESSMENT_PINS=Object.freeze({"ddd63c5342f25e8c091481d98b97f46086b698cb541f989bf1068e7503b4e1f8":{"path":"web/trade-ideas/v1/assessments/180747dd7b5720f8bd704321745487ac971169a2ecc0a2da211c509bbf0979d6.json","bytes":13993,"sha256":"180747dd7b5720f8bd704321745487ac971169a2ecc0a2da211c509bbf0979d6"},"28e8b1d7b80a34de480ad03e9bdf7a5d18b65fdf5816239968f2f2fd52e6196a":{"path":"web/trade-ideas/v1/assessments/1de726badd03bee2565065b3beebb4740353bba8df50d479964b50c12b1b1ec5.json","bytes":19189,"sha256":"1de726badd03bee2565065b3beebb4740353bba8df50d479964b50c12b1b1ec5"}});
+const DOSSIER_PINS=Object.freeze({"28e8b1d7b80a34de480ad03e9bdf7a5d18b65fdf5816239968f2f2fd52e6196a":{"path":"web/trade-ideas/v1/dossiers/31ca8c69d27f4051462b1094ac6d68275d18af180b6bbbf4d37ef048beaa54b3.json","bytes":8552,"sha256":"31ca8c69d27f4051462b1094ac6d68275d18af180b6bbbf4d37ef048beaa54b3"},"ddd63c5342f25e8c091481d98b97f46086b698cb541f989bf1068e7503b4e1f8":{"path":"web/trade-ideas/v1/dossiers/66e4e02805b720ea7384447ad35dad8c68cd42dd394ca788c0feea4375b169b3.json","bytes":6121,"sha256":"66e4e02805b720ea7384447ad35dad8c68cd42dd394ca788c0feea4375b169b3"}});
 const fail=()=>{throw Error('Unverified trade-idea snapshot');};
 const digest=async b=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',b))).map(x=>x.toString(16).padStart(2,'0')).join('');
 async function request(fetcher,path,pin){if(!Number.isSafeInteger(pin?.bytes)||pin.bytes<1||pin.bytes>5000000||!/^[a-f0-9]{64}$/.test(pin.sha256))fail();const response=await fetcher(path,{cache:'no-store',signal:AbortSignal.timeout(30000)});if(!response.ok)fail();const bytes=await response.arrayBuffer();if(bytes.byteLength!==pin.bytes||await digest(bytes)!==pin.sha256)fail();return JSON.parse(new TextDecoder().decode(bytes));}
@@ -68,7 +69,27 @@ function validateAssessment(a,d,m){
   }
   return a;
 }
-function setup(doc,fetcher,{releases=RELEASES,search='',assessments={}}={}){const get=id=>doc.getElementById('ideas-'+id),button=get('refresh');if(!button)return;let busy=false;const el=(tag,value)=>{const e=doc.createElement(tag);if(value!==undefined)e.textContent=String(value);return e;},list=(parent,items)=>{const ul=el('ul');for(const s of items)ul.append(el('li',s));parent.append(ul);},link=(path,label)=>{const a=el('a',label);a.href=path;return a;},label=x=>x.replaceAll('_',' '),value=x=>x===null?'Unknown':typeof x==='object'?JSON.stringify(x):String(x);
+function validateDossiers(a,d,m){
+  if(!exactKeys(a,['schema_version','review_id','snapshot','notes'])||a.schema_version!==1
+    ||a.review_id!=='documentary-dossiers-v1'||!exactKeys(a.snapshot,['path','bytes','sha256'])
+    ||!['path','bytes','sha256'].every(k=>a.snapshot[k]===m.snapshot[k])
+    ||!Array.isArray(a.notes)||a.notes.length!==d.ideas.length)fail();
+  for(const [i,n]of a.notes.entries()){
+    const idea=d.ideas[i],fields=['favorable_evidence','counterweight','unknowns','investigate_or_weaken'];
+    if(!exactKeys(n,['thesis_id',...fields,'sources'])||n.thesis_id!==idea.id
+      ||!fields.every(k=>text(n[k])&&n[k].trim()&&n[k].length<=2000)
+      ||!Array.isArray(n.sources)||n.sources.length!==idea.source_records.length)fail();
+    for(const [j,ref]of n.sources.entries()){
+      const row=idea.source_records[j],sourcePin=d.source_pins[row.source_ref.key];
+      if(!exactKeys(ref,['source_id','accessions','object_sha256','json_pointer','path','file_sha256'])
+        ||ref.source_id!==row.id||!same(ref.accessions,row.source_accessions)
+        ||ref.object_sha256!==row.source_ref.object_sha256||ref.json_pointer!==row.source_ref.json_pointer
+        ||ref.path!==sourcePin.path||ref.file_sha256!==sourcePin.sha256)fail();
+    }
+  }
+  return a;
+}
+function setup(doc,fetcher,{releases=RELEASES,search='',assessments={},dossiers={}}={}){const get=id=>doc.getElementById('ideas-'+id),button=get('refresh');if(!button)return;let busy=false;const el=(tag,value)=>{const e=doc.createElement(tag);if(value!==undefined)e.textContent=String(value);return e;},list=(parent,items)=>{const ul=el('ul');for(const s of items)ul.append(el('li',s));parent.append(ul);},link=(path,label)=>{const a=el('a',label);a.href=path;return a;},label=x=>x.replaceAll('_',' '),value=x=>x===null?'Unknown':typeof x==='object'?JSON.stringify(x):String(x);
 function renderHistory(selected){
   const history=get('history');if(!history)return;
   const original=doc.getElementById('ideas-original');
@@ -97,12 +118,27 @@ function renderAssessments(a,mounts,pin,notice){
   }
   notice.replaceChildren(el('p','Verified readiness assessment. This separate retrospective review does not change archived scores or represent a trading-time decision.'),link(pin.path.slice(4),'Assessment criteria and complete results'));
 }
-function render(d,r,m,pin){const mounts=new Map();const summary=get('summary');summary.append(el('h2','Research ideas '+d.ideas.length+' / 10'),el('p','Execution-qualified '+d.counts.actionable_trades+' · Paper trades placed '+d.counts.paper_trades_placed),el('p','Prospective decisions awaiting outcomes: none in this retrospective snapshot. Measured outcomes: none in this snapshot.'),el('p',d.counts.evaluated+' retained evidence records evaluated; '+d.counts.eligible_source_records+' eligible records consolidated into '+d.counts.returned+' theses. '+d.counts.excluded+' records excluded. Zero actionable trades. No entries padded to reach ten.'),el('p','Snapshot cutoff: '+d.cutoff_utc+' · retrospective, not live market coverage.'),el('p',d.scope.scope),...(d.not_evaluated_extensions.length?[el('p','Not evaluated in this snapshot: '+d.not_evaluated_extensions.join('; ')+'.')]:[]));const method=el('details');method.append(el('summary','Scoring policy and audit trail'),el('p',r.purpose));list(method,d.limitations);for(const [k,v]of Object.entries(r.rules))method.append(el('p',label(k)+': '+v));method.append(link(m.snapshot.path.replace(/^web\//,''),'Full snapshot and exclusion decisions'),el('p','Snapshot SHA-256: '+m.snapshot.sha256),link(m.rubric.path.replace(/^web\//,''),'Published scoring rubric'));summary.append(method);summary.hidden=false;const notice=el('div');if(pin){notice.append(el('p','Verifying the separate readiness assessment…'));summary.append(notice);}
+function renderDossiers(a,mounts,pin,notice){
+  for(const row of a.notes){
+    const details=el('details');
+    details.append(el('summary','Investigate the research thesis'),
+      el('h4','Evidence supporting the thesis'),el('p',row.favorable_evidence),
+      el('h4','Counterpoint'),el('p',row.counterweight),
+      el('h4','What remains unknown'),el('p',row.unknowns),
+      el('h4','What to check next'),el('p',row.investigate_or_weaken),
+      el('h4','Reviewed filing accessions'));
+    list(details,[...new Set(row.sources.flatMap(ref=>ref.accessions))]);
+    mounts.get(row.thesis_id).replaceChildren(details);
+  }
+  notice.replaceChildren(el('p','Source-backed dossiers add context, not a forecast or trade plan.'),link(pin.path.slice(4),'Published dossier evidence references'));
+}
+function render(d,r,m,pin,dossierPin){const mounts=new Map(),dossierMounts=new Map();const summary=get('summary');summary.append(el('h2','Research ideas '+d.ideas.length+' / 10'),el('p','Execution-qualified '+d.counts.actionable_trades+' · Paper trades placed '+d.counts.paper_trades_placed),el('p','Prospective decisions awaiting outcomes: none in this retrospective snapshot. Measured outcomes: none in this snapshot.'),el('p',d.counts.evaluated+' retained evidence records evaluated; '+d.counts.eligible_source_records+' eligible records consolidated into '+d.counts.returned+' theses. '+d.counts.excluded+' records excluded. Zero actionable trades. No entries padded to reach ten.'),el('p','Snapshot cutoff: '+d.cutoff_utc+' · retrospective, not live market coverage.'),el('p',d.scope.scope),...(d.not_evaluated_extensions.length?[el('p','Not evaluated in this snapshot: '+d.not_evaluated_extensions.join('; ')+'.')]:[]));const method=el('details');method.append(el('summary','Scoring policy and audit trail'),el('p',r.purpose));list(method,d.limitations);for(const [k,v]of Object.entries(r.rules))method.append(el('p',label(k)+': '+v));method.append(link(m.snapshot.path.replace(/^web\//,''),'Full snapshot and exclusion decisions'),el('p','Snapshot SHA-256: '+m.snapshot.sha256),link(m.rubric.path.replace(/^web\//,''),'Published scoring rubric'));summary.append(method);summary.hidden=false;const notice=el('div');if(pin){notice.append(el('p','Verifying the separate readiness assessment…'));summary.append(notice);}const dossierNotice=el('div');if(dossierPin){dossierNotice.append(el('p','Verifying the research dossiers…'));summary.append(dossierNotice);}
 if(!d.ideas.length)get('list').append(el('p','No research ideas meet the published selection policy. Nothing has been substituted.'));
 for(const x of d.ideas){const card=el('article');card.className='idea-card';const heading=el('div');heading.className='idea-heading';const title=el('div');title.append(el('p','Rank '+x.rank+' · '+x.status),el('h2',x.title));title.children[0].className='idea-rank';const score=el('div');score.className='idea-score';score.append(el('strong',x.research_priority_score+' / 100'),el('span','Research priority'));heading.append(title,score);card.append(heading,el('p',x.summary));const meta=el('p',x.status+' / UNPRICED · NOT ACTIONABLE');meta.className='tag caution';card.append(meta,el('p',x.coverage.known_factor_weight+' / 100 factor weight assessed. Unknown factors remain unknown, not zero; score is not renormalized or a probability.'));const links=el('div');links.className='idea-links';for(const a of x.issuer_associations)links.append(link('datasets.html?company_cik='+a.issuer_cik+'#company-investigation',a.names_as_reported.join(' / ')+' · CIK '+a.issuer_cik));card.append(links,el('p','Issuer associations remain separate, not verified security identity.'));
 const grid=el('div');grid.className='idea-grid';const why=el('section');why.append(el('h3','What to investigate next'),el('p',x.next_action),el('p','Evaluation horizon: unavailable. No verified price window or expected-return horizon.'),el('h3','Evidence dates and freshness'),el('p','Declared filing date: '+value(x.declared_filing_date)+'. Filing age is not event novelty or first-public availability.'));for(const f of x.factors)if(f.id==='declared_filing_age')why.append(el('p','Filing age at snapshot cutoff: '+(f.age_days===undefined||f.age_days===null?'Unknown':f.age_days+' days')+'.'));for(const c of x.source_clocks)why.append(el('p',label(c.meaning)+': '+value(c.value_as_reported)));const blockers=el('section');blockers.append(el('h3','What still blocks action'));list(blockers,x.blockers);blockers.append(el('p','Current price, expected return, security mapping and corporate-action continuity: unknown. No entry price or position allocation.'));grid.append(why,blockers);card.append(grid);
 if(pin){const mount=el('section');mounts.set(x.id,mount);card.append(mount);}
-const factors=el('details');factors.append(el('summary','Inspect all score factors'));const table=el('table');table.className='idea-factors';const head=el('tr');for(const t of ['Factor','Weight','Value','Points'])head.append(el('th',t));const thead=el('thead');thead.append(head);table.append(thead);const tbody=el('tbody');for(const f of x.factors){const row=el('tr'),cell=el('td');cell.append(el('strong',label(f.id)),el('p',f.meaning));row.append(cell,el('td',f.weight),el('td',value(f.value)),el('td',value(f.points)));tbody.append(row);}table.append(tbody);factors.append(table);card.append(factors,el('h3','Source evidence'));const sourceLinks=el('div');sourceLinks.className='idea-links';for(const l of x.source_links)sourceLinks.append(link(l.path.replace(/^web\//,''),l.label));for(const s of x.source_records)if(!extensionPath(s.id,s.source_ref.key))for(const a of s.issuer_associations)sourceLinks.append(link('financial-review.html?company_cik='+a.issuer_cik+'&evidence_id='+encodeURIComponent(s.id)+'#research-scanner','Inspect exact evidence · CIK '+a.issuer_cik));card.append(sourceLinks);const provenance=el('details');provenance.append(el('summary','Source references and integrity'));for(const s of x.source_records)provenance.append(el('p',s.id+' · '+s.source_ref.key+' · pointer '+(s.source_ref.json_pointer||'(root)')),el('p','Source object SHA-256: '+s.source_ref.object_sha256));card.append(provenance);get('list').append(card);}return{mounts,notice};}
+if(dossierPin){const mount=el('section');dossierMounts.set(x.id,mount);card.append(mount);}
+const factors=el('details');factors.append(el('summary','Inspect all score factors'));const table=el('table');table.className='idea-factors';const head=el('tr');for(const t of ['Factor','Weight','Value','Points'])head.append(el('th',t));const thead=el('thead');thead.append(head);table.append(thead);const tbody=el('tbody');for(const f of x.factors){const row=el('tr'),cell=el('td');cell.append(el('strong',label(f.id)),el('p',f.meaning));row.append(cell,el('td',f.weight),el('td',value(f.value)),el('td',value(f.points)));tbody.append(row);}table.append(tbody);factors.append(table);card.append(factors,el('h3','Source evidence'));const sourceLinks=el('div');sourceLinks.className='idea-links';for(const l of x.source_links)sourceLinks.append(link(l.path.replace(/^web\//,''),l.label));for(const s of x.source_records)if(!extensionPath(s.id,s.source_ref.key))for(const a of s.issuer_associations)sourceLinks.append(link('financial-review.html?company_cik='+a.issuer_cik+'&evidence_id='+encodeURIComponent(s.id)+'#research-scanner','Inspect exact evidence · CIK '+a.issuer_cik));card.append(sourceLinks);const provenance=el('details');provenance.append(el('summary','Source references and integrity'));for(const s of x.source_records)provenance.append(el('p',s.id+' · '+s.source_ref.key+' · pointer '+(s.source_ref.json_pointer||'(root)')),el('p','Source object SHA-256: '+s.source_ref.object_sha256));card.append(provenance);get('list').append(card);}return{mounts,notice,dossierMounts,dossierNotice};}
 async function load(){
   if(busy)return;
   busy=true;button.disabled=true;
@@ -115,9 +151,23 @@ async function load(){
     const [d,r]=await Promise.all([request(fetcher,m.snapshot.path.replace(/^web\//,''),m.snapshot),request(fetcher,m.rubric.path.replace(/^web\//,''),m.rubric)]);
     validate(d,r,m,release);
     const pin=assessments[m.snapshot.sha256];
-    const {mounts,notice}=render(d,r,m,pin);
+    const dossierPin=dossiers[m.snapshot.sha256];
+    const {mounts,notice,dossierMounts,dossierNotice}=render(d,r,m,pin,dossierPin);
     get('state').textContent='Published snapshot and rubric verified. '+d.ideas.length+' research priorities; zero actionable trades.';
-    if(pin){
+    async function showDossiers(){
+      if(!dossierPin)return;
+      try{
+        if(!sha(dossierPin.sha256)||dossierPin.path!=='web/trade-ideas/v1/dossiers/'+dossierPin.sha256+'.json')fail();
+        const a=await request(fetcher,dossierPin.path.slice(4),dossierPin);
+        validateDossiers(a,d,m);
+        renderDossiers(a,dossierMounts,dossierPin,dossierNotice);
+      }catch{
+        for(const mount of dossierMounts.values())mount.replaceChildren();
+        dossierNotice.replaceChildren(el('p','Research dossiers could not be verified. Ranking and trade-readiness information are unchanged.'));
+      }
+    }
+    async function showAssessment(){
+      if(!pin)return;
       try{
         if(!sha(pin.sha256)||pin.path!=='web/trade-ideas/v1/assessments/'+pin.sha256+'.json')fail();
         const a=await request(fetcher,pin.path.slice(4),pin);
@@ -128,10 +178,11 @@ async function load(){
         notice.replaceChildren(el('p','Readiness assessment could not be verified. The original ranking and its recorded blockers are shown unchanged.'));
       }
     }
+    await Promise.all([showAssessment(),showDossiers()]);
   }catch{
     clear();
     get('state').textContent='The selected trade-idea snapshot is unavailable or failed integrity checks. No ideas shown and no substitute data used. Retry, or open the original snapshot.';
   }finally{busy=false;button.disabled=false;}
 }button.addEventListener('click',load);button.disabled=false;const initialLoad=load();return{load,initialLoad};}
-const api={LATEST,PIN,ORIGINAL,RELEASES,ASSESSMENT_PINS,request,validateManifest,validate,validateAssessment,selectRelease,setup};if(typeof module!=='undefined')module.exports=api;if(typeof document!=='undefined')setup(document,fetch,{search:document.location.search,assessments:ASSESSMENT_PINS});
+const api={LATEST,PIN,ORIGINAL,RELEASES,ASSESSMENT_PINS,DOSSIER_PINS,request,validateManifest,validate,validateAssessment,validateDossiers,selectRelease,setup};if(typeof module!=='undefined')module.exports=api;if(typeof document!=='undefined')setup(document,fetch,{search:document.location.search,assessments:ASSESSMENT_PINS,dossiers:DOSSIER_PINS});
 })();
