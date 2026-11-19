@@ -65,13 +65,19 @@ def facts(r, cutoff):
 
 def project(index, cutoff=CUTOFF):
  if cutoff!=CUTOFF:raise ValueError('versioned cutoff immutable')
+ return _project(index, cutoff, RUBRIC, ELIGIBLE)
+
+def _project(index, cutoff, rubric, eligible_categories, explicit_exclusions=None):
+ if cutoff!=rubric['declared_cutoff_utc'] or rubric['weights']!=RUBRIC['weights']:
+  raise ValueError('versioned cutoff or documentary scoring weights changed')
+ explicit_exclusions=explicit_exclusions or {}
  end=dt(cutoff); decisions=[]; groups={}; seen=set()
  for r in index['records']:
   if r['id'] in seen:raise ValueError('duplicate source record')
   seen.add(r['id'])
-  reason=None
-  if r['evidence_state']!='SOURCE_REVIEWED_WITH_LIMITS':reason='ORIGINAL_REVIEW_REQUIRED'
-  elif r['category'] not in ELIGIBLE:reason='DOCUMENTARY_CONTEXT_NOT_FINANCIAL_EVENT'
+  reason=explicit_exclusions.get(r['id'])
+  if not reason and r['evidence_state']!='SOURCE_REVIEWED_WITH_LIMITS':reason='ORIGINAL_REVIEW_REQUIRED'
+  elif not reason and r['category'] not in eligible_categories:reason='DOCUMENTARY_CONTEXT_NOT_FINANCIAL_EVENT'
   if reason:
    decisions.append({'source_id':r['id'],'decision':'EXCLUDED','reason':reason,'source_ref':r['source_ref']});continue
   if r['execution_ready'] is not False or r['training_ready'] is not False or not r['source_accessions']:raise ValueError('source qualification or citation')
@@ -92,10 +98,10 @@ def project(index, cutoff=CUTOFF):
  ideas.sort(key=lambda x:(-x['research_priority_score'],-int((x['declared_filing_date'] or '0000-00-00').replace('-','')),','.join(sorted(a['issuer_cik'] for a in x['issuer_associations'])),x['id']))
  for rank,x in enumerate(ideas,1):x['rank']=rank
  return {'schema_version':1,'cutoff_utc':cutoff,'mode':'RETROSPECTIVE_RESEARCH_PRIORITY','heading':'Top 10 research priorities, not actionable trades',
-  'actionability':'UNPRICED_NOT_ACTIONABLE','rubric_id':RUBRIC['id'],'counts':{'evaluated':len(seen),'eligible_source_records':sum(len(x) for x in groups.values()),'excluded':sum(d['decision']=='EXCLUDED' for d in decisions),'consolidated_theses':len(ideas),'returned':min(10,len(ideas)),'actionable_trades':0,'paper_trades_placed':0},
+  'actionability':'UNPRICED_NOT_ACTIONABLE','rubric_id':rubric['id'],'counts':{'evaluated':len(seen),'eligible_source_records':sum(len(x) for x in groups.values()),'excluded':sum(d['decision']=='EXCLUDED' for d in decisions),'consolidated_theses':len(ideas),'returned':min(10,len(ideas)),'actionable_trades':0,'paper_trades_placed':0},
   'ideas':ideas[:10],'all_scored_candidates':[{'id':x['id'],'rank':x['rank'],'research_priority_score':x['research_priority_score'],'factors':x['factors'],'coverage':x['coverage'],'source_ids':[r['id'] for r in x['source_records']]} for x in ideas],'candidate_decisions':sorted(decisions,key=lambda x:x['source_id']),
   'scope':index['coverage'],'limitations':['Retrospective snapshot of a selected released evidence corpus, not market-wide screening or a historical point-in-time test.','No source record is an independent economic event. Same issuer can have distinct obligations; dual filers remain distinct.','Five or fewer than ten entries is not missing data silently padded with weaker candidates.','No probabilities, price targets, allocations, order instructions or expected return.'],
-  'not_evaluated_extensions':RUBRIC['not_evaluated_extensions'],'source_pins':index['sources'],'execution_ready':False,'training_ready':False,'provider_requests_made':False}
+  'not_evaluated_extensions':rubric['not_evaluated_extensions'],'source_pins':index['sources'],'execution_ready':False,'training_ready':False,'provider_requests_made':False}
 
 def build(root):
  root=Path(root);index,payloads=build_package(root)
