@@ -15,13 +15,14 @@ CALENDAR='https://ir.worthingtonenterprises.com/news/news-details/2026/Worthingt
 
 class Detail(HTMLParser):
     def __init__(self):
-        super().__init__();self.depth=0;self.fields={};self.text=[];self.links=[];self.tags=[]
+        super().__init__();self.depth=0;self.fields={};self.text=[];self.links=[];self.tags=[];self.claims=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if tag=='details' and a.get('id')=='worthington-saved-chronology':self.depth=1
         elif self.depth and tag=='details':self.depth+=1
         if self.depth:
             self.tags.append(tag)
+            if 'data-claim-id' in a:self.claims.append((a['data-claim-id'],a.get('data-first-public')))
             for k,v in attrs:
                 if k.startswith('data-wor-'):self.fields.setdefault(k,[]).append(v)
                 if k.startswith('on'):raise AssertionError('Static detail cannot execute an action')
@@ -75,6 +76,20 @@ class WorthingtonSavedChronologyTests(unittest.TestCase):
         for s in [PIN,ORIGINAL,CALENDAR,'not an independent refetch','No original-page HTTP bytes','not a general novelty verdict']:
             self.assertIn(s,self.doc)
         self.assertIn(PIN,self.text)
+
+    def test_six_bounded_earlier_disclosure_claims(self):
+        ids=['cooling-fy26','cooling-q1fy27','adjusted-ebitda-target','gross-margin-target','sga-target','sequential-cooling-expectation']
+        self.assertEqual(self.p.claims,[(i,'null') for i in ids])
+        for phrase in ['about US$13 million','FY26 cooling net sales','Q1 FY27 cooling net sales','Annual and quarterly periods are unequal; no growth calculation is made',"2023 framework's 24%",'updated 25%','targets, not achieved margins','approximately 30%','approximately 20%','forward-looking expectation; it is not an observed growth result','weights growth toward the back half','quarter-to-quarter variability','does not establish unchanged detailed guidance','First-public remains null for all six','Whole-document novelty remains unknown','cover describes Q2','call introduction identifying Q1','September 25, 16:01:39','November 10, 2026, 08:16:28']:
+            self.assertIn(phrase,self.text)
+        base='https://www.sec.gov/Archives/edgar/data/108516/'
+        for path in ['000119312526454489/0001193125-26-454489-index.htm','000119312526454489/wor-ex99_1.htm','000119312526464853/wor-ex99_2.htm','000119312526402803/0001193125-26-402803-index.htm','000119312526402803/wor-ex99_1.htm']:
+            self.assertIn(base+path,self.p.links);self.assertIn(base+path,self.doc)
+        for phrase in ['not evidence of SEC publication before the November 12 Baird event','was accepted November 13','not realized growth','not a new event',"Every compared claim's precise first-public time remains null"]:
+            self.assertIn(phrase,self.doc)
+        self.assertEqual(self.html.count('id="worthington-earlier-claims"'),1)
+        # Static interpretation only: no new payload or event, no inferred first-public clock.
+        self.assertEqual(self.receipt['eligible_count'],0)
 
     def test_additive_static_hook_preserves_existing_controls(self):
         self.assertEqual(self.html.count('id="worthington-saved-chronology"'),1)
