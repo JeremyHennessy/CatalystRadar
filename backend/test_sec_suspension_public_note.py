@@ -73,7 +73,7 @@ class HistoricalSuspensionPublicNote(unittest.TestCase):
     def test_primary_links_are_exact_not_derived_from_user_input(self):
         self.assertEqual(self.note.links, fixture()['source_urls'] + [
             'https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-halts-tjgc-group-limited-0',
-            '../docs/sec-suspension-historical-fixture.md'])
+            'https://github.com/JeremyHennessy/CatalystRadar/blob/2e561ad2f3d7bb8ff6704bc32154803c6dd72aae/docs/sec-suspension-historical-fixture.md'])
 
     def test_no_clearance_or_unproven_clock(self):
         for phrase in ('not current trading status', 'not a live or complete halt feed',
