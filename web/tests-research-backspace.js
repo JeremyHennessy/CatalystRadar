@@ -63,3 +63,5 @@ setImmediate(() => {
   uninstall();
   console.log('Research Backspace conservative navigation checks passed');
 });
+
+assert(appURL(root+'trade-ideas.html',root));assert(!appURL(root+'trade-ideas-other.html',root));assert(!appURL(root+'nested/trade-ideas.html',root));
