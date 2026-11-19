@@ -70,3 +70,32 @@ Pragmatic separation: publish observed vendor daily marks and `no halt found in 
 ### Input hardening follow-up
 
 The parser now decodes only UTF-8/ASCII XML before checking forbidden DTD/entity declarations, preventing UTF-16/32 byte-encoding bypass. It rejects duplicate RSS channels, out-of-channel items, nested scalar values and duplicate local field names. These malformed responses cannot become valid negative evidence. Seven new tests cover these cases. The published parser has 22 passing synthetic tests. The exact isolated release containing it passed 198 backend tests, plus UI and public-state checks. Additional local interval-module tests are not part of that release. Synthetic fixture coverage does not establish live-source schema compatibility or source authenticity.
+
+### Offline halt-window review
+
+`backend/halt_window_review.py` adds a research-only review of already retained
+response bytes. It does not use a feed, qualify any exchange session, or make an
+execution decision. Its completed UTC window includes the start and excludes the
+end. A match is to literal symbol text only, not a verified security mapping.
+
+| Review label | What it means |
+| --- | --- |
+| `REPORTED_START_IN_WINDOW` | A hash-checked response supplied by the caller reports a start within the window. The response's origin and instrument remain unverified. |
+| `POSSIBLE_CARRY_IN_NOT_VERIFIED` | An older matching start was reported; the review cannot rule out overlap. No scheduled resumption proves that trading actually resumed. |
+| `NO_MATCH_COVERAGE_UNKNOWN` | No eligible supplied row matched. This includes empty input and is not evidence that trading was uninterrupted. |
+
+Receipt checks distinguish genuine parsed-empty structure, malformed or
+hash-mismatched input, date-filter inconsistencies, exact duplicates and
+observations after the review cutoff. Matching observations retain their receipt
+index; later revisions do not erase earlier reports. Per [Nasdaq's query
+examples](https://classic.nasdaqtrader.com/snippets/tradehaltaccordion.html),
+halt-date and resumption-date filters select events on their respective dates,
+not interval overlap. Nasdaq's [field
+definitions](https://classic.nasdaqtrader.com/Trader.aspx?id=TradeHaltCodes)
+distinguish scheduled quote from scheduled trade resumption. Neither clears
+carry-in in this review.
+
+The tests use synthetic RSS and verify refusal to certify coverage, actual
+resumption, security identity or an ordinary close. No source authentication,
+access rights, live halt observations, or market-data coverage have been added.
+The module is not registered in the app, collectors or the protected ledger.
