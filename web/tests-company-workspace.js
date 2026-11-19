@@ -32,7 +32,18 @@ const returned=fakeWindow(null,'https://example.test/web/financial-review.html',
 for(const ref of ['', 'https://elsewhere.test/web/financial-review.html','https://example.test/web/disclosures.html']){adapter.depart('financial-review.html',hint);assert.equal(v.createNavigation(fakeWindow(null,ref,storage)).read({valid:true,cik:hint.cik}),null);}
 adapter.depart('financial-review.html',hint);assert.equal(v.createNavigation(fakeWindow(null,'https://example.test/web/financial-review.html',storage)).read({valid:true,cik:'0000025743'}),null);
 for(const changed of [{index_sha:'0'.repeat(64)},{section:'invented'},{cik:'AMD'},{detailPage:-1},{detailPage:1.5}])assert.equal(v.createNavigation(fakeWindow({[navKey]:{...hint,...changed}})).read(null),null);
-for(const delta of [-1,30*60*1000+1]){adapter.depart('financial-review.html',hint);const saved=JSON.parse(storage.get(navKey));saved.departedAt=Date.now()-delta;storage.set(navKey,JSON.stringify(saved));assert.equal(v.createNavigation(fakeWindow(null,'https://example.test/web/financial-review.html',storage)).read({valid:true,cik:hint.cik}),null);}
+// Use one clock for both sides of the one-millisecond TTL boundaries.
+const realNow=Date.now, boundaryNow=Date.parse('2026-11-19T21:00:00Z');
+try{
+  Date.now=()=>boundaryNow;
+  for(const delta of [-1,30*60*1000+1]){
+    adapter.depart('financial-review.html',hint);
+    const saved=JSON.parse(storage.get(navKey));
+    saved.departedAt=boundaryNow-delta;
+    storage.set(navKey,JSON.stringify(saved));
+    assert.equal(v.createNavigation(fakeWindow(null,'https://example.test/web/financial-review.html',storage)).read({valid:true,cik:hint.cik}),null);
+  }
+}finally{Date.now=realNow;}
 for(const url of ['https://other.test/web/financial-review.html','/outside/financial-review.html','data.json','datasets.html']){storage.clear();adapter.depart(url,hint);assert.equal(storage.size,0);}
 const denied=fakeWindow({[navKey]:hint});denied.sessionStorage.getItem=()=>{throw Error('Denied');};assert.deepEqual(v.createNavigation(denied).read({valid:true,cik:hint.cik}),hint);
 adapter.clear();assert.equal(fw.history.state.other,'preserved');assert.equal(fw.history.state[navKey],undefined);
