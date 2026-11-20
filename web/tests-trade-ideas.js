@@ -21,6 +21,10 @@ assert.ok(links(officialUI.n('list')).some(l=>l.href==='collectors.html#coherent
 assert.ok(links(officialUI.n('list')).some(l=>l.href==='financial-review.html#txmd-companion-10q'));
 assert.match(read('collectors.html').toString(),/id="coherent-saved-case"/);
 assert.match(read('financial-review.html').toString(),/id="txmd-companion-10q"/);
+const txmdNote=read('financial-review.html').toString().split('id="txmd-companion-10q"')[1].split('</details>')[0];
+for(const value of ['id="txmd-august-prior-disclosure"','August 11, 2026','US$364,800','US$365,000',
+    '000121390026087768/ea0297949-10q_therapeutics.htm','000121390026119681/ea031220401ex99-1.htm',
+    'Note 14: separate calendar-2026 milestone','not the first-public instant']) assert.ok(txmdNote.includes(value),value);
 const xrxHref='financial-review.html#xerox-exchange-chronology';
 const xrxCards=officialUI.n('list').children.filter(card=>links(card).some(l=>l.href===xrxHref));
 assert.equal(xrxCards.length,1);
