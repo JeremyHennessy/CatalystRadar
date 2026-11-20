@@ -34,3 +34,16 @@ for (const [page, links] of Object.entries(routes)) {
   }
 }
 console.log('Research navigation: native links, fragments and per-page shortcut binding pass');
+
+const home = read('index.html');
+assert.match(home, /aria-current="page">Command Center<\/a>/);
+assert.match(home, /<h1>Command Center<\/h1>/);
+assert.match(home, /id="research-tools"/);
+assert.match(home, /Paper Portfolio V2<\/dt><dd>Not connected to this public site<\/dd>/);
+assert.match(home, /Historical paper trial<\/span><strong id="paper-cash"/);
+assert.match(home, /href="command-center\.css\?v=1"/);
+for (const id of ['main', 'coverage', 'readiness', 'sources', 'reload', 'load-status', 'paper-cash', 'paper-summary']) {
+  assert.equal(home.split('id="' + id + '"').length, 2, id);
+}
+assert.ok(read('command-center.css').includes('.command-center .sidebar nav a {white-space:normal}'));
+console.log('Command Center: essential routes and public/owner account boundary pass');

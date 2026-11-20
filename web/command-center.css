@@ -1,0 +1,24 @@
+/* Home only: preserve the existing research pages while organizing the front door. */
+.command-center .sidebar {height:100dvh;overflow-y:auto}
+.command-center .sidebar nav {gap:4px;margin-top:32px}
+.command-center .sidebar nav a {display:flex;align-items:center;min-height:44px}
+.command-center .cc-hero {padding-bottom:32px;align-items:start}
+.command-center .cc-actions {display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.command-center .cc-actions a,.command-center .cc-tools li a {display:inline-flex;align-items:center;min-height:44px}
+.command-center .cc-status {padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:var(--panel);min-width:0}
+.command-center .cc-status dl {margin:0 0 10px}
+.command-center .cc-status dl div {border-bottom:1px solid var(--line);padding:6px 0}
+.command-center .cc-status dd {margin:0;color:var(--text)}
+.command-center .cc-status dt,.command-center .cc-status p:last-child {color:var(--muted);font-size:13px}
+.command-center .cc-status p:last-child {margin:0}
+.command-center .cc-tools {margin-top:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.command-center .cc-tools section {min-width:0;overflow-wrap:anywhere}
+.command-center .cc-tools ul {margin:0;padding-left:20px}
+.command-center .cc-tools a {font-size:14px}
+@media(max-width:920px){.command-center .cc-tools{grid-template-columns:1fr}}
+@media(max-width:720px){
+  .command-center .sidebar {height:auto;overflow:visible}
+  .command-center .sidebar nav {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px;overflow:visible}
+  .command-center .sidebar nav a {white-space:normal}
+  .command-center .cc-hero {gap:16px}
+}
