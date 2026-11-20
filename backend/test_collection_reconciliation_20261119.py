@@ -107,3 +107,35 @@ class CollectionReconciliation(unittest.TestCase):
                          datetime.fromisoformat('2026-11-22T00:00:00+00:00'))
         for widget in ('<form', '<input', '<button', '<iframe', '<script'):
             self.assertNotIn(widget, panel + policy)
+
+    def test_nov20_morning_fallback_is_pinned_and_not_a_scheduled_success(self):
+        path = 'data/sec-observations/20261120T114911608427Z.json'
+        saved = (ROOT / path).read_bytes()
+        self.assertEqual(hashlib.sha256(saved).hexdigest(),
+                         '0ac82b8795d18f9ac129543c2dde57775e996caebf410495bad26aa1ae0e2cb5')
+        receipt = json.loads(saved)
+        prior = json.loads((ROOT / 'data/sec-observations/20261119T193148867794Z.json').read_bytes())
+        reservation = json.loads((ROOT / 'data/sec-control/attempts/44730539500.json').read_bytes())
+        self.assertEqual((receipt['github_event_name'], reservation['event']), ('push', 'push'))
+        self.assertEqual(receipt['github_run_url'].rsplit('/', 1)[1], reservation['run_id'])
+        self.assertLess(datetime.fromisoformat(reservation['reserved_at']),
+                        datetime.fromisoformat(receipt['started_at']))
+        self.assertEqual(receipt['finished_at'], '2026-11-20T11:49:29.808203+00:00')
+        self.assertIs(receipt['metadata_window_complete'], True)
+        self.assertEqual((receipt['successful_issuers'], receipt['configured_issuers']), (10, 10))
+        self.assertEqual(receipt['errors'], [])
+        for source in receipt['sources']:
+            self.assertEqual(source['status'], 200)
+            blob = (ROOT / source['archive_path']).read_bytes()
+            self.assertEqual((len(blob), hashlib.sha256(blob).hexdigest()),
+                             (source['byte_count'], source['sha256']))
+        identity = lambda item: [(row['issuer_cik'], row['accession']) for row in item['events']]
+        self.assertEqual(len(identity(receipt)), 2)
+        self.assertEqual(sorted(identity(receipt)), sorted(identity(prior)))
+        self.assertEqual((receipt['eligible_count'], receipt['orders_created']), (0, 0))
+        page = (ROOT / 'web/collectors.html').read_text()
+        panel = page.split('id="collection-review-20261120-morning"', 1)[1].split('</section>', 1)[0]
+        for text in ('44730539500', path, '11:49:29.808203Z', 'not by the schedule',
+                     'matched accessions already saved', 'Zero eligible signals and zero orders',
+                     'not a live health claim'):
+            self.assertIn(text, panel)
