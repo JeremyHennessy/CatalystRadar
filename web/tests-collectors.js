@@ -18,3 +18,26 @@ for(const file of ['index.html','company.html','disclosures.html']) assert.ok(fs
   assert.match(text(doc.ids['collector-published-sec']),unavailable==='app-data.json'?/unavailable or unverified/:/10\/10 configured/);
  }
 })();
+
+const {policyAt}=require('./collectors.js');
+const at=s=>policyAt(Date.parse(s));
+assert.deepEqual(at('2026-11-20T23:59:59.999Z'),{checked:'2026-11-20T23:59:59.999Z',sec:'CUTOFF_NOT_REACHED',prices:'CUTOFF_NOT_REACHED'});
+assert.deepEqual(at('2026-11-21T00:00:00.000Z'),{checked:'2026-11-21T00:00:00.000Z',sec:'EXPIRED',prices:'CUTOFF_NOT_REACHED'});
+assert.equal(at('2026-11-21T23:59:59.999Z').prices,'CUTOFF_NOT_REACHED');
+assert.deepEqual(at('2026-11-22T00:00:00.000Z'),{checked:'2026-11-22T00:00:00.000Z',sec:'EXPIRED',prices:'EXPIRED'});
+for(const invalid of [null,NaN,Infinity,9e15,'2026-11-20']){
+ assert.deepEqual(policyAt(invalid),{checked:null,sec:'UNKNOWN',prices:'UNKNOWN'});
+}
+(async()=>{
+ let clock=Date.parse('2026-11-20T23:59:59.999Z');
+ const doc=document(),requests=[];
+ await init(doc,async path=>{requests.push(path);return {ok:false};},()=>clock);
+ assert.match(doc.ids['collector-policy-sec'].textContent,/Cutoff not reached/);
+ assert.match(doc.ids['collector-policy-clock'].textContent,/2026-11-20T23:59:59.999Z/);
+ assert.match(doc.ids['collector-state'].textContent,/Collection health.*unknown/);
+ clock=Date.parse('2026-11-21T00:00:00.000Z');
+ await doc.ids['collector-refresh'].handlers.click();
+ assert.equal(doc.ids['collector-policy-sec'].textContent,'Expired by browser clock');
+ assert.equal(doc.ids['collector-policy-prices'].textContent,'Cutoff not reached by browser clock');
+ assert.deepEqual(requests,['app-data.json','collector-status.json','app-data.json','collector-status.json']);
+})().catch(e=>{console.error(e);process.exitCode=1;});
