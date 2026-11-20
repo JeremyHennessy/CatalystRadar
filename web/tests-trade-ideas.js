@@ -56,6 +56,18 @@ for (const value of ['€750 million','4.000%','99.639%','99.264%','€744.48 mi
     '000114036126043782/ef20085543_8k.htm','not evidence that borrowing was repaid',
     'not another €750 million issuance','No ranking, outcome or trade status changes']) assert.ok(emrPanel.includes(value),value);
 assert.equal(750000000*99264/100000,744480000);
+const vitaHref='financial-review.html#vitaspring-loss-follow-up';
+const vitaCards=officialUI.n('list').children.filter(card=>links(card).some(l=>l.href===vitaHref));
+assert.equal(vitaCards.length,1);
+assert.match(text(vitaCards[0]),/both reported periods remain loss-making/i);
+assert.equal(links(ui.n('list')).some(l=>l.href===vitaHref),false);
+const vitaPanel=read('financial-review.html').toString().split('id="vitaspring-loss-follow-up"')[1].split('</article>')[0];
+for (const value of ['July 31, 2026','July 31, 2025','$155,817','$110,845','$44,972','40.6%',
+    'zero reported revenue','000164033426001572/R4.htm','000164033426001541/vsbt10-qnt.htm',
+    '000164033426001572/vsbc_10q.htm','$11,283','$2.411 million','does not revise the frozen ranking']) assert.ok(vitaPanel.includes(value),value);
+assert.equal(155817-110845,44972);
+assert.equal((100*44972/110845).toFixed(1),'40.6');
+
 // The separately pinned overlay must never mutate or conceal the original ranking.
 const assessmentPin=v.ASSESSMENT_PINS[officialManifest.snapshot.sha256];
 const assessmentKey=assessmentPin.path.slice(4);
@@ -189,4 +201,4 @@ assert.equal(oldUI.n('original')['aria-current'],'page');
 const beforeUnknown=seen.length;const unknownUI=mock(fixtureFetch,{releases,search:'?snapshot=unknown'});await unknownUI.api.initialLoad;
 assert.equal(seen.length,beforeUnknown);assert.equal(unknownUI.n('list').children.length,0);
 assert.match(read('trade-ideas.html').toString(),/href="trade-ideas\.html\?snapshot=original"/);
-for(const file of ['index.html','trade-ideas.html'])assert.match(read(file).toString(),/trade-ideas\.html/);assert.match(read('trade-ideas.html').toString(),/trade-ideas.js\?v=20261120-emerson-note-pricing/);assert.match(read('../.github/workflows/ci.yml').toString(),/node --check web\/trade-ideas.js && node web\/tests-trade-ideas.js &&/);console.log('Trade ideas: verified 7-thesis successor and 5-thesis original, checked source links, corruption, busy/retry, unpriced guards and archive selection');})().catch(e=>{console.error(e);process.exitCode=1;});
+for(const file of ['index.html','trade-ideas.html'])assert.match(read(file).toString(),/trade-ideas\.html/);assert.match(read('trade-ideas.html').toString(),/trade-ideas.js\?v=20261120-vitaspring-loss-follow-up/);assert.match(read('../.github/workflows/ci.yml').toString(),/node --check web\/trade-ideas.js && node web\/tests-trade-ideas.js &&/);console.log('Trade ideas: verified 7-thesis successor and 5-thesis original, checked source links, corruption, busy/retry, unpriced guards and archive selection');})().catch(e=>{console.error(e);process.exitCode=1;});
