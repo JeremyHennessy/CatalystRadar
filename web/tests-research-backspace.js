@@ -65,3 +65,9 @@ setImmediate(() => {
 });
 
 assert(appURL(root+'trade-ideas.html',root));assert(!appURL(root+'trade-ideas-other.html',root));assert(!appURL(root+'nested/trade-ideas.html',root));
+const tracker = root + 'trade-tracker.html#tracker-record';
+const idea = root + 'trade-ideas.html?snapshot=release-2';
+assert(appURL(tracker, root));
+assert(!appURL(root + 'trade-tracker-preview.html', root));
+assert(previousAppEntry({...navigation(idea), currentEntry: {index: 2, url: tracker}}, tracker, root));
+assert.equal(previousAppEntry({...navigation(root + '../trade-tracker.html'), currentEntry: {index: 2, url: tracker}}, tracker, root), null);
