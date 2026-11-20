@@ -44,6 +44,18 @@ for (const value of ['8,242,771','6,500,000','2,220,954','6.6%','90,578,373','93
 assert.equal(90578373+1501832+1533514,93613719);
 assert.equal((100*90578373/93613719).toFixed(2),'96.76');
 
+const emrHref='financial-review.html#emerson-note-pricing';
+const emrCards=officialUI.n('list').children.filter(card=>links(card).some(l=>l.href===emrHref));
+assert.equal(emrCards.length,1);
+assert.match(text(emrCards[0]),/Emerson Electric/i);
+assert.equal(links(ui.n('list')).some(l=>l.href===emrHref),false);
+const emrPanel=read('financial-review.html').toString().split('id="emerson-note-pricing"')[1].split('</article>')[0];
+for (const value of ['€750 million','4.000%','99.639%','99.264%','€744.48 million','commercial paper',
+    '000114036126043026/ny20084788x4_fwp.htm',
+    '000114036126043442/ef20085458_8k.htm','000114036126043426/ny20084788x3_424b5.htm',
+    '000114036126043782/ef20085543_8k.htm','not evidence that borrowing was repaid',
+    'not another €750 million issuance','No ranking, outcome or trade status changes']) assert.ok(emrPanel.includes(value),value);
+assert.equal(750000000*99264/100000,744480000);
 // The separately pinned overlay must never mutate or conceal the original ranking.
 const assessmentPin=v.ASSESSMENT_PINS[officialManifest.snapshot.sha256];
 const assessmentKey=assessmentPin.path.slice(4);
@@ -177,4 +189,4 @@ assert.equal(oldUI.n('original')['aria-current'],'page');
 const beforeUnknown=seen.length;const unknownUI=mock(fixtureFetch,{releases,search:'?snapshot=unknown'});await unknownUI.api.initialLoad;
 assert.equal(seen.length,beforeUnknown);assert.equal(unknownUI.n('list').children.length,0);
 assert.match(read('trade-ideas.html').toString(),/href="trade-ideas\.html\?snapshot=original"/);
-for(const file of ['index.html','trade-ideas.html'])assert.match(read(file).toString(),/trade-ideas\.html/);assert.match(read('trade-ideas.html').toString(),/trade-ideas.js\?v=20261120-hrb-plan-replacement/);assert.match(read('../.github/workflows/ci.yml').toString(),/node --check web\/trade-ideas.js && node web\/tests-trade-ideas.js &&/);console.log('Trade ideas: verified 7-thesis successor and 5-thesis original, checked source links, corruption, busy/retry, unpriced guards and archive selection');})().catch(e=>{console.error(e);process.exitCode=1;});
+for(const file of ['index.html','trade-ideas.html'])assert.match(read(file).toString(),/trade-ideas\.html/);assert.match(read('trade-ideas.html').toString(),/trade-ideas.js\?v=20261120-emerson-note-pricing/);assert.match(read('../.github/workflows/ci.yml').toString(),/node --check web\/trade-ideas.js && node web\/tests-trade-ideas.js &&/);console.log('Trade ideas: verified 7-thesis successor and 5-thesis original, checked source links, corruption, busy/retry, unpriced guards and archive selection');})().catch(e=>{console.error(e);process.exitCode=1;});
