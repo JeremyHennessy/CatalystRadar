@@ -20,6 +20,15 @@ assert.match(text(officialUI.n('list')),/TherapeuticsMD 10-Q/);
 assert.ok(links(officialUI.n('list')).some(l=>l.href==='collectors.html#coherent-saved-case'));
 assert.ok(links(officialUI.n('list')).some(l=>l.href==='financial-review.html#txmd-companion-10q'));
 assert.match(read('collectors.html').toString(),/id="coherent-saved-case"/);
+const cohrNote=read('collectors.html').toString().split('id="coherent-saved-case"')[1].split('</details>')[0];
+const cohrBridge=cohrNote.split('id="coherent-treasury-bridge"')[1]?.split('</div>')[0];
+assert.ok(cohrBridge,'Top 10 evidence route contains the treasury-stock explanation');
+for(const value of ['16,863,102','17,297,839','434,737','negative US$445.483 million',
+    'negative US$574.117 million','US$128.634 million movement','US$128.633 million in payments',
+    'differ by US$1,000','quarter ended before','would not identify a specific execution day',
+    '000082031826000023/iivi-20260930.htm','000119312526467737/d867801d8k.htm',
+    'changes no ranking, price outcome or paper-trade status']) assert.ok(cohrBridge.includes(value),value);
+
 assert.match(read('financial-review.html').toString(),/id="txmd-companion-10q"/);
 const txmdNote=read('financial-review.html').toString().split('id="txmd-companion-10q"')[1].split('</details>')[0];
 for(const value of ['id="txmd-august-prior-disclosure"','August 11, 2026','US$364,800','US$365,000',
