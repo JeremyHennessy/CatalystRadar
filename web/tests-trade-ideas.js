@@ -21,6 +21,16 @@ assert.ok(links(officialUI.n('list')).some(l=>l.href==='collectors.html#coherent
 assert.ok(links(officialUI.n('list')).some(l=>l.href==='financial-review.html#txmd-companion-10q'));
 assert.match(read('collectors.html').toString(),/id="coherent-saved-case"/);
 assert.match(read('financial-review.html').toString(),/id="txmd-companion-10q"/);
+const xrxHref='financial-review.html#xerox-exchange-chronology';
+const xrxCards=officialUI.n('list').children.filter(card=>links(card).some(l=>l.href===xrxHref));
+assert.equal(xrxCards.length,1);
+assert.match(text(xrxCards[0]),/Xerox/i);
+assert.equal(links(ui.n('list')).some(l=>l.href===xrxHref),false);
+const xrxPanel=read('financial-review.html').toString().split('id="xerox-exchange-chronology"')[1].split('</article>')[0];
+for (const value of ['2026-10-29','2026-11-13','173,679,000','121,086,000','3,872,062',
+    '000119312526437046/d18274dex991.htm','000119312526460692/d134827d8k.htm','fresh November surprise',
+    'Face amounts are not net debt','No ranking, outcome or trade status changes']) assert.ok(xrxPanel.includes(value),value);
+
 // The separately pinned overlay must never mutate or conceal the original ranking.
 const assessmentPin=v.ASSESSMENT_PINS[officialManifest.snapshot.sha256];
 const assessmentKey=assessmentPin.path.slice(4);
