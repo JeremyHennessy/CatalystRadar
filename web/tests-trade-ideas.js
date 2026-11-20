@@ -47,6 +47,12 @@ for(const value of ['US$ thousands','three-month periods ended September 30','no
     'recognized in license revenue, not in net other income','not cash flow',
     '000121390026119697/ea0308826-10q_therapeutics.htm','000121390026119681/ea031220401ex99-1.htm'])
     assert.ok(txmdBridge.includes(value),value);
+const txmdSplit=txmdNote.split('id="txmd-historical-split"')[1]?.split('</div>')[0];
+assert.ok(txmdSplit,'Historical action remains linked through the existing TXMD dossier');
+for(const value of ['separate 2022 historical example','1-for-50','May 6, 2022','5:01 p.m. New York time (21:01 UTC)',
+    'grouped by holder','May 9 as the exchange effective date','88338N206','TXMD unchanged',
+    'txmd-8k_20220503.htm','txmd-ex31_8.htm','ECA2022-89','No vendor adjustment, price, return or trade'])
+    assert.ok(txmdSplit.includes(value),value);
 const xrxHref='financial-review.html#xerox-exchange-chronology';
 const xrxCards=officialUI.n('list').children.filter(card=>links(card).some(l=>l.href===xrxHref));
 assert.equal(xrxCards.length,1);
