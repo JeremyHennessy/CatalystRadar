@@ -1,0 +1,163 @@
+{
+  "configured_issuers": 10,
+  "eligible_count": 0,
+  "errors": [],
+  "events": [
+    {
+      "accession": "0001193125-26-464853",
+      "eligible": false,
+      "first_public_utc": null,
+      "form": "8-K",
+      "issuer": "WORTHINGTON ENTERPRISES, INC.",
+      "issuer_cik": "0000108516",
+      "items_raw": "7.01,9.01",
+      "observed_utc": "2026-11-20T19:09:39.192596+00:00",
+      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
+      "sec_accepted_utc": "2026-11-17T13:52:55.000Z",
+      "source_metadata_sha256": "ac02bf159b04157943e3f70794c6868f1c0c7109c2dce939f172003f9ae138bf",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/108516/000119312526464853/0001193125-26-464853.txt",
+      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
+      "ticker": "WOR"
+    },
+    {
+      "accession": "0001193125-26-467737",
+      "eligible": false,
+      "first_public_utc": null,
+      "form": "8-K",
+      "issuer": "COHERENT CORP.",
+      "issuer_cik": "0000820318",
+      "items_raw": "7.01",
+      "observed_utc": "2026-11-20T19:09:23.215399+00:00",
+      "reason": "Full source and earlier public release, catalyst facts, prices and halts require validation",
+      "sec_accepted_utc": "2026-11-19T11:30:06.000Z",
+      "source_metadata_sha256": "c0f3a419d2d23b0966097f86fc70ae90bdceeb911620a4674c07e60937591d52",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/820318/000119312526467737/0001193125-26-467737.txt",
+      "status": "METADATA_DISCOVERY_NOT_ELIGIBLE",
+      "ticker": "COHR"
+    }
+  ],
+  "finished_at": "2026-11-20T19:09:41.376502+00:00",
+  "github_event_name": "schedule",
+  "github_run_url": "https://github.com/JeremyHennessy/CatalystRadar/actions/runs/44799351531",
+  "metadata_window_complete": true,
+  "mode": "OBSERVATION_ONLY",
+  "orders_created": 0,
+  "run_id": "20261120T190923128560Z",
+  "schedule_status": "GITHUB_RUN",
+  "scope": "10 configured issuer metadata feeds; NOT whole market",
+  "sources": [
+    {
+      "archive_path": "data/sec-snapshots/c0f3a419d2d23b0966097f86fc70ae90bdceeb911620a4674c07e60937591d52.json",
+      "byte_count": 159944,
+      "request_utc": "2026-11-20T19:09:23.128860+00:00",
+      "retrieved_utc": "2026-11-20T19:09:23.215399+00:00",
+      "sha256": "c0f3a419d2d23b0966097f86fc70ae90bdceeb911620a4674c07e60937591d52",
+      "status": 200,
+      "ticker": "COHR",
+      "url": "https://data.sec.gov/submissions/CIK0000820318.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b.json",
+      "byte_count": 153444,
+      "request_utc": "2026-11-20T19:09:25.128941+00:00",
+      "retrieved_utc": "2026-11-20T19:09:25.290389+00:00",
+      "sha256": "f38c6cc3a4a8528bac5f2ba213a3a449375759b690f58e7fafd589d102e98c3b",
+      "status": 200,
+      "ticker": "HRB",
+      "url": "https://data.sec.gov/submissions/CIK0000012659.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/4e3734fba244a1595f33f6eab55d353ebc72b7ba247dfb27970a30aef568b99b.json",
+      "byte_count": 168221,
+      "request_utc": "2026-11-20T19:09:27.129029+00:00",
+      "retrieved_utc": "2026-11-20T19:09:27.340837+00:00",
+      "sha256": "4e3734fba244a1595f33f6eab55d353ebc72b7ba247dfb27970a30aef568b99b",
+      "status": 200,
+      "ticker": "CINF",
+      "url": "https://data.sec.gov/submissions/CIK0000020286.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f.json",
+      "byte_count": 171439,
+      "request_utc": "2026-11-20T19:09:29.129112+00:00",
+      "retrieved_utc": "2026-11-20T19:09:29.207982+00:00",
+      "sha256": "48e05f4a09df5d42098fcc6428de3937139897e00ed1c1c3a2ee0b0f3c497a1f",
+      "status": 200,
+      "ticker": "TXMD",
+      "url": "https://data.sec.gov/submissions/CIK0000025743.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/24f5dee035605e65e8bcc88f33756538f00601abac41ac5be3f4ca730039c2c6.json",
+      "byte_count": 158838,
+      "request_utc": "2026-11-20T19:09:31.129194+00:00",
+      "retrieved_utc": "2026-11-20T19:09:31.198651+00:00",
+      "sha256": "24f5dee035605e65e8bcc88f33756538f00601abac41ac5be3f4ca730039c2c6",
+      "status": 200,
+      "ticker": "RVTY",
+      "url": "https://data.sec.gov/submissions/CIK0000031791.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/496a933394040ea4c0862b515dbc215e7275cab9e199c76604bc225468824940.json",
+      "byte_count": 163330,
+      "request_utc": "2026-11-20T19:09:33.129277+00:00",
+      "retrieved_utc": "2026-11-20T19:09:33.184353+00:00",
+      "sha256": "496a933394040ea4c0862b515dbc215e7275cab9e199c76604bc225468824940",
+      "status": 200,
+      "ticker": "EMR",
+      "url": "https://data.sec.gov/submissions/CIK0000032604.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/e815c402d625a39d4da5148fa5e7eb29b127e4a20123cc734dcb8e7ae43b524f.json",
+      "byte_count": 157567,
+      "request_utc": "2026-11-20T19:09:35.129356+00:00",
+      "retrieved_utc": "2026-11-20T19:09:35.210430+00:00",
+      "sha256": "e815c402d625a39d4da5148fa5e7eb29b127e4a20123cc734dcb8e7ae43b524f",
+      "status": 200,
+      "ticker": "GT",
+      "url": "https://data.sec.gov/submissions/CIK0000042582.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897.json",
+      "byte_count": 160059,
+      "request_utc": "2026-11-20T19:09:37.129450+00:00",
+      "retrieved_utc": "2026-11-20T19:09:37.205471+00:00",
+      "sha256": "7ea0830cbedf20e525384472836325bdc474c75d441ddf831c6fe582c48c8897",
+      "status": 200,
+      "ticker": "KEY",
+      "url": "https://data.sec.gov/submissions/CIK0000091576.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/ac02bf159b04157943e3f70794c6868f1c0c7109c2dce939f172003f9ae138bf.json",
+      "byte_count": 157881,
+      "request_utc": "2026-11-20T19:09:39.129536+00:00",
+      "retrieved_utc": "2026-11-20T19:09:39.192596+00:00",
+      "sha256": "ac02bf159b04157943e3f70794c6868f1c0c7109c2dce939f172003f9ae138bf",
+      "status": 200,
+      "ticker": "WOR",
+      "url": "https://data.sec.gov/submissions/CIK0000108516.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    },
+    {
+      "archive_path": "data/sec-snapshots/7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243.json",
+      "byte_count": 106090,
+      "request_utc": "2026-11-20T19:09:41.129614+00:00",
+      "retrieved_utc": "2026-11-20T19:09:41.374041+00:00",
+      "sha256": "7c6399e2da54dc6adc8ebc3578ba46c366611b25aa7ddec51eee4c7532c8a243",
+      "status": 200,
+      "ticker": "XRX",
+      "url": "https://data.sec.gov/submissions/CIK0001770450.json",
+      "validation_status": "METADATA_WINDOW_VALIDATED"
+    }
+  ],
+  "started_at": "2026-11-20T19:09:23.128560+00:00",
+  "successful_issuers": 10,
+  "window_start": "2026-11-16T19:09:23.128560+00:00"
+}
