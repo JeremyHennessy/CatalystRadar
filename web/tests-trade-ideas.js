@@ -31,6 +31,19 @@ for (const value of ['2026-10-29','2026-11-13','173,679,000','121,086,000','3,87
     '000119312526437046/d18274dex991.htm','000119312526460692/d134827d8k.htm','fresh November surprise',
     'Face amounts are not net debt','No ranking, outcome or trade status changes']) assert.ok(xrxPanel.includes(value),value);
 
+const hrbHref='financial-review.html#hrb-plan-replacement';
+const hrbCards=officialUI.n('list').children.filter(card=>links(card).some(l=>l.href===hrbHref));
+assert.equal(hrbCards.length,1);
+assert.match(text(hrbCards[0]),/H&R Block/);
+assert.equal(links(ui.n('list')).some(l=>l.href===hrbHref),false);
+const hrbPanel=read('financial-review.html').toString().split('id="hrb-plan-replacement"')[1].split('</article>')[0];
+for (const value of ['8,242,771','6,500,000','2,220,954','6.6%','90,578,373','93,613,719',
+    '11,553,837','96.76%','000110465926111942/tm2617324-4_def14a.htm',
+    '000001265926000042/hrb-20261110.htm','000001265926000042/hrb-2026longxtermincentive.htm',
+    'not establish current available capacity','does not change the frozen ranking']) assert.ok(hrbPanel.includes(value),value);
+assert.equal(90578373+1501832+1533514,93613719);
+assert.equal((100*90578373/93613719).toFixed(2),'96.76');
+
 // The separately pinned overlay must never mutate or conceal the original ranking.
 const assessmentPin=v.ASSESSMENT_PINS[officialManifest.snapshot.sha256];
 const assessmentKey=assessmentPin.path.slice(4);
@@ -164,4 +177,4 @@ assert.equal(oldUI.n('original')['aria-current'],'page');
 const beforeUnknown=seen.length;const unknownUI=mock(fixtureFetch,{releases,search:'?snapshot=unknown'});await unknownUI.api.initialLoad;
 assert.equal(seen.length,beforeUnknown);assert.equal(unknownUI.n('list').children.length,0);
 assert.match(read('trade-ideas.html').toString(),/href="trade-ideas\.html\?snapshot=original"/);
-for(const file of ['index.html','trade-ideas.html'])assert.match(read(file).toString(),/trade-ideas\.html/);assert.match(read('trade-ideas.html').toString(),/trade-ideas.js\?v=20261119/);assert.match(read('../.github/workflows/ci.yml').toString(),/node --check web\/trade-ideas.js && node web\/tests-trade-ideas.js &&/);console.log('Trade ideas: verified 7-thesis successor and 5-thesis original, checked source links, corruption, busy/retry, unpriced guards and archive selection');})().catch(e=>{console.error(e);process.exitCode=1;});
+for(const file of ['index.html','trade-ideas.html'])assert.match(read(file).toString(),/trade-ideas\.html/);assert.match(read('trade-ideas.html').toString(),/trade-ideas.js\?v=20261120-hrb-plan-replacement/);assert.match(read('../.github/workflows/ci.yml').toString(),/node --check web\/trade-ideas.js && node web\/tests-trade-ideas.js &&/);console.log('Trade ideas: verified 7-thesis successor and 5-thesis original, checked source links, corruption, busy/retry, unpriced guards and archive selection');})().catch(e=>{console.error(e);process.exitCode=1;});
