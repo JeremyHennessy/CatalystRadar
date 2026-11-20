@@ -1,7 +1,7 @@
 /* Conservative opt-in app navigation. Unverified history never triggers navigation. */
 (function (host) {
   'use strict';
-  const pages = new Set(['collectors.html', 'company-ieh.html', 'company.html', 'datasets.html', 'disclosures.html', 'financial-review.html', 'index.html', 'insider-conflicts.html', 'insider-review.html', 'operations.html', 'trade-ideas.html']);
+  const pages = new Set(['collectors.html', 'company-ieh.html', 'company.html', 'datasets.html', 'disclosures.html', 'financial-review.html', 'index.html', 'insider-conflicts.html', 'insider-review.html', 'operations.html', 'trade-ideas.html', 'trade-tracker.html']);
   // The app focuses this plain live status after changing the company view; it is not a control.
   const status = 'p#company-work-detail-state[role="status"][aria-live="polite"][tabindex="-1"]';
   const blocked = 'input,textarea,select,button,a,form,summary,details,iframe,object,embed,audio,video,[contenteditable]' +

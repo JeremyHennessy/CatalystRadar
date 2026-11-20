@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+  <title>CatalystRadar · Trade Tracker</title>
+  <link rel="stylesheet" href="overview.css?v=20261118"><link rel="stylesheet" href="trade-ideas.css?v=20261119-mobile">
+  <script defer src="trade-tracker.js?v=20261120"></script><script defer src="research-backspace.js?v=20261120-tracker"></script>
+</head><body>
+<a class="skip" href="#main">Skip to Trade Tracker</a>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><b>CR</b><span>CatalystRadar<small>RESEARCH WORKSPACE</small></span></a>
+    <nav aria-label="Workspace">
+      <a href="index.html">Research overview</a>
+      <a href="trade-ideas.html">Top 10 Trade Ideas</a>
+      <a class="active" href="trade-tracker.html" aria-current="page">Trade Tracker</a>
+      <a href="datasets.html#company-investigation">Find a company</a>
+      <a href="financial-review.html#research-scanner">Research scanner</a>
+      <a href="collectors.html">Ingestion status</a>
+    </nav>
+    <div class="sidebar-note">Research, not execution<p>No brokerage connection.<br>No automatic orders.</p></div>
+  </aside>
+  <main id="main">
+    <header><span class="eyebrow">DECISION TRACKER</span><button id="tracker-reload" type="button" disabled>Reload saved record</button></header>
+    <section class="hero">
+      <div><p class="eyebrow accent">RESEARCH DECISIONS AND OUTCOMES</p><h1>Trade Tracker</h1>
+      <p class="lead">Start with the first archived research decision. The tracker separates what was recorded, what was independently time-bounded, and what still cannot be measured.</p></div>
+      <div class="hero-note"><span class="tag caution">RESEARCH ONLY</span><p>Research records, not positions</p><small>No orders, fills or returns reported. This page cannot activate the paper book or place trades.</small></div>
+    </section>
+    <p id="tracker-state" class="load-status" role="status" aria-live="polite">Checking the saved archive. No decision verified yet.</p>
+    <noscript><p>Enable JavaScript to verify and display the saved record.</p></noscript>
+    <section id="tracker-record" class="ideas-list" aria-label="Verified archived decision" hidden></section>
+    <section class="panel" id="tracker-outcome" hidden>
+      <h2>Current outcome status</h2>
+      <p><strong>Not qualified.</strong> No measured outcome, order, fill or return is tracked here. This saved record is not a live check of price, trading or provider state.</p>
+      <p>The saved close-to-close study specifies November 20 and November 23, 2026. These are scheduled endpoint dates, not verified closes. The retained price evidence used by that study ended November 16.</p>
+      <p>What is missing: qualified endpoint prices and use rights, effective-dated security identity, corporate-action continuity and actual trading-session evidence. First-public timing is not established by this record.</p>
+      <p><strong>Next check:</strong> After both target sessions, verify whether a permitted source retained both observations for the same security and price convention. Do not substitute other dates.</p>
+      <p><a href="https://github.com/JeremyHennessy/CatalystRadar/blob/613778565e7ab85b91df94ae4bf587f6becb7577/docs/research/coherent-forward-coverage-2026-11-19.md">Read the separate saved endpoint protocol</a></p>
+      <h3>Performance and evaluation</h3>
+      <p>1 frozen research decision · 1 abstention · 0 qualified outcomes. Returns and win rate: <strong>NOT YET MEASURABLE</strong>.</p>
+      <p class="subtle">No other decisions are tracked on this page yet. That is a coverage limit, not evidence of no activity elsewhere. Reload reads the existing archive only.</p>
+    </section>
+  </main>
+</div>
+</body></html>
