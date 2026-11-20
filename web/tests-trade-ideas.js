@@ -25,6 +25,19 @@ const txmdNote=read('financial-review.html').toString().split('id="txmd-companio
 for(const value of ['id="txmd-august-prior-disclosure"','August 11, 2026','US$364,800','US$365,000',
     '000121390026087768/ea0297949-10q_therapeutics.htm','000121390026119681/ea031220401ex99-1.htm',
     'Note 14: separate calendar-2026 milestone','not the first-public instant']) assert.ok(txmdNote.includes(value),value);
+const txmdBridge=txmdNote.split('id="txmd-quarter-income-bridge"')[1]?.split('</div>')[0];
+assert.ok(txmdBridge,'Quarterly bridge stays inside the existing TXMD dossier');
+for(const value of ['US$ thousands','three-month periods ended September 30','not the nine-month totals',
+    'Operating loss of 479 plus net other income of 980 gave continuing-operations income of 501',
+    '521 of sublease income, 77 of net interest income and 382 of miscellaneous income',
+    'loss of 10 reduced total net income to 491',
+    'Operating loss of 862 plus net other income of 912 gave continuing-operations income of 50',
+    'income of 102 brought total net income to 152',
+    'improved by 451: the operating loss narrowed by 383 and net other income increased by 68',
+    'Discontinued operations swung by minus 112, so total net income rose by 339.',
+    'recognized in license revenue, not in net other income','not cash flow',
+    '000121390026119697/ea0308826-10q_therapeutics.htm','000121390026119681/ea031220401ex99-1.htm'])
+    assert.ok(txmdBridge.includes(value),value);
 const xrxHref='financial-review.html#xerox-exchange-chronology';
 const xrxCards=officialUI.n('list').children.filter(card=>links(card).some(l=>l.href===xrxHref));
 assert.equal(xrxCards.length,1);
