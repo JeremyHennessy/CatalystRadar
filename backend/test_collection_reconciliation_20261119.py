@@ -79,3 +79,31 @@ class CollectionReconciliation(unittest.TestCase):
         self.assertIn('Historical checkpoint: November 18 midday collection check', page)
         for forbidden in ('<script', '<button', '<form', '<iframe', '<input'):
             self.assertNotIn(forbidden, section)
+
+    def test_nov20_overnight_skip_keeps_saved_sec_observation_separate(self):
+        now = datetime.fromisoformat('2026-11-20T01:28:19.766748+00:00')
+        outcome = plan(now=now, event='schedule', actor='JeremyHennessy',
+                       run_id='44653738294', attempt='1', request=None,
+                       receipts=[], reservations=[])
+        self.assertEqual(outcome, ('OUTSIDE_TRIAL_WINDOW', None))
+        self.assertFalse((ROOT / 'data/sec-control/attempts/44653738294.json').exists())
+        page = (ROOT / 'web/collectors.html').read_text()
+        panel = page.split('id="collection-review-20261120-overnight"', 1)[1].split('</section>', 1)[0]
+        for phrase in ('44653738294/job/136014748225', '2026-11-20T01:27:20Z',
+                       '2026-11-20T01:28:19.7667481Z', 'OUTSIDE_TRIAL_WINDOW',
+                       'No source request was made', 'Dashboard generation, receipt commit and publication were skipped',
+                       'At this checkpoint', '20261119T193148867794Z.json',
+                       'two repeated filing records', 'zero eligible signals'):
+            self.assertIn(phrase, panel)
+        policy = page.split('id="collector-policy-cutoffs"', 1)[1].split('</section>', 1)[0]
+        for phrase in ('2026-11-21T00:00:00Z', '2026-11-22T00:00:00Z',
+                       'does not check source health', 'cannot extend a trial'):
+            self.assertIn(phrase, policy)
+        manifest = json.loads((ROOT / 'web/collector-status.json').read_bytes())
+        frozen_expiries = {row['id']: row['expiry_utc'] for row in manifest['collectors']}
+        self.assertEqual(datetime.fromisoformat(frozen_expiries['sec_watchlist']),
+                         datetime.fromisoformat('2026-11-21T00:00:00+00:00'))
+        self.assertEqual(datetime.fromisoformat(frozen_expiries['private_daily_prices']),
+                         datetime.fromisoformat('2026-11-22T00:00:00+00:00'))
+        for widget in ('<form', '<input', '<button', '<iframe', '<script'):
+            self.assertNotIn(widget, panel + policy)

@@ -31,12 +31,30 @@ function publishedSec(d){
  if(feed.length!==1||feed[0].status!=='snapshot_only'||!date(feed[0].as_of)||!date(d.generated_at)||Date.parse(feed[0].as_of)>Date.parse(d.generated_at)||typeof feed[0].detail!=='string'||!feed[0].detail.trim()||feed[0].detail.length>1000)throw Error('Invalid published SEC metadata');
  return {observed:feed[0].as_of,generated:d.generated_at,detail:feed[0].detail};
 }
-function init(doc,fetcher){
+// These are protected policy cutoffs, not freshness or health data.
+const POLICY_CUTOFFS=Object.freeze({sec:'2026-11-21T00:00:00Z',prices:'2026-11-22T00:00:00Z'});
+function policyAt(epochMs){
+ const instant=typeof epochMs==='number'?new Date(epochMs):null;
+ if(!instant||!Number.isFinite(instant.getTime()))return {checked:null,sec:'UNKNOWN',prices:'UNKNOWN'};
+ const state=cutoff=>epochMs>=Date.parse(cutoff)?'EXPIRED':'CUTOFF_NOT_REACHED';
+ return {checked:instant.toISOString(),sec:state(POLICY_CUTOFFS.sec),prices:state(POLICY_CUTOFFS.prices)};
+}
+function init(doc,fetcher,now=Date.now){
  const root=doc.getElementById('collector-list'),state=doc.getElementById('collector-state'),asof=doc.getElementById('collector-asof'),button=doc.getElementById('collector-refresh');let busy=false;
  const published=doc.getElementById('collector-published-sec');
  const el=(tag,text)=>{const n=doc.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
  const dl=(parent,rows)=>{const n=el('dl');rows.forEach(([k,v])=>n.append(el('dt',k),el('dd',v)));parent.append(n);};
  const link=(label,url)=>{const n=el('a',label);n.href=url;return n;};
+ function renderPolicy(){
+  const x=policyAt(now());
+  const label={EXPIRED:'Expired by browser clock',CUTOFF_NOT_REACHED:'Cutoff not reached by browser clock',UNKNOWN:'Browser-clock comparison unavailable'};
+  for(const key of ['sec','prices']){
+   const cell=doc.getElementById(`collector-policy-${key}`);
+   if(cell)cell.textContent=label[x[key]];
+  }
+  const checked=doc.getElementById('collector-policy-clock');
+  if(checked)checked.textContent=x.checked?`Browser comparison at ${x.checked}.`:'Browser comparison time unavailable.';
+ }
  function render(d){
   const fragment=el('div');
   for(const c of d.collectors){
@@ -56,7 +74,7 @@ function init(doc,fetcher){
   asof.textContent=`Saved snapshot as of ${d.as_of} · not a live timestamp`;
   state.textContent='Three collection groups loaded from saved evidence. Latest attempts and failures remain unknown.';
  }
- async function load(){if(busy)return;busy=true;button.disabled=true;root.hidden=true;root.replaceChildren();asof.textContent='Snapshot time unknown until validation completes.';state.textContent='Loading and validating saved evidence…';
+ async function load(){if(busy)return;renderPolicy();busy=true;button.disabled=true;root.hidden=true;root.replaceChildren();asof.textContent='Snapshot time unknown until validation completes.';state.textContent='Loading and validating saved evidence…';
   published.textContent='Loading latest saved SEC projection…';
   const readPublished=(async()=>{try{
    const r=await fetcher('app-data.json',{cache:'no-store',signal:AbortSignal.timeout(30000)});
@@ -71,6 +89,6 @@ function init(doc,fetcher){
  }
  button.addEventListener('click',load);return load();
 }
-if(typeof module!=='undefined')module.exports={validate,init,publishedSec};
+if(typeof module!=='undefined')module.exports={validate,init,publishedSec,policyAt};
 if(typeof document!=='undefined')init(document,window.fetch.bind(window));
 })();
