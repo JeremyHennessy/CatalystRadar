@@ -1,7 +1,5 @@
 name: Trial-week SEC observations (no trading)
 on:
-  schedule:
-    - cron: '17,47 11-23 16-20 11 *'
   workflow_dispatch:
   push:
     branches: [main]
