@@ -1,9 +1,10 @@
 import copy
+import hashlib
 import json
 from pathlib import Path
 import tempfile
 import unittest
-from collector_status import build, next_slot, instant, load
+from collector_status import build, next_slot, instant, load, SEC_TRIAL_SCHEDULED_SHA
 
 class CollectorStatusTests(unittest.TestCase):
     def setUp(self):
@@ -12,6 +13,14 @@ class CollectorStatusTests(unittest.TestCase):
         original=Path(__file__).resolve().parent.parent
         for name in ('.github/workflows/sec-observations.yml','backend/trial_gate.py','data/price_feed_status.json'):
             (self.root/name).write_bytes((original/name).read_bytes())
+        # Reconstruct the original snapshot configuration from the exact retired
+        # workflow, then verify the historical file's complete digest.
+        workflow = self.root/'.github/workflows/sec-observations.yml'
+        self.retired_workflow = workflow.read_bytes()
+        original_workflow = self.retired_workflow.replace(
+            b'\non:\n', b"\non:\n  schedule:\n    - cron: '17,47 11-23 16-20 11 *'\n", 1)
+        self.assertEqual(hashlib.sha256(original_workflow).hexdigest(), SEC_TRIAL_SCHEDULED_SHA)
+        workflow.write_bytes(original_workflow)
         # Freeze the observation used by this historical clock; latest_scan is mutable.
         frozen_sec = original/'data/sec-observations/20261117T195421146121Z.json'
         (self.root/'data/latest_scan.json').write_bytes(frozen_sec.read_bytes())
@@ -64,6 +73,22 @@ class CollectorStatusTests(unittest.TestCase):
     def test_schedule_change_fails(self):
         (self.root/'.github/workflows/sec-observations.yml').write_text('new schedule')
         with self.assertRaises(ValueError): self.rows()
+    def test_retired_schedule_has_no_slots_and_keeps_receipt(self):
+        (self.root/'.github/workflows/sec-observations.yml').write_bytes(self.retired_workflow)
+        sec = build(self.root, '2026-11-22T00:00:00Z')['collectors'][0]
+        self.assertEqual(sec['mode'], 'SCHEDULE_RETIRED')
+        self.assertEqual(sec['policy_state'], 'EXPIRED')
+        self.assertIsNone(sec['configured_cron'])
+        self.assertIsNone(sec['next_configured_slot'])
+        self.assertEqual(sec['last_successful_observation'], '2026-11-17T19:54:39.231235+00:00')
+        self.assertEqual(sec['evidence'][0]['sha256'], hashlib.sha256(self.retired_workflow).hexdigest())
+        with self.assertRaisesRegex(ValueError, 'cannot represent an in-trial status'):
+            self.rows()
+    def test_retired_trigger_with_unreviewed_change_fails_closed(self):
+        (self.root/'.github/workflows/sec-observations.yml').write_bytes(
+            self.retired_workflow.replace(b'workflow_dispatch:', b'workflow_dispatch: # other policy'))
+        with self.assertRaisesRegex(ValueError, 're-audit policy'):
+            build(self.root, '2026-11-22T00:00:00Z')
     def test_duplicate_fields_fail(self):
         (self.root/'data/latest_scan.json').write_text('{"errors":[],"errors":[]}')
         with self.assertRaises(ValueError): self.rows()

@@ -12,6 +12,11 @@ from pathlib import Path
 from private_prices import unique_object
 
 UTC = dt.timezone.utc
+SEC_TRIAL_EXPIRY = '2026-11-21T00:00:00+00:00'
+SEC_TRIAL_CRON = '17,47 11-23 16-20 11 *'
+# Admit only the reviewed scheduled workflow and the exact schedule-only removal.
+SEC_TRIAL_SCHEDULED_SHA = '118290b70cf5394b1631b5deb23e598f139ec8b7902f04ca018c7ef366b4d375'
+SEC_TRIAL_RETIRED_SHA = 'fc59de2b940a3dd18ecaebc6274433418616b5bb0176f41b217684b9928ec1dd'
 
 def instant(value):
     if not isinstance(value, str): raise ValueError('missing timestamp')
@@ -46,15 +51,20 @@ def build(root, as_of):
     result = {'schema_version': 1, 'as_of': now.isoformat(), 'collection_enabled_by_this_index': False,
               'execution_ready': False, 'scope': 'Saved evidence only; Refresh does not collect data',
               'history_completeness': 'LATEST_ACTIONS_ATTEMPTS_NOT_VERIFIED', 'collectors': []}
-    sec = row('sec_watchlist', now, '2026-11-21T00:00:00+00:00', 'SCHEDULED_BOUNDED', 'PUBLIC_METADATA')
-    workflow = root / '.github/workflows/sec-observations.yml'
-    text = workflow.read_text()
-    sec['configured_cron'] = '17,47 11-23 16-20 11 *'
-    sec['evidence'].append({'path': '.github/workflows/sec-observations.yml', 'sha256': hashlib.sha256(workflow.read_bytes()).hexdigest()})
-    if "cron: '17,47 11-23 16-20 11 *'" not in text: raise ValueError('SEC schedule changed; re-audit policy')
+    workflow_path = '.github/workflows/sec-observations.yml'
+    workflow_digest = hashlib.sha256((root / workflow_path).read_bytes()).hexdigest()
+    if workflow_digest not in (SEC_TRIAL_SCHEDULED_SHA, SEC_TRIAL_RETIRED_SHA):
+        raise ValueError('SEC workflow changed; re-audit policy')
+    retired = workflow_digest == SEC_TRIAL_RETIRED_SHA
+    if retired and now < instant(SEC_TRIAL_EXPIRY):
+        raise ValueError('retired SEC workflow cannot represent an in-trial status')
+    sec = row('sec_watchlist', now, SEC_TRIAL_EXPIRY,
+              'SCHEDULE_RETIRED' if retired else 'SCHEDULED_BOUNDED', 'PUBLIC_METADATA')
+    sec['configured_cron'] = None if retired else SEC_TRIAL_CRON
+    sec['evidence'].append({'path': workflow_path, 'sha256': workflow_digest})
     gate = (root / 'backend/trial_gate.py').read_text()
     if 'date(2026,11,16)<=et.date()<=date(2026,11,20)' not in gate or 'time(6)<=et.time()<=time(18,59,59)' not in gate: raise ValueError('SEC runtime gate changed; re-audit')
-    sec['next_configured_slot'] = next_slot(now, 'sec')
+    sec['next_configured_slot'] = None if retired else next_slot(now, 'sec')
     sec['quota_status'] = 'BOUNDED_10_ISSUER_SCOPE_NOT_PROVIDER_ENTITLEMENT'
     sec['rights_status'] = 'PUBLIC_METADATA_ONLY_NO_EXTENSION_APPROVED'
     sec['blockers'] = ['Trial expires; continuation requires reviewed bounded policy.', 'Unresolved reservation or failed latest scan blocks automatic collection.', 'Latest Actions attempt and missing slots are not established by retained receipts.']
