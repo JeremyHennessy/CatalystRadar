@@ -10,6 +10,7 @@ class ContinuationCandidateTests(unittest.TestCase):
         self.assertEqual(result['max_source_requests'],1300)
         self.assertFalse(result['can_collect']);self.assertFalse(result['collection_enabled'])
         self.assertIn('ACTIVATION_AND_WORKFLOW_REVIEW_REQUIRED',result['blockers'])
+        self.assertIn('PRODUCTION_POLICY_CHANGED_REAUDIT_REQUIRED',result['blockers'])
     def test_weekend_gap_and_expiry(self):
         before=inspect(self.root,'2026-11-21T00:00:00Z')
         self.assertEqual(before['next_candidate_slot'],'2026-11-23T11:17:00+00:00')

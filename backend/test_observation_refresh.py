@@ -62,12 +62,14 @@ class ObservationRefreshTests(unittest.TestCase):
         rebuild.assert_called_once()
         for name in ('data/research_report.json','web/research_report.json'):
             self.assertEqual(json.loads((self.root/name).read_text()),report)
-    def test_scheduled_workflow_preserves_reports_and_scope(self):
+    def test_retired_workflow_preserves_manual_triggers_reports_and_scope(self):
         workflow=(ROOT/'.github/workflows/sec-observations.yml').read_text()
         self.assertIn('python3 backend/build_dashboard.py --preserve-research-report',workflow)
         stage=next(line for line in workflow.splitlines() if 'git add --' in line)
         self.assertNotIn('research_report',stage)
-        self.assertIn("cron: '17,47 11-23 16-20 11 *'",workflow)
+        self.assertNotIn('schedule:',workflow)
+        self.assertIn('workflow_dispatch:',workflow)
+        self.assertIn('paths: [data/sec-control/request.json]',workflow)
         self.assertNotIn('paper_ledger',stage)
 
 if __name__=='__main__':unittest.main()
