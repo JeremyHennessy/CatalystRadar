@@ -41,3 +41,27 @@ for(const invalid of [null,NaN,Infinity,9e15,'2026-11-20']){
  assert.equal(doc.ids['collector-policy-prices'].textContent,'Cutoff not reached by browser clock');
  assert.deepEqual(requests,['app-data.json','collector-status.json','app-data.json','collector-status.json']);
 })().catch(e=>{console.error(e);process.exitCode=1;});
+
+const legacy=structuredClone(projection);
+legacy.feeds[0].detail+=' Trial-week schedule configured; not continuous or realtime.';
+assert.deepEqual(publishedSec(legacy), {
+ observed:projection.feeds[0].as_of,generated:projection.generated_at,
+ detail:projection.feeds[0].detail,schedule:'UNVERIFIED'
+});
+const retired=structuredClone(projection);
+retired.generated_at='2026-11-21T00:00:00Z';
+retired.feeds[0].schedule_state='SCHEDULE_RETIRED';
+assert.equal(publishedSec(retired).schedule,'SCHEDULE_RETIRED');
+assert.equal(publishedSec(retired).observed,projection.feeds[0].as_of);
+for(const invalid of ['TRIAL_CONFIGURED','__proto__',null,{}]){
+ const altered=structuredClone(retired);altered.feeds[0].schedule_state=invalid;
+ assert.throws(()=>publishedSec(altered),/Invalid published SEC schedule/);
+}
+assert.throws(()=>publishedSec({...retired,generated_at:projection.generated_at}),/Invalid published SEC schedule/);
+(async()=>{
+ const doc=document(),requests=[];
+ await init(doc,async path=>{requests.push(path);return {ok:true,json:async()=>path==='app-data.json'?retired:data};});
+ assert.match(text(doc.ids['collector-published-sec']),/Trial schedule retired/);
+ assert.match(text(doc.ids['collector-list']),/Historical next slot at snapshot/);
+ assert.deepEqual(requests,['app-data.json','collector-status.json']);
+})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -2,6 +2,12 @@
 'use strict';
 const LABELS={sec_watchlist:'SEC watchlist metadata',private_daily_prices:'Private daily-price receipts',prepared_and_reference_imports:'Prepared and reference imports'};
 const EVIDENCE=new Set(['.github/workflows/sec-observations.yml','data/latest_scan.json','data/price_feed_status.json']);
+const SEC_SCHEDULE_LABELS=Object.freeze({
+ SCHEDULE_RETIRED:'Trial schedule retired · no SEC cron in the reviewed workflow',
+ TRIAL_EXPIRED:'Trial expired · associated cron is historical, not authorization',
+ TRIAL_CONFIGURED:'Bounded trial configured at dashboard build · no future run guaranteed',
+ UNVERIFIED:'Unverified · historical audit does not establish current configuration'
+});
 const date=x=>typeof x==='string'&&Number.isFinite(Date.parse(x));
 function validate(d){
  const fail=()=>{throw Error('Invalid saved collector status');};
@@ -29,7 +35,13 @@ function validate(d){
 function publishedSec(d){
  const feed=Array.isArray(d?.feeds)?d.feeds.filter(x=>x?.name==='SEC filings'):[];
  if(feed.length!==1||feed[0].status!=='snapshot_only'||!date(feed[0].as_of)||!date(d.generated_at)||Date.parse(feed[0].as_of)>Date.parse(d.generated_at)||typeof feed[0].detail!=='string'||!feed[0].detail.trim()||feed[0].detail.length>1000)throw Error('Invalid published SEC metadata');
- return {observed:feed[0].as_of,generated:d.generated_at,detail:feed[0].detail};
+ const row=feed[0],schedule=Object.hasOwn(row,'schedule_state')?row.schedule_state:'UNVERIFIED';
+ const past=Date.parse(d.generated_at)>=Date.parse(POLICY_CUTOFFS.sec);
+ if(typeof schedule!=='string'||!Object.hasOwn(SEC_SCHEDULE_LABELS,schedule)||(past&&schedule==='TRIAL_CONFIGURED')||(!past&&(schedule==='SCHEDULE_RETIRED'||schedule==='TRIAL_EXPIRED')))throw Error('Invalid published SEC schedule');
+ // Compatibility for previously deployed dashboard projections.
+ const detail=row.detail.replace(' Trial-week schedule configured; not continuous or realtime.','');
+ if(!detail.trim())throw Error('Invalid published SEC metadata');
+ return {observed:row.as_of,generated:d.generated_at,detail,schedule};
 }
 // These are protected policy cutoffs, not freshness or health data.
 const POLICY_CUTOFFS=Object.freeze({sec:'2026-11-21T00:00:00Z',prices:'2026-11-22T00:00:00Z'});
@@ -59,13 +71,13 @@ function init(doc,fetcher,now=Date.now){
   const fragment=el('div');
   for(const c of d.collectors){
    const section=el('section');section.className='panel';section.id=c.id;
-   section.append(el('h2',LABELS[c.id]),el('p',c.mode==='MANUAL_OFFLINE_IMPORTS'?'Manual, offline imports. No scheduled collector in the audited repositories.':'Bounded scheduled trial configuration. Current running health is not established.'));
+   section.append(el('h2',LABELS[c.id]),el('p',c.mode==='MANUAL_OFFLINE_IMPORTS'?'Manual, offline imports. No scheduled collector in the audited repositories.':'Historical trial configuration at the saved audit time. This is not the current schedule or health.'));
    if(c.id==='sec_watchlist')section.append(el('p',`${c.successful_issuers} of ${c.configured_issuers} configured issuers have successful observations in the retained receipt. This is not all-market coverage.`));
    if(c.id==='private_daily_prices')section.append(el('p',`${c.saved_snapshots} saved private snapshots × ${c.rows_per_snapshot} rows per snapshot. Public receipt metadata only; no prices or returns.`));
-   dl(section,[['Last successful observation',c.last_successful_observation??'Unknown for this grouped manual-import row'],['Latest attempt / result','Unknown · Actions history not verified'],['Failure diagnosis','Unknown · not proof of no failure'],['Receipt age at snapshot',c.observation_age_seconds===undefined?'Not established':`${c.observation_age_seconds.toLocaleString('en-US')} seconds`],['Trial stop boundary (UTC)',c.expiry_utc??'Not applicable · manual only'],['Next configured slot at snapshot',c.next_configured_slot??'None · manual only'],['Will that slot run?',c.mode==='MANUAL_OFFLINE_IMPORTS'?'Not applicable · no scheduled slot':'Not guaranteed'],['Accepted / rejected / held','Unknown / unknown / unknown'],['Missing periods','Unknown · not audited']]);
+   dl(section,[['Last successful observation',c.last_successful_observation??'Unknown for this grouped manual-import row'],['Latest attempt / result','Unknown · Actions history not verified'],['Failure diagnosis','Unknown · not proof of no failure'],['Receipt age at snapshot',c.observation_age_seconds===undefined?'Not established':`${c.observation_age_seconds.toLocaleString('en-US')} seconds`],['Trial stop boundary (UTC)',c.expiry_utc??'Not applicable · manual only'],['Historical next slot at snapshot',c.next_configured_slot??'None · manual only'],['Was that slot guaranteed?',c.mode==='MANUAL_OFFLINE_IMPORTS'?'Not applicable · no scheduled slot':'Not guaranteed'],['Accepted / rejected / held','Unknown / unknown / unknown'],['Missing periods','Unknown · not audited']]);
    if(c.last_verified_complete_run)section.append(link('Open retained verified run ↗',c.last_verified_complete_run));
    section.append(el('h3','Continuation blockers'));const ul=el('ul');c.blockers.forEach(x=>ul.append(el('li',x)));section.append(ul);
-   const details=el('details');details.append(el('summary','Receipt provenance and policy scope'));dl(details,[['Saved source status',c.source_status],['Storage boundary',c.storage],['Quota scope',c.quota_status],['Rights scope',c.rights_status],['Configured cron (UTC)',c.configured_cron??'No scheduled collector']]);
+   const details=el('details');details.append(el('summary','Receipt provenance and policy scope'));dl(details,[['Saved source status',c.source_status],['Storage boundary',c.storage],['Quota scope',c.quota_status],['Rights scope',c.rights_status],['Historical cron at snapshot (UTC)',c.configured_cron??'No scheduled collector']]);
    if(c.last_retained_reservation){dl(details,[['Retained reservation time',c.last_retained_reservation.reserved_at],['Reservation run ID',c.last_retained_reservation.run_id]]);details.append(el('p',c.reservation_warning));}
    c.evidence.forEach(e=>{details.append(el('p',e.path),el('code',e.sha256));});if(!c.evidence.length)details.append(el('p','No grouped source receipt is certified here. Inspect the individual dataset manifests.'));
    section.append(details);fragment.append(section);
@@ -81,7 +93,7 @@ function init(doc,fetcher,now=Date.now){
    if(!r.ok)throw Error();
    const x=publishedSec(await r.json());
    published.replaceChildren(el('p',x.detail));
-   dl(published,[['Saved successful observation (UTC)',x.observed],['Dashboard generation (UTC, not deploy time)',x.generated],['Later attempts or failure status','Unknown from this projection']]);
+   dl(published,[['SEC schedule at dashboard build',SEC_SCHEDULE_LABELS[x.schedule]],['Saved successful observation (UTC)',x.observed],['Dashboard generation (UTC, not deploy time)',x.generated],['Later attempts or failure status','Unknown from this projection']]);
   }catch{published.replaceChildren();published.textContent='Latest saved SEC projection unavailable or unverified; the earlier checkpoint is not a substitute.';}})();
   try{const r=await fetcher('collector-status.json',{cache:'no-store',signal:AbortSignal.timeout(30000)});if(!r.ok)throw Error();render(validate(await r.json()));}
   catch{state.textContent='Saved status unavailable or invalid. Collection health, timestamps and counts are unknown. Use Refresh saved evidence to retry; no collector will run.';asof.textContent='Snapshot time unknown.';}
