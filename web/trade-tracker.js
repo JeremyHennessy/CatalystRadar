@@ -28,10 +28,10 @@
     checkedUtc: '2026-11-20T14:05:23Z',
   });
 
-  async function readBounded(response) {
+  async function readBounded(response, expectedBytes) {
     if (!response.ok || !response.body) throw new Error('archive unavailable');
     const reader = response.body.getReader();
-    const bytes = new Uint8Array(RECORD_BYTES);
+    const bytes = new Uint8Array(expectedBytes);
     let size = 0;
     try {
       for (;;) {
@@ -71,13 +71,42 @@
     return record;
   }
 
-  async function loadRecord(fetch, subtle, signal) {
-    const response = await fetch(RECORD_PATH, {cache: 'no-cache', redirect: 'error', signal});
-    const bytes = await readBounded(response);
+  // A record is admitted only through a pinned descriptor and its own validator.
+  // Ranking labels and paper ledger entries are not an archive inventory.
+  const CATALOG = Object.freeze([Object.freeze({
+    id: THESIS, path: RECORD_PATH, sha: RECORD_SHA, bytes: RECORD_BYTES,
+    title: 'Coherent Corp. share repurchase authorization', validate: validateRecord,
+    render, outcome: 'tracker-outcome',
+  })]);
+
+  async function loadRecord(fetch, subtle, signal, entry = CATALOG[0]) {
+    const response = await fetch(entry.path, {cache: 'no-cache', redirect: 'error', signal});
+    const bytes = await readBounded(response, entry.bytes);
     const digest = [...new Uint8Array(await subtle.digest('SHA-256', bytes))]
       .map(byte => byte.toString(16).padStart(2, '0')).join('');
-    if (digest !== RECORD_SHA) throw new Error('archive hash mismatch');
-    return validateRecord(JSON.parse(new TextDecoder('utf-8', {fatal: true}).decode(bytes)));
+    if (digest !== entry.sha) throw new Error('archive hash mismatch');
+    return entry.validate(JSON.parse(new TextDecoder('utf-8', {fatal: true}).decode(bytes)));
+  }
+
+  async function loadCatalog(fetch, subtle, signal) {
+    const seen = new Set();
+    const records = [];
+    for (const entry of CATALOG) {
+      if (seen.has(entry.id)) throw new Error('duplicate archive identity');
+      seen.add(entry.id);
+      records.push({entry, record: await loadRecord(fetch, subtle, signal, entry)});
+    }
+    return records;
+  }
+
+  function filterRecords(records, query, decision) {
+    const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    return records.filter(({entry, record}) => {
+      const {issuer_cik, accession, thesis_id, reasons} = record.command;
+      const searchable = [entry.title, issuer_cik, accession, thesis_id, record.decision,
+        ...reasons.flatMap(key => [key, REASONS[key]])].join(' ').toLowerCase();
+      return (!decision || record.decision === decision) && terms.every(term => searchable.includes(term));
+    });
   }
 
   function render(doc, record) {
@@ -149,9 +178,26 @@
     const slot = doc.getElementById('tracker-record');
     const button = doc.getElementById('tracker-reload');
     const outcome = doc.getElementById('tracker-outcome');
+    const controls = doc.getElementById('tracker-filters');
+    const search = doc.getElementById('tracker-search');
+    const decision = doc.getElementById('tracker-decision');
+    const matches = doc.getElementById('tracker-matches');
+    let records = [];
+    function updateMatches() {
+      const found = filterRecords(records, search.value, decision.value);
+      slot.replaceChildren(...found.map(({entry, record}) => entry.render(doc, record)));
+      slot.hidden = !found.length;
+      outcome.hidden = !found.some(({entry}) => entry.outcome === 'tracker-outcome');
+      matches.textContent = found.length
+        ? `${found.length} of ${records.length} verified decisions shown.`
+        : 'No verified decisions match. Change the company search or decision filter.';
+    }
     let initialAnchor = win.location?.hash === '#tracker-record';
     async function refresh() {
       button.disabled = true;
+      controls.hidden = true;
+      matches.textContent = '';
+      records = [];
       slot.hidden = true;
       outcome.hidden = true;
       slot.replaceChildren();
@@ -160,13 +206,21 @@
       const timeout = win.setTimeout(() => controller.abort(), 10000);
       try {
         if (!win.crypto?.subtle) throw new Error('integrity checking unavailable');
-        const record = await loadRecord(win.fetch.bind(win), win.crypto.subtle, controller.signal);
-        slot.replaceChildren(render(doc, record));
-        slot.hidden = false;
-        outcome.hidden = false;
+        records = await loadCatalog(win.fetch.bind(win), win.crypto.subtle, controller.signal);
+        const selected = decision.value;
+        const options = ['', ...new Set(records.map(({record}) => record.decision))];
+        decision.replaceChildren(...options.map(value => {
+          const option = doc.createElement('option');
+          option.value = value;
+          option.textContent = value || 'All decisions';
+          return option;
+        }));
+        decision.value = options.includes(selected) ? selected : '';
+        controls.hidden = false;
+        updateMatches();
         if (initialAnchor) slot.scrollIntoView?.({block: 'start'});
         initialAnchor = false;
-        state.textContent = '1 archived research decision verified by byte count and SHA-256.';
+        state.textContent = `${records.length} archived research decision${records.length === 1 ? '' : 's'} verified by byte count and SHA-256.`;
       } catch (_) {
         state.textContent = 'The saved decision could not be verified. No record or receipt is displayed.';
       } finally {
@@ -174,12 +228,14 @@
         button.disabled = false;
       }
     }
+    search.addEventListener('input', updateMatches);
+    decision.addEventListener('change', updateMatches);
     button.addEventListener('click', refresh);
     return refresh();
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {loadRecord, validateRecord, render, install, RECORD_PATH, SOURCE_SNAPSHOT, RANK_CONTEXT};
+    module.exports = {loadRecord, loadCatalog, filterRecords, validateRecord, render, install, RECORD_PATH, SOURCE_SNAPSHOT, RANK_CONTEXT};
   } else {
     install(host);
   }

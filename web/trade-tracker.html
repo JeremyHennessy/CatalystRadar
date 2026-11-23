@@ -2,8 +2,8 @@
 <html lang="en"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
   <title>CatalystRadar · Trade Tracker</title>
-  <link rel="stylesheet" href="overview.css?v=20261118"><link rel="stylesheet" href="trade-ideas.css?v=20261119-mobile">
-  <script defer src="trade-tracker.js?v=20261120"></script><script defer src="research-backspace.js?v=20261120-tracker"></script>
+  <link rel="stylesheet" href="overview.css?v=20261118"><link rel="stylesheet" href="trade-ideas.css?v=20261123-tracker">
+  <script defer src="trade-tracker.js?v=20261123-search"></script><script defer src="research-backspace.js?v=20261120-tracker"></script>
 </head><body>
 <a class="skip" href="#main">Skip to Trade Tracker</a>
 <div class="layout">
@@ -20,14 +20,22 @@
     <div class="sidebar-note">Research, not execution<p>No brokerage connection.<br>No automatic orders.</p></div>
   </aside>
   <main id="main">
-    <header><span class="eyebrow">DECISION TRACKER</span><button id="tracker-reload" type="button" disabled>Reload saved record</button></header>
+    <header><span class="eyebrow">DECISION TRACKER</span><button id="tracker-reload" type="button" disabled>Reload saved archive</button></header>
     <section class="hero">
       <div><p class="eyebrow accent">RESEARCH DECISIONS AND OUTCOMES</p><h1>Trade Tracker</h1>
-      <p class="lead">Start with the first archived research decision. The tracker separates what was recorded, what was independently time-bounded, and what still cannot be measured.</p></div>
+      <p class="lead">Search the verified decision archive. The tracker separates what was recorded, what was independently time-bounded, and what still cannot be measured.</p></div>
       <div class="hero-note"><span class="tag caution">RESEARCH ONLY</span><p>Research records, not positions</p><small>No orders, fills or returns reported. This page cannot activate the paper book or place trades.</small></div>
     </section>
     <p id="tracker-state" class="load-status" role="status" aria-live="polite">Checking the saved archive. No decision verified yet.</p>
     <noscript><p>Enable JavaScript to verify and display the saved record.</p></noscript>
+    <section id="tracker-filters" class="panel" aria-labelledby="tracker-filters-title" hidden>
+      <h2 id="tracker-filters-title">Find a recorded decision</h2>
+      <div class="filters">
+        <label>Company, CIK, accession or blocker <input id="tracker-search" type="search" maxlength="160" autocomplete="off"></label>
+        <label>Decision <select id="tracker-decision"><option value="">All decisions</option></select></label>
+      </div>
+      <p id="tracker-matches" role="status" aria-live="polite"></p>
+    </section>
     <section id="tracker-record" class="ideas-list" aria-label="Verified archived decision" hidden></section>
     <section class="panel" id="tracker-outcome" hidden>
       <h2>Current outcome status</h2>
