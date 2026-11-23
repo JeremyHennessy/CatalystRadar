@@ -182,54 +182,66 @@
     const search = doc.getElementById('tracker-search');
     const decision = doc.getElementById('tracker-decision');
     const matches = doc.getElementById('tracker-matches');
+    // Cached baseline HTML has no filter group. Do not bind or use a partial group.
+    const filtersAvailable = Boolean(controls && search && decision && matches);
     let records = [];
     function updateMatches() {
-      const found = filterRecords(records, search.value, decision.value);
+      const found = filtersAvailable ? filterRecords(records, search.value, decision.value) : records;
       slot.replaceChildren(...found.map(({entry, record}) => entry.render(doc, record)));
       slot.hidden = !found.length;
       outcome.hidden = !found.some(({entry}) => entry.outcome === 'tracker-outcome');
-      matches.textContent = found.length
+      if (filtersAvailable) matches.textContent = found.length
         ? `${found.length} of ${records.length} verified decisions shown.`
         : 'No verified decisions match. Change the company search or decision filter.';
     }
     let initialAnchor = win.location?.hash === '#tracker-record';
-    async function refresh() {
-      button.disabled = true;
-      controls.hidden = true;
-      matches.textContent = '';
+    function hideArchive() {
+      if (filtersAvailable) {
+        controls.hidden = true;
+        matches.textContent = '';
+      }
       records = [];
       slot.hidden = true;
       outcome.hidden = true;
       slot.replaceChildren();
+    }
+    async function refresh() {
+      button.disabled = true;
+      hideArchive();
       state.textContent = 'Checking the saved archive. No decision verified yet.';
       const controller = new AbortController();
       const timeout = win.setTimeout(() => controller.abort(), 10000);
       try {
         if (!win.crypto?.subtle) throw new Error('integrity checking unavailable');
         records = await loadCatalog(win.fetch.bind(win), win.crypto.subtle, controller.signal);
-        const selected = decision.value;
-        const options = ['', ...new Set(records.map(({record}) => record.decision))];
-        decision.replaceChildren(...options.map(value => {
-          const option = doc.createElement('option');
-          option.value = value;
-          option.textContent = value || 'All decisions';
-          return option;
-        }));
-        decision.value = options.includes(selected) ? selected : '';
-        controls.hidden = false;
+        if (filtersAvailable) {
+          const selected = decision.value;
+          const options = ['', ...new Set(records.map(({record}) => record.decision))];
+          decision.replaceChildren(...options.map(value => {
+            const option = doc.createElement('option');
+            option.value = value;
+            option.textContent = value || 'All decisions';
+            return option;
+          }));
+          decision.value = options.includes(selected) ? selected : '';
+        }
         updateMatches();
+        if (filtersAvailable) controls.hidden = false;
         if (initialAnchor) slot.scrollIntoView?.({block: 'start'});
         initialAnchor = false;
         state.textContent = `${records.length} archived research decision${records.length === 1 ? '' : 's'} verified by byte count and SHA-256.`;
       } catch (_) {
+        hideArchive();
         state.textContent = 'The saved decision could not be verified. No record or receipt is displayed.';
       } finally {
         win.clearTimeout(timeout);
         button.disabled = false;
       }
     }
-    search.addEventListener('input', updateMatches);
-    decision.addEventListener('change', updateMatches);
+    if (filtersAvailable) {
+      search.addEventListener('input', updateMatches);
+      decision.addEventListener('change', updateMatches);
+    }
     button.addEventListener('click', refresh);
     return refresh();
   }

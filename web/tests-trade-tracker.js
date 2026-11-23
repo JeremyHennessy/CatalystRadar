@@ -112,6 +112,59 @@ const walk = (node) => [node, ...node.children.flatMap(walk)];
   assert.equal(elements['tracker-reload'].disabled, false);
   assert.equal(fetchAttempts, 2);
 
+  // Cached baseline markup exposes these four core nodes and no filter controls.
+  // A partial filter mount must behave just like that baseline.
+  const core = ['tracker-state', 'tracker-record', 'tracker-reload', 'tracker-outcome'];
+  const fields = ['tracker-filters', 'tracker-search', 'tracker-decision', 'tracker-matches'];
+  for (const optional of [[], ...fields.map(missing => fields.filter(id => id !== missing))]) {
+    const refs = Object.fromEntries([...core, ...optional].map(id => [id, new Element('test')]));
+    const cached = {...doc, getElementById: id => refs[id] ?? null};
+    for (const id of optional) refs[id].value = 'would hide result if used';
+    let requests = 0, releaseFirst;
+    const ready = install({document: cached, crypto: webcrypto, setTimeout, clearTimeout,
+      fetch: async (archive, options) => {
+        assert.equal(archive, RECORD_PATH);
+        assert.equal(options.redirect, 'error');
+        requests++;
+        if (requests === 1) return new Promise(resolve => { releaseFirst = resolve; });
+        if (requests === 2) return new Response(tamper);
+        if (requests === 3) return new Response(null, {status: 404});
+        return validResponse();
+      }});
+    assert.equal(requests, 1);
+    assert.equal(refs['tracker-reload'].disabled, true);
+    assert.equal(refs['tracker-record'].hidden, true);
+    assert.equal(refs['tracker-outcome'].hidden, true);
+    assert.equal(refs['tracker-record'].children.length, 0);
+    releaseFirst(validResponse());
+    await ready;
+    assert.equal(refs['tracker-record'].children.length, 1);
+    assert.equal(refs['tracker-record'].hidden, false);
+    assert.equal(refs['tracker-outcome'].hidden, false);
+    assert.equal(refs['tracker-reload'].disabled, false);
+    assert.match(refs['tracker-state'].textContent, /1 archived research decision verified/);
+    for (const id of optional) {
+      assert.equal(refs[id].value, 'would hide result if used');
+      assert.equal(refs[id].input, undefined);
+      assert.equal(refs[id].change, undefined);
+    }
+    for (const expectedRequests of [2, 3]) {
+      await refs['tracker-reload'].click();
+      assert.equal(requests, expectedRequests);
+      assert.equal(refs['tracker-record'].children.length, 0);
+      assert.equal(refs['tracker-record'].hidden, true);
+      assert.equal(refs['tracker-outcome'].hidden, true);
+      assert.equal(refs['tracker-reload'].disabled, false);
+      assert.match(refs['tracker-state'].textContent, /No record or receipt is displayed/);
+    }
+    await refs['tracker-reload'].click();
+    assert.equal(requests, 4);
+    assert.equal(refs['tracker-record'].children.length, 1);
+    assert.equal(refs['tracker-record'].hidden, false);
+    assert.equal(refs['tracker-outcome'].hidden, false);
+    assert.equal(refs['tracker-reload'].disabled, false);
+  }
+
   const html = fs.readFileSync(path.join(__dirname, 'trade-tracker.html'), 'utf-8');
   assert.match(html, /id="tracker-record"[^>]*hidden/);
   assert.match(html, /Current outcome status/);
