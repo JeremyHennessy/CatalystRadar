@@ -69,3 +69,32 @@ class FallbackLabelTests(unittest.TestCase):
         result = summarize_scan(dict(schedule_status='GITHUB_RUN', github_event_name='push', configured_issuers=10, successful_issuers=10, metadata_window_complete=True, errors=[]))
         self.assertTrue(result['activity'].startswith('Request-triggered fallback SEC poll'))
         self.assertIn('not yet verified', result['schedule_note'])
+
+class DashboardSchedulePolicyTests(unittest.TestCase):
+    def test_exact_workflow_identity_and_expiry(self):
+        from pathlib import Path
+        from build_dashboard import sec_schedule
+        retired = (Path(__file__).resolve().parent.parent / '.github/workflows/sec-observations.yml').read_bytes()
+        old_lines = b"  schedule:\n    - cron: '17,47 11-23 16-20 11 *'\n"
+        if old_lines in retired:  # Allow running against the reviewed pre-retirement workflow too.
+            retired = retired.replace(old_lines, b'', 1)
+        original = retired.replace(b'on:\n', b'on:\n' + old_lines, 1)
+        before, cutoff = '2026-11-20T23:59:59Z', '2026-11-21T00:00:00Z'
+        self.assertEqual(sec_schedule(original, before), 'TRIAL_CONFIGURED')
+        self.assertEqual(sec_schedule(original, cutoff), 'TRIAL_EXPIRED')
+        self.assertEqual(sec_schedule(retired, before), 'UNVERIFIED')
+        self.assertEqual(sec_schedule(retired, cutoff), 'SCHEDULE_RETIRED')
+        for unknown in (None, retired + b'\n', b'workflow_dispatch:'):
+            self.assertEqual(sec_schedule(unknown, cutoff), 'UNVERIFIED')
+
+    def test_saved_projection_separates_schedule_from_receipt(self):
+        import json
+        from pathlib import Path
+        root = Path(__file__).resolve().parent.parent
+        state = json.loads((root / 'web/app-data.json').read_bytes())
+        scan = json.loads((root / 'data/latest_scan.json').read_bytes())
+        sec = state['feeds'][0]
+        self.assertEqual(sec['schedule_state'], 'SCHEDULE_RETIRED')
+        self.assertEqual(sec['as_of'], scan['finished_at'])
+        self.assertNotIn('schedule configured', sec['detail'])
+        self.assertTrue(any('not live health' in text for text in state['blockers']))
