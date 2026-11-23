@@ -4,11 +4,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const {createHash, webcrypto} = require('node:crypto');
-const {loadRecord, validateRecord, render, install, RECORD_PATH, SOURCE_SNAPSHOT, RANK_CONTEXT} = require('./trade-tracker.js');
+const {loadRecord, loadCatalog, filterRecords, validateRecord, render, install, RECORD_PATH, SOURCE_SNAPSHOT, RANK_CONTEXT} = require('./trade-tracker.js');
 const recordBytes = fs.readFileSync(path.join(__dirname, RECORD_PATH));
 
 class Element {
-  constructor(tag) { this.tag = tag; this.children = []; }
+  constructor(tag) { this.tag = tag; this.children = []; this.value = ''; }
   append(...children) { this.children.push(...children); }
   replaceChildren(...children) { this.children = children; }
   addEventListener(name, cb) { this[name] = cb; }
@@ -26,6 +26,13 @@ const walk = (node) => [node, ...node.children.flatMap(walk)];
     return validResponse();
   }, subtle);
   assert.equal(reads, 1);
+  const records = await loadCatalog(async () => validResponse(), subtle);
+  assert.equal(records.length, 1);
+  for (const query of ['', 'coherent', '0000820318', '0001193125-26-467737', 'data rights', 'COHERENT 0000820318'])
+    assert.equal(filterRecords(records, query, 'ABSTAIN').length, 1);
+  assert.equal(filterRecords(records, 'AMD', '').length, 0);
+  assert.equal(filterRecords(records, 'Coherent', 'WATCH').length, 0);
+  await assert.rejects(loadCatalog(async () => new Response(null, {status: 404}), subtle), /unavailable/);
   assert.equal(record.command.accession, '0001193125-26-467737');
   const snapshotBytes = fs.readFileSync(path.join(__dirname, 'trade-ideas/v1/snapshots', SOURCE_SNAPSHOT + '.json'));
   assert.equal(createHash('sha256').update(snapshotBytes).digest('hex'), record.command.snapshot_sha256);
@@ -67,7 +74,8 @@ const walk = (node) => [node, ...node.children.flatMap(walk)];
     RECORD_PATH,
   ]);
 
-  const elements = Object.fromEntries(['tracker-state', 'tracker-record', 'tracker-reload', 'tracker-outcome']
+  const elements = Object.fromEntries(['tracker-state', 'tracker-record', 'tracker-reload', 'tracker-outcome',
+    'tracker-filters', 'tracker-search', 'tracker-decision', 'tracker-matches']
     .map(id => [id, new Element('test')]));
   doc.getElementById = (id) => elements[id];
   let fetchAttempts = 0;
@@ -80,7 +88,23 @@ const walk = (node) => [node, ...node.children.flatMap(walk)];
   assert.equal(elements['tracker-record'].hidden, false);
   assert.equal(elements['tracker-outcome'].hidden, false);
   assert.match(elements['tracker-state'].textContent, /1 archived research decision verified/);
+  assert.equal(elements['tracker-filters'].hidden, false);
+  assert.deepEqual(elements['tracker-decision'].children.map(x => x.value), ['', 'ABSTAIN']);
+  elements['tracker-search'].value = 'unknown';
+  elements['tracker-search'].input();
+  assert.match(elements['tracker-matches'].textContent, /No verified decisions match/);
+  assert.equal(elements['tracker-outcome'].hidden, true);
+  assert.match(elements['tracker-state'].textContent, /1 archived research decision verified/);
+  elements['tracker-search'].value = '0000820318';
+  elements['tracker-search'].input();
+  elements['tracker-decision'].value = 'ABSTAIN';
+  elements['tracker-decision'].change();
+  assert.match(elements['tracker-matches'].textContent, /1 of 1 verified decisions/);
+  assert.equal(elements['tracker-outcome'].hidden, false);
+  assert.equal(fetchAttempts, 1);
   await elements['tracker-reload'].click();
+  assert.equal(elements['tracker-filters'].hidden, true);
+  assert.equal(elements['tracker-matches'].textContent, '');
   assert.equal(elements['tracker-record'].hidden, true);
   assert.equal(elements['tracker-outcome'].hidden, true);
   assert.deepEqual(elements['tracker-record'].children, []);
@@ -88,11 +112,64 @@ const walk = (node) => [node, ...node.children.flatMap(walk)];
   assert.equal(elements['tracker-reload'].disabled, false);
   assert.equal(fetchAttempts, 2);
 
+  // Cached baseline markup exposes these four core nodes and no filter controls.
+  // A partial filter mount must behave just like that baseline.
+  const core = ['tracker-state', 'tracker-record', 'tracker-reload', 'tracker-outcome'];
+  const fields = ['tracker-filters', 'tracker-search', 'tracker-decision', 'tracker-matches'];
+  for (const optional of [[], ...fields.map(missing => fields.filter(id => id !== missing))]) {
+    const refs = Object.fromEntries([...core, ...optional].map(id => [id, new Element('test')]));
+    const cached = {...doc, getElementById: id => refs[id] ?? null};
+    for (const id of optional) refs[id].value = 'would hide result if used';
+    let requests = 0, releaseFirst;
+    const ready = install({document: cached, crypto: webcrypto, setTimeout, clearTimeout,
+      fetch: async (archive, options) => {
+        assert.equal(archive, RECORD_PATH);
+        assert.equal(options.redirect, 'error');
+        requests++;
+        if (requests === 1) return new Promise(resolve => { releaseFirst = resolve; });
+        if (requests === 2) return new Response(tamper);
+        if (requests === 3) return new Response(null, {status: 404});
+        return validResponse();
+      }});
+    assert.equal(requests, 1);
+    assert.equal(refs['tracker-reload'].disabled, true);
+    assert.equal(refs['tracker-record'].hidden, true);
+    assert.equal(refs['tracker-outcome'].hidden, true);
+    assert.equal(refs['tracker-record'].children.length, 0);
+    releaseFirst(validResponse());
+    await ready;
+    assert.equal(refs['tracker-record'].children.length, 1);
+    assert.equal(refs['tracker-record'].hidden, false);
+    assert.equal(refs['tracker-outcome'].hidden, false);
+    assert.equal(refs['tracker-reload'].disabled, false);
+    assert.match(refs['tracker-state'].textContent, /1 archived research decision verified/);
+    for (const id of optional) {
+      assert.equal(refs[id].value, 'would hide result if used');
+      assert.equal(refs[id].input, undefined);
+      assert.equal(refs[id].change, undefined);
+    }
+    for (const expectedRequests of [2, 3]) {
+      await refs['tracker-reload'].click();
+      assert.equal(requests, expectedRequests);
+      assert.equal(refs['tracker-record'].children.length, 0);
+      assert.equal(refs['tracker-record'].hidden, true);
+      assert.equal(refs['tracker-outcome'].hidden, true);
+      assert.equal(refs['tracker-reload'].disabled, false);
+      assert.match(refs['tracker-state'].textContent, /No record or receipt is displayed/);
+    }
+    await refs['tracker-reload'].click();
+    assert.equal(requests, 4);
+    assert.equal(refs['tracker-record'].children.length, 1);
+    assert.equal(refs['tracker-record'].hidden, false);
+    assert.equal(refs['tracker-outcome'].hidden, false);
+    assert.equal(refs['tracker-reload'].disabled, false);
+  }
+
   const html = fs.readFileSync(path.join(__dirname, 'trade-tracker.html'), 'utf-8');
   assert.match(html, /id="tracker-record"[^>]*hidden/);
   assert.match(html, /Current outcome status/);
   assert.match(html, /No measured outcome, order, fill or return is tracked here/);
   assert.match(html, /No other decisions are tracked on this page yet/);
-  assert.match(html, /trade-tracker\.js\?v=20261120/);
+  assert.match(html, /trade-tracker\.js\?v=20261123-search/);
   console.log('Trade Tracker archive, fail-closed checks, clocks, links and reload tests pass.');
 })().catch(error => { console.error(error); process.exitCode = 1; });
